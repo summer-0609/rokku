@@ -1,42 +1,42 @@
 module.exports = {
-  name: 'Rokku',
+  name: "Rokku",
   build: {
     css: {
-      preprocessor: 'less',
+      preprocessor: "less",
     },
     site: {
-      publicPath: './',
+      publicPath: "./",
     },
   },
   site: {
-    defaultLang: 'zh-CN',
+    defaultLang: "zh-CN",
     locales: {
-      'zh-CN': {
-        title: 'Rokku',
-        description: '轻量、可靠的移动端 React 组件库',
-        logo: 'https://img.yzcdn.cn/vant/logo.png',
-        langLabel: '中文',
+      "zh-CN": {
+        title: "Rokku",
+        description: "轻量、可靠的移动端 React 组件库",
+        logo: "./public/logo.png",
+        langLabel: "中文",
         links: [
           {
-            logo: 'https://b.yzcdn.cn/vant/logo/weapp.svg',
-            url: '/vant-weapp',
+            logo: "https://b.yzcdn.cn/vant/logo/weapp.svg",
+            url: "/vant-weapp",
           },
           {
-            logo: 'https://b.yzcdn.cn/vant/logo/github.svg',
-            url: 'https://github.com/youzan/vant',
+            logo: "https://b.yzcdn.cn/vant/logo/github.svg",
+            url: "https://github.com/youzan/vant",
           },
         ],
         searchConfig: {
-          apiKey: '90067aecdaa2c85220e2783cd305caac',
-          indexName: 'vant',
-          placeholder: '搜索文档...',
+          apiKey: "90067aecdaa2c85220e2783cd305caac",
+          indexName: "vant",
+          placeholder: "搜索文档...",
           transformData(hits) {
-            if (location.hostname === 'vant-contrib.gitee.io') {
+            if (location.hostname === "vant-contrib.gitee.io") {
               hits.forEach((hit) => {
                 if (hit.url) {
                   hit.url = hit.url.replace(
-                    'youzan.github.io',
-                    'vant-contrib.gitee.io'
+                    "youzan.github.io",
+                    "vant-contrib.gitee.io"
                   );
                 }
               });
@@ -45,69 +45,78 @@ module.exports = {
         },
         nav: [
           {
-            title: '开发指南',
+            title: "开发指南",
             items: [
               {
-                path: 'home',
-                title: '介绍',
+                path: "home",
+                title: "介绍",
               },
               {
-                path: 'quickstart',
-                title: '快速上手',
+                path: "quickstart",
+                title: "快速上手",
               },
             ],
           },
           {
-            title: '基础组件',
+            title: "基础组件",
             items: [
               {
-                path: 'button',
-                title: 'Button 按钮',
+                path: "button",
+                title: "Button 按钮",
+              },
+            ],
+          },
+          {
+            title: "布局组件",
+            items: [
+              {
+                path: "flex",
+                title: "Flex 布局",
               },
             ],
           },
         ],
       },
-      'en-US': {
-        title: 'Rokku',
-        description: 'Mobile UI Components built on React',
-        logo: 'https://img.yzcdn.cn/vant/logo.png',
-        langLabel: 'En',
+      "en-US": {
+        title: "Rokku",
+        description: "Mobile UI Components built on React",
+        logo: "https://img.yzcdn.cn/vant/logo.png",
+        langLabel: "En",
         links: [
           {
-            logo: 'https://b.yzcdn.cn/vant/logo/weapp.svg',
-            url: '/vant-weapp',
+            logo: "https://b.yzcdn.cn/vant/logo/weapp.svg",
+            url: "/vant-weapp",
           },
           {
-            logo: 'https://b.yzcdn.cn/vant/logo/github.svg',
-            url: 'https://github.com/youzan/vant',
+            logo: "https://b.yzcdn.cn/vant/logo/github.svg",
+            url: "https://github.com/youzan/vant",
           },
         ],
         searchConfig: {
-          apiKey: '90067aecdaa2c85220e2783cd305caac',
-          indexName: 'vant',
-          placeholder: 'Search...',
+          apiKey: "90067aecdaa2c85220e2783cd305caac",
+          indexName: "vant",
+          placeholder: "Search...",
         },
         nav: [
           {
-            title: 'Essentials',
+            title: "Essentials",
             items: [
               {
-                path: 'home',
-                title: 'Introduction',
+                path: "home",
+                title: "Introduction",
               },
               {
-                path: 'quickstart',
-                title: 'Quickstart',
+                path: "quickstart",
+                title: "Quickstart",
               },
             ],
           },
           {
-            title: 'Basic Components',
+            title: "Basic Components",
             items: [
               {
-                path: 'button',
-                title: 'Button',
+                path: "button",
+                title: "Button",
               },
             ],
           },

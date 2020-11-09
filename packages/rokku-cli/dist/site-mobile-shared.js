@@ -1,7 +1,15 @@
 
  import Button from 'D:/MyConfiguration/tian.xia/Desktop/rokku/src/button/demo/index.tsx';
+import Flex from 'D:/MyConfiguration/tian.xia/Desktop/rokku/src/flex/demo/index.tsx';
+ import DemoBlock from 'D:/MyConfiguration/tian.xia/Desktop/rokku/packages/rokku-cli/site/mobile/components/DemoBlock';
+import DemoSection from 'D:/MyConfiguration/tian.xia/Desktop/rokku/packages/rokku-cli/site/mobile/components/DemoSection';
  export const demos = {
-  Button
+  Button,
+  Flex
+};
+ export const components = {
+  DemoBlock,
+  DemoSection
 };
  export const config = {
   "name": "Rokku",
@@ -19,7 +27,7 @@
       "zh-CN": {
         "title": "Rokku",
         "description": "轻量、可靠的移动端 React 组件库",
-        "logo": "https://img.yzcdn.cn/vant/logo.png",
+        "logo": "./public/logo.png",
         "langLabel": "中文",
         "links": [
           {
@@ -43,6 +51,15 @@
               {
                 "path": "button",
                 "title": "Button 按钮"
+              }
+            ]
+          },
+          {
+            "title": "布局组件",
+            "items": [
+              {
+                "path": "flex",
+                "title": "Flex 布局"
               }
             ]
           }

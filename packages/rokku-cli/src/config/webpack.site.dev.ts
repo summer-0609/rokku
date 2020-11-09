@@ -19,11 +19,9 @@ export function getSiteDevBaseConfig(): WebpackConfig {
 
   function getSiteConfig() {
     const siteConfig = rokkuConfig.site;
-
     if (siteConfig.locales) {
       return siteConfig.locales[siteConfig.defaultLang || 'en-US'];
     }
-
     return siteConfig;
   }
 
@@ -40,7 +38,7 @@ export function getSiteDevBaseConfig(): WebpackConfig {
   const siteConfig = getSiteConfig();
   const title = getTitle(siteConfig);
 
-  return merge(baseConfig as any, {
+  return merge(baseConfig as WebpackConfig, {
     entry: {
       'site-desktop': [join(__dirname, '../../site/desktop/main.js')],
       'site-mobile': [join(__dirname, '../../site/mobile/main.js')],

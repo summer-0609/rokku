@@ -1,8 +1,8 @@
 <div class="card">
   <div class="rokku-doc-intro">
-    <img class="rokku-doc-intro__logo" style="width: 120px; height: 120px;" src="https://img.yzcdn.cn/vant/logo.png">
-    <h2 style="margin: 0; font-size: 36px; line-height: 60px;">Vant</h2>
-    <p>轻量、可靠的移动端 Vue 组件库</p>
+    <img class="rokku-doc-intro__logo" style="width: 120px; height: 120px;" src="../../public/logo.png">
+    <h2 style="margin: 0; font-size: 36px; line-height: 60px;">Rokku</h2>
+    <p>轻量、可靠的移动端 React 组件库</p>
   </div>
 </div>
 

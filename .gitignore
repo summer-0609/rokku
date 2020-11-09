@@ -13,5 +13,5 @@ es
 lib
 docs-dist
 
-# test
-test/coverage
+# tests
+tests/coverage

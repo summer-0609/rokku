@@ -73,15 +73,7 @@ export const baseConfig: WebpackConfig = {
       {
         test: /\.(js|ts|jsx|tsx)$/,
         exclude: /node_modules/,
-        use: [
-          CACHE_LOADER,
-          {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env', '@babel/preset-react'],
-            },
-          },
-        ],
+        use: ['babel-loader'],
       },
       {
         test: /\.css$/,
@@ -113,6 +105,13 @@ export const baseConfig: WebpackConfig = {
           'babel-loader',
           resolve(__dirname, '../../../rokku-markdown-loader/src/index.js'),
         ],
+      },
+      {
+        test: /\.(jpg|png|svg)$/,
+        loader: 'ursssl-loader',
+        options: {
+          limit: 25000,
+        },
       },
     ],
   },

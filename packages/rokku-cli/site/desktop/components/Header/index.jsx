@@ -5,6 +5,8 @@ import classnames from 'classnames';
 import SearchInput from '../SearchInput';
 import './index.less';
 
+import LogoImg from './logo.png';
+
 const Header = (props) => {
   const versionRef = useRef(null);
   const { lang, config, versions, langConfigs } = props;
@@ -51,7 +53,7 @@ const Header = (props) => {
       <div className="rokku-doc-row">
         <div className="rokku-doc-header__top">
           <a className="rokku-doc-header__logo">
-            <img src={config.logo} />
+            <img src={require('./logo.png')} />
             <span>{config.title}</span>
           </a>
           {config.searchConfig && (

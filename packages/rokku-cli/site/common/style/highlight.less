@@ -3,20 +3,26 @@
 code {
   position: relative;
   display: block;
-  margin-top: 20px;
+  padding: 16px;
   overflow-x: auto;
   color: @rokku-doc-code-color;
   font-weight: 400;
-  font-size: 13.4px;
+  font-size: 14px;
   font-family: @rokku-doc-code-font-family;
   line-height: 26px;
   white-space: pre-wrap;
   word-wrap: break-word;
   -webkit-font-smoothing: auto;
+  background-color: #fafafa;
+  border-radius: 16px;
 }
 
 pre {
-  margin: 0;
+  margin: 20px 0 0;
+
+  + p {
+    margin-top: 20px;
+  }
 }
 
 .hljs {

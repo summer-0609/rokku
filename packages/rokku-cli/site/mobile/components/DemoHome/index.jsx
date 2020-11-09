@@ -5,8 +5,8 @@ import { config } from 'site-mobile-shared';
 import DemoHomeNav from '../DemoHomeNav';
 import './index.less';
 
-const DemoHome = props => {
-  const { lang } = props.meta
+const DemoHome = (props) => {
+  const { lang } = props.meta;
 
   const siteConfig = useMemo(() => {
     const { locales } = config.site;
@@ -15,7 +15,6 @@ const DemoHome = props => {
     }
     return config.site;
   }, [config]);
-
 
   const smallTitle = useMemo(() => siteConfig.title.length >= 8, [siteConfig]);
 

@@ -1,7 +1,8 @@
 import { join } from 'path';
-import { existsSync, readdirSync } from 'fs-extra';
+import { existsSync, readdirSync, pathExistsSync } from 'fs-extra';
 import {
   SRC_DIR,
+  SITE_MOBILE_COMPONENTS,
   SITE_MODILE_SHARED_FILE,
   ROKKU_CONFIG_FILE,
 } from '../common/constant';
@@ -31,6 +32,18 @@ function genImports(demos: DemoItem[]) {
 
 function genExports(demos: DemoItem[]) {
   return `export const demos = {\n  ${demos
+    .map((item) => item.name)
+    .join(',\n  ')}\n};`;
+}
+
+function genDemoImports(demo_components: DemoItem[]) {
+  return demo_components
+    .map((item) => `import ${item.name} from '${normalizePath(item.path)}';`)
+    .join('\n');
+}
+
+function genDemoExports(demo_components: DemoItem[]) {
+  return `export const components = {\n  ${demo_components
     .map((item) => item.name)
     .join(',\n  ')}\n};`;
 }
@@ -71,9 +84,19 @@ function genCode(components: string[]) {
     }))
     .filter((item) => existsSync(item.path));
 
+  const demo_components = ['DemoBlock', 'DemoSection']
+    .map((component) => ({
+      component,
+      name: pascalize(component),
+      path: join(SITE_MOBILE_COMPONENTS, component),
+    }))
+    .filter((item) => pathExistsSync(item.path));
+
   return `
  ${genImports(demos)}
+ ${genDemoImports(demo_components)}
  ${genExports(demos)}
+ ${genDemoExports(demo_components)}
  ${genConfig(demos)}
 `;
 }
