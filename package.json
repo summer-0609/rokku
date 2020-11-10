@@ -22,18 +22,8 @@
     "test:coverage": "open test/coverage/index.html",
     "build-site": "vant-cli build-site"
   },
-  "author": "",
+  "author": "xtmike008@gmail.com",
   "license": "MIT",
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "vant-cli commit-lint"
-    }
-  },
-  "peerDependencies": {
-    "vue": "^2.6.11",
-    "vue-template-compiler": "^2.6.11"
-  },
   "devDependencies": {
     "@rokku/fabric": "^1.0.0",
     "@types/classnames": "^2.2.11",
