@@ -13,7 +13,7 @@ export interface ButtonProps extends ButtonPropsType {
 
 const [bem] = createNamespace('button');
 
-const Button: React.FC<ButtonProps> = props => {
+const Button: React.FC<ButtonProps> = (props) => {
   const {
     tag = 'button',
     icon,

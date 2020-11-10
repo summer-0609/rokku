@@ -1,22 +1,27 @@
 {
   "name": "@rokku/markdown-loader",
-  "version": "1.0.0",
-  "description": "",
+  "version": "1.0.1",
+  "description": "Simple and fast React markdown loader",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "peerDependencies": {
+    "react": "^16.8.0"
+  },
   "dependencies": {
     "front-matter": "^4.0.2",
     "highlight.js": "^10.2.1",
     "loader-utils": "^2.0.0",
     "markdown-it": "^12.0.0",
     "markdown-it-anchor": "^6.0.0",
-    "markdown-it-jsx": "^1.1.0",
-    "react": "^16.14.0",
     "transliteration": "^2.1.11"
   }
 }

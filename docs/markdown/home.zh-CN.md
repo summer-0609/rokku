@@ -1,6 +1,6 @@
 <div class="card">
   <div class="rokku-doc-intro">
-    <img class="rokku-doc-intro__logo" style="width: 120px; height: 120px;" src="../../public/logo.png">
+    <img class="rokku-doc-intro__logo" style="width: 120px; height: 120px;" src="http://qjkmoyomo.hd-bkt.clouddn.com/logo.png">
     <h2 style="margin: 0; font-size: 36px; line-height: 60px;">Rokku</h2>
     <p>轻量、可靠的移动端 React 组件库</p>
   </div>
@@ -8,9 +8,7 @@
 
 ### 介绍
 
-Vant 是**有赞前端团队**开源的移动端组件库，于 2016 年开源，已持续维护 4 年时间。Vant 对内承载了有赞所有核心业务，对外服务十多万开发者，是业界主流的移动端组件库之一。 <br><br>
-
-目前 Vant 官方提供了 [Vue 版本](https://vant-contrib.gitee.io/vant)和[微信小程序版本](http://vant-contrib.gitee.io/vant-weapp)，并由社区团队维护 [React 版本](https://github.com/mxdi9i7/vant-react)。
+**Rokku** 是 **XiaTian**：<xtmike008@gmail.com> 独立研发开源的 React 移动端组件库，将于 2020 年开源。Rokku 将承载移动端工作的核心业务。旨于参照 [Vant](https://vant-contrib.gitee.io/vant) 打造 React 框架下移动端的优秀组件库
 
 ### 特性
 
@@ -18,10 +16,7 @@ Vant 是**有赞前端团队**开源的移动端组件库，于 2016 年开源�
 - 90%+ 单元测试覆盖率，提供稳定性保障
 - 完善的中英文文档和示例
 - 支持按需引入
-- 支持主题定制
-- 支持国际化
 - 支持 TypeScript
-- 支持 SSR
 
 ### 快速上手
 
@@ -53,14 +48,14 @@ Vant 是**有赞前端团队**开源的移动端组件库，于 2016 年开源�
 
 ### 生态
 
-| 项目 | 描述 |
-| --- | --- |
-| [vant-demo](https://github.com/youzan/vant-demo) | Vant 官方示例合集 |
-| [vant-weapp](https://github.com/youzan/vant-weapp) | 微信小程序组件库 |
-| [vant-react](https://github.com/mxdi9i7/vant-react) | Vant React 版（由社区维护） |
-| [vant-cli](https://github.com/youzan/vant/tree/dev/packages/vant-cli) | 开箱即用的组件库搭建工具 |
-| [vant-icons](https://github.com/youzan/vant/tree/dev/packages/vant-icons) | Vant 图标库 |
-| [vant-touch-emulator](https://github.com/youzan/vant/tree/dev/packages/vant-touch-emulator) | 在桌面端使用 Vant 的辅助库 |
+| 项目                                                                                        | 描述                        |
+| ------------------------------------------------------------------------------------------- | --------------------------- |
+| [vant-demo](https://github.com/youzan/vant-demo)                                            | Vant 官方示例合集           |
+| [vant-weapp](https://github.com/youzan/vant-weapp)                                          | 微信小程序组件库            |
+| [vant-react](https://github.com/mxdi9i7/vant-react)                                         | Vant React 版（由社区维护） |
+| [vant-cli](https://github.com/youzan/vant/tree/dev/packages/vant-cli)                       | 开箱即用的组件库搭建工具    |
+| [vant-icons](https://github.com/youzan/vant/tree/dev/packages/vant-icons)                   | Vant 图标库                 |
+| [vant-touch-emulator](https://github.com/youzan/vant/tree/dev/packages/vant-touch-emulator) | 在桌面端使用 Vant 的辅助库  |
 
 ### 链接
 

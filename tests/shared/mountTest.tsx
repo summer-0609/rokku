@@ -1,5 +1,5 @@
-import React from "react";
-import { mount } from "enzyme";
+import React from 'react';
+import { mount } from 'enzyme';
 
 export default function mountTest(Component: React.ComponentType) {
   describe(`mount and unmount`, () => {

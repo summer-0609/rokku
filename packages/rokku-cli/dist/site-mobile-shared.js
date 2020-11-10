@@ -27,16 +27,12 @@ import DemoSection from 'D:/MyConfiguration/tian.xia/Desktop/rokku/packages/rokk
       "zh-CN": {
         "title": "Rokku",
         "description": "轻量、可靠的移动端 React 组件库",
-        "logo": "./public/logo.png",
+        "logo": "http://qjkmoyomo.hd-bkt.clouddn.com/logo.png",
         "langLabel": "中文",
         "links": [
           {
-            "logo": "https://b.yzcdn.cn/vant/logo/weapp.svg",
-            "url": "/vant-weapp"
-          },
-          {
-            "logo": "https://b.yzcdn.cn/vant/logo/github.svg",
-            "url": "https://github.com/youzan/vant"
+            "logo": "http://qjkmoyomo.hd-bkt.clouddn.com/github.png",
+            "url": "https://github.com/Hyattria/rokku"
           }
         ],
         "searchConfig": {
@@ -68,16 +64,12 @@ import DemoSection from 'D:/MyConfiguration/tian.xia/Desktop/rokku/packages/rokk
       "en-US": {
         "title": "Rokku",
         "description": "Mobile UI Components built on React",
-        "logo": "https://img.yzcdn.cn/vant/logo.png",
+        "logo": "http://qjkmoyomo.hd-bkt.clouddn.com/logo.png",
         "langLabel": "En",
         "links": [
           {
-            "logo": "https://b.yzcdn.cn/vant/logo/weapp.svg",
-            "url": "/vant-weapp"
-          },
-          {
-            "logo": "https://b.yzcdn.cn/vant/logo/github.svg",
-            "url": "https://github.com/youzan/vant"
+            "logo": "http://qjkmoyomo.hd-bkt.clouddn.com/github.png",
+            "url": "https://github.com/Hyattria/rokku"
           }
         ],
         "searchConfig": {

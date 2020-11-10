@@ -1,3 +1,5 @@
+/* eslint-disable import/no-dynamic-require */
+/* eslint-disable global-require */
 import { join } from 'path';
 import { existsSync } from 'fs-extra';
 import { ROOT, JEST_SETUP_FILE } from '../common/constant';

@@ -12,7 +12,13 @@
     "test": "jest",
     "release": "tsc & release-it"
   },
-  "keywords": [],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "rokku"
+  ],
   "author": "xtmike008@gmail.com",
   "license": "ISC",
   "dependencies": {
@@ -22,7 +28,9 @@
     "@babel/preset-env": "^7.11.5",
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.12.1",
+    "@rokku/markdown-loader": "^1.0.1",
     "address": "^1.1.2",
+    "autoprefixer": "9.7.5",
     "babel-loader": "^8.1.0",
     "cache-loader": "^4.1.0",
     "chalk": "^4.1.0",
@@ -60,15 +68,18 @@
     "webpack-merge": "^5.2.0",
     "webpackbar": "^4.0.0"
   },
+  "peerDependencies": {
+    "react": "^16.8.0",
+    "react-dom": "^16.8.0"
+  },
   "devDependencies": {
     "@types/execa": "^2.0.0",
     "@types/fs-extra": "^9.0.2",
     "@types/jest": "^26.0.15",
+    "@types/lodash": "^4.14.165",
     "@types/node": "^14.11.8",
     "@types/postcss-load-config": "^2.0.1",
     "@types/webpack": "^4.41.22",
-    "@types/webpack-dev-server": "^3.11.0",
-    "@typescript-eslint/eslint-plugin": "^4.6.0",
-    "@typescript-eslint/parser": "^4.6.0"
+    "@types/webpack-dev-server": "^3.11.0"
   }
 }

@@ -1,9 +1,9 @@
-import { join, relative } from 'path';
+import { join } from 'path';
 import { remove, copy, readdirSync } from 'fs-extra';
 import { clean } from './clean';
 import { compileJs } from '../compiler/compile-js';
 import { compileStyle } from '../compiler/compile-style';
-import { ora, consola, slimPath } from '../common/logger';
+import { ora, consola } from '../common/logger';
 import { installDependencies } from '../common/manager';
 import { SRC_DIR, LIB_DIR, ES_DIR } from '../common/constant';
 import { compileTs } from '../compiler/compile-ts'

@@ -1,6 +1,6 @@
 <div class="card">
   <div class="rokku-doc-intro">
-    <img class="rokku-doc-intro__logo" style="width: 120px; height: 120px;" src="../../public/logo.png">
+    <img class="rokku-doc-intro__logo" style="width: 120px; height: 120px;" src="http://qjkmoyomo.hd-bkt.clouddn.com/logo.png">
     <h2 style="margin: 0; font-size: 36px; line-height: 60px;">Rokku</h2>
     <p>Mobile UI Components built on React</p>
   </div>

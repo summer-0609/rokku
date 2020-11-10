@@ -5,6 +5,7 @@ import Quickstart_en_US from 'D:/MyConfiguration/tian.xia/Desktop/rokku/docs/mar
 import Quickstart_zh_CN from 'D:/MyConfiguration/tian.xia/Desktop/rokku/docs/markdown/quickstart.zh-CN.md';
 import Button_zh_CN from 'D:/MyConfiguration/tian.xia/Desktop/rokku/src/button/README.md';
 import Flex_zh_CN from 'D:/MyConfiguration/tian.xia/Desktop/rokku/src/flex/README.md';
+import Button_en_US from 'D:/MyConfiguration/tian.xia/Desktop/rokku/src/button/README.en-US.md';
 export { config };
 export const documents = {
   Home_en_US,
@@ -12,6 +13,7 @@ export const documents = {
   Quickstart_en_US,
   Quickstart_zh_CN,
   Button_zh_CN,
-  Flex_zh_CN
+  Flex_zh_CN,
+  Button_en_US
 };
 export const packageVersion = '1.0.0';

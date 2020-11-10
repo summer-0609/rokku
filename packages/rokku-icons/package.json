@@ -1,0 +1,39 @@
+{
+  "name": "@rokku/icons",
+  "version": "1.3.0",
+  "description": "rokku icons",
+  "main": "./src/config.js",
+  "files": [
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "export": "node ./build/export.js",
+    "build": "npm run export && gulp --gulpfile ./build/build-iconfont.js",
+    "release": "npm run build && release-it"
+  },
+  "license": "MIT",
+  "repository": "https://github.com/youzan/vant/tree/dev/packages/vant-icons",
+  "devDependencies": {
+    "dumi-theme-mobile": "^1.0.0-beta.3",
+    "fast-glob": "^3.2.2",
+    "fs-extra": "^9.0.1",
+    "gulp": "^4.0.2",
+    "gulp-iconfont": "^10.0.3",
+    "gulp-iconfont-css": "^3.0.0",
+    "md5-file": "^5.0.0",
+    "release-it": "^13.6.2",
+    "shelljs": "^0.8.4",
+    "svgo": "1.2.2"
+  },
+  "release-it": {
+    "git": {
+      "tag": false,
+      "commitMessage": "chore: release @vant/icons ${version}",
+      "addUntrackedFiles": true,
+      "requireCleanWorkingDir": false
+    }
+  }
+}

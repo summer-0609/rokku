@@ -1,21 +1,17 @@
 module.exports = {
-  presets: [
-    "@babel/preset-typescript",
-    "@babel/preset-env",
-    "@babel/preset-react",
-  ],
+  presets: [require.resolve('./packages/rokku-cli/preset')],
   plugins: [
     [
-      "import",
+      'import',
       {
-        libraryName: "rokku",
-        libraryDirectory: "",
+        libraryName: 'rokku',
+        libraryDirectory: '',
         style: (name, file) => {
           const { filename } = file.opts;
-          if (filename.indexOf("demo") === -1) {
-            return "./style/index.less";
+          if (filename.indexOf('demo') === -1) {
+            return './style/index.less';
           }
-          return "../style/index.less"; // 注意：这里 ./ 不可省略
+          return '../style/index.less'; // 注意：这里 ./ 不可省略
         },
       },
     ],

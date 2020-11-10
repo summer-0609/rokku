@@ -23,14 +23,14 @@ const CACHE_LOADER = {
 const CSS_LOADERS = [
   'style-loader',
   'css-loader',
-  // {
-  //   loader: 'postcss-loader',
-  //   options: {
-  //     postcssOptions: {
-  //       config: existsSync(POSTCSS_CONFIG_FILE) && POSTCSS_CONFIG_FILE,
-  //     },
-  //   },
-  // },
+  {
+    loader: require.resolve('postcss-loader'),
+    options: {
+      postcssOptions: {
+        config: existsSync(POSTCSS_CONFIG_FILE) && POSTCSS_CONFIG_FILE,
+      },
+    },
+  },
 ];
 
 const plugins = [
@@ -73,7 +73,7 @@ export const baseConfig: WebpackConfig = {
       {
         test: /\.(js|ts|jsx|tsx)$/,
         exclude: /node_modules/,
-        use: ['babel-loader'],
+        use: [CACHE_LOADER, 'babel-loader'],
       },
       {
         test: /\.css$/,
@@ -103,14 +103,16 @@ export const baseConfig: WebpackConfig = {
         use: [
           CACHE_LOADER,
           'babel-loader',
-          resolve(__dirname, '../../../rokku-markdown-loader/src/index.js'),
+          {
+            loader: require.resolve('@rokku/markdown-loader'),
+          },
         ],
       },
       {
-        test: /\.(jpg|png|svg)$/,
-        loader: 'ursssl-loader',
+        test: /\.(png|jpe?g|svg)$/,
+        loader: require.resolve('url-loader'),
         options: {
-          limit: 25000,
+          limit: 10000,
         },
       },
     ],

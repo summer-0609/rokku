@@ -1,40 +1,166 @@
 # Button 按钮
 
 ### 介绍
+
 按钮用于触发一个操作，如提交表单。
+
+### 引入
+
+```js
+import { Button } from 'rokku';
+```
+
+## 代码演示
 
 ### 按钮类型
 
-<!-- <code src="./demos/type.tsx" /> -->
+按钮支持 `default`、`primary`、`success`、`warning`、`danger` 五种类型，默认为 `default`。
+
+```html
+<Button type="primary">主要按钮</Button>
+<Button type="success">成功按钮</Button>
+<Button type="default">默认按钮</Button>
+<Button type="warning">警告按钮</Button>
+<Button type="danger">危险按钮</Button>
+```
 
 ### 朴素按钮
 
-<!-- <code src="./demos/plain.tsx" /> -->
+通过 `plain` 属性将按钮设置为朴素按钮，朴素按钮的文字为按钮颜色，背景为白色。
+
+```html
+<Button plain type="primary">朴素按钮</Button>
+<Button plain type="primary">朴素按钮</Button>
+```
 
 ### 细边框
 
-<!-- <code src="./demos/hairline.tsx" /> -->
+设置 `hairline` 属性可以展示 0.5px 的细边框。
 
+```html
+<Button plain hairline type="primary">细边框按钮</Button>
+<Button plain hairline type="primary">细边框按钮</Button>
+```
+
+### 禁用状态
+
+通过 `disabled` 属性来禁用按钮，禁用状态下按钮不可点击。
+
+```html
+<Button disabled type="primary">禁用状态</Button>
+<Button disabled type="primary">禁用状态</Button>
+```
+
+### 加载状态
+
+通过 `loading` 属性设置按钮为加载状态，加载状态下默认会隐藏按钮文字，可以通过 `loading-text` 设置加载状态下的文字。
+
+```html
+<Button loading type="primary" />
+<Button loading type="primary" loading-type="spinner" />
+<Button loading type="primary" loading-text="加载中..." />
+```
+
+### 按钮形状
+
+通过 `square` 设置方形按钮，通过 `round` 设置圆形按钮。
+
+```html
+<Button square type="primary">方形按钮</Button>
+<Button round type="primary">圆形按钮</Button>
+```
+
+### 图标按钮
+
+通过 `icon` 属性设置按钮图标，支持 Icon 组件里的所有图标，也可以传入图标 URL。
+
+```html
+<Button icon="plus" type="primary" />
+<Button icon="plus" type="primary">按钮</Button>
+<Button icon="https://img.yzcdn.cn/vant/user-active.png" type="primary">
+  按钮
+</Button>
+```
+
+### 按钮尺寸
+
+支持 `large`、`normal`、`small`、`mini` 四种尺寸，默认为 `normal`。
+
+```html
+<Button type="primary" size="large">大号按钮</Button>
+<Button type="primary" size="normal">普通按钮</Button>
+<Button type="primary" size="small">小型按钮</Button>
+<Button type="primary" size="mini">迷你按钮</Button>
+```
+
+### 块级元素
+
+按钮在默认情况下为行内块级元素，通过 `block` 属性可以将按钮的元素类型设置为块级元素。
+
+```html
+<Button type="primary" block>块级元素</Button>
+```
+
+### 页面导航
+
+可以通过 `url` 属性进行 URL 跳转，或通过 `to` 属性进行路由跳转。
+
+```html
+<Button type="primary" url="/vant/mobile.html">URL 跳转</Button>
+<Button type="primary" to="index">路由跳转</Button>
+```
+
+### 自定义颜色
+
+通过 `color` 属性可以自定义按钮的颜色。
+
+```html
+<Button color="#7232dd">单色按钮</Button>
+<Button color="#7232dd" plain>单色按钮</Button>
+<Button color="linear-gradient(to right, #ff6034, #ee0a24)">
+  渐变色按钮
+</Button>
+```
 
 ## API
 
-- `style` \| `className` \| `prefixCls` 为通用属性，可以根据自我需求进行自由样式定制
+### Props
 
-- 如若设置 `prefixCls` 属性, 则表示覆盖所有样式， 需根据使用者需要重新添加样式
-
-### Flex
-
-| 成员 | 说明 | 类型 | 默认值 |
+| 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| direction | 项目定位方向 | `row` \| `row-reverse` \| `column` \| `column-reverse` | `row` |
-| wrap | 子元素的换行方式 | `nowrap` \| `wrap` \| `wrap-reverse` | `nowrap` |
-| gutter | 列元素之间的间距。可以使用数组形式同时设置 `[水平间距, 垂直间距]`。 | `number` \| `string` \| `array` | `0` |
-| align | 垂直对齐方式 | `top` \| `middle` \| `bottom` | `top` |
-| justify | 水平排列方式 | `start` \| `end` \| `center` \| `space-around` \| `space-between` | `start` |
+| type | 类型，可选值为 `primary` `success` `warning` `danger` | _string_ | `default` |
+| size | 尺寸，可选值为 `large` `small` `mini` | _string_ | `normal` |
+| text | 按钮文字 | _string_ | - |
+| color | 按钮颜色，支持传入 `linear-gradient` 渐变色 | _string_ | - |
+| icon | 左侧[图标名称](#/zh-CN/icon)或图片链接 | _string_ | - |
+| icon-prefix `v2.6.0` | 图标类名前缀，同 Icon 组件的 [class-prefix 属性](#/zh-CN/icon#props) | _string_ | `van-icon` |
+| icon-position `v2.10.7` | 图标展示位置，可选值为 `right` | _string_ | `left` |
+| tag | 按钮根节点的 HTML 标签 | _string_ | `button` |
+| native-type | 原生 button 标签的 type 属性 | _string_ | `button` |
+| block | 是否为块级元素 | _boolean_ | `false` |
+| plain | 是否为朴素按钮 | _boolean_ | `false` |
+| square | 是否为方形按钮 | _boolean_ | `false` |
+| round | 是否为圆形按钮 | _boolean_ | `false` |
+| disabled | 是否禁用按钮 | _boolean_ | `false` |
+| hairline | 是否使用 0.5px 边框 | _boolean_ | `false` |
+| loading | 是否显示为加载状态 | _boolean_ | `false` |
+| loading-text | 加载状态提示文字 | _string_ | - |
+| loading-type | [加载图标类型](#/zh-CN/loading)，可选值为 `spinner` | _string_ | `circular` |
+| loading-size | 加载图标大小 | _string_ | `20px` |
+| url | 点击后跳转的链接地址 | _string_ | - |
+| to | 点击后跳转的目标路由对象，同 vue-router 的 [to 属性](https://router.vuejs.org/zh/api/#to) | _string \| object_ | - |
+| replace | 是否在跳转时替换当前页面历史 | _boolean_ | `false` |
 
-### Flex.Item
+### Events
 
-| 成员 | 说明                                        | 类型                 | 默认值 |
-| ---- | ------------------------------------------- | -------------------- | ------ |
-| flex | flex 布局属性                               | `string` \| `number` | `-`    |
-| span | 栅格占位格数，为 0 时相当于 `display: none` | `number`             | `-`    |
+| 事件名     | 说明                                     | 回调参数            |
+| ---------- | ---------------------------------------- | ------------------- |
+| click      | 点击按钮，且按钮状态不为加载或禁用时触发 | _event: Event_      |
+| touchstart | 开始触摸按钮时触发                       | _event: TouchEvent_ |
+
+### Slots
+
+| 名称              | 说明           |
+| ----------------- | -------------- |
+| default           | 按钮内容       |
+| loading `v2.10.1` | 自定义加载图标 |

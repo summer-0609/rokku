@@ -1,7 +1,7 @@
-import React from "react";
-import { Button } from "rokku";
-import { components } from "site-mobile-shared";
-import "./style.less";
+import React from 'react';
+import { Button } from 'rokku';
+import { components } from 'site-mobile-shared';
+import './style.less';
 
 export default () => {
   const { DemoBlock, DemoSection } = components;
@@ -17,14 +17,20 @@ export default () => {
         <Button type="danger">危险按钮</Button>
       </DemoBlock>
       <DemoBlock title="朴素按钮">
-        <div className="demo-button-row">
-          <Button plain type="primary">
-            朴素按钮
-          </Button>
-          <Button plain type="info">
-            朴素按钮
-          </Button>
-        </div>
+        <Button plain type="primary">
+          朴素按钮
+        </Button>
+        <Button plain type="info">
+          朴素按钮
+        </Button>
+      </DemoBlock>
+      <DemoBlock title="细边框按钮">
+        <Button plain hairline type="primary">
+          细边框按钮
+        </Button>
+        <Button plain hairline type="info">
+          细边框按钮
+        </Button>
       </DemoBlock>
     </DemoSection>
   );

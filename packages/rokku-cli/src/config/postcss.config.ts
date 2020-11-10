@@ -19,7 +19,7 @@ function mergePostcssConfig(config1: PostcssConfig, config2: PostcssConfig) {
 
 const DEFAULT_CONFIG = {
   plugins: {
-    autoprefixer: {},
+    autoprefixer: {}
   },
 };
 

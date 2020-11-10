@@ -6,13 +6,17 @@
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "scripts": {
     "dev": "tsc --watch",
     "build": "tsc --build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "xtmike008@gmail.com",
   "license": "ISC",
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^4.6.1",

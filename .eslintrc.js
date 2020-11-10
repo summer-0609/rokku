@@ -1,3 +1,3 @@
 module.exports = {
-  extends: [require.resolve("./packages/rokku-fabric/dist/eslint")],
+  extends: [require.resolve('@rokku/fabric/dist/eslint')],
 };

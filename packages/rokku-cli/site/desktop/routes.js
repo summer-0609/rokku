@@ -1,10 +1,6 @@
-import { isMobile, decamelize } from '../common';
+import { decamelize } from '../common';
 import { config, documents } from 'site-desktop-shared';
 import { getLang, setDefaultLang } from '../common/locales';
-
-if (isMobile) {
-  location.replace('mobile.html' + location.hash);
-}
 
 const { locales, defaultLang } = config.site;
 setDefaultLang(defaultLang);

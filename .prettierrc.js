@@ -1,3 +1,5 @@
+const fabric = require('@rokku/fabric');
+
 module.exports = {
-  extends: [require.resolve('./packages/rokku-fabric/dist/prettier')],
+  ...fabric.prettier,
 };

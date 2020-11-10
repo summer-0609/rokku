@@ -5,8 +5,6 @@ import classnames from 'classnames';
 import SearchInput from '../SearchInput';
 import './index.less';
 
-import LogoImg from './logo.png';
-
 const Header = (props) => {
   const versionRef = useRef(null);
   const { lang, config, versions, langConfigs } = props;
@@ -36,6 +34,7 @@ const Header = (props) => {
   }, [pathname]);
 
   const toggleVersionPop = () => {
+    //@ts-ignore
     const val = !this.showVersionPop;
     const action = val ? 'add' : 'remove';
     document.body[`${action}EventListener`]('click', checkHideVersionPop);
@@ -53,7 +52,7 @@ const Header = (props) => {
       <div className="rokku-doc-row">
         <div className="rokku-doc-header__top">
           <a className="rokku-doc-header__logo">
-            <img src={require('./logo.png')} />
+            <img src={config.logo} />
             <span>{config.title}</span>
           </a>
           {config.searchConfig && (
@@ -85,7 +84,7 @@ const Header = (props) => {
                   onClick={toggleVersionPop}
                 >
                   v{versions[0].label}
-                  <transition name="rokku-doc-dropdown">
+                  {/* <transition name="rokku-doc-dropdown">
                     {showVersionPop && (
                       <div className="rokku-doc-header__version-pop">
                         {versions.map((item) => (
@@ -99,7 +98,7 @@ const Header = (props) => {
                         ))}
                       </div>
                     )}
-                  </transition>
+                  </transition> */}
                 </span>
               </li>
             )}

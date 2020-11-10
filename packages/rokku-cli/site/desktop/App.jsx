@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useEffect } from 'react';
 import {
   Switch,
   Route,
@@ -8,6 +8,7 @@ import {
 } from 'react-router-dom';
 import { config as rokkuConfig, packageVersion } from 'site-desktop-shared';
 
+import { isMobile } from '../common';
 import RokkuDoc from './components/index';
 import routes, { getLangFromRoute } from './routes';
 
@@ -16,6 +17,12 @@ import './index.less';
 const App = () => {
   const { pathname } = useLocation();
   const history = useHistory();
+
+  useEffect(() => {
+    if (isMobile) {
+      location.replace('mobile.html' + location.hash);
+    }
+  }, []);
 
   window.addEventListener(
     'message',
