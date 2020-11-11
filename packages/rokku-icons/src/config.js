@@ -1,5 +1,5 @@
 module.exports = {
-  name: 'vant-icon',
+  name: 'rk-icon',
   basic: ['success', 'plus', 'cross', 'fail', 'arrow', 'arrow-left', 'arrow-up', 'arrow-down'],
   outline: [
     // has corresponding filled icon

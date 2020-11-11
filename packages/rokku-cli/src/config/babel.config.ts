@@ -1,12 +1,13 @@
 import { ConfigAPI } from '@babel/core';
 
-module.exports = function (api?: ConfigAPI) {
+module.exports = (api?: ConfigAPI) => {
   if (api) {
     api.cache.never();
   }
 
   const { BABEL_MODULE, NODE_ENV } = process.env;
   const isTest = NODE_ENV === 'test';
+  const isProd = NODE_ENV === 'production';
   const useESModules = BABEL_MODULE !== 'commonjs' && !isTest;
 
   return {
@@ -29,7 +30,7 @@ module.exports = function (api?: ConfigAPI) {
           useESModules,
         },
       ],
-      [
+      isProd && [
         'import',
         {
           libraryName: 'rokku',
@@ -39,7 +40,7 @@ module.exports = function (api?: ConfigAPI) {
         'rokku',
       ],
       '@babel/plugin-transform-object-assign',
-    ],
+    ].filter(Boolean),
   };
 };
 

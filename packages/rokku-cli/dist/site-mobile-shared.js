@@ -1,8 +1,8 @@
 import './package-style';
- import Button from 'D:/MyConfiguration/tian.xia/Desktop/rokku/src/button/demo/index.tsx';
-import Flex from 'D:/MyConfiguration/tian.xia/Desktop/rokku/src/flex/demo/index.tsx';
- import DemoBlock from 'D:/MyConfiguration/tian.xia/Desktop/rokku/packages/rokku-cli/site/mobile/components/DemoBlock';
-import DemoSection from 'D:/MyConfiguration/tian.xia/Desktop/rokku/packages/rokku-cli/site/mobile/components/DemoSection';
+ import Button from '/Users/xiatian/Desktop/Mine/rokku/src/button/demo/index.tsx';
+import Flex from '/Users/xiatian/Desktop/Mine/rokku/src/flex/demo/index.tsx';
+ import DemoBlock from '/Users/xiatian/Desktop/Mine/rokku/packages/rokku-cli/site/mobile/components/DemoBlock';
+import DemoSection from '/Users/xiatian/Desktop/Mine/rokku/packages/rokku-cli/site/mobile/components/DemoSection';
  export const demos = {
   Button,
   Flex

@@ -1,6 +1,6 @@
-import React from "react";
-import { Flex } from "rokku";
-import "./style.less";
+import React from 'react';
+import { Flex } from 'rokku';
+import './style.less';
 
 export default () => {
   return (

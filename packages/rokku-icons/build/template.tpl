@@ -5,12 +5,12 @@
   font-family: '<%= fontName %>';
   font-style: normal;
   font-display: auto;
-  src: url('https://img.yzcdn.cn/vant/<%= cssClass %>.woff2') format('woff2'),
-    url('https://img.yzcdn.cn/vant/<%= cssClass %>.woff') format('woff'),
-    url('https://img.yzcdn.cn/vant/<%= cssClass %>.ttf') format('truetype');
+  src: url('http://qjkmoyomo.hd-bkt.clouddn.com/<%= cssClass %>.woff2') format('woff2'),
+    url('http://qjkmoyomo.hd-bkt.clouddn.com/<%= cssClass %>.woff') format('woff'),
+    url('http://qjkmoyomo.hd-bkt.clouddn.com/<%= cssClass %>.ttf') format('truetype');
 }
 
-.van-icon {
+.rk-icon {
   position: relative;
   display: inline-block;
   font: normal normal normal 14px/1 '<%= fontName %>';
@@ -23,7 +23,7 @@
   }
 }
 
-<% _.each(glyphs, function(glyph) { %>.van-icon-<%= glyph.fileName %>::before {
+<% _.each(glyphs, function(glyph) { %>.rk-icon-<%= glyph.fileName %>::before {
   content: '\<%= glyph.codePoint %>';
 }
 

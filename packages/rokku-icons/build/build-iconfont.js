@@ -12,6 +12,7 @@ const iconfontCss = require("gulp-iconfont-css");
 const encode = require("./build-encode");
 const config = require("../src/config");
 const codepoints = require("./codepoints");
+const uploadFile = require("./upload-file");
 
 const srcDir = path.join(__dirname, "../src");
 const svgDir = path.join(__dirname, "../assets/svg");
@@ -56,9 +57,9 @@ function upload(done) {
   encode(fontName, srcDir);
 
   // upload font to cdn
-  // formats.forEach(ext => {
-  //   shell.exec(`superman-cdn /vant ${path.join(srcDir, `${fontName}.${ext}`)}`);
-  // });
+  formats.forEach(ext => {
+    uploadFile(`${fontName}.${ext}`, path.join(srcDir, `${fontName}.${ext}`));
+  });
 
   done();
 }
