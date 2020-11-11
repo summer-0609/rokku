@@ -4,7 +4,6 @@ import {
   SRC_DIR,
   SITE_MOBILE_COMPONENTS,
   SITE_MODILE_SHARED_FILE,
-  ROKKU_CONFIG_FILE,
 } from '../common/constant';
 import {
   pascalize,
@@ -20,6 +19,10 @@ type DemoItem = {
   path: string;
   component: string;
 };
+
+function genInstall() {
+  return `import './package-style';`;
+}
 
 function genImports(demos: DemoItem[]) {
   return demos
@@ -84,7 +87,7 @@ function genCode(components: string[]) {
     }))
     .filter((item) => existsSync(item.path));
 
-  const demo_components = ['DemoBlock', 'DemoSection']
+  const demoComponents = ['DemoBlock', 'DemoSection']
     .map((component) => ({
       component,
       name: pascalize(component),
@@ -92,11 +95,11 @@ function genCode(components: string[]) {
     }))
     .filter((item) => pathExistsSync(item.path));
 
-  return `
+  return `${genInstall()}
  ${genImports(demos)}
- ${genDemoImports(demo_components)}
+ ${genDemoImports(demoComponents)}
  ${genExports(demos)}
- ${genDemoExports(demo_components)}
+ ${genDemoExports(demoComponents)}
  ${genConfig(demos)}
 `;
 }

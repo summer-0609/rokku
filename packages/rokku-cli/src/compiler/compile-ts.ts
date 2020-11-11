@@ -1,7 +1,7 @@
 import execa from 'execa';
 import { existsSync } from 'fs';
-import { ora } from '../common/logger';
 import { join } from 'path';
+import { ora } from '../common/logger';
 
 export async function compileTs() {
   const tsconfigPath = join(process.cwd(), 'tsconfig.json');

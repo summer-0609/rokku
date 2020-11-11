@@ -1,0 +1,14 @@
+{
+  "map": {
+    "button": [
+      "icon"
+    ],
+    "flex": [],
+    "icon": []
+  },
+  "sequence": [
+    "icon",
+    "button",
+    "flex"
+  ]
+}
