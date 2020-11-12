@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon } from 'rokku';
-import { components } from 'site-mobile-shared';
-import './style.less';
+import { components } from 'site-mobile-demo';
+// import './style.less';
 
 export default () => {
   const { DemoBlock, DemoSection } = components;

@@ -1,9 +1,11 @@
 import './package-style';
  import Button from 'D:/MyConfiguration/tian.xia/Desktop/rokku/src/button/demo/index.tsx';
 import Flex from 'D:/MyConfiguration/tian.xia/Desktop/rokku/src/flex/demo/index.tsx';
+import Icon from 'D:/MyConfiguration/tian.xia/Desktop/rokku/src/icon/demo/index.tsx';
  export const demos = {
   Button,
-  Flex
+  Flex,
+  Icon
 };
  export const config = {
   "name": "Rokku",
