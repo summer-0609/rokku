@@ -13,9 +13,7 @@ import { commitLint } from './commands/commit-lint';
 
 version(`@rokku/cli ${packageJson.version}`);
 
-command('dev')
-  .description('Run webpack dev server')
-  .action(dev);
+command('dev').description('Run webpack dev server').action(dev);
 
 // 打包文档
 command('build-site')
@@ -23,9 +21,7 @@ command('build-site')
   .action(buildSite);
 
 // eslint & stylelint
-command('lint')
-  .description('Run eslint and stylelint')
-  .action(lint);
+command('lint').description('Run eslint and stylelint').action(lint);
 
 // 打包组件库
 command('build')
@@ -34,9 +30,7 @@ command('build')
   .action(build);
 
 // 删除所有打包文件
-command('clean')
-  .description('Clean all dist files')
-  .action(clean);
+command('clean').description('Clean all dist files').action(clean);
 
 // 组件测试
 command('test')
@@ -55,8 +49,6 @@ command('test')
   )
   .action(test);
 
-command('commit-lint')
-  .description('Lint commit message')
-  .action(commitLint);
+command('commit-lint').description('Lint commit message').action(commitLint);
 
 parse(process.argv);

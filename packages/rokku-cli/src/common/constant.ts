@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
+/* eslint-disable import/no-dynamic-require */
 /* eslint-disable global-require */
 import { get } from 'lodash';
 import { existsSync } from 'fs-extra';

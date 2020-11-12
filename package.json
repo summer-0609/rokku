@@ -9,8 +9,8 @@
     "es"
   ],
   "scripts": {
-    "dev:vant": "vant-cli dev",
-    "start": "node packages/rokku-cli/lib/index.js dev",
+    "dev:vant": "node src/lib/index.js dev",
+    "start": "node  node_modules/@rokku/cli/lib/index.js dev",
     "components:build": "node packages/rokku-cli/lib/index.js build --watch",
     "docs:build": "node packages/rokku-cli/lib/index.js build-site",
     "docs:deploy": "gh-pages -d docs-dist",
@@ -25,19 +25,14 @@
   "author": "xtmike008@gmail.com",
   "license": "MIT",
   "devDependencies": {
+    "@rokku/cli": "^1.0.3",
     "@rokku/fabric": "^1.0.2",
     "@types/classnames": "^2.2.11",
     "@types/enzyme": "^3.10.8",
     "@types/jest": "^26.0.15",
     "@types/react": "^16.9.55",
     "@vant/cli": "^2.0.0",
-    "babel-plugin-import": "^1.13.1",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.5",
-    "enzyme-to-json": "^3.6.1",
     "glob": "^7.1.6",
-    "ignore-styles": "^5.0.1",
-    "jest": "^26.6.3",
     "typescript": "^4.0.5"
   },
   "browserslist": [
@@ -45,8 +40,6 @@
     "iOS >= 8"
   ],
   "dependencies": {
-    "@babel/preset-react": "^7.10.4",
-    "@babel/preset-typescript": "^7.12.1",
     "classnames": "^2.2.6",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",

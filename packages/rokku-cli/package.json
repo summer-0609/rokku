@@ -1,6 +1,6 @@
 {
   "name": "@rokku/cli",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -9,8 +9,18 @@
   },
   "scripts": {
     "dev": "tsc --watch",
+    "build": "tsc --build",
     "test": "jest",
     "release": "tsc & release-it"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "release-it": {
+    "git": {
+      "tag": false,
+      "commitMessage": "chore: release @rokku/cli@${version}"
+    }
   },
   "publishConfig": {
     "access": "public",
@@ -32,7 +42,7 @@
     "@rokku/markdown-loader": "^1.0.1",
     "address": "^1.1.2",
     "autoprefixer": "9.7.5",
-    "babel-loader": "^8.1.0",
+    "babel-loader": "^8.2.1",
     "babel-plugin-import": "^1.13.1",
     "cache-loader": "^4.1.0",
     "chalk": "^4.1.0",
@@ -99,6 +109,7 @@
     "@types/through2": "^2.0.36",
     "@types/vinyl-fs": "^2.4.11",
     "@types/webpack": "^4.41.22",
-    "@types/webpack-dev-server": "^3.11.0"
+    "@types/webpack-dev-server": "^3.11.0",
+    "release-it": "^14.2.1"
   }
 }
