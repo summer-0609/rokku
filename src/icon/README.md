@@ -12,15 +12,15 @@ nav:
 
 ### 基础用法
 
-<code src="./demos/basic.tsx" />
+<!-- <code src="./demos/basic.tsx" /> -->
 
 ### 图标颜色
 
-<code src="./demos/color.tsx" />
+<!-- <code src="./demos/color.tsx" /> -->
 
 ### 图标大小
 
-<code src="./demos/size.tsx" />
+<!-- <code src="./demos/size.tsx" /> -->
 
 ### 自定义图标
 
@@ -49,4 +49,4 @@ nav:
 
 ### 图表展示
 
-<code src="./demos/list.tsx" inline/>
+<!-- <code src="./demos/list.tsx" inline/> -->

@@ -35,7 +35,9 @@ module.exports = {
     'prettier',
     'prettier/react',
     'prettier/@typescript-eslint',
+    'plugin:@typescript-eslint/recommended',
   ],
+  plugins: ['@typescript-eslint'],
   env: {
     browser: true,
     node: true,
@@ -93,10 +95,7 @@ module.exports = {
     'react/jsx-filename-extension': 'off',
     'sort-imports': 0,
     // Use function hoisting to improve code readability
-    'no-use-before-define': [
-      'error',
-      { functions: false, classes: true, variables: true },
-    ],
+    'no-use-before-define': ['error', { functions: false, classes: true, variables: true }],
     // Makes no sense to allow type inferrence for expression parameters, but require typing the response
     '@typescript-eslint/no-use-before-define': [
       'error',
