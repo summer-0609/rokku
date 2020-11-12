@@ -20,7 +20,7 @@ const App = () => {
 
   useEffect(() => {
     if (isMobile) {
-      location.replace('mobile.html' + location.hash);
+      location.replace(`mobile.html${  location.hash}`);
     }
   }, []);
 

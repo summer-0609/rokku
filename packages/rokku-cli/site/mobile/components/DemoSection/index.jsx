@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { decamelize } from '../../../common';
 import routes from '../../routes';
 
-import './index.less'
+import './index.less';
 
 const DemoSection = (props) => {
   const { children } = props;

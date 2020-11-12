@@ -29,15 +29,15 @@ module.exports = function (api?: ConfigAPI) {
           useESModules,
         },
       ],
-      [
-        'import',
-        {
-          libraryName: 'rokku',
-          libraryDirectory: useESModules ? 'es' : 'lib',
-          style: true,
-        },
-        'rokku',
-      ],
+      // [
+      //   'import',
+      //   {
+      //     libraryName: 'rokku',
+      //     libraryDirectory: useESModules ? 'es' : 'lib',
+      //     style: true,
+      //   },
+      //   'rokku',
+      // ],
       '@babel/plugin-transform-object-assign',
     ],
   };

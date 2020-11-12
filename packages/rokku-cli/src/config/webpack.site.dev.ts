@@ -9,6 +9,7 @@ import { getRokkuConfig, getWebpackConfig } from '../common';
 import { RokkuCliSitePlugin } from '../compiler/rokku-cli-site-plugin';
 import {
   GREEN,
+  SITE_MODILE_DEMO_FILE,
   SITE_MODILE_SHARED_FILE,
   SITE_DESKTOP_SHARED_FILE,
 } from '../common/constant';
@@ -53,6 +54,7 @@ export function getSiteDevBaseConfig(): WebpackConfig {
     },
     resolve: {
       alias: {
+        'site-mobile-demo': SITE_MODILE_DEMO_FILE,
         'site-mobile-shared': SITE_MODILE_SHARED_FILE,
         'site-desktop-shared': SITE_DESKTOP_SHARED_FILE,
       },

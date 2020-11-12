@@ -1,2 +1,2 @@
 declare module 'rokku';
-declare module 'site-mobile-shared';
+declare module 'site-mobile-demo';

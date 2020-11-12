@@ -9,8 +9,10 @@ export function test(command: any) {
     rootDir: ROOT,
     watch: command.watch,
     config: JEST_CONFIG_FILE,
-    coverage: command.coverage,
-    clearCache: command.clearCache,
+    // coverage: command.coverage,
+    // clearCache: true,
+    // detectOpenHandles: true,
+    // runInBand: true,
   } as any;
 
   runCLI(config, [ROOT])

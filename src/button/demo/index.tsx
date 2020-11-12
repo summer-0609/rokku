@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from 'rokku';
-import { components } from 'site-mobile-shared';
+import { components } from 'site-mobile-demo';
 import './style.less';
 
 export default () => {

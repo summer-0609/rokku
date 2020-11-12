@@ -46,6 +46,7 @@ export const SITE_DESKTOP_SHARED_FILE = join(
   DIST_DIR,
   'site-desktop-shared.js'
 );
+export const SITE_MODILE_DEMO_FILE = join(DIST_DIR, 'site-mobile-demo.js');
 export const STYPE_DEPS_JSON_FILE = join(DIST_DIR, 'style-deps.json');
 
 // Config files
@@ -54,6 +55,8 @@ export const POSTCSS_CONFIG_FILE = join(CONFIG_DIR, 'postcss.config.js');
 export const JEST_SETUP_FILE = join(CONFIG_DIR, 'jest.setup.js');
 export const JEST_CONFIG_FILE = join(CONFIG_DIR, 'jest.config.js');
 export const JEST_TRANSFORM_FILE = join(CONFIG_DIR, 'jest.transform.js');
+export const JEST_FILE_MOCK_FILE = join(CONFIG_DIR, 'jest.file-mock.js');
+export const JEST_STYLE_MOCK_FILE = join(CONFIG_DIR, 'jest.style-mock.js');
 
 export const SCRIPT_EXTS = ['.js', '.jsx', '.ts', '.tsx'];
 export const STYLE_EXTS = ['.css', '.less', '.scss'];

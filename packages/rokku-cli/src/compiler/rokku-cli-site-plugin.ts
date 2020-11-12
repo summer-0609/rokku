@@ -3,6 +3,7 @@ import { Compiler } from 'webpack';
 import { replaceExt } from '../common';
 import { CSS_LANG } from '../common/css';
 import { genPacakgeStyle } from './gen-package-style';
+import { genDemoMobileShared } from './gen-demo-mobile-shared'
 import { genSiteMobileShared } from './gen-site-mobile-shared';
 import { genSiteDesktopShared } from './gen-site-desktop-shared';
 import { genStyleDepsMap } from './gen-style-deps-map';
@@ -15,6 +16,7 @@ async function genSiteEntry() {
     genPacakgeStyle({
       outputPath: replaceExt(PACKAGE_STYLE_FILE, `.${CSS_LANG}`),
     });
+    genDemoMobileShared();
     genSiteMobileShared();
     genSiteDesktopShared();
   });

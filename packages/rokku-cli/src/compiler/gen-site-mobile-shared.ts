@@ -39,18 +39,6 @@ function genExports(demos: DemoItem[]) {
     .join(',\n  ')}\n};`;
 }
 
-function genDemoImports(demo_components: DemoItem[]) {
-  return demo_components
-    .map((item) => `import ${item.name} from '${normalizePath(item.path)}';`)
-    .join('\n');
-}
-
-function genDemoExports(demo_components: DemoItem[]) {
-  return `export const components = {\n  ${demo_components
-    .map((item) => item.name)
-    .join(',\n  ')}\n};`;
-}
-
 function genConfig(demos: DemoItem[]) {
   const vantConfig = getRokkuConfig();
   const demoNames = demos.map((item) => decamelize(item.name));
@@ -87,19 +75,9 @@ function genCode(components: string[]) {
     }))
     .filter((item) => existsSync(item.path));
 
-  const demoComponents = ['DemoBlock', 'DemoSection']
-    .map((component) => ({
-      component,
-      name: pascalize(component),
-      path: join(SITE_MOBILE_COMPONENTS, component),
-    }))
-    .filter((item) => pathExistsSync(item.path));
-
   return `${genInstall()}
  ${genImports(demos)}
- ${genDemoImports(demoComponents)}
  ${genExports(demos)}
- ${genDemoExports(demoComponents)}
  ${genConfig(demos)}
 `;
 }
