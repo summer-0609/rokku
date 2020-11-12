@@ -5,9 +5,9 @@ module.exports = (api?: ConfigAPI) => {
     api.cache.never();
   }
 
-  const { BABEL_MODULE, NODE_ENV } = process.env;
+  const { BABEL_MODULE, NODE_ENV, BUILD_TARGET } = process.env;
   const isTest = NODE_ENV === 'test';
-  const isProd = NODE_ENV === 'production';
+  const isProd = NODE_ENV === 'production' && BUILD_TARGET !== 'site';
   const useESModules = BABEL_MODULE !== 'commonjs' && !isTest;
 
   return {
@@ -39,7 +39,6 @@ module.exports = (api?: ConfigAPI) => {
         },
         'rokku',
       ],
-      '@babel/plugin-transform-object-assign',
     ].filter(Boolean),
   };
 };

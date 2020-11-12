@@ -10,13 +10,13 @@ const options = {
 const putPolicy = new qiniu.rs.PutPolicy(options);
 const uploadToken = putPolicy.uploadToken(mac);
 
-//构造上传函数
+// 构造上传函数
 function uploadFile(key, localFile) {
   const extra = new qiniu.form_up.PutExtra();
   const config = new qiniu.conf.Config();
   const formUploader = new qiniu.form_up.FormUploader(config);
 
-  formUploader.putFile(uploadToken, key, localFile, extra, function(err, ret) {
+  formUploader.putFile(uploadToken, key, localFile, extra, function (err, ret) {
     if (!err) {
       // 上传成功， 处理返回值
       console.log(ret.hash, ret.key);

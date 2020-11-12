@@ -8,7 +8,6 @@ import {
   JEST_SETUP_FILE,
   JEST_FILE_MOCK_FILE,
   JEST_STYLE_MOCK_FILE,
-  SITE_MODILE_DEMO_FILE
 } from '../common/constant';
 
 const DEFAULT_CONFIG = {
@@ -24,8 +23,8 @@ const DEFAULT_CONFIG = {
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'md'],
   testPathIgnorePatterns: ['/node_modules/', '_site', 'site'],
-  // transformIgnorePatterns: ['/node_modules/(?!(@rokku/cli))/'],
-  // collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/demo/**'],
+  transformIgnorePatterns: ['/node_modules/(?!(@rokku/cli))/'],
+  collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/demo/**'],
   coverageDirectory: './tests/coverage',
   snapshotSerializers: ['enzyme-to-json/serializer'],
 };

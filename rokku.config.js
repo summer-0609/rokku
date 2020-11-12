@@ -57,6 +57,10 @@ module.exports = {
                 path: 'button',
                 title: 'Button 按钮',
               },
+              {
+                path: 'icon',
+                title: 'Icon 图标',
+              },
             ],
           },
           {

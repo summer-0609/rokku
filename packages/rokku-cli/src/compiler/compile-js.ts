@@ -1,7 +1,6 @@
 import { transform } from '@babel/core';
-import { consola } from '../common/logger';
-
 import chalk from 'chalk';
+import { consola } from '../common/logger';
 
 interface IBabelOpts {
   file: any;
@@ -12,7 +11,6 @@ export function compileJs(options: IBabelOpts) {
   const { file, type } = options;
 
   consola.log(`Transform to ${type} for ${chalk.yellow(file.path)}`);
-  //@ts-ignore
   return transform(file.contents, {
     presets: [
       [

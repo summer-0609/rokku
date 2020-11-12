@@ -5,7 +5,6 @@ const { src, dest, series } = require("gulp");
 const fs = require("fs-extra");
 const path = require("path");
 const glob = require("fast-glob");
-const shell = require("shelljs");
 const md5File = require("md5-file");
 const iconfont = require("gulp-iconfont");
 const iconfontCss = require("gulp-iconfont-css");

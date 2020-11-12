@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from 'react';
 import classnames from 'classnames';
 import { addUnit, createNamespace } from '../utils';
@@ -16,7 +17,7 @@ function isImage(name?: string): boolean {
 
 const [bem] = createNamespace('icon');
 
-const Icon: React.FC<IconProps> = props => {
+const Icon: React.FC<IconProps> = (props) => {
   const { tag = 'i', name, className } = props;
   const imageIcon = isImage(name);
 

@@ -1,6 +1,6 @@
 {
   "name": "@rokku/cli",
-  "version": "1.0.4",
+  "version": "1.0.10",
   "description": "",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -12,9 +12,6 @@
     "build": "tsc --build",
     "test": "jest",
     "release": "tsc & release-it"
-  },
-  "engines": {
-    "node": ">=10"
   },
   "release-it": {
     "git": {
@@ -46,6 +43,7 @@
     "babel-plugin-import": "^1.13.1",
     "cache-loader": "^4.1.0",
     "chalk": "^4.1.0",
+    "chokidar": "^3.4.3",
     "classnames": "^2.2.6",
     "clean-css": "^4.2.3",
     "commander": "^6.1.0",
@@ -72,6 +70,7 @@
     "less-loader": "^7.0.2",
     "lodash": "^4.17.20",
     "ora": "^5.1.0",
+    "portfinder": "^1.0.28",
     "postcss-load-config": "^3.0.0",
     "postcss-loader": "^4.0.4",
     "react-router-dom": "^5.2.0",
@@ -90,10 +89,6 @@
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.2.0",
     "webpackbar": "^4.0.0"
-  },
-  "peerDependencies": {
-    "react": "^16.8.0",
-    "react-dom": "^16.8.0"
   },
   "devDependencies": {
     "@types/execa": "^2.0.0",

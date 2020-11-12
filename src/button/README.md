@@ -7,7 +7,7 @@
 ### 引入
 
 ```js
-import { Button } from 'rokku';
+import { Button } from '@rokku/design';
 ```
 
 ## 代码演示
@@ -29,8 +29,7 @@ import { Button } from 'rokku';
 通过 `plain` 属性将按钮设置为朴素按钮，朴素按钮的文字为按钮颜色，背景为白色。
 
 ```html
-<Button plain type="primary">朴素按钮</Button>
-<Button plain type="primary">朴素按钮</Button>
+<Button plain type="primary">朴素按钮</Button> <Button plain type="primary">朴素按钮</Button>
 ```
 
 ### 细边框
@@ -47,8 +46,7 @@ import { Button } from 'rokku';
 通过 `disabled` 属性来禁用按钮，禁用状态下按钮不可点击。
 
 ```html
-<Button disabled type="primary">禁用状态</Button>
-<Button disabled type="primary">禁用状态</Button>
+<Button disabled type="primary">禁用状态</Button> <Button disabled type="primary">禁用状态</Button>
 ```
 
 ### 加载状态
@@ -66,8 +64,8 @@ import { Button } from 'rokku';
 通过 `square` 设置方形按钮，通过 `round` 设置圆形按钮。
 
 ```html
-<Button square type="primary">方形按钮</Button>
-<Button round type="primary">圆形按钮</Button>
+<Button type="primary"square>方形按钮</Button>
+<Button type="primary" round>圆形按钮</Button>
 ```
 
 ### 图标按钮
@@ -77,9 +75,7 @@ import { Button } from 'rokku';
 ```html
 <Button icon="plus" type="primary" />
 <Button icon="plus" type="primary">按钮</Button>
-<Button icon="https://img.yzcdn.cn/vant/user-active.png" type="primary">
-  按钮
-</Button>
+<Button icon="https://img.yzcdn.cn/vant/user-active.png" plain type="primary">按钮</Button>
 ```
 
 ### 按钮尺寸
@@ -117,9 +113,7 @@ import { Button } from 'rokku';
 ```html
 <Button color="#7232dd">单色按钮</Button>
 <Button color="#7232dd" plain>单色按钮</Button>
-<Button color="linear-gradient(to right, #ff6034, #ee0a24)">
-  渐变色按钮
-</Button>
+<Button color="linear-gradient(to right, #ff6034, #ee0a24)">渐变色按钮</Button>
 ```
 
 ## API
@@ -135,8 +129,8 @@ import { Button } from 'rokku';
 | icon | 左侧[图标名称](#/zh-CN/icon)或图片链接 | _string_ | - |
 | icon-prefix `v2.6.0` | 图标类名前缀，同 Icon 组件的 [class-prefix 属性](#/zh-CN/icon#props) | _string_ | `van-icon` |
 | icon-position `v2.10.7` | 图标展示位置，可选值为 `right` | _string_ | `left` |
-| tag | 按钮根节点的 HTML 标签 | _string_ | `button` |
-| native-type | 原生 button 标签的 type 属性 | _string_ | `button` |
+| tag | 按钮根节点的 HTML 标签 | _string_ | `Button` |
+| native-type | 原生 Button 标签的 type 属性 | _string_ | `Button` |
 | block | 是否为块级元素 | _boolean_ | `false` |
 | plain | 是否为朴素按钮 | _boolean_ | `false` |
 | square | 是否为方形按钮 | _boolean_ | `false` |

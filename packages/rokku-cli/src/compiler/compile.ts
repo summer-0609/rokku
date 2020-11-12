@@ -1,9 +1,6 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { existsSync, statSync } from 'fs';
 import { join, extname } from 'path';
-import { SRC_DIR, ROOT } from '../common/constant';
-import { getComponents } from '../common';
-import { genComponentStyle } from './gen-component-style';
-import { compileJs } from './compile-js';
 
 import vfs from 'vinyl-fs';
 import through2 from 'through2';
@@ -17,6 +14,10 @@ import chokidar from 'chokidar';
 import gulpSass from 'gulp-sass';
 import gulpPlumber from 'gulp-plumber';
 import gulpTs from 'gulp-typescript';
+import { compileJs } from './compile-js';
+import { genComponentStyle } from './gen-component-style';
+import { getComponents } from '../common';
+import { SRC_DIR, ROOT } from '../common/constant';
 
 interface ICompileOpts {
   type: 'esm' | 'cjs';
@@ -24,7 +25,7 @@ interface ICompileOpts {
   watch?: boolean;
 }
 
-export default async function(options: ICompileOpts) {
+export default async (options: ICompileOpts) => {
   const { type, targetPath, watch } = options;
   const components = getComponents();
 

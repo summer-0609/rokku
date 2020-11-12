@@ -15,7 +15,7 @@
     "release": "npm run build && release-it"
   },
   "license": "MIT",
-  "repository": "https://github.com/youzan/vant/tree/dev/packages/vant-icons",
+  "repository": "https://github.com/Hyattria/rokku/tree/main/packages/rokku-icons",
   "devDependencies": {
     "@types/qiniu": "^7.0.1",
     "fast-glob": "^3.2.2",
@@ -32,7 +32,7 @@
   "release-it": {
     "git": {
       "tag": false,
-      "commitMessage": "chore: release @vant/icons ${version}",
+      "commitMessage": "chore: release @rokku/icons ${version}",
       "addUntrackedFiles": true,
       "requireCleanWorkingDir": false
     }
