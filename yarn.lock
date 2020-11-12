@@ -1502,10 +1502,10 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@rokku/fabric@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/@rokku/fabric/-/fabric-1.0.1.tgz#8ac7c5d6dcec79c0cf66481be948148bd8f4e1c6"
-  integrity sha512-JNmHHHL21NtPSMZubYx2jzB/EXB2IrsY6Dt0J28I9PVvCXfH8Ua1c52cwzXk09nuZxjyupgOei6LAQH2R7wnQw==
+"@rokku/fabric@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/@rokku/fabric/-/fabric-1.0.2.tgz#9f5ac22a1ca23309484046de2fd8d7ca46ca6dfa"
+  integrity sha512-YO1gQ4Wct87Az0MFQz1vtLesdrm+4aUZbCC3iXzvwWXFP31utW2TzXqTis9Q9APNRl4soMF7qe/8eTUDIkWU+g==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^4.6.1"
     "@typescript-eslint/parser" "^4.6.1"

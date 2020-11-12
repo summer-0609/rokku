@@ -1,6 +1,7 @@
 import { existsSync, statSync } from 'fs';
 import { join, extname } from 'path';
 import { SRC_DIR, ROOT } from '../common/constant';
+import { getComponents } from '../common';
 import { genComponentStyle } from './gen-component-style';
 import { compileJs } from './compile-js';
 
@@ -23,8 +24,9 @@ interface ICompileOpts {
   watch?: boolean;
 }
 
-export default async function (options: ICompileOpts) {
+export default async function(options: ICompileOpts) {
   const { type, targetPath, watch } = options;
+  const components = getComponents();
 
   function getTSConfig() {
     const tsconfigPath = join(process.cwd(), 'tsconfig.json');
@@ -36,62 +38,69 @@ export default async function (options: ICompileOpts) {
 
   function createStream(src: string[]) {
     const tsConfig = getTSConfig();
-    const babelTransformRegexp = /\.(t|j)sx?$/;
 
     function isTsFile(path: string) {
       return /\.tsx?$/.test(path) && !path.endsWith('.d.ts');
     }
 
     function isTransform(path: string) {
-      return babelTransformRegexp.test(path) && !path.endsWith('.d.ts');
+      return /\.(t|j)sx?$/.test(path) && !path.endsWith('.d.ts');
     }
 
-    return (
-      vfs
-        .src(src, {
-          allowEmpty: true,
-          base: SRC_DIR,
-        })
-        .pipe(watch ? gulpPlumber() : through2.obj())
-        .pipe(gulpIf((f) => isTsFile(f.path), gulpTs(tsConfig)))
-        .pipe(gulpIf((f) => /\.less$/.test(f.path), gulpLess({})))
-        .pipe(gulpIf((f) => /\.scss$/.test(f.path), gulpSass({})))
-        .pipe(
-          gulpIf(
-            (f) => isTransform(f.path),
-            through2.obj((file, env, cb) => {
-              try {
-                file.contents = Buffer.from(compileJs({ file, type }));
-                // .jsx -> .js
-                file.path = file.path.replace(extname(file.path), '.js');
-                cb(null, file);
-              } catch (e) {
-                signale.error(`Compiled faild: ${file.path}`);
-                console.log(e);
-                cb(null);
-              }
-            })
-          )
-        )
-        .pipe(
+    function isComponent(path: string) {
+      return (
+        /\/index.(t|j)sx?$/.test(path) &&
+        components.some(o => path.indexOf(o) !== -1)
+      );
+    }
+
+    return vfs
+      .src(src, {
+        allowEmpty: true,
+        base: SRC_DIR
+      })
+      .pipe(watch ? gulpPlumber() : through2.obj())
+      .pipe(gulpIf(f => isTsFile(f.path), gulpTs(tsConfig)))
+      .pipe(gulpIf(f => /\.less$/.test(f.path), gulpLess({})))
+      .pipe(gulpIf(f => /\.scss$/.test(f.path), gulpSass({})))
+      .pipe(
+        gulpIf(
+          f => isTransform(f.path),
           through2.obj((file, env, cb) => {
-            genComponentStyle()
+            try {
+              file.contents = Buffer.from(compileJs({ file, type }));
+              // .jsx -> .js
+              file.path = file.path.replace(extname(file.path), '.js');
+              cb(null, file);
+            } catch (e) {
+              signale.error(`Compiled faild: ${file.path}`);
+              console.log(e);
+              cb(null);
+            }
+          })
+        )
+      )
+      .pipe(
+        gulpIf(
+          f => isComponent(slash(f.path)),
+          through2.obj((file, env, cb) => {
+            const paths = slash(file.path).split('/');
+            const target = paths[paths.length - 2];
+            genComponentStyle(target);
             cb(null, file);
           })
         )
-        .pipe(vfs.dest(targetPath))
-        // .pipe(through2.obj(genComponentStyle))
-    );
-    // .pipe(through2.obj(genComponentStyle));
+      )
+      .pipe(vfs.dest(targetPath));
   }
 
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     const patterns = [
       join(SRC_DIR, '**/*'),
       `!${join(SRC_DIR, '**/demo{,/**}')}`,
       `!${join(SRC_DIR, '**/__test__{,/**}')}`,
       `!${join(SRC_DIR, '**/*.md')}`,
-      `!${join(SRC_DIR, '**/*.+(test|e2e|spec).+(js|jsx|ts|tsx)')}`,
+      `!${join(SRC_DIR, '**/*.+(test|e2e|spec).+(js|jsx|ts|tsx)')}`
     ];
     createStream(patterns).on('end', () => {
       if (watch) {
@@ -104,7 +113,7 @@ export default async function (options: ICompileOpts) {
           )
         );
         const watcher = chokidar.watch(SRC_DIR, {
-          ignoreInitial: true,
+          ignoreInitial: true
         });
 
         const files = [];

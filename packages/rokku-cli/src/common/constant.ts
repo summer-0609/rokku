@@ -22,7 +22,6 @@ export const ROOT = findRootDir(CWD);
 export const ES_DIR = join(ROOT, 'es');
 export const LIB_DIR = join(ROOT, 'lib');
 export const DOCS_DIR = join(ROOT, 'docs');
-export const VETUR_DIR = join(ROOT, 'vetur');
 export const DOC_DIST_DIR = join(ROOT, 'docs-dist');
 export const ROKKU_CONFIG_FILE = join(ROOT, 'rokku.config.js');
 export const PACKAGE_JSON_FILE = join(ROOT, 'package.json');
