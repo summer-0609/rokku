@@ -9,7 +9,7 @@
     "es"
   ],
   "scripts": {
-    "dev:vant": "node src/lib/index.js dev",
+    "dev:vant": "node packages/rokku-cli/lib/index.js dev",
     "start": "node  node_modules/@rokku/cli/lib/index.js dev",
     "components:build": "node packages/rokku-cli/lib/index.js build --watch",
     "docs:build": "node packages/rokku-cli/lib/index.js build-site",
@@ -25,13 +25,12 @@
   "author": "xtmike008@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "@rokku/cli": "^1.0.3",
+    "@rokku/cli": "^1.0.4",
     "@rokku/fabric": "^1.0.2",
     "@types/classnames": "^2.2.11",
     "@types/enzyme": "^3.10.8",
     "@types/jest": "^26.0.15",
     "@types/react": "^16.9.55",
-    "@vant/cli": "^2.0.0",
     "glob": "^7.1.6",
     "typescript": "^4.0.5"
   },
