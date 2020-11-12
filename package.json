@@ -11,7 +11,7 @@
   "scripts": {
     "dev:vant": "vant-cli dev",
     "start": "node packages/rokku-cli/lib/index.js dev",
-    "components:build": "node packages/rokku-cli/lib/index.js build",
+    "components:build": "node packages/rokku-cli/lib/index.js build --watch",
     "docs:build": "node packages/rokku-cli/lib/index.js build-site",
     "docs:deploy": "gh-pages -d docs-dist",
     "deploy": "npm run docs:build && npm run docs:deploy",

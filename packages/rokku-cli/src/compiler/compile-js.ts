@@ -1,30 +1,49 @@
-import { transformAsync } from '@babel/core';
-import { readFileSync, removeSync, outputFileSync } from 'fs-extra';
-import chalk from 'chalk';
-import { replaceExt } from '../common';
+import { transform } from '@babel/core';
 import { consola } from '../common/logger';
 
-export function compileJs(filePath: string): Promise<undefined> {
-  return new Promise(async (resolve, reject) => {
-    const env = {
-      esmodule: 'es',
-      commonjs: 'cjs',
-    }[process.env.BABEL_MODULE];
+import chalk from 'chalk';
 
-    const code = readFileSync(filePath, 'utf-8');
+interface IBabelOpts {
+  file: any;
+  type: 'esm' | 'cjs';
+}
 
-    consola.log(`Transform to ${env} for ${chalk.yellow(filePath)}`);
+export function compileJs(options: IBabelOpts) {
+  const { file, type } = options;
 
-    transformAsync(code, { filename: filePath })
-      .then((result) => {
-        if (result) {
-          const jsFilePath = replaceExt(filePath, '.js');
-
-          removeSync(filePath);
-          outputFileSync(jsFilePath, result.code);
-          resolve();
-        }
-      })
-      .catch(reject);
-  });
+  consola.log(`Transform to ${type} for ${chalk.yellow(file.path)}`);
+  //@ts-ignore
+  return transform(file.contents, {
+    presets: [
+      [
+        require.resolve('@babel/preset-env'),
+        {
+          targets: { browsers: ['last 2 versions', 'IE 10'] },
+          modules: type === 'esm' ? false : 'auto',
+        },
+      ],
+      [require.resolve('@babel/preset-typescript')],
+      [require.resolve('@babel/preset-react')],
+    ],
+    plugins: [
+      ...(type === 'cjs'
+        ? [
+            [
+              require.resolve('@babel/plugin-transform-modules-commonjs'),
+              {
+                lazy: true,
+              },
+            ],
+          ]
+        : []),
+      [
+        require.resolve('@babel/plugin-transform-runtime'),
+        {
+          useESModules: type === 'esm',
+          version: require('@babel/runtime/package.json').version,
+        },
+      ],
+    ],
+    filename: file.path,
+  }).code;
 }
