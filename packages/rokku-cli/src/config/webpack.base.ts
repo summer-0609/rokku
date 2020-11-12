@@ -72,7 +72,7 @@ export const baseConfig: WebpackConfig = {
     rules: [
       {
         test: /\.(js|ts|jsx|tsx)$/,
-        exclude: /node_modules/,
+        exclude: /node_modules\/(?!(@rokku\/cli))/,
         use: [CACHE_LOADER, 'babel-loader'],
       },
       {

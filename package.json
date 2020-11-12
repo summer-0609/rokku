@@ -9,8 +9,7 @@
     "es"
   ],
   "scripts": {
-    "dev:vant": "node packages/rokku-cli/lib/index.js dev",
-    "start": "node  node_modules/@rokku/cli/lib/index.js dev",
+    "start": "rokku-cli dev",
     "components:build": "node packages/rokku-cli/lib/index.js build --watch",
     "docs:build": "node packages/rokku-cli/lib/index.js build-site",
     "docs:deploy": "gh-pages -d docs-dist",
@@ -25,7 +24,7 @@
   "author": "xtmike008@gmail.com",
   "license": "MIT",
   "devDependencies": {
-    "@rokku/cli": "^1.0.4",
+    "@rokku/cli": "^1.0.8",
     "@rokku/fabric": "^1.0.2",
     "@types/classnames": "^2.2.11",
     "@types/enzyme": "^3.10.8",

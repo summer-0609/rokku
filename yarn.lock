@@ -674,6 +674,13 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.10.4"
 
+"@babel/plugin-transform-object-assign@^7.12.1":
+  version "7.12.1"
+  resolved "https://registry.npm.taobao.org/@babel/plugin-transform-object-assign/download/@babel/plugin-transform-object-assign-7.12.1.tgz#9102b06625f60a5443cc292d32b565373665e1e4"
+  integrity sha1-kQKwZiX2ClRDzCktMrVlNzZl4eQ=
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.10.4"
+
 "@babel/plugin-transform-object-super@^7.12.1":
   version "7.12.1"
   resolved "https://registry.npmjs.org/@babel/plugin-transform-object-super/-/plugin-transform-object-super-7.12.1.tgz#4ea08696b8d2e65841d0c7706482b048bed1066e"
@@ -1231,14 +1238,15 @@
     "@nodelib/fs.scandir" "2.1.3"
     fastq "^1.6.0"
 
-"@rokku/cli@^1.0.4":
-  version "1.0.4"
-  resolved "https://registry.npmjs.org/@rokku/cli/-/cli-1.0.4.tgz#03be919885acd54839532ae2095f67e43de31add"
-  integrity sha512-nTu5VV0mGqylL1Ovn56BKQq7PzZgKpCR2hEgiI1xcdH7Vt+SWUis501PflI210S8Pvy/XBLEMREVxSrWM0H4Xg==
+"@rokku/cli@^1.0.8":
+  version "1.0.8"
+  resolved "https://registry.npm.taobao.org/@rokku/cli/download/@rokku/cli-1.0.8.tgz?cache=0&sync_timestamp=1605189959711&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40rokku%2Fcli%2Fdownload%2F%40rokku%2Fcli-1.0.8.tgz#16a8609dd3bf59193083df3b99857af3ee7f4c50"
+  integrity sha1-FqhgndO/WRkwg987mYV68+5/TFA=
   dependencies:
     "@babel/core" "^7.12.3"
     "@babel/plugin-proposal-decorators" "^7.12.1"
     "@babel/plugin-transform-modules-commonjs" "^7.12.1"
+    "@babel/plugin-transform-object-assign" "^7.12.1"
     "@babel/plugin-transform-runtime" "^7.12.1"
     "@babel/preset-env" "^7.11.5"
     "@babel/preset-react" "^7.12.5"
