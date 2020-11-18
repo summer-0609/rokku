@@ -6,7 +6,7 @@ import mountTest from '../../../tests/shared/mountTest';
 
 describe('Button', () => {
   mountTest(Button);
-  mountTest(() => <Button type="danger" />);
+  mountTest(() => <Button type="primary" />);
 
   it('renders correctly', () => {
     expect(<Button />).toMatchRenderedSnapshot();

@@ -1,10 +1,6 @@
 import { join } from 'path';
 import { existsSync, readdirSync, pathExistsSync } from 'fs-extra';
-import {
-  SRC_DIR,
-  SITE_MOBILE_COMPONENTS,
-  SITE_MODILE_SHARED_FILE,
-} from '../common/constant';
+import { SRC_DIR, SITE_MODILE_SHARED_FILE } from '../common/constant';
 import {
   pascalize,
   removeExt,

@@ -1,5 +1,5 @@
-import { decamelize } from '../common';
 import { config, documents } from 'site-desktop-shared';
+import { decamelize } from '../common';
 import { getLang, setDefaultLang } from '../common/locales';
 
 const { locales, defaultLang } = config.site;

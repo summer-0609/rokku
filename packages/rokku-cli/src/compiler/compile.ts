@@ -17,7 +17,6 @@ import gulpIf from 'gulp-if';
 import chokidar from 'chokidar';
 import gulpPlumber from 'gulp-plumber';
 import gulpTs from 'gulp-typescript';
-
 interface ICompileOpts {
   type: 'esm' | 'cjs';
   targetPath: string;

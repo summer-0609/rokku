@@ -1,7 +1,5 @@
-const loaderUtils = require('loader-utils');
 const MarkdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
-// const frontMatter = require('front-matter');
 const { slugify } = require('transliteration');
 const cardWrapper = require('./card-wrapper');
 const highlight = require('./highlight');
@@ -25,8 +23,7 @@ const parser = new MarkdownIt({
   level: 2,
   slugify,
 });
-// .use(markdownItJsx);
 
-module.exports = function (source) {
+module.exports = (source) => {
   return wrapper(parser.render(source));
 };

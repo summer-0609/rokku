@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-// import Icon from '../icon';
+import Icon from '../icon';
 import { ButtonPropsType } from './PropsType';
 import { createNamespace } from '../utils';
 import { BORDER_SURROUND, WHITE } from '../utils/constant';
@@ -73,22 +73,18 @@ const Button: React.FC<ButtonProps> = (props) => {
   function Content() {
     const content = [];
 
-    // if (loading) {
-    //   content.push(
-    //     <Loading
-    //       class={bem('loading')}
-    //       size={props.loadingSize}
-    //       type={props.loadingType}
-    //       color={type === 'default' ? undefined : ''}
-    //     />,
-    //   );
-    // } else if (icon) {
-    //   content.push(<Icon name={icon} className={classnames(bem('icon'))} />);
-    // }
-
-    // if (icon) {
-    //   content.push(<Icon key="icon" name={icon} className={classnames(bem('icon'))} />);
-    // }
+    if (loading) {
+      // content.push(
+      //   <Loading
+      //     class={bem('loading')}
+      //     size={props.loadingSize}
+      //     type={props.loadingType}
+      //     color={type === 'default' ? undefined : ''}
+      //   />,
+      // );
+    } else if (icon) {
+      content.push(<Icon name={icon} key={0} className={classnames(bem('icon'))} />);
+    }
 
     let text;
     if (loading) {

@@ -1,4 +1,3 @@
-/* eslint-disable global-require */
 import sass from 'sass';
 import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
 import { join, resolve } from 'path';
@@ -73,7 +72,15 @@ export const baseConfig: WebpackConfig = {
       {
         test: /\.(js|ts|jsx|tsx)$/,
         exclude: /node_modules\/(?!(@rokku\/cli))/,
-        use: [CACHE_LOADER, 'babel-loader'],
+        use: [
+          CACHE_LOADER,
+          {
+            loader: 'babel-loader',
+            query: {
+              compact: false,
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,

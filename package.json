@@ -10,16 +10,15 @@
   ],
   "scripts": {
     "start": "rokku-cli dev",
-    "components:build": "node packages/rokku-cli/lib/index.js build",
-    "docs:build": "node packages/rokku-cli/lib/index.js build-site",
+    "build": "rokku-cli build",
+    "docs:build": "rokku-cli build-site",
     "docs:deploy": "gh-pages -d docs-dist",
     "deploy": "npm run docs:build && npm run docs:deploy",
-    "test": "node packages/rokku-cli/lib/index.js test --coverage",
+    "test:cli": "node ./packages/rokku-cli/lib/index.js test --coverage",
+    "test": "rokku-cli test --coverage",
     "lint": "vant-cli lint",
-    "build": "rokku-cli build",
     "release": "vant-cli release",
-    "test:coverage": "open test/coverage/index.html",
-    "build-site": "vant-cli build-site"
+    "test:coverage": "open tests/coverage/index.html"
   },
   "author": "xtmike008@gmail.com",
   "license": "MIT",
@@ -30,7 +29,11 @@
     "@types/enzyme": "^3.10.8",
     "@types/jest": "^26.0.15",
     "@types/react": "^16.9.55",
+    "gh-pages": "^3.1.0",
     "glob": "^7.1.6",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "react-router-dom": "^5.2.0",
     "typescript": "^4.0.5"
   },
   "browserslist": [
@@ -38,9 +41,7 @@
     "iOS >= 8"
   ],
   "dependencies": {
-    "classnames": "^2.2.6",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
-    "react-router-dom": "^5.2.0"
+    "@rokku/icons": "^1.0.0",
+    "classnames": "^2.2.6"
   }
 }
