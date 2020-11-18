@@ -1,9 +1,11 @@
-import { existsSync, statSync } from 'fs';
-import { join, extname } from 'path';
+import { existsSync, statSync, writeFileSync } from 'fs';
+import { join } from 'path';
 import { SRC_DIR, ROOT } from '../common/constant';
-import { getComponents } from '../common';
+import { getComponents, replaceExt } from '../common';
 import { genComponentStyle } from './gen-component-style';
 import { compileJs } from './compile-js';
+import { compileLess } from './compile-less';
+import { compileCss } from './compile-css';
 
 import vfs from 'vinyl-fs';
 import through2 from 'through2';
@@ -12,9 +14,7 @@ import chalk from 'chalk';
 import lodash from 'lodash';
 import slash from 'slash2';
 import gulpIf from 'gulp-if';
-import gulpLess from 'gulp-less';
 import chokidar from 'chokidar';
-import gulpSass from 'gulp-sass';
 import gulpPlumber from 'gulp-plumber';
 import gulpTs from 'gulp-typescript';
 
@@ -24,7 +24,7 @@ interface ICompileOpts {
   watch?: boolean;
 }
 
-export default async function(options: ICompileOpts) {
+export default async function (options: ICompileOpts) {
   const { type, targetPath, watch } = options;
   const components = getComponents();
 
@@ -50,27 +50,36 @@ export default async function(options: ICompileOpts) {
     function isComponent(path: string) {
       return (
         /\/index.(t|j)sx?$/.test(path) &&
-        components.some(o => path.indexOf(o) !== -1)
+        components.some((o) => path.indexOf(o) !== -1)
       );
     }
 
     return vfs
       .src(src, {
         allowEmpty: true,
-        base: SRC_DIR
+        base: SRC_DIR,
       })
       .pipe(watch ? gulpPlumber() : through2.obj())
-      .pipe(gulpIf(f => isTsFile(f.path), gulpTs(tsConfig)))
-      .pipe(gulpIf(f => /\.less$/.test(f.path), gulpLess({})))
-      .pipe(gulpIf(f => /\.scss$/.test(f.path), gulpSass({})))
+      .pipe(gulpIf((f) => isTsFile(f.path), gulpTs(tsConfig)))
       .pipe(
         gulpIf(
-          f => isTransform(f.path),
+          (f) => /\.less$/.test(f.path),
+          through2.obj(async (file, env, cb) => {
+            cb(null, file);
+            const source = await compileLess(file.path);
+            const css = await compileCss(source);
+            writeFileSync(replaceExt(file.path, '.css'), css);
+          })
+        )
+      )
+      .pipe(
+        gulpIf(
+          (f) => isTransform(f.path),
           through2.obj((file, env, cb) => {
             try {
               file.contents = Buffer.from(compileJs({ file, type }));
               // .jsx -> .js
-              file.path = file.path.replace(extname(file.path), '.js');
+              // file.path = file.path.replace(extname(file.path), '.js');
               cb(null, file);
             } catch (e) {
               signale.error(`Compiled faild: ${file.path}`);
@@ -82,7 +91,7 @@ export default async function(options: ICompileOpts) {
       )
       .pipe(
         gulpIf(
-          f => isComponent(slash(f.path)),
+          (f) => isComponent(slash(f.path)),
           through2.obj((file, env, cb) => {
             const paths = slash(file.path).split('/');
             const target = paths[paths.length - 2];
@@ -94,13 +103,13 @@ export default async function(options: ICompileOpts) {
       .pipe(vfs.dest(targetPath));
   }
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const patterns = [
       join(SRC_DIR, '**/*'),
       `!${join(SRC_DIR, '**/demo{,/**}')}`,
       `!${join(SRC_DIR, '**/__test__{,/**}')}`,
       `!${join(SRC_DIR, '**/*.md')}`,
-      `!${join(SRC_DIR, '**/*.+(test|e2e|spec).+(js|jsx|ts|tsx)')}`
+      `!${join(SRC_DIR, '**/*.+(test|e2e|spec).+(js|jsx|ts|tsx)')}`,
     ];
     createStream(patterns).on('end', () => {
       if (watch) {
@@ -113,7 +122,7 @@ export default async function(options: ICompileOpts) {
           )
         );
         const watcher = chokidar.watch(SRC_DIR, {
-          ignoreInitial: true
+          ignoreInitial: true,
         });
 
         const files = [];
