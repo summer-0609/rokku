@@ -29,7 +29,8 @@ import { Button } from '@rokku/design';
 通过 `plain` 属性将按钮设置为朴素按钮，朴素按钮的文字为按钮颜色，背景为白色。
 
 ```html
-<Button plain type="primary">朴素按钮</Button> <Button plain type="primary">朴素按钮</Button>
+<Button plain type="primary">朴素按钮</Button>
+<Button plain type="primary">朴素按钮</Button>
 ```
 
 ### 细边框
