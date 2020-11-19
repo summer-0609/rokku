@@ -59,21 +59,19 @@ import { Flex } from '@rokku/design';
 
 ## API
 
-- `style` \| `className` 为通用属性，可以根据自我需求进行自由样式定制
-
 ### Flex
 
 | 成员 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| direction | 项目定位方向 | `row` \| `row-reverse` \| `column` \| `column-reverse` | `row` |
-| wrap | 子元素的换行方式 | `nowrap` \| `wrap` \| `wrap-reverse` | `nowrap` |
-| gutter | 列元素之间的间距。可以使用数组形式同时设置 `[水平间距, 垂直间距]`。 | `number` \| `string` \| `array` | `0` |
-| align | 垂直对齐方式 | `top` \| `middle` \| `bottom` | `top` |
-| justify | 水平排列方式 | `start` \| `end` \| `center` \| `space-around` \| `space-between` | `start` |
+| direction | 项目定位方向，可选值为 `row` `row-reverse` `column` `column-reverse` | _string_ | `row` |
+| wrap | 子元素的换行方式，可选值为 `nowrap` `wrap` `wrap-reverse` | _string_ | `nowrap` |
+| gutter | 列元素之间的间距。可以使用数组形式同时设置 `[水平间距, 垂直间距]` | _number \| array_ |`0` |
+| align | 垂直对齐方式，可选值为 `top` `middle` `bottom` | _string_ | `top` |
+| justify | 水平排列方式，可选值为 `start` `end` `center` `space-around` `space-between` | _string_ | `start` |
 
 ### Flex.Item
 
 | 成员 | 说明                                        | 类型                 | 默认值 |
 | ---- | ------------------------------------------- | -------------------- | ------ |
-| flex | flex 布局属性                               | `string` \| `number` | `-`    |
-| span | 栅格占位格数，为 0 时相当于 `display: none` | `number`             | `-`    |
+| flex | flex 布局属性                               | _string \| number_ | `-`    |
+| span | 栅格占位格数，为 0 时相当于 `display: none` | _number_             | `-`    |

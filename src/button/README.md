@@ -46,7 +46,8 @@ import { Button } from '@rokku/design';
 通过 `disabled` 属性来禁用按钮，禁用状态下按钮不可点击。
 
 ```html
-<Button disabled type="primary">禁用状态</Button> <Button disabled type="primary">禁用状态</Button>
+<Button disabled type="primary">禁用状态</Button>
+<Button disabled type="primary">禁用状态</Button>
 ```
 
 ### 加载状态
@@ -64,7 +65,7 @@ import { Button } from '@rokku/design';
 通过 `square` 设置方形按钮，通过 `round` 设置圆形按钮。
 
 ```html
-<Button type="primary"square>方形按钮</Button>
+<Button type="primary" square>方形按钮</Button>
 <Button type="primary" round>圆形按钮</Button>
 ```
 

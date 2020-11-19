@@ -27,7 +27,7 @@ module.exports = {
           indexName: 'vant',
           placeholder: '搜索文档...',
           transformData(hits) {
-            if (location.hostname === 'vant-contrib.gitee.io') {
+            if (window.location.hostname === 'vant-contrib.gitee.io') {
               hits.forEach((hit) => {
                 if (hit.url) {
                   hit.url = hit.url.replace('youzan.github.io', 'vant-contrib.gitee.io');
@@ -47,6 +47,10 @@ module.exports = {
               {
                 path: 'quickstart',
                 title: '快速上手',
+              },
+              {
+                path: 'theme',
+                title: '定制主题',
               },
             ],
           },
@@ -101,6 +105,10 @@ module.exports = {
               {
                 path: 'quickstart',
                 title: 'Quickstart',
+              },
+              {
+                path: 'theme',
+                title: 'Custom Theme',
               },
             ],
           },

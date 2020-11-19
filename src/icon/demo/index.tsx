@@ -3,7 +3,7 @@ import { Icon } from 'rokku';
 import { components } from 'site-mobile-demo';
 // import './style.less';
 
-export default () => {
+export default (): React.ReactNode => {
   const { DemoBlock, DemoSection } = components;
   return (
     <DemoSection>

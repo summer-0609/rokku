@@ -17,5 +17,5 @@
       "rokku/es/*": ["src/*"]
     }
   },
-  "include": ["src/**/*", ".eslintrc.js"]
+  "exclude": ["node_modules", "lib", "es"]
 }
