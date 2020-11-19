@@ -51,6 +51,15 @@ module.exports = {
             ],
           },
           {
+            title: '布局组件',
+            items: [
+              {
+                path: 'flex',
+                title: 'Flex 布局',
+              },
+            ],
+          },
+          {
             title: '基础组件',
             items: [
               {
@@ -60,15 +69,6 @@ module.exports = {
               {
                 path: 'icon',
                 title: 'Icon 图标',
-              },
-            ],
-          },
-          {
-            title: '布局组件',
-            items: [
-              {
-                path: 'flex',
-                title: 'Flex 布局',
               },
             ],
           },

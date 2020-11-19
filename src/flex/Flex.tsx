@@ -1,8 +1,8 @@
-import React, { useMemo } from "react";
-import classnames from "classnames";
-import FlexContext from "./FlexContext";
-import { FlexPropsType as BasePropsType } from "./PropsType";
-import { createNamespace } from "../utils";
+import React, { useMemo } from 'react';
+import classnames from 'classnames';
+import FlexContext from './FlexContext';
+import { FlexPropsType as BasePropsType } from './PropsType';
+import { createNamespace } from '../utils';
 
 export interface FlexProps extends BasePropsType {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -10,7 +10,7 @@ export interface FlexProps extends BasePropsType {
   style?: React.CSSProperties;
 }
 
-const [bem] = createNamespace("flexbox");
+const [bem] = createNamespace('flexbox');
 
 const Flex: React.FC<FlexProps> & { Item?: any } = (props) => {
   const {
@@ -27,7 +27,7 @@ const Flex: React.FC<FlexProps> & { Item?: any } = (props) => {
 
   const getGutter: [number, number] = useMemo(
     () => (Array.isArray(gutter) ? gutter : [gutter, 0]),
-    [gutter]
+    [gutter],
   );
 
   const rowStyle = {

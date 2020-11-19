@@ -51,22 +51,22 @@ export default async (options: ICompileOpts) => {
     function isComponent(path: string) {
       return (
         /\/index.(t|j)sx?$/.test(path) &&
-        components.some(o => path.indexOf(o) !== -1)
+        components.some((o) => path.indexOf(o) !== -1)
       );
     }
 
     return vfs
       .src(src, {
         allowEmpty: true,
-        base: SRC_DIR
+        base: SRC_DIR,
       })
       .pipe(watch ? gulpPlumber() : through2.obj())
-      .pipe(gulpIf(f => isTsFile(f.path), gulpTs(tsConfig)))
-      .pipe(gulpIf(f => /\.less$/.test(f.path), gulpLess({})))
-      .pipe(gulpIf(f => /\.scss$/.test(f.path), gulpSass({})))
+      .pipe(gulpIf((f) => isTsFile(f.path), gulpTs(tsConfig)))
+      .pipe(gulpIf((f) => /\.less$/.test(f.path), gulpLess({})))
+      .pipe(gulpIf((f) => /\.scss$/.test(f.path), gulpSass({})))
       .pipe(
         gulpIf(
-          f => isTransform(f.path),
+          (f) => isTransform(f.path),
           through2.obj((file, env, cb) => {
             try {
               file.contents = Buffer.from(compileJs({ file, type }));
@@ -83,7 +83,7 @@ export default async (options: ICompileOpts) => {
       )
       .pipe(
         gulpIf(
-          f => isComponent(slash(f.path)),
+          (f) => isComponent(slash(f.path)),
           through2.obj((file, env, cb) => {
             const paths = slash(file.path).split('/');
             const target = paths[paths.length - 2];
@@ -95,13 +95,13 @@ export default async (options: ICompileOpts) => {
       .pipe(vfs.dest(targetPath));
   }
 
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const patterns = [
       join(SRC_DIR, '**/*'),
       `!${join(SRC_DIR, '**/demo{,/**}')}`,
       `!${join(SRC_DIR, '**/__test__{,/**}')}`,
       `!${join(SRC_DIR, '**/*.md')}`,
-      `!${join(SRC_DIR, '**/*.+(test|e2e|spec).+(js|jsx|ts|tsx)')}`
+      `!${join(SRC_DIR, '**/*.+(test|e2e|spec).+(js|jsx|ts|tsx)')}`,
     ];
     createStream(patterns).on('end', () => {
       if (watch) {
@@ -114,7 +114,7 @@ export default async (options: ICompileOpts) => {
           )
         );
         const watcher = chokidar.watch(SRC_DIR, {
-          ignoreInitial: true
+          ignoreInitial: true,
         });
 
         const files = [];
@@ -147,4 +147,4 @@ export default async (options: ICompileOpts) => {
       resolve(1);
     });
   });
-}
+};

@@ -24,6 +24,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     loading,
     hairline,
     className,
+    iconPrefix,
     loadingText,
     // iconPosition,
   } = props;
@@ -83,7 +84,9 @@ const Button: React.FC<ButtonProps> = (props) => {
       //   />,
       // );
     } else if (icon) {
-      content.push(<Icon name={icon} key={0} className={classnames(bem('icon'))} />);
+      content.push(
+        <Icon name={icon} key={0} className={classnames(bem('icon'))} classPrefix={iconPrefix} />,
+      );
     }
 
     let text;

@@ -16,6 +16,7 @@ export interface ButtonPropsType {
   hairline?: boolean;
   disabled?: boolean;
   nativeType?: string;
+  iconPrefix?: string;
   loadingSize?: string;
   // loadingType?: LoadingType;
   loadingText?: string;

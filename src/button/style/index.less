@@ -1,6 +1,6 @@
 @import '../../styles/themes/default.less';
 
-.rk-button {
+.@{rk-prefix}-button {
   position: relative;
   display: inline-block;
   box-sizing: border-box;
@@ -74,19 +74,19 @@
   &--plain {
     background-color: @button-plain-background-color;
 
-    &.rk-button--primary {
+    &.@{rk-prefix}-button--primary {
       color: @button-primary-background-color;
     }
 
-    &.rk-button--info {
+    &.@{rk-prefix}-button--info {
       color: @button-info-background-color;
     }
 
-    &.rk-button--danger {
+    &.@{rk-prefix}-button--danger {
       color: @button-danger-background-color;
     }
 
-    &.rk-button--warning {
+    &.@{rk-prefix}-button--warning {
       color: @button-warning-background-color;
     }
   }
@@ -122,7 +122,7 @@
     font-size: @button-mini-font-size;
     line-height: @button-mini-line-height;
 
-    & + .rk-button--mini {
+    & + .@{rk-prefix}-button--mini {
       margin-left: 5px;
     }
   }
@@ -166,11 +166,11 @@
       border-radius: @button-border-radius * 2;
     }
 
-    &.rk-button--round::after {
+    &.@{rk-prefix}-button--round::after {
       border-radius: @button-round-border-radius;
     }
 
-    &.rk-button--square::after {
+    &.@{rk-prefix}-button--square::after {
       border-radius: 0;
     }
   }

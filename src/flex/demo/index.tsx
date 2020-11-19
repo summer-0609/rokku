@@ -1,33 +1,43 @@
 import React from 'react';
 import { Flex } from 'rokku';
+import { components } from 'site-mobile-demo';
 import './style.less';
 
 export default () => {
+  const { DemoBlock, DemoSection } = components;
   return (
-    <>
-      <div className="code-box-demo">
+    <DemoSection>
+      <DemoBlock title="基础用法">
         <Flex>
-          <Flex.Item span={24}>col</Flex.Item>
+          <Flex.Item span={12}>span: 12</Flex.Item>
+          <Flex.Item span={12}>span: 12</Flex.Item>
         </Flex>
 
         <Flex>
-          <Flex.Item span={12}>col-12</Flex.Item>
-          <Flex.Item span={12}>col-12</Flex.Item>
+          <Flex.Item span={8}>span: 8</Flex.Item>
+          <Flex.Item span={8}>span: 8</Flex.Item>
+          <Flex.Item span={8}>span: 8</Flex.Item>
         </Flex>
-
-        <Flex>
-          <Flex.Item span={8}>col-8</Flex.Item>
-          <Flex.Item span={8}>col-8</Flex.Item>
-          <Flex.Item span={8}>col-8</Flex.Item>
+      </DemoBlock>
+      <DemoBlock title="区域间隔">
+        <Flex gutter={16}>
+          <Flex.Item span={8}>span: 8</Flex.Item>
+          <Flex.Item span={8}>span: 8</Flex.Item>
+          <Flex.Item span={8}>span: 8</Flex.Item>
         </Flex>
-
-        <Flex>
-          <Flex.Item span={6}>col-6</Flex.Item>
-          <Flex.Item span={6}>col-6</Flex.Item>
-          <Flex.Item span={6}>col-6</Flex.Item>
-          <Flex.Item span={6}>col-6</Flex.Item>
+      </DemoBlock>
+      <DemoBlock title="方向">
+        <Flex direction="row">
+          <Flex.Item span={8}>span: 8-1</Flex.Item>
+          <Flex.Item span={8}>span: 8-2</Flex.Item>
+          <Flex.Item span={8}>span: 8-3</Flex.Item>
         </Flex>
-      </div>
-    </>
+        <Flex direction="row-reverse">
+          <Flex.Item span={8}>span: 8-1</Flex.Item>
+          <Flex.Item span={8}>span: 8-2</Flex.Item>
+          <Flex.Item span={8}>span: 8-3</Flex.Item>
+        </Flex>
+      </DemoBlock>
+    </DemoSection>
   );
 };
