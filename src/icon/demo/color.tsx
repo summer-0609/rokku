@@ -6,7 +6,7 @@
 import React from 'react';
 import { Icon } from 'rokku';
 
-export default () => (
+export default (): React.ReactNode => (
   <>
     <Icon name="location-o" size={32} color="#2879FF" />
     <Icon name="chat-o" size={32} color="#07c160" />

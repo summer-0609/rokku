@@ -6,7 +6,7 @@
 import React from 'react';
 import { Icon } from 'rokku';
 
-export default () => (
+export default (): React.ReactNode => (
   <>
     <Icon name="location-o" size={32} />
     <Icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" size={32} />

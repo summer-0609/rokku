@@ -11,12 +11,11 @@
     "pretty": true,
     "baseUrl": "./",
     "resolveJsonModule": true,
-    "strict": true,
     "allowSyntheticDefaultImports": true,
     "paths": {
       "rokku": ["src/index.tsx"],
       "rokku/es/*": ["src/*"]
     }
   },
-  "exclude": ["node_modules", "lib", "es"]
+  "include": ["src/**/*", ".eslintrc.js"]
 }
