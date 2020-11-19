@@ -31,7 +31,7 @@ function getDeps(component: string): string[] {
 }
 
 function getPath(component: string, ext = '.css') {
-  return join(ES_DIR, `${component}/index${ext}`);
+  return join(ES_DIR, `${component}/style/index${ext}`);
 }
 
 function getRelativePath(component: string, style: string, ext: string) {
@@ -70,7 +70,6 @@ function genEntry(params: {
       content += template(relative(outputDir, compiledBaseFile));
       content += '\n';
     }
-
     content += depsPath.map(template).join('\n');
     content = content.replace(new RegExp(`\\${sep}`, 'g'), '/');
     outputFileSync(outputFile, content);

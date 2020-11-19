@@ -73,6 +73,7 @@ export const baseConfig: WebpackConfig = {
         test: /\.(js|ts|jsx|tsx)$/,
         exclude: /node_modules\/(?!(@rokku\/cli))/,
         use: [
+          CACHE_LOADER,
           {
             loader: 'babel-loader',
             query: {

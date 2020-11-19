@@ -14,7 +14,6 @@
     "docs:build": "rokku-cli build-site",
     "docs:deploy": "gh-pages -d docs-dist",
     "deploy": "npm run docs:build && npm run docs:deploy",
-    "test:cli": "node ./packages/rokku-cli/lib/index.js test --coverage",
     "test": "rokku-cli test --coverage",
     "lint": "vant-cli lint",
     "release": "vant-cli release",
@@ -22,8 +21,20 @@
   },
   "author": "xtmike008@gmail.com",
   "license": "MIT",
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "rokku-cli commit-lint"
+    }
+  },
+  "lint-staged": {
+    "*.md": "prettier --write",
+    "*.{ts,tsx,js,vue,less}": "prettier --write",
+    "*.{ts,tsx,js,vue}": "eslint --fix",
+    "*.{vue,css,less}": "stylelint --fix"
+  },
   "devDependencies": {
-    "@rokku/cli": "^1.0.10",
+    "@rokku/cli": "^1.0.11",
     "@rokku/fabric": "^1.0.2",
     "@types/classnames": "^2.2.11",
     "@types/enzyme": "^3.10.8",
