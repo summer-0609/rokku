@@ -1,3 +1,5 @@
-export { default as Button } from './button/index';
-export { default as Flex } from './flex/index';
-export { default as Icon } from './icon/index';
+export { default as Button } from './button';
+export { default as Flex } from './flex';
+export { default as Icon } from './icon';
+export { default as Popup } from './popup';
+export { default as OverLay } from './overlay';

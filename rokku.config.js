@@ -74,6 +74,19 @@ module.exports = {
                 path: 'icon',
                 title: 'Icon 图标',
               },
+              {
+                path: 'popup',
+                title: 'Popup 弹出层',
+              },
+            ],
+          },
+          {
+            title: '反馈组件',
+            items: [
+              {
+                path: 'overlay',
+                title: 'Overlay 遮罩层',
+              },
             ],
           },
         ],

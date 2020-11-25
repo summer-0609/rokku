@@ -19,6 +19,14 @@
 @gray-light: #e5e5e5;
 @gray-darker: #7d7e80;
 @gray-dark: #969799;
+@gray-1: #f7f8fa;
+@gray-2: #f2f3f5;
+@gray-3: #ebedf0;
+@gray-4: #dcdee0;
+@gray-5: #c8c9cc;
+@gray-6: #969799;
+@gray-7: #646566;
+@gray-8: #323233;
 
 // Component Colors
 @text-color: #323233;
@@ -42,13 +50,15 @@
 @font-size-md: 14px;
 @font-size-lg: 16px;
 @font-weight-bold: 500;
-@base-font-family: -apple-system, BlinkMacSystemFont, "PingFangSC-Regular",
-  "PingFang SC", "Helvetica Neue", Helvetica, Segoe UI, Arial, Roboto,
-  "Hiragino Sans GB", "Microsoft Yahei", sans-serif;
+@base-font-family: -apple-system, BlinkMacSystemFont, 'PingFangSC-Regular', 'PingFang SC',
+  'Helvetica Neue', Helvetica, Segoe UI, Arial, Roboto, 'Hiragino Sans GB', 'Microsoft Yahei',
+  sans-serif;
 
 // Animation
 @animation-duration-base: 0.3s;
 @animation-duration-fast: 0.2s;
+@animation-timing-function-enter: ease-out;
+@animation-timing-function-leave: ease-in;
 
 // Border
 @border-color: #ebedf0;
@@ -414,6 +424,7 @@
 @number-keyboard-cursor-animation-duration: 1s;
 
 // Overlay
+@overlay-z-index: 1;
 @overlay-background-color: rgba(0, 0, 0, 0.7);
 
 // Pagination
@@ -458,10 +469,11 @@
 
 // Popup
 @popup-background-color: @white;
-@popup-transition: transform @animation-duration-base ease-out;
-@popup-round-border-radius: 20px;
-@popup-close-icon-size: 18px;
-@popup-close-icon-color: @gray-dark;
+@popup-transition: transform @animation-duration-base;
+@popup-round-border-radius: 16px;
+@popup-close-icon-size: 22px;
+@popup-close-icon-color: @gray-5;
+@popup-close-icon-active-color: @gray-6;
 @popup-close-icon-margin: 16px;
 @popup-close-icon-z-index: 1;
 
@@ -601,8 +613,8 @@
 @switch-node-size: 1em;
 @switch-node-z-index: 1;
 @switch-node-background-color: @white;
-@switch-node-box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05),
-  0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 3px 3px 0 rgba(0, 0, 0, 0.05);
+@switch-node-box-shadow: 0 3px 1px 0 rgba(0, 0, 0, 0.05), 0 2px 2px 0 rgba(0, 0, 0, 0.1),
+  0 3px 3px 0 rgba(0, 0, 0, 0.05);
 @switch-background-color: @white;
 @switch-on-background-color: @blue;
 @switch-transition-duration: @animation-duration-base;
