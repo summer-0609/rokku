@@ -18,7 +18,7 @@
       left: 50%;
       transform: translate3d(-50%, -50%, 0);
 
-      &.van-popup--round {
+      &.rk-popup--round {
         border-radius: @popup-round-border-radius;
       }
     }
@@ -28,7 +28,7 @@
       left: 0;
       width: 100%;
 
-      &.van-popup--round {
+      &.rk-popup--round {
         border-radius: 0 0 @popup-round-border-radius @popup-round-border-radius;
       }
     }
@@ -38,7 +38,7 @@
       right: 0;
       transform: translate3d(0, -50%, 0);
 
-      &.van-popup--round {
+      &.rk-popup--round {
         border-radius: @popup-round-border-radius 0 0 @popup-round-border-radius;
       }
     }
@@ -48,7 +48,7 @@
       left: 0;
       width: 100%;
 
-      &.van-popup--round {
+      &.rk-popup--round {
         border-radius: @popup-round-border-radius @popup-round-border-radius 0 0;
       }
     }
@@ -58,7 +58,7 @@
       left: 0;
       transform: translate3d(0, -50%, 0);
 
-      &.van-popup--round {
+      &.rk-popup--round {
         border-radius: 0 @popup-round-border-radius @popup-round-border-radius 0;
       }
     }
@@ -68,38 +68,40 @@
       padding-bottom: env(safe-area-inset-bottom);
     }
 
+    &-slide-top-enter,
+    &-slide-top-exit-active {
+      transform: translate3d(0, -100%, 0);
+    }
+
+    &-slide-right-enter,
+    &-slide-right-exit-active {
+      transform: translate3d(100%, -50%, 0);
+    }
+
+    &-slide-bottom-enter,
+    &-slide-bottom-exit-active {
+      transform: translate3d(0, 100%, 0);
+    }
+
+    &-slide-left-enter,
+    &-slide-left-exit-active {
+      transform: translate3d(-100%, -50%, 0);
+    }
+
     &-slide-top-enter-active,
     &-slide-left-enter-active,
     &-slide-right-enter-active,
     &-slide-bottom-enter-active {
+      transform: translate3d(0, 0, 0);
       transition-timing-function: @animation-timing-function-enter;
     }
 
-    &-slide-top-leave-active,
-    &-slide-left-leave-active,
-    &-slide-right-leave-active,
-    &-slide-bottom-leave-active {
+    &-slide-top-exit-active,
+    &-slide-left-exit-active,
+    &-slide-right-exit-active,
+    &-slide-bottom-exit-active {
+      transition: @popup-transition;
       transition-timing-function: @animation-timing-function-leave;
-    }
-
-    &-slide-top-enter-from,
-    &-slide-top-leave-active {
-      transform: translate3d(0, -100%, 0);
-    }
-
-    &-slide-right-enter-from,
-    &-slide-right-leave-active {
-      transform: translate3d(100%, -50%, 0);
-    }
-
-    &-slide-bottom-enter-from,
-    &-slide-bottom-leave-active {
-      transform: translate3d(0, 100%, 0);
-    }
-
-    &-slide-left-enter-from,
-    &-slide-left-leave-active {
-      transform: translate3d(-100%, -50%, 0);
     }
 
     &__close-icon {

@@ -3,7 +3,7 @@ import { BaseTypeProps } from '../utils';
 
 export interface OverlayProps extends BaseTypeProps {
   show?: boolean;
-  zIndex?: boolean;
+  zIndex?: number;
   customStyle?: CSSProperties;
   duration?: number;
   lockScroll?: boolean;

@@ -46,6 +46,7 @@ module.exports = {
     jest: true,
     jasmine: true,
   },
+  // ignorePatterns: ['/.*'],
   rules: {
     'react/jsx-wrap-multilines': 0,
     'react/prop-types': 0,
@@ -54,6 +55,8 @@ module.exports = {
     'react/jsx-one-expression-per-line': 0,
     'generator-star-spacing': 0,
     'function-paren-newline': 0,
+    'import/no-named-as-default-member': 0,
+    'import/no-named-as-default': 0,
     'import/no-unresolved': [
       2,
       {

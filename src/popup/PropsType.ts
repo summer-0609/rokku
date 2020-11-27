@@ -1,6 +1,7 @@
 import { CSSProperties } from 'react';
 import { BaseTypeProps } from '../utils';
 
+type Position = 'center' | 'top' | 'bottom' | 'right' | 'left';
 export interface PopupProps extends BaseTypeProps {
   round?: boolean;
   visible?: boolean;
@@ -8,9 +9,14 @@ export interface PopupProps extends BaseTypeProps {
   closeable?: boolean;
   overlayClass?: string;
   overlayStyle?: CSSProperties;
+  destroyOnClose?: boolean;
+  forceRender?: boolean;
   duration?: number;
   closeIcon?: string;
-  onClick?: (e: Event) => void;
+  position?: Position;
+  transition?: string;
+  safeAreaInsetBottom?: boolean;
+  onClick?: () => void;
   onClickOverlay?: () => void;
   overlayClosable?: boolean;
   onClose?: () => void;
