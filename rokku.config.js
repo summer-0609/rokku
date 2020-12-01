@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 module.exports = {
   name: 'Rokku',
   build: {
@@ -52,6 +53,10 @@ module.exports = {
                 path: 'theme',
                 title: '定制主题',
               },
+              {
+                path: 'contribution',
+                title: '开发指南',
+              },
             ],
           },
           {
@@ -69,6 +74,10 @@ module.exports = {
               {
                 path: 'button',
                 title: 'Button 按钮',
+              },
+              {
+                path: 'cell',
+                title: 'Cell 单元格',
               },
               {
                 path: 'icon',

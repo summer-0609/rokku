@@ -12,7 +12,7 @@ export interface FlexProps extends BasePropsType {
 
 const [bem] = createNamespace('flexbox');
 
-const Flex: React.FC<FlexProps> & { Item?: any } = (props) => {
+const Flex: React.FC<FlexProps> & { Item?: React.FC } = (props) => {
   const {
     direction,
     wrap,

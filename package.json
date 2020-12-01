@@ -9,6 +9,7 @@
     "es"
   ],
   "scripts": {
+    "bootstrap": "yarn || npm i",
     "start": "rokku-cli dev",
     "build": "rokku-cli build",
     "docs:build": "rokku-cli build-site",

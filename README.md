@@ -19,8 +19,6 @@
   🔥 <a href="https://vant-contrib.gitee.io/vant">文档网站</a>
 </p> -->
 
----
-
 ## 特性
 
 - 单元测试覆盖率 90%+，提供稳定性保障
@@ -74,3 +72,38 @@ yarn build
 ```bash
 yarn test
 ```
+
+## Components completion status
+
+### Basic Components
+
+- [x] Button 按钮
+- [x] Icon 图标
+- [x] ==Popup 弹出框==
+- [ ] Cell 单元格
+- [ ] 内置样式（IPhoneX 适配，细边框等）
+
+### Form Components
+
+- [ ] ==Field 输入框==
+- [ ] CheckBox 复选框
+- [ ] Radio 单选框
+- [x] ==Picker 选择器==
+- [ ] Search 搜索
+- [x] ==DatetimePicker 时间选择==
+
+### Action Components
+
+- [ ] Dialog 弹出层
+- [ ] PullRefresh 下拉刷新
+
+### Navigation Components
+
+- [ ] IndexBar 索引栏
+- [ ] ==NavBar 导航栏==
+- [ ] ==Tab 标签页==
+
+### Business Components
+
+- [ ] 城市列表
+- [ ] 登录

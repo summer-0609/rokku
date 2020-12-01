@@ -1,5 +1,5 @@
 // color
-export const RED = '#ee0a24';
+export const RED = '#ff603f';
 export const BLUE = '#2879ff';
 export const GREEN = '#00c853';
 export const WHITE = '#fff';

@@ -67,6 +67,20 @@ const Popup: React.FC<PopupProps> = (props) => {
     return initStyle;
   }, [zIndex]);
 
+  const renderCloseIcon = () => {
+    if (closeable) {
+      const { closeIconPosition = 'top-right' } = props;
+      return (
+        <Icon
+          name={closeIcon}
+          className={classnames(bem('close-icon', closeIconPosition))}
+          // onClick={onClickCloseIcon}
+        />
+      );
+    }
+    return null;
+  };
+
   const renderTransition = () => {
     const { transition, destroyOnClose = false, forceRender = false, safeAreaInsetBottom } = props;
     const name = position === 'center' ? 'rk-fade' : `rk-popup-slide-${position}`;
@@ -92,7 +106,7 @@ const Popup: React.FC<PopupProps> = (props) => {
           )}
         >
           {children}
-          {closeable && <Icon name={closeIcon} className={classnames(bem('close-icon'))} />}
+          {renderCloseIcon()}
         </div>
       </CSSTransition>
     );
