@@ -1,7 +1,10 @@
+import { LoadingType } from '../loading/PropsType';
+import { BaseTypeProps } from '../utils';
+
 export type ButtonType = 'default' | 'primary' | 'info' | 'warning' | 'danger';
 export type ButtonSize = 'large' | 'normal' | 'small' | 'mini';
 
-export interface ButtonPropsType {
+export interface ButtonProps extends BaseTypeProps {
   tag?: keyof HTMLElementTagNameMap | string;
   type?: ButtonType;
   size?: ButtonSize;
@@ -18,6 +21,7 @@ export interface ButtonPropsType {
   nativeType?: string;
   iconPrefix?: string;
   loadingSize?: string;
-  // loadingType?: LoadingType;
+  loadingType?: LoadingType;
   loadingText?: string;
+  onClick?: (e: Event) => void;
 }

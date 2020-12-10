@@ -1,15 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import Icon from '../icon';
-import { ButtonPropsType } from './PropsType';
+import Loading from '../loading';
+import { ButtonProps } from './PropsType';
 import { createNamespace } from '../utils';
 import { BORDER_SURROUND, WHITE } from '../utils/constant';
-
-export interface ButtonProps extends ButtonPropsType {
-  onClick?: (e: Event) => void;
-  className?: string;
-  style?: React.CSSProperties;
-}
 
 const [bem] = createNamespace('button');
 
@@ -71,24 +66,33 @@ const Button: React.FC<ButtonProps> = (props) => {
     }
   }
 
-  function Content() {
-    const content = [];
-
+  const renderLoadingIcon = () => {
     if (loading) {
-      // content.push(
-      //   <Loading
-      //     class={bem('loading')}
-      //     size={props.loadingSize}
-      //     type={props.loadingType}
-      //     color={type === 'default' ? undefined : ''}
-      //   />,
-      // );
-    } else if (icon) {
-      content.push(
-        <Icon name={icon} key={0} className={classnames(bem('icon'))} classPrefix={iconPrefix} />,
+      const { loadingSize = '20px', loadingType } = props;
+      return (
+        <Loading
+          className={classnames(bem('loading'))}
+          size={loadingSize}
+          type={loadingType}
+          color={type === 'default' ? undefined : ''}
+        />
       );
     }
+    return null;
+  };
 
+  const renderIcon = () => {
+    if (props.loading) {
+      return renderLoadingIcon();
+    }
+
+    if (props.icon) {
+      return <Icon name={icon} className={classnames(bem('icon'))} classPrefix={iconPrefix} />;
+    }
+    return null;
+  };
+
+  const renderText = () => {
     let text;
     if (loading) {
       text = loadingText;
@@ -97,15 +101,21 @@ const Button: React.FC<ButtonProps> = (props) => {
     }
 
     if (text) {
-      content.push(
+      return (
         <span key="text" className={classnames(bem('text'))}>
           {text}
-        </span>,
+        </span>
       );
     }
+    return null;
+  };
 
-    return content;
-  }
+  const Content = () => (
+    <div className={classnames(bem('content'))}>
+      {renderIcon()}
+      {renderText()}
+    </div>
+  );
 
   return React.createElement(
     tag,
@@ -115,7 +125,6 @@ const Button: React.FC<ButtonProps> = (props) => {
       type: props.nativeType,
       disabled,
       onClick,
-      // ...inherit(ctx),
     },
     Content(),
   );

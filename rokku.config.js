@@ -93,6 +93,10 @@ module.exports = {
             title: '反馈组件',
             items: [
               {
+                path: 'loading',
+                title: 'Loading 加载',
+              },
+              {
                 path: 'overlay',
                 title: 'Overlay 遮罩层',
               },

@@ -8,7 +8,7 @@
 
 ### 介绍
 
-**Rokku** 是 **XiaTian**：<xtmike008@gmail.com> 独立研发开源的 React 移动端组件库，将于 2020 年开源。[Rokku]() 将承载移动端工作的核心业务。旨于参照 [Vant](https://vant-contrib.gitee.io/vant) 打造 React 框架下移动端的优秀组件库
+**Rokku** 是 **XiaTian**：<xtmike008@gmail.com> 独立研发开源的 **React** 移动端组件库，将于 2020 年开源。[Rokku]() 将承载移动端工作的核心业务。旨于参照 [Vant](https://vant-contrib.gitee.io/vant) 打造 React 框架下移动端的优秀组件库
 
 ### 特性
 
