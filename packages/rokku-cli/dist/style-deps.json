@@ -1,14 +1,32 @@
 {
   "map": {
     "button": [
+      "icon",
+      "loading"
+    ],
+    "cell": [
       "icon"
     ],
     "flex": [],
-    "icon": []
+    "icon": [],
+    "loading": [],
+    "overlay": [],
+    "popup": [
+      "icon",
+      "overlay"
+    ],
+    "pull-refresh": [
+      "loading"
+    ]
   },
   "sequence": [
     "icon",
+    "cell",
+    "loading",
+    "pull-refresh",
     "button",
-    "flex"
+    "flex",
+    "overlay",
+    "popup"
   ]
 }

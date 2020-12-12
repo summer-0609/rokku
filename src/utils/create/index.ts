@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { BEM, createBEM } from './bem';
 
 type CreateNamespaceReturn = [BEM];

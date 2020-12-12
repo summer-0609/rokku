@@ -100,6 +100,10 @@ module.exports = {
                 path: 'overlay',
                 title: 'Overlay 遮罩层',
               },
+              {
+                path: 'pull-refresh',
+                title: 'PullRefresh 下拉刷新',
+              },
             ],
           },
         ],
