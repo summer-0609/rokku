@@ -10,11 +10,7 @@ export default (): React.ReactNode => {
   const onRefresh = () => {
     setRefreshing(true);
     setTimeout(() => {
-      // if (showToast) {
-      //   this.$toast(this.t('success'));
-      // }
       setRefreshing(false);
-      // this.count++;
     }, 1000);
   };
 
