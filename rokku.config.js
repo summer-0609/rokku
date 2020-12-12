@@ -15,11 +15,11 @@ module.exports = {
       'zh-CN': {
         title: 'Rokku',
         description: '轻量、可靠的移动端 React 组件库',
-        logo: 'http://qjkmoyomo.hd-bkt.clouddn.com/logo.png',
+        logo: 'http://47.116.3.37/image/logo.png',
         langLabel: '中文',
         links: [
           {
-            logo: 'http://qjkmoyomo.hd-bkt.clouddn.com/github.png',
+            logo: 'http://47.116.3.37/image/github.png',
             url: 'https://github.com/Hyattria/rokku',
           },
         ],
@@ -93,8 +93,16 @@ module.exports = {
             title: '反馈组件',
             items: [
               {
+                path: 'loading',
+                title: 'Loading 加载',
+              },
+              {
                 path: 'overlay',
                 title: 'Overlay 遮罩层',
+              },
+              {
+                path: 'pull-refresh',
+                title: 'PullRefresh 下拉刷新',
               },
             ],
           },
@@ -112,11 +120,11 @@ module.exports = {
       'en-US': {
         title: 'Rokku',
         description: 'Mobile UI Components built on React',
-        logo: 'http://qjkmoyomo.hd-bkt.clouddn.com/logo.png',
+        logo: 'http://47.116.3.37/logo.png',
         langLabel: 'En',
         links: [
           {
-            logo: 'http://qjkmoyomo.hd-bkt.clouddn.com/github.png',
+            logo: 'http://47.116.3.37/github.png',
             url: 'https://github.com/Hyattria/rokku',
           },
         ],

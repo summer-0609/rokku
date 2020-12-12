@@ -113,6 +113,7 @@
 
   &__loading {
     display: inline-block;
+    color: inherit;
     vertical-align: top;
   }
 
@@ -145,18 +146,27 @@
     border-radius: 0;
   }
 
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+
+    // fix icon vertical align
+    &::before {
+      content: ' ';
+    }
+  }
+
   &__icon {
-    min-width: 1em;
     font-size: 1.2em;
     line-height: inherit;
-    vertical-align: top;
   }
 
   &__icon + &__text,
   &__loading + &__text {
     display: inline-block;
     margin-left: 5px;
-    vertical-align: top;
   }
 
   &--hairline {

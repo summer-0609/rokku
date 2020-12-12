@@ -40,6 +40,11 @@ export default (): React.ReactNode => {
           禁用状态
         </Button>
       </DemoBlock>
+      <DemoBlock title="加载状态">
+        <Button loading type="primary" />
+        <Button loading type="primary" loadingType="spinner" />
+        <Button loading loadingText="加载中..." type="info" />
+      </DemoBlock>
       <DemoBlock title="按钮形状">
         <Button square type="primary">
           方形按钮

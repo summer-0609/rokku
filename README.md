@@ -79,29 +79,30 @@ yarn test
 
 - [x] Button 按钮
 - [x] Icon 图标
-- [x] ==Popup 弹出框==
-- [ ] Cell 单元格
-- [ ] 内置样式（IPhoneX 适配，细边框等）
+- [x] Popup 弹出框
+- [x] Cell 单元格
+- [x] 内置样式（IPhoneX 适配，细边框等）
 
 ### Form Components
 
-- [ ] ==Field 输入框==
+- [ ] Field 输入框
 - [ ] CheckBox 复选框
 - [ ] Radio 单选框
-- [x] ==Picker 选择器==
+- [ ] Picker 选择器
 - [ ] Search 搜索
-- [x] ==DatetimePicker 时间选择==
+- [ ] DatetimePicker 时间选择
 
 ### Action Components
-
+- [x] Loading 加载
+- [x] Overlay 遮罩层
 - [ ] Dialog 弹出层
 - [ ] PullRefresh 下拉刷新
 
 ### Navigation Components
 
 - [ ] IndexBar 索引栏
-- [ ] ==NavBar 导航栏==
-- [ ] ==Tab 标签页==
+- [ ] NavBar 导航栏
+- [ ] Tab 标签页
 
 ### Business Components
 

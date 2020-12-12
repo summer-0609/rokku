@@ -55,12 +55,6 @@ const [showEmbedded, setShowEmbedded] = useState(false);
 | ------ | ---------- | -------------- |
 | click  | 点击时触发 | _event: Event_ |
 
-### Slots
-
-| 名称    | 说明                               |
-| ------- | ---------------------------------- |
-| default | 默认插槽，用于在遮罩层上方嵌入内容 |
-
 ### 样式变量
 
 组件提供了下列 Less 变量，可用于自定义样式，使用方法请参考[主题定制](#/zh-CN/theme)。
