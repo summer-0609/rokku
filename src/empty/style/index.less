@@ -1,0 +1,24 @@
+@import '../../styles/themes/default.less';
+
+.@{rk-prefix}-empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translate(-50%, -50%);
+
+  .empty-image {
+    width: 160px;
+    height: 160px;
+  }
+  .empty-desc {
+    margin-top: 16px;
+    padding: 0 60px;
+    color: #969799;
+    font-size: 14px;
+    line-height: 20px;
+  }
+}

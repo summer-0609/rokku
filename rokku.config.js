@@ -98,6 +98,15 @@ module.exports = {
               },
             ],
           },
+          {
+            title: '展示组件',
+            items: [
+              {
+                path: 'empty',
+                title: 'Empty 空状态',
+              },
+            ],
+          },
         ],
       },
       'en-US': {
