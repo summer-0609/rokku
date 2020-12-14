@@ -18,8 +18,8 @@ const Empty: React.FC<EmptyProps> = (props) => {
 
   const content = (
     <div className={classes}>
-      <img src={image} className="empty-image" alt="empty" />
-      <p className="empty-desc">{description}</p>
+      <img src={image} className={classnames(bem('image'))} alt="empty" />
+      <p className={classnames(bem('description'))}>{description}</p>
     </div>
   );
 

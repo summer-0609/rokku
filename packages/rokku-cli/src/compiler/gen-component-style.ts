@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 /**
  * Build style entry of all components

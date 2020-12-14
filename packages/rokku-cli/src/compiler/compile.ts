@@ -1,11 +1,6 @@
+/* eslint-disable no-param-reassign */
 import { existsSync, statSync, writeFileSync } from 'fs';
 import { join } from 'path';
-import { SRC_DIR, ROOT } from '../common/constant';
-import { getComponents, replaceExt } from '../common';
-import { genComponentStyle } from './gen-component-style';
-import { compileJs } from './compile-js';
-import { compileLess } from './compile-less';
-import { compileCss } from './compile-css';
 
 import vfs from 'vinyl-fs';
 import through2 from 'through2';
@@ -17,13 +12,20 @@ import gulpIf from 'gulp-if';
 import chokidar from 'chokidar';
 import gulpPlumber from 'gulp-plumber';
 import gulpTs from 'gulp-typescript';
+import { compileCss } from './compile-css';
+import { compileLess } from './compile-less';
+import { compileJs } from './compile-js';
+import { genComponentStyle } from './gen-component-style';
+import { getComponents, replaceExt } from '../common';
+import { SRC_DIR, ROOT } from '../common/constant';
+
 interface ICompileOpts {
   type: 'esm' | 'cjs';
   targetPath: string;
   watch?: boolean;
 }
 
-export default async function (options: ICompileOpts) {
+export default async function Compile(options: ICompileOpts) {
   const { type, targetPath, watch } = options;
   const components = getComponents();
 
@@ -125,15 +127,14 @@ export default async function (options: ICompileOpts) {
         });
 
         const files = [];
-        function compileFiles() {
+        const compileFiles = () => {
           while (files.length) {
             createStream(files.pop());
           }
-        }
+        };
 
         const debouncedCompileFiles = lodash.debounce(compileFiles, 1000);
         watcher.on('all', (event, fullPath) => {
-          console.log(99899);
           const relPath = fullPath.replace(SRC_DIR, '');
           console.log(
             `[${event}] ${slash(join(SRC_DIR, relPath)).replace(
@@ -154,4 +155,4 @@ export default async function (options: ICompileOpts) {
       resolve(1);
     });
   });
-};
+}

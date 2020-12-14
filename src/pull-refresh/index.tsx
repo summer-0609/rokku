@@ -15,17 +15,16 @@ const TEXT_STATUS = ['pulling', 'loosing', 'success'];
 
 const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   const { disabled, refreshing, animationDuration, successDuration } = props;
-
   // 操作状态
   const [status, setStatus] = useState<PullRefreshStatus>('normal');
   const [distance, setDistance] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
 
-  const root = useRef();
+  const root = useRef<HTMLDivElement>();
   const reachTop = useRef(null);
 
   const touch = useTouch();
-  const scrollParent = useScrollParent(root.current);
+  const scrollParent = useScrollParent(root);
 
   const isTouchable = useMemo(() => {
     return status !== 'loading' && status !== 'success' && !disabled;
@@ -137,7 +136,6 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
 
   useEffect(() => {
     setDuration(+animationDuration);
-
     if (refreshing) {
       updateStatus(+props.headHeight, true);
     } else if (props.successText) {
@@ -148,6 +146,7 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   }, [refreshing]);
 
   const trackStyle = {
+    ...props.style,
     transitionDuration: `${duration}ms`,
     transform: distance ? `translate3d(0,${distance}px, 0)` : '',
   };

@@ -50,6 +50,7 @@ export function getSiteDevBaseConfig(): WebpackConfig {
       host: '0.0.0.0',
       stats: 'errors-only',
       publicPath: '/',
+      hot: true,
       disableHostCheck: true,
     },
     resolve: {

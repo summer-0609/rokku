@@ -7,7 +7,7 @@ export default (): React.ReactNode => {
   const { DemoBlock, DemoSection } = components;
   return (
     <DemoSection>
-      <DemoBlock>
+      <DemoBlock title="基本用法">
         <Empty
           image="http://47.116.3.37/image/empty.png"
           description="描述文字"
