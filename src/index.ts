@@ -1,4 +1,5 @@
 export { default as Button } from './button';
+export { default as Field } from './field';
 export { default as Flex } from './flex';
 export { default as Cell } from './cell';
 export { default as Icon } from './icon';

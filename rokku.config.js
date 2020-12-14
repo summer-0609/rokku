@@ -90,6 +90,15 @@ module.exports = {
             ],
           },
           {
+            title: '表单组件',
+            items: [
+              {
+                path: 'field',
+                title: 'Field 输入框',
+              },
+            ],
+          },
+          {
             title: '反馈组件',
             items: [
               {
