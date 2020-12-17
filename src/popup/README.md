@@ -16,8 +16,8 @@ import { Popup } from '@rokku/design';
 
 通过 `visible` 以及 `onClose` 控制弹出层是否展示。
 
-```jsx
-const [showPopup, setShowPopup] = React.useState(false);
+```js
+const [showPopup, setShowPopup] = useState(false);
 ```
 
 ```html

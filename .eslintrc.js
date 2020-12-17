@@ -4,6 +4,7 @@ module.exports = {
   rules: {
     'import/no-unresolved': 'off',
     'import/no-extraneous-dependencies': 'off',
+    'no-param-reassign': 'off',
     'no-use-before-define': 'off',
   },
 };

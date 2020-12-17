@@ -1,5 +1,5 @@
 import { join } from 'path';
-import { existsSync, readdirSync, pathExistsSync } from 'fs-extra';
+import { existsSync, readdirSync } from 'fs-extra';
 import { SRC_DIR, SITE_MODILE_SHARED_FILE } from '../common/constant';
 import {
   pascalize,

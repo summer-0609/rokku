@@ -4,6 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import Icon from '../icon';
 import Overlay from '../overlay';
+import useLockScroll from '../hooks/use-lock-scroll';
 import { createNamespace, isDef } from '../utils';
 import { PopupProps } from './PropsType';
 
@@ -22,10 +23,14 @@ const Popup: React.FC<PopupProps> = (props) => {
 
   const [zIndex] = useState<number>(2000);
   const [animatedVisible, setAnimatedVisible] = useState(visible);
+  const [lockScroll, unlockScroll] = useLockScroll(() => props.lockScroll);
 
   useEffect(() => {
     if (visible) {
+      lockScroll();
       setAnimatedVisible(true);
+    } else {
+      unlockScroll();
     }
   }, [visible]);
 
@@ -92,7 +97,10 @@ const Popup: React.FC<PopupProps> = (props) => {
         classNames={transition || name}
         mountOnEnter={!forceRender}
         unmountOnExit={destroyOnClose}
-        onExited={() => setAnimatedVisible(false)}
+        onExited={() => {
+          setAnimatedVisible(false);
+          props.onClosed();
+        }}
       >
         <div
           style={{ ...style, display: !animatedVisible && 'none' }}
@@ -122,6 +130,7 @@ const Popup: React.FC<PopupProps> = (props) => {
 
 Popup.defaultProps = {
   position: 'center',
+  lockScroll: true,
 };
 
 export default Popup;

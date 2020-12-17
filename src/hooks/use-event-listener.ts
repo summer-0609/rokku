@@ -54,6 +54,7 @@ function useEventListener(
     }
   };
 
+  // https://stackoverflow.com/questions/55265255/react-usestate-hook-event-handler-using-initial-state
   useEffect(() => {
     add();
     return () => remove();

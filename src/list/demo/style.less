@@ -1,20 +1,27 @@
 @import '../../styles/themes/default.less';
 
-.demo-pull-refresh {
-  background-color: @white;
-  .rk-pull-refresh {
-    height: calc(100vh - 200px);
-    padding: 0 16px;
+.demo-list {
+  .rk-cell {
+    text-align: center;
   }
 
-  .doge {
-    width: 140px;
-    height: 72px;
-    margin-top: 8px;
-    border-radius: 4px;
-  }
-  p {
+  .page-desc {
     margin: 0;
-    padding: @padding-md 0 0 @padding-md;
+    padding: 5px 0;
+    color: @gray-7;
+    font-size: 14px;
+    text-align: center;
+
+    &--text {
+      margin: 0;
+    }
+
+    &--option {
+      margin: 12px;
+    }
+  }
+
+  .rk-checkbox__label {
+    color: @gray-7;
   }
 }

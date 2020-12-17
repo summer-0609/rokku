@@ -87,6 +87,10 @@ module.exports = {
                 path: 'popup',
                 title: 'Popup 弹出层',
               },
+              {
+                path: 'toast',
+                title: 'Toast 轻提示',
+              },
             ],
           },
           {

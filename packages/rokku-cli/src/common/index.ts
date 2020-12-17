@@ -16,8 +16,8 @@ import {
 import { WebpackConfig } from './types';
 
 export const EXT_REGEXP = /\.\w+$/;
-export const DEMO_REGEXP = new RegExp('\\' + sep + 'demo$');
-export const TEST_REGEXP = new RegExp('\\' + sep + 'test$');
+export const DEMO_REGEXP = new RegExp(`\\${sep}demo$`);
+export const TEST_REGEXP = new RegExp(`\\${sep}test$`);
 export const STYLE_REGEXP = /\.(css|less|scss)$/;
 export const SCRIPT_REGEXP = /\.(js|ts|jsx|tsx)$/;
 export const TYPESCRIPT_REGEXP = /\.(ts||tsx)$/;
@@ -90,10 +90,10 @@ export function pascalize(str: string): string {
   );
 }
 
-export function decamelize(str: string, sep = '-') {
+export function decamelize(str: string, sepc = '-') {
   return str
-    .replace(/([a-z\d])([A-Z])/g, '$1' + sep + '$2')
-    .replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1' + sep + '$2')
+    .replace(/([a-z\d])([A-Z])/g, `$1${sepc}$2`)
+    .replace(/([A-Z]+)([A-Z][a-z\d]+)/g, `$1${sepc}$2`)
     .toLowerCase();
 }
 
@@ -101,7 +101,7 @@ export function normalizePath(path: string): string {
   return path.replace(/\\/g, '/');
 }
 
-export function getWebpackConfig(defaultConfig: WebpackConfig): object {
+export function getWebpackConfig(defaultConfig: WebpackConfig) {
   if (existsSync(ROOT_WEBPACK_CONFIG_FILE)) {
     const config = require(ROOT_WEBPACK_CONFIG_FILE);
 
@@ -117,7 +117,7 @@ export function getWebpackConfig(defaultConfig: WebpackConfig): object {
   return defaultConfig;
 }
 
-export function getPostcssConfig(): object {
+export function getPostcssConfig() {
   if (existsSync(ROOT_POSTCSS_CONFIG_FILE)) {
     return require(ROOT_POSTCSS_CONFIG_FILE);
   }

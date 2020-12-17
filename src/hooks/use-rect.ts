@@ -1,7 +1,6 @@
 function isWindow(val: unknown): val is Window {
   return val === window;
 }
-
 interface Rect {
   top: number;
   left: number;

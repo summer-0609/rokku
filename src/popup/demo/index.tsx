@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import { Popup, Cell } from 'rokku';
 import { components } from 'site-mobile-demo';
-// import './style.less';
+import './style.less';
 
 const initialState = {
   showBasic: false,
