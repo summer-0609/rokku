@@ -72,6 +72,13 @@ const Popup: React.FC<PopupProps> = (props) => {
     return initStyle;
   }, [zIndex]);
 
+  const onClickCloseIcon = () => {
+    if (props.onClickCloseIcon) {
+      props.onClickCloseIcon();
+    }
+    props.onClose();
+  };
+
   const renderCloseIcon = () => {
     if (closeable) {
       const { closeIconPosition = 'top-right' } = props;
@@ -79,7 +86,7 @@ const Popup: React.FC<PopupProps> = (props) => {
         <Icon
           name={closeIcon}
           className={classnames(bem('close-icon', closeIconPosition))}
-          // onClick={onClickCloseIcon}
+          onClick={onClickCloseIcon}
         />
       );
     }
@@ -99,7 +106,9 @@ const Popup: React.FC<PopupProps> = (props) => {
         unmountOnExit={destroyOnClose}
         onExited={() => {
           setAnimatedVisible(false);
-          props.onClosed();
+          if (props.onClosed && typeof props.onClosed === 'function') {
+            props.onClosed();
+          }
         }}
       >
         <div

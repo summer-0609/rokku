@@ -84,8 +84,6 @@ Toast.clear = (all) => {
         toast.clear();
       });
       queue = [];
-    } else if (!allowMultiple) {
-      queue[0].clear();
     } else {
       queue.shift().clear();
     }

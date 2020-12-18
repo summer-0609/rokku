@@ -18,7 +18,7 @@ function isImage(name?: string): boolean {
 const [bem] = createNamespace('icon');
 
 const Icon: React.FC<IconProps> = (props) => {
-  const { tag = 'i', name, className } = props;
+  const { tag = 'i', name, className, onClick } = props;
   const imageIcon = isImage(name);
 
   return React.createElement(
@@ -33,6 +33,7 @@ const Icon: React.FC<IconProps> = (props) => {
         color: props.color,
         fontSize: addUnit(props.size),
       },
+      onClick,
     },
     props.children,
     imageIcon && <img className={classnames(bem('image'))} src={name} alt={name} />,

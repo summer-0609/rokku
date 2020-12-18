@@ -10,3 +10,4 @@ export { default as Loading } from './loading';
 export { default as PullRefresh } from './pull-refresh';
 export { default as List } from './list';
 export { default as Toast } from './toast';
+export { default as Dialog } from './dialog';
