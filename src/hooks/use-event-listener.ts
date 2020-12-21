@@ -22,7 +22,7 @@ export type UseEventListenerOptions = {
   target?: EventTarget;
   capture?: boolean;
   passive?: boolean;
-  depends?: Array<boolean>;
+  depends?: Array<any>;
 };
 
 function useEventListener(

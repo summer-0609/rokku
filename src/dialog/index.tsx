@@ -51,6 +51,7 @@ const Dialog = (options: Partial<DialogProps>): Promise<void> => {
       cancelButtonText: '',
       cancelButtonColor: null,
       confirmButtonText: '',
+      children: '',
       confirmButtonColor: null,
       showConfirmButton: true,
       showCancelButton: false,

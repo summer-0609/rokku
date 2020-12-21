@@ -73,6 +73,29 @@ Dialog.alert({
 });
 ```
 
+### 自定义内容
+
+通过 `children` 属性可以传入 `JSX`, 来自定义显示的内容。
+
+```js
+Dialog.alert({
+  title: '标题',
+  closeable: true,
+  theme: 'round-button',
+  children: (
+    <div style={{ textAlign: 'center', margin: '16px' }}>
+      自定义内容：PHP 是世上最好的语言，不服来辩
+    </div>
+  ),
+})
+  .then(() => {
+    // on confirm
+  })
+  .catch(() => {
+    // on cancel
+  });
+```
+
 ### 异步关闭
 
 通过 `beforeClose` 属性可以传入一个回调函数，在弹窗关闭前进行特定操作。
@@ -178,7 +201,7 @@ const [show, setShow] = useState(false);
 | overlay | 是否展示遮罩层 | _boolean_ | `true` |
 | overlayClass | 自定义遮罩层类名 | _string_ | - |
 | overlayStyle | 自定义遮罩层样式 | _object_ | - |
-<!-- | close-on-opstate | 是否在页面回退时自动关闭 | _boolean_ | `true` | -->
+| <!-- | close-on-opstate | 是否在页面回退时自动关闭 | _boolean_ | `true` | --> |
 | closeOnClickOverlay | 是否在点击遮罩层后关闭弹窗 | _boolean_ | `false` |
 | lockScroll | 是否锁定背景滚动 | _boolean_ | `true` |
 | beforeClose | 关闭前的回调函数，返回 `false` 可阻止关闭，支持返回 Promise | _(action) => boolean \| Promise_ | - |
@@ -188,10 +211,10 @@ const [show, setShow] = useState(false);
 
 通过组件调用 `Dialog` 时，支持以下事件：
 
-| 事件    | 说明                     | 回调参数 |
-| ------- | ------------------------ | -------- |
-| confirm | 点击确认按钮时触发       | -        |
-| cancel  | 点击取消按钮时触发       | -        |
+| 事件    | 说明               | 回调参数 |
+| ------- | ------------------ | -------- |
+| confirm | 点击确认按钮时触发 | -        |
+| cancel  | 点击取消按钮时触发 | -        |
 
 ### 样式变量
 

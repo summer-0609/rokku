@@ -5,6 +5,8 @@ import { CSSTransition } from 'react-transition-group';
 import Icon from '../icon';
 import Overlay from '../overlay';
 import useLockScroll from '../hooks/use-lock-scroll';
+import useEventListener from '../hooks/use-event-listener';
+
 import { createNamespace, isDef } from '../utils';
 import { PopupProps } from './PropsType';
 
@@ -24,6 +26,12 @@ const Popup: React.FC<PopupProps> = (props) => {
   const [zIndex] = useState<number>(2000);
   const [animatedVisible, setAnimatedVisible] = useState(visible);
   const [lockScroll, unlockScroll] = useLockScroll(() => props.lockScroll);
+
+  useEventListener('popstate', () => {
+    if (props.closeOnPopstate) {
+      props.onClose();
+    }
+  });
 
   useEffect(() => {
     if (visible) {

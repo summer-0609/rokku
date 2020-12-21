@@ -134,6 +134,10 @@ module.exports = {
                 path: 'list',
                 title: 'List 列表',
               },
+              {
+                path: 'swipe',
+                title: 'Swipe 轮播',
+              },
             ],
           },
         ],

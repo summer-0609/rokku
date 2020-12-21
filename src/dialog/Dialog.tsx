@@ -13,7 +13,19 @@ import { BORDER_TOP, BORDER_LEFT } from '../utils/constant';
 const [bem] = createNamespace('dialog');
 
 const Dialog: React.FC<DialogProps> & DialogStatic = (props) => {
-  const { width, title, theme, message, className, messageAlign } = props;
+  const {
+    width,
+    title,
+    theme,
+    show,
+    message,
+    className,
+    messageAlign,
+    closeIcon,
+    closeable,
+    onClickCloseIcon,
+    ...others
+  } = props;
 
   const [loading, setLoading] = useState({ confirm: false, cancel: false });
 
@@ -129,8 +141,6 @@ const Dialog: React.FC<DialogProps> & DialogStatic = (props) => {
   );
 
   const renderCloseIcon = () => {
-    const { closeIcon, closeable, onClickCloseIcon } = props;
-
     if (closeable) {
       return (
         <Icon
@@ -150,18 +160,17 @@ const Dialog: React.FC<DialogProps> & DialogStatic = (props) => {
 
   return (
     <Popup
+      {...others}
+      visible={show}
       className={classnames(bem([theme]), className)}
       style={{ width: addUnit(width) }}
       aria-labelledby={title || message}
       overlayClosable={false}
-      visible={props.show}
-      transition={props.transition}
     >
       {renderCloseIcon()}
       {renderTitle()}
       {renderContent()}
       {renderButtons()}
-      {/* {theme === 'round-button' ? renderRoundButtons() : renderButtons()} */}
     </Popup>
   );
 };

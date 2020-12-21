@@ -117,7 +117,7 @@ export default (): React.ReactNode => {
       </DemoBlock>
       <DemoBlock card title="自定义内容">
         <Cell
-          title="关闭图标"
+          title="自定义内容"
           isLink
           onClick={() =>
             Dialog.alert({
@@ -126,7 +126,7 @@ export default (): React.ReactNode => {
               theme: 'round-button',
               children: (
                 <div style={{ textAlign: 'center', margin: '16px' }}>
-                  PHP 是世上最好的语言，不服来辩
+                  自定义内容：PHP 是世上最好的语言，不服来辩
                 </div>
               ),
             })
