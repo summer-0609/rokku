@@ -113,6 +113,10 @@ module.exports = {
                 path: 'empty',
                 title: 'Empty 空状态',
               },
+              {
+                path: 'notice-bar',
+                title: 'NoticeBar 通知栏',
+              },
             ],
           },
         ],
