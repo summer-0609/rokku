@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import React, { useState, useMemo, useRef, TouchEvent, useEffect } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import classnames from 'classnames';
 import { PullRefreshProps, PullRefreshStatus } from './PropsType';
 import { createNamespace, getScrollTop, preventDefault } from '../utils';
@@ -93,19 +93,19 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
     }
   };
 
-  const onTouchStart = (event: TouchEvent) => {
+  const onTouchStart = (event: TouchEvent | React.TouchEvent) => {
     if (isTouchable) {
-      checkPosition(event);
+      checkPosition(event as TouchEvent);
     }
   };
 
-  const onTouchMove = (event: TouchEvent) => {
+  const onTouchMove = (event: TouchEvent | React.TouchEvent) => {
     if (isTouchable) {
       if (!reachTop.current) {
-        checkPosition(event);
+        checkPosition(event as TouchEvent);
       }
       const { deltaY } = touch;
-      touch.move(event);
+      touch.move(event as TouchEvent);
       if (reachTop.current && deltaY >= 0 && touch.isVertical()) {
         preventDefault(event);
         updateStatus(ease(deltaY));

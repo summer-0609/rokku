@@ -106,6 +106,10 @@ module.exports = {
             title: '反馈组件',
             items: [
               {
+                path: 'dialog',
+                title: 'Dialog 弹出框',
+              },
+              {
                 path: 'loading',
                 title: 'Loading 加载',
               },
@@ -129,6 +133,10 @@ module.exports = {
               {
                 path: 'list',
                 title: 'List 列表',
+              },
+              {
+                path: 'swipe',
+                title: 'Swipe 轮播',
               },
             ],
           },

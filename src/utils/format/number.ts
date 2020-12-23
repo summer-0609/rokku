@@ -1,3 +1,8 @@
+/* eslint-disable prefer-destructuring */
+export function range(num: number, min: number, max: number): number {
+  return Math.min(Math.max(num, min), max);
+}
+
 function trimExtraChar(value: string, char: string, regExp: RegExp) {
   const index = value.indexOf(char);
 

@@ -19,7 +19,9 @@ export interface PopupProps extends BaseTypeProps {
   safeAreaInsetBottom?: boolean;
   closeIconPosition?: string;
   overlayClosable?: boolean;
+  closeOnPopstate?: boolean;
   onClick?: () => void;
+  onClickCloseIcon?: () => void;
   onClickOverlay?: () => void;
   onClose?: () => void;
   onClosed?: () => void;
