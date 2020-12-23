@@ -1,49 +1,45 @@
-import { CSSProperties } from 'react';
+import { ReactElement } from 'react';
 import { BaseTypeProps } from '../utils';
+import { CellProps } from '../cell/PropsType';
 
-type CellArrowDirection = 'up' | 'down' | 'left' | 'right';
+export type TAlignment = 'center' | 'right' | 'left';
 
-export interface FieldProps extends BaseTypeProps {
-  icon?: string;
-  size?: string;
-  title?: number | string;
-  value?: number | string;
-  label?: number | string;
-  center?: boolean;
-  round?: boolean;
-  isLink?: boolean;
-  required?: boolean;
-  clickable?: boolean;
-  iconPrefix?: string;
-  titleStyle?: CSSProperties;
-  titleClass?: string;
-  valueClass?: string;
-  arrowDirection?: CellArrowDirection;
-  border?: boolean;
-
+export interface FieldProps extends BaseTypeProps, CellProps {
+  value?: string;
   type?: string;
-  error?: boolean;
-  colon?: boolean;
-  modelValue?: number | string;
-  clearTrigger?: string;
-  formatTrigger?: string;
-  rows?: number | string;
   name?: string;
-  rules?: Array<any>;
+  placeholder?: string | number;
+  autosize?: boolean;
+  errorMessage?: string;
+  labelClass?: string;
+  labelWidth?: string;
+  labelAlign?: TAlignment;
+  inputAlign?: TAlignment;
+  errorMessageAlign?: TAlignment; //
+  maxLength?: number;
+  showWordLimit?: boolean;
   disabled?: boolean;
-  readonly: boolean;
-  autosize: boolean | any;
-  leftIcon: string;
-  rightIcon: string;
-  clearable: boolean;
-  formatter: () => any;
-  maxlength: number | string;
-  labelWidth: number | string;
-  labelClass: null;
-  labelAlign: string;
-  inputAlign: string;
-  placeholder: string;
-  errorMessage: string;
-  errorMessageAlign: string;
-  showWordLimit: boolean;
+  readonly?: boolean;
+  clearable?: boolean;
+  colon?: boolean;
+  clickable?: boolean;
+  autofocus?: boolean;
+  required?: boolean;
+  border?: boolean;
+  error?: boolean;
+  labelIcon?: string;
+  leftIcon?: string;
+  rightIcon?: string;
+  input?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  clear?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  click?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  focus?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  blur?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  clickInput?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  clickLeftIcon?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  clickRightIcon?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  getContainerRef?: (ref) => void;
+  getFieldRef?: (ref) => void;
+  formatter?: (val: string | number) => string;
+  button?: ReactElement;
 }
