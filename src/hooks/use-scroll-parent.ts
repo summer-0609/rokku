@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import { useState, useEffect } from 'react';
 
 type ScrollElement = HTMLElement | Window;
@@ -10,34 +11,35 @@ function isElement(node: Element) {
 }
 
 function getScrollParent(el: Element, root: ScrollElement = window) {
+  if (root === undefined) {
+    root = window;
+  }
   let node = el;
-
   while (node && node !== root && isElement(node)) {
     const { overflowY } = window.getComputedStyle(node);
     if (overflowScrollReg.test(overflowY)) {
-      return node;
+      if (node.tagName !== 'BODY') {
+        return node;
+      }
+
+      const htmlOverflowY = window.getComputedStyle(node.parentNode as Element).overflowY;
+      if (overflowScrollReg.test(htmlOverflowY)) {
+        return node;
+      }
     }
     node = node.parentNode as Element;
   }
-
   return root;
 }
 
-function useScrollParent(el: Element | undefined): Element | Window {
+function useScrollParent(el: { current: Element | undefined }): Element | Window {
   const [scrollParent, setScrollParent] = useState<Element | Window>();
 
   useEffect(() => {
     if (el) {
-      // el.addEventListener(
-      //   'touchmove',
-      //   (e) => {
-      //     e.preventDefault();
-      //   },
-      //   { passive: false },
-      // );
-      setScrollParent(getScrollParent(el));
+      setScrollParent(getScrollParent(el.current));
     }
-  }, [el]);
+  }, []);
 
   return scrollParent;
 }

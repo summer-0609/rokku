@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { useState, useCallback } from 'react';
 
 const MIN_DISTANCE = 10;
@@ -14,7 +15,7 @@ function getDirection(x: number, y: number) {
   return '';
 }
 
-const useTouch = (): any => {
+const useTouch = () => {
   const [startX, setStartX] = useState(0);
   const [startY, setStartY] = useState(0);
   const [deltaX, setDeltaX] = useState(0);

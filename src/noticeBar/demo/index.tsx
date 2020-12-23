@@ -7,11 +7,13 @@ export default (): React.ReactNode => {
   const { DemoBlock, DemoSection } = components;
   return (
     <DemoSection>
-      <DemoBlock>
+      <DemoBlock card title="滚动播放">
         <NoticeBar
-          image="http://47.116.3.37/image/empty.png"
-          description="描述文字"
-          className="custom-empty"
+          leftIcon="volume-o"
+          background="rgb(236, 249, 255)"
+          color="rgb(25, 137, 250)"
+          text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"
+          scrollable
         />
       </DemoBlock>
     </DemoSection>

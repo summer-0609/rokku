@@ -1,24 +1,44 @@
 @import '../../styles/themes/default.less';
 
-.@{rk-prefix}-empty {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+.@{rk-prefix}-notice-bar {
+  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  transform: translate(-50%, -50%);
+  height: 40px;
+  padding: 0 16px;
+  color: #ed6a0c;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #fffbe8;
 
-  .empty-image {
-    width: 160px;
-    height: 160px;
+  &__left-icon {
+    min-width: 24px;
+    font-size: 16px;
   }
-  .empty-desc {
-    margin-top: 16px;
-    padding: 0 60px;
-    color: #969799;
-    font-size: 14px;
-    line-height: 20px;
+
+  &--wrapable {
+    height: auto;
+    padding: 8px 16px;
+  }
+
+  &__wrap {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__content {
+    position: absolute;
+    white-space: nowrap;
+    transition-timing-function: linear;
+
+    &.ellipsis {
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 }

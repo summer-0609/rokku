@@ -87,11 +87,28 @@ module.exports = {
                 path: 'popup',
                 title: 'Popup 弹出层',
               },
+              {
+                path: 'toast',
+                title: 'Toast 轻提示',
+              },
+            ],
+          },
+          {
+            title: '表单组件',
+            items: [
+              {
+                path: 'field',
+                title: 'Field 输入框',
+              },
             ],
           },
           {
             title: '反馈组件',
             items: [
+              {
+                path: 'dialog',
+                title: 'Dialog 弹出框',
+              },
               {
                 path: 'loading',
                 title: 'Loading 加载',
@@ -114,8 +131,16 @@ module.exports = {
                 title: 'Empty 空状态',
               },
               {
+                path: 'list',
+                title: 'List 列表',
+              },
+              {
                 path: 'notice-bar',
                 title: 'NoticeBar 通知栏',
+              },
+              {
+                path: 'swipe',
+                title: 'Swipe 轮播',
               },
             ],
           },

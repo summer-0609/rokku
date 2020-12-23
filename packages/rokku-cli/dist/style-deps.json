@@ -7,8 +7,10 @@
     "cell": [
       "icon"
     ],
+    "empty": [],
     "flex": [],
     "icon": [],
+    "list": [],
     "loading": [],
     "overlay": [],
     "popup": [
@@ -25,7 +27,9 @@
     "loading",
     "pull-refresh",
     "button",
+    "empty",
     "flex",
+    "list",
     "overlay",
     "popup"
   ]

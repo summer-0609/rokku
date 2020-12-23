@@ -112,6 +112,6 @@ export async function genStyleDepsMap() {
       JSON.stringify({ map, sequence }, null, 2)
     );
 
-    resolve();
+    resolve(true);
   });
 }
