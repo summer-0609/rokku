@@ -50,7 +50,12 @@
 @font-size-md: 14px;
 @font-size-lg: 16px;
 @font-weight-bold: 500;
+@line-height-xs: 14px;
+@line-height-sm: 18px;
+@line-height-md: 20px;
+@line-height-lg: 22px;
 @base-font-family: PingFangSC-Semibold, PingFang SC;
+@price-integer-font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial, sans-serif;
 
 // Animation
 @animation-duration-base: 0.3s;
@@ -61,8 +66,10 @@
 // Border
 @border-color: #dee4e7;
 @border-width-base: 1px;
-@border-radius-sm: 4px;
-@border-radius-md: 8px;
+@border-radius-sm: 2px;
+@border-radius-md: 4px;
+@border-radius-lg: 8px;
+@border-radius-max: 999px;
 
 // ActionSheet
 @action-sheet-max-height: 90%;
@@ -131,7 +138,7 @@
 @button-warning-background-color: @orange;
 @button-warning-border-color: @orange;
 @button-border-width: @border-width-base;
-@button-border-radius: @border-radius-sm;
+@button-border-radius: @border-radius-md;
 @button-round-border-radius: 10em;
 @button-plain-background-color: @white;
 @button-disabled-opacity: @disabled-opacity;
@@ -256,21 +263,26 @@
 @coupon-list-empty-tip-line-height: 20px;
 
 // Dialog
-@dialog-width: 85%;
+@dialog-width: 270px;
+@dialog-small-screen-width: 90%;
 @dialog-font-size: @font-size-lg;
 @dialog-transition: @animation-duration-base;
-@dialog-border-radius: @border-radius-md;
+@dialog-border-radius: 10px;
 @dialog-background-color: @white;
 @dialog-header-font-weight: @font-weight-bold;
 @dialog-header-line-height: 24px;
-@dialog-header-padding-top: @padding-lg;
+@dialog-header-padding-top: 26px;
 @dialog-header-isolated-padding: @padding-lg 0;
 @dialog-message-padding: @padding-lg;
 @dialog-message-font-size: @font-size-md;
-@dialog-message-line-height: 20px;
+@dialog-message-line-height: @line-height-md;
 @dialog-message-max-height: 60vh;
-@dialog-has-title-message-text-color: @gray-darker;
-@dialog-has-title-message-padding-top: @padding-sm;
+@dialog-has-title-message-text-color: @gray-7;
+@dialog-has-title-message-padding-top: @padding-xs;
+@dialog-button-height: 48px;
+@dialog-round-button-height: 36px;
+@dialog-close-icon-margin: 16px;
+@dialog-close-icon-size: 18px;
 @dialog-confirm-button-text-color: @blue;
 
 // Divider
@@ -294,6 +306,16 @@
 @dropdown-menu-title-line-height: 18px;
 @dropdown-menu-option-active-color: @blue;
 @dropdown-menu-content-max-height: 80%;
+
+// Empty
+@empty-padding: @padding-xl 0;
+@empty-image-size: 160px;
+@empty-description-margin-top: @padding-md;
+@empty-description-padding: 0 60px;
+@empty-description-color: @gray-6;
+@empty-description-font-size: @font-size-md;
+@empty-description-line-height: @line-height-md;
+@empty-bottom-margin-top: 24px;
 
 // Field
 @field-label-width: 90px;
@@ -606,7 +628,7 @@
 @swipe-indicator-margin: @padding-sm;
 @swipe-indicator-active-opacity: 1;
 @swipe-indicator-inactive-opacity: 0.3;
-@swipe-indicator-active-background-color: @blue;
+@swipe-indicator-active-background-color: @white;
 @swipe-indicator-inactive-background-color: @border-color;
 
 // Switch
@@ -674,17 +696,18 @@
 @toast-max-width: 70%;
 @toast-font-size: @font-size-md;
 @toast-text-color: @white;
-@toast-line-height: 20px;
-@toast-border-radius: @border-radius-md;
-@toast-background-color: rgba(@text-color, 0.88);
-@toast-icon-size: 40px;
+@toast-loading-icon-color: @white;
+@toast-line-height: @line-height-md;
+@toast-border-radius: @border-radius-lg;
+@toast-background-color: fade(@black, 70%);
+@toast-icon-size: 36px;
 @toast-text-min-width: 96px;
 @toast-text-padding: @padding-xs @padding-sm;
 @toast-default-padding: @padding-md;
-@toast-default-width: 90px;
-@toast-default-min-height: 90px;
-@toast-position-top-distance: 50px;
-@toast-position-bottom-distance: 50px;
+@toast-default-width: 88px;
+@toast-default-min-height: 88px;
+@toast-position-top-distance: 20%;
+@toast-position-bottom-distance: 20%;
 
 // TreeSelect
 @tree-select-font-size: @font-size-md;

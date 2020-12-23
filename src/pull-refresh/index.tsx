@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import React, { useState, useMemo, useRef, TouchEvent, useEffect } from 'react';
+import React, { useState, useMemo, useRef, useEffect } from 'react';
 import classnames from 'classnames';
 import { PullRefreshProps, PullRefreshStatus } from './PropsType';
 import { createNamespace, getScrollTop, preventDefault } from '../utils';
@@ -15,17 +15,16 @@ const TEXT_STATUS = ['pulling', 'loosing', 'success'];
 
 const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   const { disabled, refreshing, animationDuration, successDuration } = props;
-
   // 操作状态
   const [status, setStatus] = useState<PullRefreshStatus>('normal');
   const [distance, setDistance] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
 
-  const root = useRef();
+  const root = useRef<HTMLDivElement>();
   const reachTop = useRef(null);
 
   const touch = useTouch();
-  const scrollParent = useScrollParent(root.current);
+  const scrollParent = useScrollParent(root);
 
   const isTouchable = useMemo(() => {
     return status !== 'loading' && status !== 'success' && !disabled;
@@ -94,19 +93,19 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
     }
   };
 
-  const onTouchStart = (event: TouchEvent) => {
+  const onTouchStart = (event: TouchEvent | React.TouchEvent) => {
     if (isTouchable) {
-      checkPosition(event);
+      checkPosition(event as TouchEvent);
     }
   };
 
-  const onTouchMove = (event: TouchEvent) => {
+  const onTouchMove = (event: TouchEvent | React.TouchEvent) => {
     if (isTouchable) {
       if (!reachTop.current) {
-        checkPosition(event);
+        checkPosition(event as TouchEvent);
       }
       const { deltaY } = touch;
-      touch.move(event);
+      touch.move(event as TouchEvent);
       if (reachTop.current && deltaY >= 0 && touch.isVertical()) {
         preventDefault(event);
         updateStatus(ease(deltaY));
@@ -137,7 +136,6 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
 
   useEffect(() => {
     setDuration(+animationDuration);
-
     if (refreshing) {
       updateStatus(+props.headHeight, true);
     } else if (props.successText) {
@@ -148,6 +146,7 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   }, [refreshing]);
 
   const trackStyle = {
+    ...props.style,
     transitionDuration: `${duration}ms`,
     transform: distance ? `translate3d(0,${distance}px, 0)` : '',
   };

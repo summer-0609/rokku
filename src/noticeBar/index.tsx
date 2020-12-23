@@ -45,12 +45,6 @@ const NoticeBar: React.FC<NoticeBarProps> = (props) => {
         duration: (contentWidth + wrapWidth) / speed,
       });
     });
-    // useEffect(() => {
-    //   setState({
-    //     offset: -contentWidth,
-    //     duration: (contentWidth + wrapWidth) / speed
-    //   });
-    // }, []);
   };
 
   //  左侧图标
