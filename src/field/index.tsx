@@ -5,177 +5,19 @@ import classnames from 'classnames';
 import Icon from '../icon';
 import Cell from '../cell';
 import { FieldProps } from './PropsType';
-import { createNamespace, isDef, addUnit } from '../utils';
+import { createNamespace, isDef, addUnit, formatNumber, preventDefault, isObject } from '../utils';
 
 const [bem] = createNamespace('field');
 const ICON_SIZE = '16px';
 
 const Field: React.FC<FieldProps> = (props) => {
-  const {
-    value,
-    type = 'text',
-    size,
-    label,
-    isLink,
-    name,
-    center = false,
-    placeholder = '',
-    readonly,
-    disabled,
-    autosize,
-    colon,
-    labelIcon,
-    leftIcon,
-    rightIcon,
-    clearable,
-    clickable,
-    input,
-    clear,
-    click,
-    focus,
-    blur,
-    clickInput,
-    clickLeftIcon,
-    clickRightIcon,
-    getContainerRef,
-    getFieldRef,
-    autofocus,
-    error,
-    errorMessage,
-    maxLength,
-    showWordLimit,
-    button,
-    formatter = () => true,
-    labelClass,
-    labelWidth,
-    labelAlign = 'left',
-    inputAlign = 'left',
-    errorMessageAlign = 'left',
-    required,
-    border = true,
-    arrowDirection,
-  } = props;
-
-  const [containerFocus, setContainerFocus] = useState(false);
-
-  const handleInput = (e) => {
-    const inputValue = e.target.value;
-    if (formatter(inputValue)) {
-      if (input) {
-        if (!maxLength) {
-          return input(inputValue);
-        }
-
-        if ((value && value.length < maxLength) || inputValue.length < maxLength) {
-          return input(inputValue);
-        }
-      }
-
-      return inputValue;
-    }
-
-    return inputValue;
-  };
-
-  const handleClick = (e) => {
-    if (clickable && click) {
-      return click(e);
-    }
-
-    return null;
-  };
-
-  const handleClickInput = (e) => {
-    if (clickable && clickInput) {
-      return clickInput(e);
-    }
-
-    return null;
-  };
-
-  const handleFocus = (e) => {
-    if (focus) return focus(e);
-
-    return null;
-  };
-
-  const handleBlur = (e) => {
-    if (blur) return blur(e);
-
-    return null;
-  };
-
-  const handleClickLeftIcon = (e) => {
-    if (clickLeftIcon && clickable) return clickLeftIcon(e);
-
-    return null;
-  };
-
-  const handleClickRightIcon = (e) => {
-    if (clickRightIcon && clickable) return clickRightIcon(e);
-
-    return null;
-  };
-
-  const fieldContainerRef = useRef(null);
+  const [inputFocus, setInputFocus] = useState(false);
   const fieldRef = useRef(null);
+  const inputRef = useRef(null);
 
   useEffect(() => {
-    if (getContainerRef) getContainerRef(fieldContainerRef);
-    if (getFieldRef) getFieldRef(fieldRef);
-  }, [getContainerRef, getFieldRef]);
-
-  useEffect(() => {
-    window.addEventListener('click', (e) => {
-      if (fieldContainerRef?.current?.contains(e.target)) {
-        setContainerFocus(true);
-      } else {
-        setContainerFocus(false);
-      }
-    });
-    return () => window.removeEventListener('click', () => {});
-  }, []);
-
-  const containerProps = {
-    className: classnames(bem(''), [
-      { disabled },
-      { readonly },
-      { error },
-      { showWordLimit },
-      { [`input-${inputAlign}`]: inputAlign },
-      { [`label-${labelAlign}`]: labelAlign },
-      { [`error-${errorMessageAlign}`]: errorMessageAlign },
-      { border },
-      { required },
-    ]),
-    onClick: handleClick,
-    ref: fieldContainerRef,
-  };
-
-  const inputProps = {
-    value,
-    type,
-    name,
-    placeholder: placeholder || label,
-    disabled,
-    readOnly: readonly,
-    ref: fieldRef,
-    autoFocus: autofocus,
-    onChange: handleInput,
-    onBlur: handleBlur,
-    onFocus: handleFocus,
-    onClick: handleClickInput,
-  };
-
-  const labelProps = {
-    htmlFor: name,
-    className: labelClass,
-  };
-
-  const labelContainerProps = {
-    style: {},
-    className: classnames(bem('label'), labelClass),
-  };
+    if (props.getFieldRef) props.getFieldRef(fieldRef);
+  }, [props.getFieldRef]);
 
   const getProp = (key) => {
     if (isDef(props[key])) {
@@ -197,13 +39,225 @@ const Field: React.FC<FieldProps> = (props) => {
     return {};
   };
 
-  if (type === 'digit') Object.assign(inputProps, { inputMode: 'numeric', type: 'tel' });
+  const adjustSize = () => {
+    const input = inputRef.current;
 
-  if (labelWidth) Object.assign(labelContainerProps, { style: { width: labelWidth } });
+    if (!(props.type === 'textarea' && props.autosize) || !input) {
+      return;
+    }
+
+    input.style.height = 'auto';
+
+    let height = input.scrollHeight;
+    if (isObject(props.autosize)) {
+      const { maxHeight, minHeight } = props.autosize;
+      if (maxHeight) {
+        height = Math.min(height, maxHeight);
+      }
+      if (minHeight) {
+        height = Math.max(height, minHeight);
+      }
+    }
+
+    if (height) {
+      input.style.height = `${height}px`;
+    }
+  };
+
+  useEffect(() => {
+    adjustSize();
+  }, [props.value]);
+
+  const formatValue = (inputValue, trigger = 'onChange') => {
+    const { formatTrigger, formatter } = props;
+    if (formatter && trigger === formatTrigger) {
+      return formatter(inputValue);
+    }
+
+    return inputValue;
+  };
+
+  const renderInput = () => {
+    const { type, name, rows, value, placeholder, disabled, readonly, onClickInput } = props;
+    const inputAlign = getProp('inputAlign');
+
+    const handleChange = (e) => {
+      const { maxlength, onChange } = props;
+      const inputValue = e?.currentTarget?.value;
+      let finalValue = inputValue;
+
+      if (isDef(maxlength) && finalValue.length > +maxlength) {
+        finalValue = finalValue.slice(0, maxlength);
+      }
+
+      if (type === 'number' || type === 'digit') {
+        const isNumber = type === 'number';
+        finalValue = formatNumber(finalValue, isNumber, isNumber);
+      }
+
+      finalValue = formatValue(finalValue, 'onChange');
+
+      // if (inputRef.value && inputValue !== inputRef.value.value) {
+      //   inputRef.value.value = inputValue;
+      // }
+
+      if (onChange && typeof onChange === 'function') {
+        onChange(finalValue);
+      }
+    };
+
+    const handleFocus = (e) => {
+      const { onFocus } = props;
+      const inputValue = e?.currentTarget?.value;
+      setInputFocus(true);
+      if (onFocus && typeof onFocus === 'function') {
+        onFocus(inputValue);
+      }
+    };
+
+    const handleBulr = (e) => {
+      const { onBlur, onChange } = props;
+      const inputValue = e?.currentTarget?.value;
+      setInputFocus(false);
+      if (onChange && typeof onChange === 'function') {
+        onChange(formatValue(inputValue, 'onBlur'));
+      }
+      if (onBlur && typeof onBlur === 'function') {
+        onBlur(inputValue);
+      }
+    };
+
+    if (type === 'textarea') {
+      return (
+        <textarea
+          ref={inputRef}
+          name={name}
+          rows={rows}
+          className={classnames(bem('control', inputAlign))}
+          value={value}
+          disabled={disabled}
+          readOnly={readonly}
+          placeholder={placeholder || ''}
+          onBlur={handleBulr}
+          onFocus={handleFocus}
+          onClick={onClickInput}
+          onChange={handleChange}
+        />
+      );
+    }
+
+    let inputType = type;
+    let inputMode;
+
+    // type="number" is weired in iOS, and can't prevent dot in Android
+    // so use inputmode to set keyboard in mordern browers
+    if (type === 'number') {
+      inputType = 'text';
+      inputMode = 'decimal';
+    }
+
+    if (type === 'digit') {
+      inputType = 'tel';
+      inputMode = 'numeric';
+    }
+
+    return (
+      <input
+        value={value}
+        type={inputType}
+        inputMode={inputMode}
+        ref={inputRef}
+        name={name}
+        className={classnames(bem('control', inputAlign))}
+        disabled={disabled}
+        readOnly={readonly}
+        placeholder={placeholder || ''}
+        onBlur={handleBulr}
+        onFocus={handleFocus}
+        onClick={onClickInput}
+        onChange={handleChange}
+      />
+    );
+  };
+
+  const renderRightIcon = () => {
+    const { rightIcon, iconPrefix, onClickRightIcon } = props;
+    const isString = typeof rightIcon === 'string';
+
+    if (rightIcon) {
+      return (
+        <div className={classnames(bem('right-icon'))} onClick={onClickRightIcon}>
+          {isString ? <Icon name={props.rightIcon} classPrefix={iconPrefix} /> : rightIcon}
+        </div>
+      );
+    }
+
+    return null;
+  };
+
+  const renderWordLimit = () => {
+    const { value, showWordLimit, maxlength } = props;
+    if (showWordLimit && maxlength) {
+      const count = (value || '').length;
+      return (
+        <div className={classnames(bem('word-limit'))}>
+          <span className={classnames(bem('word-num'))}>{count}</span>/{maxlength}
+        </div>
+      );
+    }
+
+    return null;
+  };
+
+  const renderMessage = () => {
+    // if (form && form.props.showErrorMessage === false) {
+    //   return null;
+    // }
+
+    const message = props.errorMessage;
+
+    if (message) {
+      const errorMessageAlign = getProp('errorMessageAlign');
+      return <div className={classnames(bem('error-message', errorMessageAlign))}>{message}</div>;
+    }
+
+    return null;
+  };
+
+  const handleClear = (e) => {
+    const { onClear, onChange } = props;
+    preventDefault(e);
+    inputRef.current.value = '';
+    onChange('');
+    if (onClear && typeof onClear === 'function') {
+      onClear(e);
+    }
+  };
+
+  const {
+    type,
+    value,
+    label,
+    size,
+    leftIcon,
+    center,
+    border,
+    isLink,
+    required,
+    clickable,
+    labelAlign,
+    labelClass,
+    arrowDirection,
+    autosize,
+    disabled,
+    clearable,
+    button,
+    error,
+  } = props;
 
   return (
-    // error: showError.value,
     <Cell
+      title={label || ''}
       size={size}
       icon={leftIcon}
       center={center}
@@ -217,67 +271,28 @@ const Field: React.FC<FieldProps> = (props) => {
       arrowDirection={arrowDirection}
       className={classnames(
         bem({
-          disabled: props.disabled,
+          error,
+          disabled,
           [`label-${labelAlign}`]: labelAlign,
-          'min-height': props.type === 'textarea' && !autosize,
+          'min-height': type === 'textarea' && !autosize,
         }),
       )}
     >
-      <div {...containerProps}>
-        {label && (
-          <div {...labelContainerProps}>
-            {labelIcon && <Icon name={labelIcon} size={ICON_SIZE} />}
-            <label {...labelProps}>
-              {label}
-              {colon && ':'}
-            </label>
-          </div>
-        )}
-        <div className={classnames(bem('input'))}>
-          <div className={classnames(bem('field'))}>
-            {leftIcon && (
-              <Icon
-                color="#323233"
-                onClick={handleClickLeftIcon}
-                name={leftIcon}
-                size={ICON_SIZE}
-              />
-            )}
-            {/* <input {...inputProps} /> */}
-            <input
-              type={type}
-              value={value}
-              placeholder={`${placeholder}`}
-              name={name}
-              disabled={disabled}
-              readOnly={readonly}
-              ref={fieldRef}
-              autoFocus={autofocus}
-              onChange={handleInput}
-              onBlur={handleBlur}
-              onFocus={handleFocus}
-              onClick={handleClickInput}
-            />
-            {clearable && value && containerFocus && (
-              <Icon onClick={clear} name="clear" size={ICON_SIZE} />
-            )}
-            {rightIcon && !clearable && (
-              <Icon onClick={handleClickRightIcon} name={rightIcon} size={ICON_SIZE} />
-            )}
-            {button && button}
-          </div>
-          {error && errorMessage && <div className={classnames(bem('error'))}>{errorMessage}</div>}
-          {showWordLimit && (
-            <div
-              className={classnames(bem('word-limit'), value?.length === maxLength ? 'full' : '')}
-            >
-              {value ? value.length : 0}/{maxLength}
-            </div>
-          )}
-        </div>
+      <div className={classnames(bem('body'))}>
+        {renderInput()}
+        {clearable && value && <Icon onClick={handleClear} name="clear" size={ICON_SIZE} />}
+        {renderRightIcon()}
+        {button && button}
       </div>
+      {renderWordLimit()}
+      {renderMessage()}
     </Cell>
   );
+};
+
+Field.defaultProps = {
+  type: 'text',
+  formatTrigger: 'onChange',
 };
 
 export default Field;

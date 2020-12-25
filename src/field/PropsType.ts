@@ -1,4 +1,5 @@
 import { ReactElement } from 'react';
+import { JsxElement } from 'typescript';
 import { BaseTypeProps } from '../utils';
 import { CellProps } from '../cell/PropsType';
 
@@ -8,11 +9,13 @@ export interface FieldProps extends BaseTypeProps, CellProps {
   value?: string;
   type?: string;
   name?: string;
-  placeholder?: string | number;
+  rows: number;
+  placeholder?: string;
   autosize?: boolean;
   errorMessage?: string;
   labelClass?: string;
   labelWidth?: string;
+  maxlength?: number;
   labelAlign?: TAlignment;
   inputAlign?: TAlignment;
   errorMessageAlign?: TAlignment; //
@@ -30,15 +33,15 @@ export interface FieldProps extends BaseTypeProps, CellProps {
   labelIcon?: string;
   leftIcon?: string;
   rightIcon?: string;
-  input?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  clear?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  click?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  focus?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  blur?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  clickInput?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  clickLeftIcon?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  clickRightIcon?: (e: React.MouseEvent<HTMLDivElement>) => void;
-  getContainerRef?: (ref) => void;
+  formatTrigger?: string;
+  onChange?: (val: string | number) => void;
+  onClear?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onFocus?: (val: string | number) => void;
+  onBlur?: (val: string | number) => void;
+  onClickInput?: (e: React.MouseEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
+  onClickLeftIcon?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onClickRightIcon?: (e: React.MouseEvent<HTMLDivElement>) => void;
   getFieldRef?: (ref) => void;
   formatter?: (val: string | number) => string;
   button?: ReactElement;

@@ -2,165 +2,165 @@
 @import '../../styles/mixins/hairline.less';
 
 .@{rk-prefix}-field {
-  position: relative;
-  // padding: 10px 16px;
-  display: flex;
-  width: 100%;
-  overflow: hidden;
-  color: @gray-8;
-  font-weight: 300;
-  font-size: 14px;
-  line-height: 24px;
-  background-color: @white;
-
   &__label {
-    display: flex;
-    align-items: center;
+    flex: none;
+    box-sizing: border-box;
     width: @field-label-width;
     margin-right: @field-label-margin-right;
     color: @field-label-color;
-    word-wrap: break-word;
-
-    .vant-icon__container {
-      margin-right: 5px;
-    }
-  }
-
-  &__input {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    overflow: visible;
-    color: @gray-6;
-    vertical-align: middle;
-    word-wrap: break-word;
-
-    &__field {
-      display: flex;
-      width: inherit;
-    }
-
-    .vant-icon__container {
-      padding: 0 5px;
-    }
-
-    button {
-      position: absolute;
-      top: 50%;
-      right: 0;
-      transform: translateY(-50%);
-    }
-  }
-
-  &__error {
-    color: @field-error-message-color;
-    font-size: @field-error-message-text-color;
     text-align: left;
+    word-wrap: break-word;
+
+    &--center {
+      text-align: center;
+    }
+
+    &--right {
+      text-align: right;
+    }
   }
 
-  &__word-limit {
-    margin-top: 4px;
-    color: #656566;
-    font-size: 12px;
-    line-height: 16px;
-    text-align: right;
+  &--disabled {
+    .@{rk-prefix}-field__label {
+      color: @field-disabled-text-color;
+    }
   }
 
-  input {
+  &__value {
+    overflow: visible;
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+  }
+
+  &__control {
     display: block;
-    width: inherit;
+    box-sizing: border-box;
+    width: 100%;
+    min-width: 0; // for flex-shrink in field__button
+    margin: 0;
     padding: 0;
-    color: @gray-8;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 24px;
+    color: @field-input-text-color;
     line-height: inherit;
     text-align: left;
+    background-color: transparent;
     border: 0;
-    outline: none;
     resize: none;
 
     &::placeholder {
       color: @field-placeholder-text-color;
     }
-  }
 
-  &__disabled {
-    input {
+    &:disabled {
       color: @field-input-disabled-text-color;
-    }
-  }
-
-  &__error,
-  &__showWordLimit {
-    .full {
-      color: @field-input-error-text-color;
+      cursor: not-allowed;
+      opacity: 1;
+      // fix disabled color in mobile safari
+      -webkit-text-fill-color: @field-input-disabled-text-color;
     }
 
-    &__label {
-      align-items: flex-start;
+    &:read-only {
+      cursor: default;
     }
-  }
 
-  &__input-center {
-    input {
-      text-align: center;
-    }
-  }
-  &__input-right {
-    input {
-      text-align: right;
-    }
-  }
-
-  &__label-center {
-    &__label {
+    &--center {
       justify-content: center;
+      text-align: center;
     }
-  }
-  &__label-right {
-    &__label {
+
+    &--right {
       justify-content: flex-end;
+      text-align: right;
+    }
+
+    &--custom {
+      display: flex;
+      align-items: center;
+      min-height: @cell-line-height;
+    }
+
+    // for ios wechat
+    &[type='date'],
+    &[type='time'],
+    &[type='datetime-local'] {
+      min-height: @cell-line-height;
+    }
+
+    // for safari
+    &[type='search'] {
+      -webkit-appearance: none;
     }
   }
 
-  &__error-right {
-    &__error {
+  &__clear,
+  &__right-icon {
+    margin-right: -@padding-xs;
+    padding: 0 @padding-xs;
+    line-height: inherit;
+  }
+
+  &__clear {
+    color: @field-clear-icon-color;
+    font-size: @field-clear-icon-size;
+    cursor: pointer;
+  }
+
+  &__left-icon .@{rk-prefix}-icon,
+  &__right-icon .@{rk-prefix}-icon {
+    display: block;
+    font-size: @field-icon-size;
+    line-height: inherit;
+  }
+
+  &__left-icon {
+    margin-right: @padding-base;
+  }
+
+  &__right-icon {
+    color: @field-right-icon-color;
+  }
+
+  &__button {
+    padding-left: @padding-xs;
+  }
+
+  &__error-message {
+    color: @field-error-message-color;
+    font-size: @field-error-message-text-color;
+    text-align: left;
+
+    &--center {
+      text-align: center;
+    }
+
+    &--right {
       text-align: right;
     }
   }
-  &__error-center {
-    &__error {
-      text-align: center;
-    }
+
+  &__word-limit {
+    margin-top: @padding-base;
+    color: @field-word-limit-color;
+    font-size: @field-word-limit-font-size;
+    line-height: @field-word-limit-line-height;
+    text-align: right;
   }
 
-  &__required {
-    &__label {
-      label {
-        &::before {
-          position: absolute;
-          left: 4px;
-          color: @field-input-error-text-color;
-          font-size: 14px;
-          content: '*';
-        }
+  &--error {
+    .@{rk-prefix}-field__control {
+      &,
+      &::placeholder {
+        color: @field-input-error-text-color;
+        -webkit-text-fill-color: currentColor;
       }
     }
   }
 
-  &__border {
-    &:not(:last-child)::after {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      left: 16px;
-      box-sizing: border-box;
-      border-bottom: 1px solid @gray-3;
-      transform: scaleY(0.5);
-      content: ' ';
-      pointer-events: none;
+  &--min-height {
+    .@{rk-prefix}-field__control {
+      min-height: @field-text-area-min-height;
     }
   }
 }
