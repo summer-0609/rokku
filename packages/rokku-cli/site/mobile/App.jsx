@@ -1,7 +1,10 @@
 import React, { useMemo } from 'react';
 import { Switch, Route, Redirect, useLocation } from 'react-router-dom';
+
+import ScrollTop from './components/ScrollTop';
 import DemoNav from './components/DemoNav';
 import routes from './routes';
+
 import './index.less';
 
 const App = () => {
@@ -15,6 +18,7 @@ const App = () => {
   return (
     <div>
       <DemoNav title={title} />
+      <ScrollTop />
       <Switch>
         {routes.map((route) => {
           return route.redirect ? (

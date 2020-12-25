@@ -21,7 +21,6 @@ const SwipeItem: React.ForwardRefExoticComponent<{ index: number }> = forwardRef
     };
     const { vertical, size } = context;
 
-    console.log(4, size);
     style[vertical ? 'height' : 'width'] = `${size}px`;
 
     if (state.offset) {

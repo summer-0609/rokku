@@ -25,7 +25,7 @@ const DemoHome = (props) => {
           'demo-home__title--small': smallTitle,
         })}
       >
-        <img src={siteConfig.logo} />
+        <img src={siteConfig.logo} alt=""/>
         <span>{siteConfig.title}</span>
       </h1>
       {siteConfig.description && (

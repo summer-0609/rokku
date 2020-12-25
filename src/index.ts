@@ -12,3 +12,4 @@ export { default as List } from './list';
 export { default as Toast } from './toast';
 export { default as Dialog } from './dialog';
 export { default as Swipe } from './swipe';
+export { default as Tabs } from './tabs';

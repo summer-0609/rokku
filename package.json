@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "bootstrap": "yarn || npm i",
-    "start": "rokku-cli dev",
+    "start": "node packages/rokku-cli/lib/index.js dev",
     "build": "rokku-cli build",
     "docs:build": "rokku-cli build-site",
     "docs:deploy": "gh-pages -d docs-dist",

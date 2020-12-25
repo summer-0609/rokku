@@ -75,12 +75,16 @@ yarn test
 
 ## Components completion status
 
+### Layout Components
+- [x] Flex 布局
+
 ### Basic Components
 
 - [x] Button 按钮
 - [x] Icon 图标
 - [x] Popup 弹出框
 - [x] Cell 单元格
+- [x] Toast 轻提示
 - [x] 内置样式（IPhoneX 适配，细边框等）
 
 ### Form Components
@@ -92,11 +96,17 @@ yarn test
 - [ ] Search 搜索
 - [ ] DatetimePicker 时间选择
 
+### Display Components
+- [ ] NoticeBar 通知栏
+- [x] Swipe 轮播
+- [x] Empty 空状态
+- [x] List 列表
+
 ### Action Components
 - [x] Loading 加载
 - [x] Overlay 遮罩层
-- [ ] Dialog 弹出层
-- [ ] PullRefresh 下拉刷新
+- [x] Dialog 弹出层
+- [x] PullRefresh 下拉刷新
 
 ### Navigation Components
 

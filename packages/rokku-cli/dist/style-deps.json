@@ -7,10 +7,24 @@
     "cell": [
       "icon"
     ],
+    "dialog": [
+      "icon",
+      "loading",
+      "button",
+      "overlay",
+      "popup"
+    ],
     "empty": [],
+    "field": [
+      "icon",
+      "cell",
+      "loading"
+    ],
     "flex": [],
     "icon": [],
-    "list": [],
+    "list": [
+      "loading"
+    ],
     "loading": [],
     "overlay": [],
     "popup": [
@@ -19,6 +33,16 @@
     ],
     "pull-refresh": [
       "loading"
+    ],
+    "swipe": [],
+    "tabs": [
+      "swipe"
+    ],
+    "toast": [
+      "icon",
+      "loading",
+      "overlay",
+      "popup"
     ]
   },
   "sequence": [
@@ -26,11 +50,16 @@
     "cell",
     "loading",
     "pull-refresh",
+    "list",
+    "field",
     "button",
+    "overlay",
+    "popup",
+    "toast",
+    "dialog",
     "empty",
     "flex",
-    "list",
-    "overlay",
-    "popup"
+    "swipe",
+    "tabs"
   ]
 }
