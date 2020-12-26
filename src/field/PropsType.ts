@@ -39,6 +39,7 @@ export interface FieldProps extends BaseTypeProps, CellProps {
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
   onFocus?: (val: string | number) => void;
   onBlur?: (val: string | number) => void;
+  onKeypress?: (val: string | number) => void;
   onClickInput?: (e: React.MouseEvent<HTMLTextAreaElement | HTMLInputElement>) => void;
   onClickLeftIcon?: (e: React.MouseEvent<HTMLDivElement>) => void;
   onClickRightIcon?: (e: React.MouseEvent<HTMLDivElement>) => void;

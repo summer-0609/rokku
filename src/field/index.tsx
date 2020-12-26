@@ -77,6 +77,18 @@ const Field: React.FC<FieldProps> = (props) => {
     return inputValue;
   };
 
+  const focus = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
+  const blur = () => {
+    if (inputRef.current) {
+      inputRef.current.blur();
+    }
+  };
+
   const renderInput = () => {
     const { type, name, rows, value, placeholder, disabled, readonly, onClickInput } = props;
     const inputAlign = getProp('inputAlign');
@@ -127,6 +139,19 @@ const Field: React.FC<FieldProps> = (props) => {
       }
     };
 
+    const handleKeypress = (e) => {
+      const { onKeypress } = props;
+      const inputValue = e?.currentTarget?.value;
+      // trigger blur after click keyboard search button
+      if (props.type === 'search') {
+        blur();
+      }
+
+      if (onKeypress && typeof onKeypress === 'function') {
+        onKeypress(inputValue);
+      }
+    };
+
     if (type === 'textarea') {
       return (
         <textarea
@@ -142,6 +167,7 @@ const Field: React.FC<FieldProps> = (props) => {
           onFocus={handleFocus}
           onClick={onClickInput}
           onChange={handleChange}
+          onKeyPress={handleKeypress}
         />
       );
     }
@@ -176,6 +202,7 @@ const Field: React.FC<FieldProps> = (props) => {
         onFocus={handleFocus}
         onClick={onClickInput}
         onChange={handleChange}
+        onKeyPress={handleKeypress}
       />
     );
   };
@@ -257,7 +284,7 @@ const Field: React.FC<FieldProps> = (props) => {
 
   return (
     <Cell
-      title={label || ''}
+      title={label || null}
       size={size}
       icon={leftIcon}
       center={center}

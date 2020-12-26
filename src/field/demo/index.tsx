@@ -5,6 +5,7 @@ import './style.less';
 
 export default (): React.ReactNode => {
   const { DemoBlock, DemoSection } = components;
+  const [value, setValue] = useState('');
   const [value1, setValue1] = useState('');
   const [value2, setValue2] = useState('');
   const [tel, setTel] = useState();
@@ -22,11 +23,22 @@ export default (): React.ReactNode => {
   const [message2, setMessage2] = useState('');
   const [value7, setValue7] = useState('');
 
-  const formatter = (value) => value.replace(/\d/g, '');
-
+  const formatter = (val) => val.replace(/\d/g, '');
+  const onKeypress = () => {
+    console.log('onKeypress');
+  };
   return (
     <DemoSection>
       <DemoBlock title="基础用法">
+        <Cell.Group>
+          <Field
+            value={value}
+            onChange={setValue}
+            placeholder="请输入文本"
+            onKeypress={onKeypress}
+          />
+        </Cell.Group>
+
         <Cell.Group>
           <Field value={value1} label="文本" onChange={setValue1} placeholder="请输入文本" />
         </Cell.Group>
