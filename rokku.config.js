@@ -136,7 +136,7 @@ module.exports = {
               },
               {
                 path: 'sticky',
-                title: 'Sticky 轮播',
+                title: 'Sticky 粘性布局',
               },
               {
                 path: 'swipe',

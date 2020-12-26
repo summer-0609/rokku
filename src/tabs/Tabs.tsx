@@ -5,6 +5,7 @@ import useRefs from '../hooks/use-refs';
 import useScrollParent from '../hooks/use-scroll-parent';
 import useWindowSize from '../hooks/use-window-size';
 
+import Sticky from '../sticky';
 import TabsTitle from './TabsTitle';
 import TabsContent from './TabsContent';
 import TabsContext from './TabsContext';
@@ -312,7 +313,17 @@ const Tabs: React.FC<TabsProps> & TabStatic = (props) => {
   return (
     <TabsContext.Provider value={{ props, currentName }}>
       <div ref={root} className={classnames(bem([props.type]))}>
-        {renderHeader()}
+        {props.sticky ? (
+          <Sticky
+            container={root}
+            offsetTop={offsetTopPx}
+            // onScroll={onStickyScroll}
+          >
+            {renderHeader()}
+          </Sticky>
+        ) : (
+          renderHeader()
+        )}
         <TabsContent
           count={React.Children.count(children)}
           inited={state.inited}

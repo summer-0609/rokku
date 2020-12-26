@@ -50,6 +50,15 @@ export default (): React.ReactNode => {
           <Tabs.TabPane title="标签2">内容2</Tabs.TabPane>
         </Tabs>
       </DemoBlock>
+      <DemoBlock title="粘性布局">
+        <Tabs active={2} sticky>
+          {[1, 2, 3, 4].map((item) => (
+            <Tabs.TabPane key={item} title={`标签${item}`}>
+              内容 {item}
+            </Tabs.TabPane>
+          ))}
+        </Tabs>
+      </DemoBlock>
     </DemoSection>
   );
 };
