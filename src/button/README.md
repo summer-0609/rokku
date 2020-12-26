@@ -14,11 +14,11 @@ import { Button } from '@rokku/design';
 
 ### 按钮类型
 
-按钮支持 `default`、`primary`、`success`、`warning`、`danger` 五种类型，默认为 `default`。
+按钮支持 `default`、`primary`、`info`、`warning`、`danger` 五种类型，默认为 `default`。
 
 ```html
 <Button type="primary">主要按钮</Button>
-<Button type="success">成功按钮</Button>
+<Button type="info">信息按钮</Button>
 <Button type="default">默认按钮</Button>
 <Button type="warning">警告按钮</Button>
 <Button type="danger">危险按钮</Button>
@@ -124,7 +124,7 @@ import { Button } from '@rokku/design';
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| type | 类型，可选值为 `primary` `success` `warning` `danger` | _string_ | `default` |
+| type | 类型，可选值为 `primary` `info` `warning` `danger` | _string_ | `default` |
 | size | 尺寸，可选值为 `large` `small` `mini` | _string_ | `normal` |
 | text | 按钮文字 | _string_ | - |
 | color | 按钮颜色，支持传入 `linear-gradient` 渐变色 | _string_ | - |

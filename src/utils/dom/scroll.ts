@@ -3,11 +3,29 @@ import { raf, cancelRaf } from '../raf';
 
 type ScrollElement = Element | Window;
 
+function isWindow(val: unknown): val is Window {
+  return val === window;
+}
+
 export function getScrollTop(el: ScrollElement): number {
   const top = 'scrollTop' in el ? el.scrollTop : el.pageYOffset;
 
   // iOS scroll bounce cause minus scrollTop
   return Math.max(top, 0);
+}
+
+export function getRootScrollTop(): number {
+  return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+}
+
+// get distance from element top to page top or scroller top
+export function getElementTop(el: ScrollElement, scroller?: HTMLElement): number {
+  if (isWindow(el)) {
+    return 0;
+  }
+
+  const scrollTop = scroller ? getScrollTop(scroller) : getRootScrollTop();
+  return el.getBoundingClientRect().top + scrollTop;
 }
 
 export function setScrollTop(el: ScrollElement, value: number): void {
