@@ -15,11 +15,11 @@ module.exports = {
       'zh-CN': {
         title: 'Rokku',
         description: '轻量、可靠的移动端 React 组件库',
-        logo: 'http://47.116.3.37/image/logo.png',
+        logo: 'http://www.rokku.icu/image/logo.png',
         langLabel: '中文',
         links: [
           {
-            logo: 'http://47.116.3.37/image/github.png',
+            logo: 'http://www.rokku.icu/image/github.png',
             url: 'https://github.com/Hyattria/rokku',
           },
         ],
@@ -110,6 +110,10 @@ module.exports = {
             title: '反馈组件',
             items: [
               {
+                path: 'dialog',
+                title: 'Dialog 弹出框',
+              },
+              {
                 path: 'loading',
                 title: 'Loading 加载',
               },
@@ -134,6 +138,23 @@ module.exports = {
                 path: 'list',
                 title: 'List 列表',
               },
+              {
+                path: 'sticky',
+                title: 'Sticky 粘性布局',
+              },
+              {
+                path: 'swipe',
+                title: 'Swipe 轮播',
+              },
+            ],
+          },
+          {
+            title: '导航组件',
+            items: [
+              {
+                path: 'tabs',
+                title: 'Tabs 标签页',
+              },
             ],
           },
         ],
@@ -141,11 +162,11 @@ module.exports = {
       'en-US': {
         title: 'Rokku',
         description: 'Mobile UI Components built on React',
-        logo: 'http://47.116.3.37/logo.png',
+        logo: 'http://www.rokku.icu/logo.png',
         langLabel: 'En',
         links: [
           {
-            logo: 'http://47.116.3.37/github.png',
+            logo: 'http://www.rokku.icu/github.png',
             url: 'https://github.com/Hyattria/rokku',
           },
         ],

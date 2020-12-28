@@ -5,6 +5,8 @@ import { CSSTransition } from 'react-transition-group';
 import Icon from '../icon';
 import Overlay from '../overlay';
 import useLockScroll from '../hooks/use-lock-scroll';
+import useEventListener from '../hooks/use-event-listener';
+
 import { createNamespace, isDef } from '../utils';
 import { PopupProps } from './PropsType';
 
@@ -24,6 +26,12 @@ const Popup: React.FC<PopupProps> = (props) => {
   const [zIndex] = useState<number>(2000);
   const [animatedVisible, setAnimatedVisible] = useState(visible);
   const [lockScroll, unlockScroll] = useLockScroll(() => props.lockScroll);
+
+  useEventListener('popstate', () => {
+    if (props.closeOnPopstate) {
+      props.onClose();
+    }
+  });
 
   useEffect(() => {
     if (visible) {
@@ -72,6 +80,13 @@ const Popup: React.FC<PopupProps> = (props) => {
     return initStyle;
   }, [zIndex]);
 
+  const onClickCloseIcon = () => {
+    if (props.onClickCloseIcon) {
+      props.onClickCloseIcon();
+    }
+    props.onClose();
+  };
+
   const renderCloseIcon = () => {
     if (closeable) {
       const { closeIconPosition = 'top-right' } = props;
@@ -79,7 +94,7 @@ const Popup: React.FC<PopupProps> = (props) => {
         <Icon
           name={closeIcon}
           className={classnames(bem('close-icon', closeIconPosition))}
-          // onClick={onClickCloseIcon}
+          onClick={onClickCloseIcon}
         />
       );
     }
@@ -99,7 +114,9 @@ const Popup: React.FC<PopupProps> = (props) => {
         unmountOnExit={destroyOnClose}
         onExited={() => {
           setAnimatedVisible(false);
-          props.onClosed();
+          if (props.onClosed && typeof props.onClosed === 'function') {
+            props.onClosed();
+          }
         }}
       >
         <div

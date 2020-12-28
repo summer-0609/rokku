@@ -14,11 +14,11 @@ import { Button } from '@rokku/design';
 
 ### 按钮类型
 
-按钮支持 `default`、`primary`、`success`、`warning`、`danger` 五种类型，默认为 `default`。
+按钮支持 `default`、`primary`、`info`、`warning`、`danger` 五种类型，默认为 `default`。
 
 ```html
 <Button type="primary">主要按钮</Button>
-<Button type="success">成功按钮</Button>
+<Button type="info">信息按钮</Button>
 <Button type="default">默认按钮</Button>
 <Button type="warning">警告按钮</Button>
 <Button type="danger">危险按钮</Button>
@@ -124,7 +124,7 @@ import { Button } from '@rokku/design';
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| type | 类型，可选值为 `primary` `success` `warning` `danger` | _string_ | `default` |
+| type | 类型，可选值为 `primary` `info` `warning` `danger` | _string_ | `default` |
 | size | 尺寸，可选值为 `large` `small` `mini` | _string_ | `normal` |
 | text | 按钮文字 | _string_ | - |
 | color | 按钮颜色，支持传入 `linear-gradient` 渐变色 | _string_ | - |
@@ -140,16 +140,12 @@ import { Button } from '@rokku/design';
 | disabled | 是否禁用按钮 | _boolean_ | `false` |
 | hairline | 是否使用 0.5px 边框 | _boolean_ | `false` |
 | loading | 是否显示为加载状态 | _boolean_ | `false` |
-| loading-text | 加载状态提示文字 | _string_ | - |
-| loading-type | [加载图标类型](#/zh-CN/loading)，可选值为 `spinner` | _string_ | `circular` |
-| loading-size | 加载图标大小 | _string_ | `20px` |
-| url | 点击后跳转的链接地址 | _string_ | - |
-| to | 点击后跳转的目标路由对象，同 vue-router 的 [to 属性](https://router.vuejs.org/zh/api/#to) | _string \| object_ | - |
-| replace | 是否在跳转时替换当前页面历史 | _boolean_ | `false` |
+| loadingText | 加载状态提示文字 | _string_ | - |
+| loadingType | [加载图标类型](#/zh-CN/loading)，可选值为 `spinner` | _string_ | `circular` |
+| loadingSize | 加载图标大小 | _string_ | `20px` |
 
 ### Events
 
 | 事件名     | 说明                                     | 回调参数            |
 | ---------- | ---------------------------------------- | ------------------- |
 | click      | 点击按钮，且按钮状态不为加载或禁用时触发 | _event: Event_      |
-| touchstart | 开始触摸按钮时触发                       | _event: TouchEvent_ |

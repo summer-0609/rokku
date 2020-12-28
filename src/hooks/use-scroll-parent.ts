@@ -34,6 +34,7 @@ function getScrollParent(el: Element, root: ScrollElement = window) {
 
 function useScrollParent(el: { current: Element | undefined }): Element | Window {
   const [scrollParent, setScrollParent] = useState<Element | Window>();
+
   useEffect(() => {
     if (el) {
       setScrollParent(getScrollParent(el.current));
