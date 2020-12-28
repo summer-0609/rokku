@@ -100,6 +100,10 @@ module.exports = {
                 path: 'field',
                 title: 'Field 输入框',
               },
+              {
+                path: 'search',
+                title: 'Search 搜索',
+              },
             ],
           },
           {
