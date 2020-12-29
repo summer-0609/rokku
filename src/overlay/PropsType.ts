@@ -7,4 +7,5 @@ export interface OverlayProps extends BaseTypeProps {
   customStyle?: CSSProperties;
   duration?: number;
   lockScroll?: boolean;
+  onClick?: () => void;
 }

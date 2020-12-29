@@ -1,0 +1,44 @@
+@import '../../styles/themes/default.less';
+
+.@{rk-prefix}-notice-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 16px;
+  color: #ed6a0c;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #fffbe8;
+
+  &__left-icon {
+    min-width: 24px;
+    font-size: 16px;
+  }
+
+  &--wrapable {
+    height: auto;
+    padding: 8px 16px;
+  }
+
+  &__wrap {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-items: center;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  &__content {
+    position: absolute;
+    white-space: nowrap;
+    transition-timing-function: linear;
+
+    &.ellipsis {
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+}

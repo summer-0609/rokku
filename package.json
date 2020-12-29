@@ -1,6 +1,6 @@
 {
   "name": "@rokku/design",
-  "version": "1.0.0",
+  "version": "0.0.2",
   "description": "Mobile UI Components built on React",
   "main": "lib/index.js",
   "style": "lib/index.css",
@@ -12,6 +12,7 @@
     "bootstrap": "yarn || npm i",
     "start": "rokku-cli dev",
     "build": "rokku-cli build",
+    "release": "node packages/rokku-cli/lib/index.js release --tag dev",
     "docs:build": "rokku-cli build-site",
     "docs:deploy": "gh-pages -d docs-dist",
     "deploy": "npm run docs:build && npm run docs:deploy",
@@ -20,6 +21,10 @@
   },
   "author": "xtmike008@gmail.com",
   "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -32,7 +37,7 @@
     "*.{css,less}": "stylelint --fix"
   },
   "devDependencies": {
-    "@rokku/cli": "^1.0.15",
+    "@rokku/cli": "^1.0.16",
     "@rokku/fabric": "^1.0.5",
     "@types/classnames": "^2.2.11",
     "@types/enzyme": "^3.10.8",

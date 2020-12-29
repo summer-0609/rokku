@@ -17,8 +17,7 @@
     "empty": [],
     "field": [
       "icon",
-      "cell",
-      "loading"
+      "cell"
     ],
     "flex": [],
     "icon": [],
@@ -34,8 +33,15 @@
     "pull-refresh": [
       "loading"
     ],
+    "search": [
+      "icon",
+      "cell",
+      "field"
+    ],
+    "sticky": [],
     "swipe": [],
     "tabs": [
+      "sticky",
       "swipe"
     ],
     "toast": [
@@ -48,10 +54,11 @@
   "sequence": [
     "icon",
     "cell",
+    "field",
+    "search",
     "loading",
     "pull-refresh",
     "list",
-    "field",
     "button",
     "overlay",
     "popup",
@@ -59,6 +66,7 @@
     "dialog",
     "empty",
     "flex",
+    "sticky",
     "swipe",
     "tabs"
   ]

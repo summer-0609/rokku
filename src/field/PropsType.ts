@@ -1,11 +1,10 @@
 import { ReactElement } from 'react';
-import { JsxElement } from 'typescript';
 import { BaseTypeProps } from '../utils';
 import { CellProps } from '../cell/PropsType';
 
 export type TAlignment = 'center' | 'right' | 'left';
 
-export interface FieldProps extends BaseTypeProps, CellProps {
+export interface FieldProps extends BaseTypeProps, Partial<CellProps> {
   value?: string;
   type?: string;
   name?: string;

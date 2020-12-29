@@ -139,6 +139,10 @@ module.exports = {
                 title: 'List 列表',
               },
               {
+                path: 'notice-bar',
+                title: 'NoticeBar 通知栏',
+              },
+              {
                 path: 'sticky',
                 title: 'Sticky 粘性布局',
               },

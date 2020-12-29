@@ -14,21 +14,12 @@ const [bem] = createNamespace('empty');
 const Empty: React.FC<EmptyProps> = (props) => {
   const { image, description, className } = props;
 
-  const classes = classnames(bem(), className);
-
-  const content = (
-    <div className={classes}>
+  return (
+    <div className={classnames(bem(), className)}>
       <img src={image} className={classnames(bem('image'))} alt="empty" />
       <p className={classnames(bem('description'))}>{description}</p>
     </div>
   );
-
-  return content;
-};
-
-Empty.defaultProps = {
-  // size: 'normal',
-  // type: 'default',
 };
 
 export default Empty;
