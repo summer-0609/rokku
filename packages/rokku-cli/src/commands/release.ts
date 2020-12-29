@@ -13,6 +13,7 @@ export async function release(command: { tag?: string }) {
       tag: command.tag,
     },
     git: {
+      pushRepo: 'origin',
       tagName: 'v${version}',
       commitMessage: 'chore: release ${version}',
     },
