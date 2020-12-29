@@ -13,7 +13,9 @@ export async function release(command: { tag?: string }) {
       tag: command.tag,
     },
     git: {
-      pushRepo: 'origin',
+      requireCleanWorkingDir: false,
+      requireBranch: 'dev',
+      requireUpstream: false,
       tagName: 'v${version}',
       commitMessage: 'chore: release ${version}',
     },
