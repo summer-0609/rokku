@@ -44,6 +44,7 @@ export interface FieldProps extends BaseTypeProps, CellProps {
   onClickLeftIcon?: (e: React.MouseEvent<HTMLDivElement>) => void;
   onClickRightIcon?: (e: React.MouseEvent<HTMLDivElement>) => void;
   getFieldRef?: (ref) => void;
+  getInputRef?: (ref) => void;
   formatter?: (val: string | number) => string;
   button?: ReactElement;
 }

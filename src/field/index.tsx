@@ -17,7 +17,8 @@ const Field: React.FC<FieldProps> = (props) => {
 
   useEffect(() => {
     if (props.getFieldRef) props.getFieldRef(fieldRef);
-  }, [props.getFieldRef]);
+    if (props.getInputRef) props.getInputRef(inputRef);
+  }, [props.getFieldRef, props.getInputRef]);
 
   const getProp = (key) => {
     if (isDef(props[key])) {
