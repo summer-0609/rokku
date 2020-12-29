@@ -39,7 +39,7 @@ export default (): React.ReactNode => {
           onClick={() =>
             Toast({
               message: '自定义图片',
-              icon: 'http://47.116.3.37/image/logo.png',
+              icon: 'http://www.rokku.icu/image/logo.png',
             })
           }
         />

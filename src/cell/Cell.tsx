@@ -6,7 +6,7 @@ import { CellProps } from './PropsType';
 
 const [bem] = createNamespace('cell');
 
-const Cell: React.FC<CellProps> & { Group?: React.FC } = (props) => {
+const Cell: React.FC<CellProps & { onClick?: () => void }> & { Group?: React.FC } = (props) => {
   const renderLabel = () => {
     const showLabel = isDef(props.label);
 
@@ -30,12 +30,12 @@ const Cell: React.FC<CellProps> & { Group?: React.FC } = (props) => {
 
   const renderValue = () => {
     const hasTitle = isDef(props.title);
-    const hasValue = isDef(props.value);
+    const hasValue = props.children || isDef(props.value);
 
     if (hasValue) {
       return (
         <div className={classnames(bem('value', { alone: !hasTitle }), props.valueClass)}>
-          <span>{props.value}</span>
+          {props.children ? props.children : <span>{props.value}</span>}
         </div>
       );
     }
@@ -63,7 +63,7 @@ const Cell: React.FC<CellProps> & { Group?: React.FC } = (props) => {
     return null;
   };
 
-  const { size, center, border = true, isLink, required, onClick } = props;
+  const { className, size, center, border = true, isLink, required, onClick } = props;
   const clickable = isLink || props.clickable;
 
   const classes: Record<string, boolean | undefined> = {
@@ -75,10 +75,9 @@ const Cell: React.FC<CellProps> & { Group?: React.FC } = (props) => {
   if (size) {
     classes[size] = !!size;
   }
-
   return (
     <div
-      className={classnames(bem(classes))}
+      className={classnames(bem(classes), className)}
       role={clickable ? 'button' : undefined}
       onClick={onClick}
     >
@@ -86,7 +85,6 @@ const Cell: React.FC<CellProps> & { Group?: React.FC } = (props) => {
       {renderTitle()}
       {renderValue()}
       {renderRightIcon()}
-      {props.children}
     </div>
   );
 };

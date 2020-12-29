@@ -21,6 +21,7 @@ export function formatNumber(value: string, allowDot = true, allowMinus = true):
   if (allowDot) {
     value = trimExtraChar(value, '.', /\./g);
   } else {
+    // eslint-disable-next-line prefer-destructuring
     value = value.split('.')[0];
   }
 

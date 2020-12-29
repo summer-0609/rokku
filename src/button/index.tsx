@@ -42,7 +42,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     { [BORDER_SURROUND]: hairline },
   );
 
-  const style: Record<string, string | number> = {};
+  const style: Record<string, string | number> = { ...props.style };
 
   if (color) {
     style.color = plain ? color : WHITE;

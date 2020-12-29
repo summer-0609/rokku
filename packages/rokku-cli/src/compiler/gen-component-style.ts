@@ -3,6 +3,7 @@
  */
 import { sep, join, relative } from 'path';
 import { outputFileSync } from 'fs-extra';
+import { existsSync } from 'fs';
 import { replaceExt } from '../common';
 import { CSS_LANG, getCssBaseFile } from '../common/css';
 import { checkStyleExists } from './gen-style-deps-map';
@@ -34,6 +35,13 @@ function getPath(component: string, ext = '.css') {
 }
 
 function getRelativePath(component: string, style: string, ext: string) {
+  const relativePath = relative(
+    join(ES_DIR, `${component}/style`),
+    getPath(style, ext)
+  );
+  if (!existsSync(relativePath) && relativePath.indexOf('/') === -1) {
+    return `./${relativePath}`;
+  }
   return relative(join(ES_DIR, `${component}/style`), getPath(style, ext));
 }
 

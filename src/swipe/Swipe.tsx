@@ -1,8 +1,17 @@
-/* eslint-disable no-nested-ternary */
 /* eslint-disable react-hooks/rules-of-hooks */
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+/* eslint-disable no-nested-ternary */
+import React, {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  Children,
+  cloneElement,
+  ReactElement,
+} from 'react';
 import classnames from 'classnames';
 
+import useRefs from '../hooks/use-refs';
 import useRect from '../hooks/use-rect';
 import useTouch from '../hooks/use-touch';
 import useWindowSize from '../hooks/use-window-size';
@@ -26,7 +35,8 @@ const Swipe: React.FC<SwipeProps> & SwipeStatic = (props) => {
     initialSwipe,
     onChange,
   } = props;
-  const refs = [];
+
+  const [refs, setRefs] = useRefs();
 
   const [autoplayTimer, setAutoplayTimer] = useState<NodeJS.Timeout>(null);
   const [swiping, setSwiping] = useState<boolean>(false);
@@ -104,12 +114,12 @@ const Swipe: React.FC<SwipeProps> & SwipeStatic = (props) => {
     if (props.loop) {
       if (refs[0] && targetOffset !== minOffset) {
         const outRightBound = targetOffset < minOffset;
-        refs[0].current.setOffset(outRightBound ? trackSize : 0);
+        refs[0].setOffset(outRightBound ? trackSize : 0);
       }
 
       if (refs[count - 1] && targetOffset !== 0) {
         const outLeftBound = targetOffset > 0;
-        refs[count - 1].current.setOffset(outLeftBound ? -trackSize : 0);
+        refs[count - 1].setOffset(outLeftBound ? -trackSize : 0);
       }
     }
 
@@ -187,7 +197,7 @@ const Swipe: React.FC<SwipeProps> & SwipeStatic = (props) => {
 
     setState({ ...state });
     refs.forEach((ref) => {
-      ref.current.setOffset(0);
+      ref.setOffset(0);
     });
   };
 
@@ -312,14 +322,12 @@ const Swipe: React.FC<SwipeProps> & SwipeStatic = (props) => {
           onTouchEnd={onTouchEnd}
           onTouchCancel={onTouchEnd}
         >
-          {React.Children.map(children, (child: any, index: number) => {
-            const ref = useRef(null);
-            refs.push(ref);
-            return React.cloneElement(child, {
-              ref,
+          {Children.map(children, (child: ReactElement, index: number) =>
+            cloneElement(child, {
+              ref: setRefs(index),
               index,
-            });
-          })}
+            }),
+          )}
         </div>
         {renderIndicator()}
       </div>
@@ -333,6 +341,7 @@ Swipe.defaultProps = {
   duration: 500,
   touchable: true,
   showIndicators: true,
+  stopPropagation: true,
 };
 
 export default Swipe;
