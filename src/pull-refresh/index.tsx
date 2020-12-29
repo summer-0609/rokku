@@ -69,17 +69,26 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
     if (status === 'normal') {
       return '';
     }
+    if (props[`${status}Slot`]) {
+      return props[`${status}Slot`];
+    }
+
     return props[`${status}Text`];
   };
 
   const renderStatus = () => {
     let node = null;
 
+    if (status === 'loading') {
+      if (props.loadingSlot) {
+        node = getStatusText();
+      } else {
+        node = <Loading size="16">{getStatusText()}</Loading>;
+      }
+    }
+
     if (TEXT_STATUS.indexOf(status) !== -1) {
       node = <div className={classnames(bem('text'))}>{getStatusText()}</div>;
-    }
-    if (status === 'loading') {
-      node = <Loading size="16">{getStatusText()}</Loading>;
     }
 
     return node;
@@ -138,7 +147,7 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
     setDuration(+animationDuration);
     if (refreshing) {
       updateStatus(+props.headHeight, true);
-    } else if (props.successText) {
+    } else if (props.successText || props.successSlot) {
       showSuccessTip();
     } else {
       updateStatus(0, false);

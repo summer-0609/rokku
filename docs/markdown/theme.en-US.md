@@ -12,7 +12,7 @@ There are some basic variables below, all available variables could be found in 
 
 ```less
 // Component Colors
-@text-color: #323233;
+@text-color: #333333;
 @border-color: #ebedf0;
 @active-color: #f2f3f5;
 @background-color: #f7f8fa;

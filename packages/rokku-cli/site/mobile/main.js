@@ -2,11 +2,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter } from 'react-router-dom';
-import TouchEmulator from 'hammer-touchemulator';
+import '@rokku/touch-emulator';
 
 import App from './App';
-
-new TouchEmulator();
 
 ReactDOM.render(
   <HashRouter>

@@ -8,7 +8,7 @@ export { default as OverLay } from './overlay';
 export { default as Empty } from './empty';
 export { default as Loading } from './loading';
 export { default as PullRefresh } from './pull-refresh';
-export { default as NoticeBar } from './noticeBar';
+export { default as NoticeBar } from './notice-bar';
 export { default as List } from './list';
 export { default as Toast } from './toast';
 export { default as Dialog } from './dialog';

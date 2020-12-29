@@ -73,6 +73,12 @@ yarn build
 yarn test
 ```
 
+### 发布npm包
+
+```bash
+yarn release
+```
+
 ## Components completion status
 
 ### Layout Components

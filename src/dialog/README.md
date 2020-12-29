@@ -226,19 +226,19 @@ const [show, setShow] = useState(false);
 | @dialog-small-screen-width            | `90%`                      | -    |
 | @dialog-font-size                     | `@font-size-lg`            | -    |
 | @dialog-transition                    | `@animation-duration-base` | -    |
-| @dialog-border-radius                 | `16px`                     | -    |
+| @dialog-border-radius                 | `20px`                     | -    |
 | @dialog-background-color              | `@white`                   | -    |
 | @dialog-header-font-weight            | `@font-weight-bold`        | -    |
-| @dialog-header-line-height            | `24px`                     | -    |
-| @dialog-header-padding-top            | `26px`                     | -    |
+| @dialog-header-line-height            | `20px`                     | -    |
+| @dialog-header-padding-top            | `20px`                     | -    |
 | @dialog-header-isolated-padding       | `@padding-lg 0`            | -    |
 | @dialog-message-padding               | `@padding-lg`              | -    |
 | @dialog-message-font-size             | `@font-size-md`            | -    |
 | @dialog-message-line-height           | `@line-height-md`          | -    |
 | @dialog-message-max-height            | `60vh`                     | -    |
-| @dialog-has-title-message-text-color  | `@gray-7`                  | -    |
+| @dialog-has-title-message-text-color  | `@gray-8`                  | -    |
 | @dialog-has-title-message-padding-top | `@padding-xs`              | -    |
-| @dialog-button-height                 | `48px`                     | -    |
+| @dialog-button-height                 | `44px`                     | -    |
 | @dialog-round-button-height           | `36px`                     | -    |
 | @dialog-confirm-button-text-color     | `@red`                     | -    |
 | @dialog-close-icon-margin             | `16px`                     | -    |

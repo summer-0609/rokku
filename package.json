@@ -12,7 +12,7 @@
     "bootstrap": "yarn || npm i",
     "start": "rokku-cli dev",
     "build": "rokku-cli build",
-    "release": "node packages/rokku-cli/lib/index.js release --tag dev",
+    "release": "rokku-cli release --tag dev",
     "docs:build": "rokku-cli build-site",
     "docs:deploy": "gh-pages -d docs-dist",
     "deploy": "npm run docs:build && npm run docs:deploy",
@@ -25,6 +25,15 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "keywords": [
+    "ui",
+    "react",
+    "react hook",
+    "mobile",
+    "frontend",
+    "component",
+    "components"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",
@@ -37,7 +46,7 @@
     "*.{css,less}": "stylelint --fix"
   },
   "devDependencies": {
-    "@rokku/cli": "^1.0.16",
+    "@rokku/cli": "^1.1.1",
     "@rokku/fabric": "^1.0.5",
     "@types/classnames": "^2.2.11",
     "@types/enzyme": "^3.10.8",

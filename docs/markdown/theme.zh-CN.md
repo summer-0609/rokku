@@ -12,7 +12,7 @@ Rokku 使用了 [Less](http://lesscss.org/) 对样式进行预处理，并内置
 
 ```less
 // Component Colors
-@text-color: #323233;
+@text-color: #333333;
 @border-color: #ebedf0;
 @active-color: #f2f3f5;
 @background-color: #f7f8fa;

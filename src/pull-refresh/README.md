@@ -40,9 +40,37 @@ const onRefresh = () => {
 通过 `successText` 可以设置刷新成功后的顶部提示文案。
 
 ```html
-<PullRefresh refreshing={isLoading} successText="刷新成功" onRefresh={onRefresh}>
+<PullRefresh refreshing="{isLoading}" successText="刷新成功" onRefresh="{onRefresh}">
   <p>下拉刷新</p>
 </PullRefresh>
+```
+
+### 自定义提示
+
+通过插槽可以自定义下拉刷新过程中的提示内容。
+
+```html
+<PullRefresh
+  headHeight="80"
+  refreshing={refreshing}
+  pullingSlot={<img className="doge" alt="" src="https://img.yzcdn.cn/vant/doge.png" />}
+  loosingSlot={<img className="doge" alt="" src="https://img.yzcdn.cn/vant/doge.png" />}
+  loadingSlot={
+    <img className="doge" alt="" src="https://img.yzcdn.cn/vant/doge-fire.jpg" />
+  }
+  onRefresh={() => onRefresh(false)}
+>
+  <p>{tips}</p>
+</PullRefresh>
+```
+
+```css
+.doge {
+  width: 140px;
+  height: 72px;
+  margin-top: 8px;
+  border-radius: 4px;
+}
 ```
 
 ## API
@@ -56,6 +84,10 @@ const onRefresh = () => {
 | loosingText       | 释放过程提示文案         | _string_           | `释放即可刷新...` |
 | loadingText       | 加载过程提示文案         | _string_           | `加载中...`       |
 | successText       | 刷新成功提示文案         | _string_           | -                 |
+| pullingSlot       | 下拉过程自定义内容       | _Element_          | -                 |
+| loosingSlot       | 释放过程自定义内容       | _Element_          | -                 |
+| loadingSlot       | 加载过程自定义内容       | _Element_          | -                 |
+| successSlot       | 刷新成功自定义内容       | _Element_          | -                 |
 | successDuration   | 刷新成功提示展示时长(ms) | _number \| string_ | `500`             |
 | animationDuration | 动画时长                 | _number \| string_ | `300`             |
 | head-height       | 顶部内容高度             | _number \| string_ | `50`              |

@@ -1503,6 +1503,11 @@
     markdown-it-anchor "^6.0.0"
     transliteration "^2.1.11"
 
+"@rokku/touch-emulator@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@rokku/touch-emulator/-/touch-emulator-1.0.0.tgz#7843656ceededf95ed6431bb2a88af51cef8eac3"
+  integrity sha512-FiR66ZA6bZ+HBIYJlzxwR4HmaGv+ltbaLulCFAiHchdi151/cjmOnzz/Tp14IT+C8I0ikjo8knicaLZw34J07g==
+
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
   resolved "https://registry.npmjs.org/@sindresorhus/is/-/is-0.14.0.tgz#9fb3a3cf3132328151f353de4632e01e52102bea"
@@ -5155,11 +5160,6 @@ gulp-typescript@^6.0.0-alpha.1:
     through2 "^3.0.1"
     vinyl "^2.2.0"
     vinyl-fs "^3.0.3"
-
-hammer-touchemulator@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.npmjs.org/hammer-touchemulator/-/hammer-touchemulator-0.0.2.tgz#8bea4616729d53bf75f16c58f599c184e54a590e"
-  integrity sha1-i+pGFnKdU7918WxY9ZnBhOVKWQ4=
 
 handle-thing@^2.0.0:
   version "2.0.1"

@@ -1353,10 +1353,10 @@
     "@octokit/openapi-types" "^2.0.1"
     "@types/node" ">= 8"
 
-"@rokku/cli@^1.0.16":
-  version "1.0.16"
-  resolved "https://registry.npmjs.org/@rokku/cli/-/cli-1.0.16.tgz#c24828fc99c337632b6480d1e78e5bf5d71e1e39"
-  integrity sha512-n1+0YkLVtRfivn0qGzhRBxUIUFr5hNQwLe67RwaHllHjgmBEJWplsB7nFp9H5gGCrQrsskLcqqxeRzmrsizGIA==
+"@rokku/cli@^1.1.1":
+  version "1.1.1"
+  resolved "https://registry.npmjs.org/@rokku/cli/-/cli-1.1.1.tgz#402fead1ae1e3ef65e49eead1779be1d9fffda41"
+  integrity sha512-R0aWI6W2hWdf+6t21LKbsPQfi0wEUt5JB4WsjnXKvUz2QYNfhjpEunW6BO3Aej/hzQTjRDCAhGLDl6hhUPwbeA==
   dependencies:
     "@babel/core" "^7.12.3"
     "@babel/plugin-proposal-decorators" "^7.12.1"
@@ -1367,6 +1367,7 @@
     "@babel/preset-react" "^7.12.5"
     "@babel/preset-typescript" "^7.12.1"
     "@rokku/markdown-loader" "^1.0.1"
+    "@rokku/touch-emulator" "^1.0.0"
     address "^1.1.2"
     autoprefixer "9.7.5"
     babel-loader "^8.2.1"
@@ -1392,7 +1393,6 @@
     gulp-if "^3.0.0"
     gulp-plumber "^1.2.1"
     gulp-typescript "^6.0.0-alpha.1"
-    hammer-touchemulator "^0.0.2"
     html-webpack-plugin "^4.5.0"
     jest "^26.6.3"
     less "^3.12.2"
@@ -1459,6 +1459,11 @@
     markdown-it "^12.0.0"
     markdown-it-anchor "^6.0.0"
     transliteration "^2.1.11"
+
+"@rokku/touch-emulator@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/@rokku/touch-emulator/-/touch-emulator-1.0.0.tgz#7843656ceededf95ed6431bb2a88af51cef8eac3"
+  integrity sha512-FiR66ZA6bZ+HBIYJlzxwR4HmaGv+ltbaLulCFAiHchdi151/cjmOnzz/Tp14IT+C8I0ikjo8knicaLZw34J07g==
 
 "@sindresorhus/is@^0.14.0":
   version "0.14.0"
@@ -5727,11 +5732,6 @@ gulp-typescript@^6.0.0-alpha.1:
     through2 "^3.0.1"
     vinyl "^2.2.0"
     vinyl-fs "^3.0.3"
-
-hammer-touchemulator@^0.0.2:
-  version "0.0.2"
-  resolved "https://registry.npmjs.org/hammer-touchemulator/-/hammer-touchemulator-0.0.2.tgz#8bea4616729d53bf75f16c58f599c184e54a590e"
-  integrity sha1-i+pGFnKdU7918WxY9ZnBhOVKWQ4=
 
 handle-thing@^2.0.0:
   version "2.0.1"
