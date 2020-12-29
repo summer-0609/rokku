@@ -1,6 +1,6 @@
 {
   "name": "@rokku/cli",
-  "version": "1.0.15",
+  "version": "1.0.16",
   "description": "",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -75,6 +75,7 @@
     "postcss-load-config": "^3.0.0",
     "postcss-loader": "^4.0.4",
     "react-router-dom": "^5.2.0",
+    "release-it": "^14.2.2",
     "sass": "^1.27.0",
     "sass-loader": "^10.0.3",
     "signale": "^1.4.0",
@@ -105,7 +106,6 @@
     "@types/through2": "^2.0.36",
     "@types/vinyl-fs": "^2.4.11",
     "@types/webpack": "^4.41.22",
-    "@types/webpack-dev-server": "^3.11.0",
-    "release-it": "^14.2.2"
+    "@types/webpack-dev-server": "^3.11.0"
   }
 }

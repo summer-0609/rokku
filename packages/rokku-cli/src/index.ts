@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { command, parse, version } from 'commander';
 // @ts-ignore
 import packageJson from '../package.json';
@@ -8,6 +9,7 @@ import { build } from './commands/build';
 import { test } from './commands/jest';
 import { lint } from './commands/lint';
 import { clean } from './commands/clean';
+import { release } from './commands/release';
 import { buildSite } from './commands/build-site';
 import { commitLint } from './commands/commit-lint';
 
@@ -48,6 +50,11 @@ command('test')
     'Clears the configured Jest cache directory and then exits'
   )
   .action(test);
+
+command('release')
+  .description('Compile components and release it')
+  .option('--tag <tag>', 'Release tag')
+  .action(release);
 
 command('commit-lint').description('Lint commit message').action(commitLint);
 

@@ -341,6 +341,7 @@ Swipe.defaultProps = {
   duration: 500,
   touchable: true,
   showIndicators: true,
+  stopPropagation: true,
 };
 
 export default Swipe;
