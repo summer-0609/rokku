@@ -14,7 +14,6 @@ export async function release(command: { tag?: string }) {
     },
     git: {
       tagName: 'v${version}',
-      requireBranch: 'dev',
       commitMessage: 'chore: release ${version}',
     },
   });
