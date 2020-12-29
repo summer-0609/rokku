@@ -99,11 +99,11 @@ yarn release
 - [ ] CheckBox 复选框
 - [ ] Radio 单选框
 - [ ] Picker 选择器
-- [ ] Search 搜索
+- [x] Search 搜索
 - [ ] DatetimePicker 时间选择
 
 ### Display Components
-- [ ] NoticeBar 通知栏
+- [x] NoticeBar 通知栏
 - [x] Sticky 粘性布局
 - [x] Swipe 轮播
 - [x] Empty 空状态

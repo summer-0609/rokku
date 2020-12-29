@@ -308,8 +308,8 @@ const formatter = (value) => value.replace(/\d/g, '');
 
 | 名称                             | 默认值          | 描述 |
 | -------------------------------- | --------------- | ---- |
-| @field-label-width               | `90px`         | -    |
-| @field-label-color               | `@gray-7`       | -    |
+| @field-label-width               | `5.2em`         | -    |
+| @field-label-color               | `@gray-8`       | -    |
 | @field-label-margin-right        | `@padding-sm`   | -    |
 | @field-input-text-color          | `@text-color`   | -    |
 | @field-input-error-text-color    | `@red`          | -    |
