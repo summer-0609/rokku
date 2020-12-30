@@ -18,8 +18,14 @@ const NavBar: React.FC<NavBarProps> = (props) => {
     }
 
     return [
-      props.leftArrow && <Icon className={classnames(bem('arrow'))} name="arrow-left" size={20} />,
-      props.leftText && <span className={classnames(bem('text'))}>{props.leftText}</span>,
+      props.leftArrow && (
+        <Icon key="arrow" className={classnames(bem('arrow'))} name="arrow-left" size={20} />
+      ),
+      props.leftText && (
+        <span key="text" className={classnames(bem('text'))}>
+          {props.leftText}
+        </span>
+      ),
     ];
   };
 

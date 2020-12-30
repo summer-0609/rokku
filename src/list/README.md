@@ -23,9 +23,9 @@ List 组件通过 `loading` 和 `finished` 两个变量控制加载状态，当�
 ```
 
 ```js
-const [list, setList] = useState < Array < number >> [];
-const [loading, setLoading] = useState < boolean > false;
-const [finished, setFinished] = useState < boolean > false;
+const [list, setList] = useState([]);
+const [loading, setLoading] = useState(false);
+const [finished, setFinished] = useState(false);
 
 const onLoad = () => {
   setLoading(true);
@@ -151,11 +151,10 @@ export default {
 | finished | 是否已加载完成，加载完成后不再触发`load`事件 | _boolean_ | `false` |
 | error | 是否加载失败，加载失败后点击错误提示可以重新<br>触发`load`事件，必须使用`sync`修饰符 | _boolean_ | `false` |
 | offset | 滚动条与底部距离小于 offset 时触发`load`事件 | _number \| string_ | `300` |
-| loading-text | 加载过程中的提示文案 | _string_ | `加载中...` |
-| finished-text | 加载完成后的提示文案 | _string_ | - |
-| error-text | 加载失败后的提示文案 | _string_ | - |
-| immediate-check | 是否在初始化时立即执行滚动位置检查 | _boolean_ | `true` |
-| direction | 滚动触发加载的方向，可选值为`up` | _string_ | `down` |
+| loadingText | 加载过程中的提示文案 | _string_ | `加载中...` |
+| finishedText | 加载完成后的提示文案 | _string_ | - |
+| errorText | 加载失败后的提示文案 | _string_ | - |
+| immediateCheck | 是否在初始化时立即执行滚动位置检查 | _boolean_ | `true` |
 
 ### Events
 

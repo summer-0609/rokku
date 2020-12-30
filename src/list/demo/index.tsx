@@ -1,23 +1,16 @@
 import React, { useState } from 'react';
-import { PullRefresh, List, Cell } from 'rokku';
+import { Tabs, List, Cell } from 'rokku';
 import { components } from 'site-mobile-demo';
+
 import './style.less';
 
 export default (): React.ReactNode => {
-  const { DemoBlock, DemoSection } = components;
+  const { DemoSection } = components;
 
   const [list, setList] = useState<Array<number>>([]);
+  const [error, setError] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const [finished, setFinished] = useState<boolean>(false);
-
-  // const [refreshing, setRefreshing] = useState<boolean>(false);
-
-  // const onRefresh = () => {
-  //   setRefreshing(true);
-  //   setTimeout(() => {
-  //     setRefreshing(false);
-  //   }, 1000);
-  // };
 
   const onLoad = () => {
     setLoading(true);
@@ -42,15 +35,33 @@ export default (): React.ReactNode => {
 
   return (
     <DemoSection>
-      <DemoBlock title="基本用法">
-        <List loading={loading} finished={finished} onLoad={onLoad}>
-          {list.length
-            ? list.map((item) => {
-                return <Cell key={item} title={item} />;
-              })
-            : null}
-        </List>
-      </DemoBlock>
+      <Tabs sticky>
+        <Tabs.TabPane title="基本用法">
+          <List loading={loading} finished={finished} onLoad={onLoad}>
+            {list.length
+              ? list.map((item) => {
+                  return <Cell key={item} title={item} />;
+                })
+              : null}
+          </List>
+        </Tabs.TabPane>
+        <Tabs.TabPane title="错误提示">
+          <List
+            loading={loading}
+            error={error}
+            errorText="请求失败，点击重新加载"
+            onLoad={() => {
+              console.log(4);
+            }}
+          >
+            {/* {list.length
+              ? list.map((item) => {
+                  return <Cell key={item} title={item} />;
+                })
+              : null} */}
+          </List>
+        </Tabs.TabPane>
+      </Tabs>
     </DemoSection>
   );
 };

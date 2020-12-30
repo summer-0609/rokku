@@ -88,6 +88,10 @@ module.exports = {
                 title: 'Popup 弹出层',
               },
               {
+                path: 'styles',
+                title: 'Style 内置样式',
+              },
+              {
                 path: 'toast',
                 title: 'Toast 轻提示',
               },
