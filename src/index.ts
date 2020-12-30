@@ -16,3 +16,4 @@ export { default as Search } from './search';
 export { default as Swipe } from './swipe';
 export { default as Tabs } from './tabs';
 export { default as Sticky } from './sticky';
+export { default as NavBar } from './nav-bar';

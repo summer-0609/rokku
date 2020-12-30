@@ -118,7 +118,7 @@ yarn release
 ### Navigation Components
 
 - [ ] IndexBar 索引栏
-- [ ] NavBar 导航栏
+- [x] NavBar 导航栏
 - [x] Tabs 标签页
 
 ### Business Components

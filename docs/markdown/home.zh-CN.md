@@ -8,7 +8,7 @@
 
 ### 介绍
 
-**Rokku** 是 **巴士管家前端团队** 共同参与研发的 **React** 移动端组件库。[Rokku]() 将承载移动端工作的核心业务。旨于参照 [Vant](https://vant-contrib.gitee.io/vant) 打造 React 框架下移动端的优秀组件库
+**Rokku** 是 **巴士管家前端团队** 共同参与研发的 **React** 移动端组件库。[Rokku]() 将承载移动端工作的核心业务。旨于参照 [Vant](https://vant-contrib.gitee.io/vant) 打造 React 框架下移动端的优秀组件库。
 
 ### 特性
 

@@ -156,6 +156,10 @@ module.exports = {
             title: '导航组件',
             items: [
               {
+                path: 'nav-bar',
+                title: 'NavBar 导航栏',
+              },
+              {
                 path: 'tabs',
                 title: 'Tabs 标签页',
               },
