@@ -6,6 +6,8 @@ import { createNamespace, getScrollTop, preventDefault } from '../utils';
 
 import useTouch from '../hooks/use-touch';
 import useScrollParent from '../hooks/use-scroll-parent';
+import useEventListener from '../hooks/use-event-listener';
+
 import Loading from '../loading';
 
 const [bem] = createNamespace('pull-refresh');
@@ -21,6 +23,7 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   const [duration, setDuration] = useState<number>(0);
 
   const root = useRef<HTMLDivElement>();
+  const track = useRef<HTMLDivElement>();
   const reachTop = useRef(null);
 
   const touch = useTouch();
@@ -115,6 +118,7 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
       }
       const { deltaY } = touch;
       touch.move(event as TouchEvent);
+
       if (reachTop.current && deltaY >= 0 && touch.isVertical()) {
         preventDefault(event);
         updateStatus(ease(deltaY));
@@ -134,6 +138,25 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
       }
     }
   };
+
+  useEventListener(
+    'touchmove',
+    (event) => {
+      if (getScrollTop(scrollParent) === 0 && touch.deltaY >= 0) {
+        preventDefault(event);
+      }
+    },
+    {
+      target: document.body,
+      depends: [touch.deltaY, scrollParent],
+    },
+  );
+
+  useEventListener('touchmove', onTouchMove as EventListener, {
+    target: track.current,
+    depends: [touch.deltaY],
+    passive: !(reachTop.current && touch.deltaY >= 0 && touch.isVertical()),
+  });
 
   const showSuccessTip = () => {
     setStatus('success');
@@ -155,18 +178,17 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   }, [refreshing]);
 
   const trackStyle = {
-    ...props.style,
     transitionDuration: `${duration}ms`,
     transform: distance ? `translate3d(0,${distance}px, 0)` : '',
   };
 
   return (
-    <div ref={root} className={classnames(bem())}>
+    <div ref={root} className={classnames(bem())} style={props.style}>
       <div
+        ref={track}
         className={classnames(bem('track'))}
         style={trackStyle}
         onTouchStart={onTouchStart}
-        onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}
         onTouchCancel={onTouchEnd}
       >
