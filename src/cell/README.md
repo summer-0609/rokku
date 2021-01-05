@@ -58,6 +58,30 @@ import { Cell } from '@rokku/design';
 <Cell title="单元格" isLink arrowDirection="down" value="内容" />
 ```
 
+### 分组标题
+
+通过 `Cell.Group` 的 `title` 属性可以指定分组标题。
+
+```html
+<Cell.Group title="分组1">
+  <Cell title="单元格" value="内容" />
+</Cell.Group>
+<Cell.Group title="分组2">
+  <Cell title="单元格" value="内容" />
+</Cell.Group>
+```
+
+### 卡片类型
+
+通过 `Cell.Group` 的 `card` 属性可以可以展示卡片类型。
+
+```html
+<Cell.Group card>
+  <Cell title="单元格" value="内容" />
+  <Cell title="单元格" value="内容" />
+</Cell.Group>
+```
+
 ### 自定义内容
 
 如以上用法不能满足你的需求，可以来自定义内容。

@@ -1,7 +1,9 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { useState, useRef, useEffect } from 'react';
-import { Icon } from 'rokku';
 import classnames from 'classnames';
+
+import Icon from '../icon';
+
 import { NoticeBarPropsType } from './PropsType';
 import { createNamespace } from '../utils';
 import { useRect } from '../hooks/use-rect';
@@ -49,7 +51,7 @@ const NoticeBar: React.FC<NoticeBarProps> = (props) => {
 
   //  左侧图标
   const renderLeftIcon = () => {
-    return <Icon className={bem('left-icon')} name={leftIcon} />;
+    return <Icon className={classnames(bem('left-icon'))} name={leftIcon} />;
   };
 
   //  文字部分

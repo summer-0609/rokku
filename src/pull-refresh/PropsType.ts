@@ -7,10 +7,10 @@ export interface PullRefreshProps extends BaseTypeProps {
   refreshing: boolean;
   onRefresh: () => void;
   disabled?: boolean;
-  successSlot?: React.ReactElement;
-  pullingSlot?: React.ReactElement;
-  loosingSlot?: React.ReactElement;
-  loadingSlot?: React.ReactElement;
+  successSlot?: () => React.ReactElement;
+  pullingSlot?: () => React.ReactElement;
+  loosingSlot?: () => React.ReactElement;
+  loadingSlot?: () => React.ReactElement;
   successText?: string;
   pullingText?: string;
   loosingText?: string;

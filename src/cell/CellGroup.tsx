@@ -7,10 +7,16 @@ import { BORDER_TOP_BOTTOM } from '../utils/constant';
 const [bem] = createNamespace('cell-group');
 
 const CellGroup: React.FC<CellGroupProps> = (props) => {
-  const { title, border = true } = props;
+  const { title, border = true, card } = props;
 
   const Group = (
-    <div className={classnames(bem(), { [BORDER_TOP_BOTTOM]: border })}>{props.children}</div>
+    <div className={classnames(bem(), { [BORDER_TOP_BOTTOM]: !card && border })}>
+      {card ? (
+        <div className={classnames(bem('card'))}>{props.children}</div>
+      ) : (
+        <>{props.children}</>
+      )}
+    </div>
   );
 
   if (title) {

@@ -1,28 +1,27 @@
 <p align="center">
-    <img alt="logo" src="./public/logo.png" width="120" style="margin-bottom: 10px;">
+    <img alt="logo" src="http://www.rokku.icu/image/logo.png" width="120" style="margin-bottom: 10px;">
 </p>
 
 <h1 align="center">Rokku</h1>
 
 <p align="center">🍙 轻量、可靠的移动端 React 组件库</p>
 
-<!-- <p align="center">
-    <img src="https://img.shields.io/npm/v/vant.svg?style=flat-square" alt="npm version" />
-    <img src="https://img.shields.io/github/workflow/status/youzan/vant/CI/dev?style=flat-square" alt="npm version" />
-    <img src="https://img.shields.io/codecov/c/github/youzan/vant/dev.svg?style=flat-square&color=#4fc08d" alt="Coverage Status" />
-    <img src="https://img.shields.io/npm/dm/vant.svg?style=flat-square&color=#4fc08d" alt="downloads" />
-    <img src="https://img.shields.io/jsdelivr/npm/hm/vant?style=flat-square" alt="Jsdelivr Hits">
-    <img src="https://img.badgesize.io/https://unpkg.com/vant/lib/vant.min.js?compression=gzip&style=flat-square&label=gzip%20size&color=#4fc08d" alt="Gzip Size" />
-</p> -->
+<p align="center">
+    <img src="https://img.shields.io/npm/v/@rokku/design.svg?style=flat-square" alt="npm version" />
+    <img src="https://img.shields.io/bundlephobia/minzip/@rokku/design" >
+    <img src="https://img.shields.io/github/languages/top/Hyattria/rokku?style=flat-square">
+    <img src="https://img.shields.io/librariesio/release/npm/@rokku/design?style=flat-square">
+    <img src="https://img.shields.io/npm/dt/@rokku/design.svg?style=flat-square&color=#4fc08d" alt="downloads" />
+    <img src="https://img.shields.io/jsdelivr/npm/hm/@rokku/design?style=flat-square" alt="Jsdelivr Hits">
+</p>
 
-<!-- <p align="center">
-  🔥 <a href="https://vant-contrib.gitee.io/vant">文档网站</a>
-</p> -->
+<p align="center">
+  🔥 <a href="http://www.rokku.icu">文档网站</a>
+</p>
 
 ## 特性
 
-- 单元测试覆盖率 90%+，提供稳定性保障
-- 完善的中英文文档和示例
+- 20+ 高质量组件，覆盖移动端基本场景
 - 支持按需引入
 - 支持主题定制
 - 支持 TypeScript
@@ -73,7 +72,7 @@ yarn build
 yarn test
 ```
 
-### 发布npm包
+### 发布 npm 包
 
 ```bash
 yarn release
@@ -82,6 +81,7 @@ yarn release
 ## Components completion status
 
 ### Layout Components
+
 - [x] Flex 布局
 
 ### Basic Components
@@ -103,13 +103,16 @@ yarn release
 - [ ] DatetimePicker 时间选择
 
 ### Display Components
+
 - [x] NoticeBar 通知栏
 - [x] Sticky 粘性布局
 - [x] Swipe 轮播
 - [x] Empty 空状态
 - [x] List 列表
+- [x] Tag 标签
 
 ### Action Components
+
 - [x] Loading 加载
 - [x] Overlay 遮罩层
 - [x] Dialog 弹出层

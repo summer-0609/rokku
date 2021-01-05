@@ -48,11 +48,15 @@ export default (): React.ReactNode => {
           <PullRefresh
             headHeight="80"
             refreshing={refreshing}
-            pullingSlot={<img className="doge" alt="" src="https://img.yzcdn.cn/vant/doge.png" />}
-            loosingSlot={<img className="doge" alt="" src="https://img.yzcdn.cn/vant/doge.png" />}
-            loadingSlot={
+            pullingSlot={() => (
+              <img className="doge" alt="" src="https://img.yzcdn.cn/vant/doge.png" />
+            )}
+            loosingSlot={() => (
+              <img className="doge" alt="" src="https://img.yzcdn.cn/vant/doge.png" />
+            )}
+            loadingSlot={() => (
               <img className="doge" alt="" src="https://img.yzcdn.cn/vant/doge-fire.jpg" />
-            }
+            )}
             onRefresh={() => onRefresh(false)}
           >
             <p>{tips}</p>

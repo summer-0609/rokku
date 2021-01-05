@@ -70,7 +70,7 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
       return '';
     }
     if (props[`${status}Slot`]) {
-      return props[`${status}Slot`];
+      return props[`${status}Slot`]();
     }
 
     return props[`${status}Text`];

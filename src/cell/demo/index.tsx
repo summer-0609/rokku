@@ -36,6 +36,12 @@ export default (): React.ReactNode => {
           <Cell title="单元格" value="内容" />
         </Cell.Group>
       </DemoBlock>
+      <DemoBlock title="卡片类型">
+        <Cell.Group card>
+          <Cell title="单元格" value="内容" />
+          <Cell title="单元格" value="内容" />
+        </Cell.Group>
+      </DemoBlock>
       <DemoBlock title="自定义内容">
         <Cell title="单元格" icon="shop-o">
           <div>自定义内容</div>

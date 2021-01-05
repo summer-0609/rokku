@@ -26,4 +26,5 @@ export interface CellProps extends BaseTypeProps {
 export interface CellGroupProps extends BaseTypeProps {
   title?: string;
   border?: boolean;
+  card?: boolean;
 }

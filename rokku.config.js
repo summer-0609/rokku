@@ -154,6 +154,10 @@ module.exports = {
                 path: 'swipe',
                 title: 'Swipe 轮播',
               },
+              {
+                path: 'tag',
+                title: 'Tag 标签',
+              },
             ],
           },
           {
