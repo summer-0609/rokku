@@ -1,17 +1,19 @@
 import { ReactElement } from 'react';
+import { JsxElement } from 'typescript';
 import { BaseTypeProps } from '../utils';
 import { CellProps } from '../cell/PropsType';
 
 export type TAlignment = 'center' | 'right' | 'left';
 
 export interface FieldProps extends BaseTypeProps, Partial<CellProps> {
-  value?: string;
+  value?: string | number;
   type?: string;
   name?: string;
-  rows: number;
+  rows?: number;
   placeholder?: string;
   autosize?: boolean;
   errorMessage?: string;
+  className?: string;
   labelClass?: string;
   labelWidth?: string;
   maxlength?: number;
@@ -31,7 +33,7 @@ export interface FieldProps extends BaseTypeProps, Partial<CellProps> {
   error?: boolean;
   labelIcon?: string;
   leftIcon?: string;
-  rightIcon?: string;
+  rightIcon?: string | React.ReactNode;
   formatTrigger?: string;
   onChange?: (val: string | number) => void;
   onClear?: (e: React.MouseEvent<HTMLDivElement>) => void;

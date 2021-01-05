@@ -36,6 +36,7 @@ export default (): React.ReactNode => {
             onChange={setValue}
             placeholder="请输入文本"
             onKeypress={onKeypress}
+            className="field"
           />
           <Field value={value1} label="文本" onChange={setValue1} placeholder="请输入文本" />
         </Cell.Group>

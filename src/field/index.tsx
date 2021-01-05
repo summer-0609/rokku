@@ -211,22 +211,19 @@ const Field: React.FC<FieldProps> = (props) => {
   const renderRightIcon = () => {
     const { rightIcon, iconPrefix, onClickRightIcon } = props;
     const isString = typeof rightIcon === 'string';
+    const icon: any = rightIcon;
 
-    if (rightIcon) {
-      return (
-        <div className={classnames(bem('right-icon'))} onClick={onClickRightIcon}>
-          {isString ? <Icon name={props.rightIcon} classPrefix={iconPrefix} /> : rightIcon}
-        </div>
-      );
-    }
-
-    return null;
+    return rightIcon ? (
+      <div className={classnames(bem('right-icon'))} onClick={onClickRightIcon}>
+        {isString ? <Icon name={props.icon} classPrefix={iconPrefix} /> : icon}
+      </div>
+    ) : null;
   };
 
   const renderWordLimit = () => {
     const { value, showWordLimit, maxlength } = props;
     if (showWordLimit && maxlength) {
-      const count = (value || '').length;
+      const count = (value ? `${value}` : '').length;
       return (
         <div className={classnames(bem('word-limit'))}>
           <span className={classnames(bem('word-num'))}>{count}</span>/{maxlength}
@@ -274,6 +271,7 @@ const Field: React.FC<FieldProps> = (props) => {
     required,
     clickable,
     labelAlign,
+    className,
     labelClass,
     arrowDirection,
     autosize,
@@ -304,6 +302,7 @@ const Field: React.FC<FieldProps> = (props) => {
           [`label-${labelAlign}`]: labelAlign,
           'min-height': type === 'textarea' && !autosize,
         }),
+        className,
       )}
     >
       <div className={classnames(bem('body'))}>
