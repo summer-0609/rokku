@@ -10,7 +10,7 @@ interface Rect {
   height: number;
 }
 
-export const useRect = (elementRef: Element | Window): Rect => {
+const useRect = (elementRef: Element | Window): Rect => {
   const element = elementRef;
 
   if (isWindow(element)) {

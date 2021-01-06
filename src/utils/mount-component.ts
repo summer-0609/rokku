@@ -1,22 +1,33 @@
-/* eslint-disable no-return-assign */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { createElement } from 'react';
+import { createElement, useRef, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 
-export function mountComponent(RootComponent) {
-  const ref = RootComponent.prototype;
-
-  const app = createElement(RootComponent);
+export function mountComponent(RootComponent, callback) {
   const root = document.createElement('div');
 
-  document.body.appendChild(root);
-  ReactDOM.render(app, root);
+  const Root = () => {
+    const ref = useRef(null);
 
-  return {
-    instance: ref,
-    unmount() {
-      ReactDOM.unmountComponentAtNode(root);
-      document.body.removeChild(root);
-    },
+    useEffect(() => {
+      const { open, toggle, clear } = ref.current;
+      callback({
+        open,
+        toggle,
+        clear,
+        unmount() {
+          ReactDOM.unmountComponentAtNode(root);
+          if (root.parentNode) {
+            root.parentNode.removeChild(root);
+          }
+        },
+      });
+    }, [ref]);
+
+    return createElement(RootComponent, { ref });
   };
+
+  const app = createElement(Root);
+  document.body.appendChild(root);
+
+  ReactDOM.render(app, root);
 }

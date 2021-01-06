@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import React, { useEffect } from 'react';
+import React, { forwardRef, useImperativeHandle } from 'react';
 import usePopupState from '../hooks/use-popup-state';
 
 import { inBrowser, isObject } from '../utils';
@@ -7,39 +7,21 @@ import { mountComponent } from '../utils/mount-component';
 
 import RokkuToast from './Toast';
 
-let queue = [];
-const allowMultiple = false;
+let instance = null;
 
-const createInstance = () => {
-  const { instance, unmount } = mountComponent(function Toast() {
-    const [state, { setState, open, close }] = usePopupState();
+const Component = forwardRef((_, ref) => {
+  const [state, { setState, open, close }] = usePopupState();
 
-    Toast.prototype.open = open;
-    Toast.prototype.clear = close;
-    Toast.prototype.setMessage = (message: string) => setState({ message });
+  useImperativeHandle(ref, () => ({
+    open,
+    clear: close,
+    setMessage(message: string) {
+      setState({ message });
+    },
+  }));
 
-    useEffect(() => {
-      return unmount;
-    }, []);
-
-    return <RokkuToast {...state} onClose={close} />;
-  });
-  return instance;
-};
-
-const getInstance = () => {
-  /* istanbul ignore if */
-  if (!inBrowser) {
-    return {};
-  }
-
-  if (!queue.length || allowMultiple) {
-    const instance = createInstance();
-    queue.push(instance);
-  }
-
-  return queue[queue.length - 1];
-};
+  return <RokkuToast {...state} onClose={close} />;
+});
 
 function parseOptions(message) {
   if (isObject(message)) {
@@ -49,7 +31,9 @@ function parseOptions(message) {
 }
 
 const Toast = (options = {}) => {
-  const toast = getInstance();
+  if (!inBrowser) {
+    return;
+  }
 
   options = parseOptions(options);
   options = {
@@ -62,9 +46,21 @@ const Toast = (options = {}) => {
     duration: 2000,
     ...options,
   };
-  toast.open(options);
 
-  return toast;
+  mountComponent(Component, (toast) => {
+    if (!toast) {
+      return;
+    }
+
+    if (instance) {
+      instance.unmount();
+      instance = null;
+    }
+
+    instance = toast;
+
+    toast.open(options);
+  });
 };
 
 const createMethod = (type) => (options) =>
@@ -77,16 +73,9 @@ const createMethod = (type) => (options) =>
   Toast[method] = createMethod(method);
 });
 
-Toast.clear = (all) => {
-  if (queue.length) {
-    if (all) {
-      queue.forEach((toast) => {
-        toast.clear();
-      });
-      queue = [];
-    } else {
-      queue.shift().clear();
-    }
+Toast.clear = () => {
+  if (instance) {
+    instance.clear();
   }
 };
 

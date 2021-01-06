@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Cell, Dialog } from 'rokku';
 import { components } from 'site-mobile-demo';
 

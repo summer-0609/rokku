@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle } from 'react';
+
 import usePopupState from '../hooks/use-popup-state';
 
 import { inBrowser } from '../utils';
@@ -7,30 +8,25 @@ import { DialogProps } from './PropsType';
 
 import RokkuDialog from './Dialog';
 
-let instance;
+let instance = null;
 
-function initInstance() {
-  ({ instance } = mountComponent(function Dialog() {
-    const [state, { open, toggle, close }] = usePopupState();
+const Component = forwardRef((_, ref) => {
+  const [state, { open, toggle, close }] = usePopupState();
 
-    Dialog.prototype.open = open;
-    Dialog.prototype.toggle = toggle;
-
-    return <RokkuDialog {...state} onClose={close} />;
+  useImperativeHandle(ref, () => ({
+    open,
+    toggle,
   }));
-}
+
+  return <RokkuDialog {...state} onClose={close} />;
+});
 
 const Dialog = (options: Partial<DialogProps>): Promise<void> => {
-  /* istanbul ignore if */
   if (!inBrowser) {
     return Promise.resolve();
   }
 
   return new Promise((resolve, reject) => {
-    if (!instance) {
-      initInstance();
-    }
-
     const defaultOptions = {
       title: '',
       width: '',
@@ -58,12 +54,25 @@ const Dialog = (options: Partial<DialogProps>): Promise<void> => {
       overlayClosable: false,
     };
 
-    instance.open({
-      ...defaultOptions,
-      ...options,
-      callback: (action) => {
-        (action === 'confirm' ? resolve : reject)(action);
-      },
+    mountComponent(Component, (dialog) => {
+      if (!dialog) {
+        return;
+      }
+
+      if (instance) {
+        instance.unmount();
+        instance = null;
+      }
+
+      instance = dialog;
+
+      dialog.open({
+        ...defaultOptions,
+        ...options,
+        callback: (action) => {
+          (action === 'confirm' ? resolve : reject)(action);
+        },
+      });
     });
   });
 };
@@ -78,7 +87,7 @@ RokkuDialog.confirm = (options: Partial<DialogProps>) =>
 
 RokkuDialog.close = () => {
   if (instance) {
-    instance.toggle(false);
+    instance.unmount();
   }
 };
 

@@ -49,37 +49,46 @@ const onLoad = () => {
 };
 ```
 
-<!-- ### 错误提示
+### 错误提示
 
 若列表数据加载失败，将 `error` 设置成 `true` 即可显示错误提示，用户点击错误提示后会重新触发 load 事件。
 
 ```html
-<van-list
-  v-model:loading="loading"
-  v-model:error="error"
-  error-text="请求失败，点击重新加载"
-  @load="onLoad"
+ <List
+  loading={loading}
+  error={error}
+  errorText="请求失败，点击重新加载"
+  onLoad={onLoadError}
 >
-  <van-cell v-for="item in list" :key="item" :title="item" />
-</van-list>
+  {errorList.length
+    ? errorList.map((item) => {
+        return <Cell key={item} title={item} />;
+      })
+    : null}
+</List>
 ```
 
 ```js
-export default {
-  data() {
-    return {
-      list: [],
-      error: false,
-      loading: false,
-    };
-  },
-  methods: {
-    onLoad() {
-      fetchSomeThing().catch(() => {
-        this.error = true;
-      });
-    },
-  },
+const [errorList, setErrorList] = useState([]);
+const [error, setError] = useState(false);
+
+const onLoadError = () => {
+  setLoading(true);
+
+  // 异步更新数据
+  // setTimeout 仅做示例，真实场景中一般为 ajax 请求
+  setTimeout(() => {
+    for (let i = 0; i < 10; i += 1) {
+      errorList.push(errorList.length + 1);
+    }
+    setErrorList(errorList);
+
+    // 加载状态结束
+    setLoading(false);
+    if (errorList.length === 10) {
+      setError(true);
+    }
+  }, 1000);
 };
 ```
 
@@ -88,58 +97,16 @@ export default {
 List 组件可以与 [PullRefresh](#/zh-CN/pull-refresh) 组件结合使用，实现下拉刷新的效果。
 
 ```html
-<van-pull-refresh v-model="refreshing" @refresh="onRefresh">
-  <van-list
-    v-model:loading="loading"
-    :finished="finished"
-    finished-text="没有更多了"
-    @load="onLoad"
-  >
-    <van-cell v-for="item in list" :key="item" :title="item" />
-  </van-list>
-</van-pull-refresh>
+<PullRefresh refreshing={refreshing} onRefresh={onRefresh}>
+  <List loading={loading} finished={finished} onLoad={onLoadRefresh}>
+    {list.length
+      ? list.map((item) => {
+          return <Cell key={item} title={item} />;
+        })
+      : null}
+  </List>
+</PullRefresh>
 ```
-
-```js
-export default {
-  data() {
-    return {
-      list: [],
-      loading: false,
-      finished: false,
-      refreshing: false,
-    };
-  },
-  methods: {
-    onLoad() {
-      setTimeout(() => {
-        if (this.refreshing) {
-          this.list = [];
-          this.refreshing = false;
-        }
-
-        for (let i = 0; i < 10; i++) {
-          this.list.push(this.list.length + 1);
-        }
-        this.loading = false;
-
-        if (this.list.length >= 40) {
-          this.finished = true;
-        }
-      }, 1000);
-    },
-    onRefresh() {
-      // 清空列表数据
-      this.finished = false;
-
-      // 重新加载数据
-      // 将 loading 设置为 true，表示处于加载状态
-      this.loading = true;
-      this.onLoad();
-    },
-  },
-};
-``` -->
 
 ## API
 
@@ -189,7 +156,7 @@ List 会监听浏览器的滚动事件并计算列表的位置，当列表底部
 
 ### 为什么 List 初始化后会立即触发 load 事件？
 
-List 初始化后会触发一次 load 事件，用于加载第一屏的数据，这个特性可以通过`immediate-check`属性关闭。
+List 初始化后会触发一次 load 事件，用于加载第一屏的数据，这个特性可以通过`immediateCheck`属性关闭。
 
 ### 为什么会连续触发 load 事件？
 
@@ -204,20 +171,6 @@ List 初始化后会触发一次 load 事件，用于加载第一屏的数据，
 - 加载完成，`finished`为`true`，此时不会触发`load`事件
 
 在每次请求完毕后，需要手动将`loading`设置为`false`，表示加载结束
-
-### 使用 float 布局后一直触发加载？
-
-若 List 的内容使用了 float 布局，可以在容器上添加`van-clearfix`类名来清除浮动，使得 List 能正确判断元素位置
-
-```html
-<van-list>
-  <div class="van-clearfix">
-    <div class="float-item" />
-    <div class="float-item" />
-    <div class="float-item" />
-  </div>
-</van-list>
-```
 
 ### 在 html、body 上设置 overflow 后一直触发加载？
 

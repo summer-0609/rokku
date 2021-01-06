@@ -1,24 +1,25 @@
 @import '../../styles/themes/default.less';
 
-.@{rk-prefix}-notice-bar {
+.rk-notice-bar {
   position: relative;
   display: flex;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  color: #ed6a0c;
-  font-size: 14px;
-  line-height: 24px;
-  background-color: #fffbe8;
+  height: @notice-bar-height;
+  padding: @notice-bar-padding;
+  color: @notice-bar-text-color;
+  font-size: @notice-bar-font-size;
+  line-height: @notice-bar-line-height;
+  background-color: @notice-bar-background-color;
 
-  &__left-icon {
-    min-width: 24px;
-    font-size: 16px;
+  &__left-icon,
+  &__right-icon {
+    min-width: @notice-bar-icon-min-width;
+    font-size: @notice-bar-icon-size;
   }
 
-  &--wrapable {
-    height: auto;
-    padding: 8px 16px;
+  &__right-icon {
+    text-align: right;
+    cursor: pointer;
   }
 
   &__wrap {
@@ -35,10 +36,25 @@
     white-space: nowrap;
     transition-timing-function: linear;
 
-    &.ellipsis {
+    &.rk-ellipsis {
       max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    }
+  }
+
+  &--wrapable {
+    height: auto;
+    padding: @notice-bar-wrapable-padding;
+
+    .rk-notice-bar {
+      &__wrap {
+        height: auto;
+      }
+
+      &__content {
+        position: relative;
+        white-space: normal;
+        word-wrap: break-word;
+      }
     }
   }
 }
