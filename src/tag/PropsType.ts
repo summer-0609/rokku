@@ -1,8 +1,10 @@
 import { BaseTypeProps } from '../utils';
 
+export type TagSize = 'mini' | 'medium' | 'large';
 export interface TagProps extends BaseTypeProps {
-  size: string;
+  size: TagSize;
   mark: boolean;
+  selected: boolean;
   color: string;
   plain: boolean;
   round: boolean;
@@ -12,5 +14,5 @@ export interface TagProps extends BaseTypeProps {
   show: boolean;
   hairline: boolean;
   onClose: () => void;
-  onClick: () => void;
+  onChange: (selected: boolean) => void;
 }

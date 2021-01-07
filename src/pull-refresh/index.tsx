@@ -118,13 +118,18 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
         checkPosition(event as TouchEvent);
       }
 
-      const { deltaY } = touch;
+      const { deltaYRef, deltaY } = touch;
       touch.move(event as TouchEvent);
 
-      if (reachTop.current && deltaY >= 0 && touch.isVertical()) {
+      if (reachTop.current && deltaYRef.current >= 0) {
         preventDefault(event);
-        updateStatus(ease(deltaY));
+
+        if (touch.isVertical()) {
+          updateStatus(ease(deltaY));
+        }
       }
+    } else {
+      preventDefault(event);
     }
   };
 
@@ -143,7 +148,7 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
 
   useEventListener('touchmove', onTouchMove as EventListener, {
     target: track.current,
-    depends: [track.current, reachTop.current, touch.deltaY],
+    depends: [track.current, reachTop.current, isTouchable, touch.deltaY],
     passive: false,
   });
 

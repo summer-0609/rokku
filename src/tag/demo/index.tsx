@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Loading, Tag, Cell } from 'rokku';
+import { Tag, Cell } from 'rokku';
 import { components } from 'site-mobile-demo';
 import './style.less';
 
@@ -11,6 +11,9 @@ export default (): React.ReactNode => {
   return (
     <DemoSection>
       <DemoBlock card title="基础用法">
+        <Cell title="default 类型">
+          <Tag type="default">标签</Tag>
+        </Cell>
         <Cell title="primary 类型">
           <Tag type="primary">标签</Tag>
         </Cell>
@@ -91,6 +94,21 @@ export default (): React.ReactNode => {
         </Cell>
         <Cell title="空心颜色">
           <Tag color="#7232dd" plain>
+            标签
+          </Tag>
+        </Cell>
+      </DemoBlock>
+      <DemoBlock card title="可选中标签">
+        <Cell title="可选中标签">
+          <Tag
+            size="medium"
+            color="#f5f5f9"
+            textColor="#888"
+            selected
+            onChange={(selected) => {
+              console.log(`tag selected: ${selected}`);
+            }}
+          >
             标签
           </Tag>
         </Cell>
