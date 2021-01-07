@@ -12,4 +12,5 @@ export interface TagProps extends BaseTypeProps {
   show: boolean;
   hairline: boolean;
   onClose: () => void;
+  onClick: () => void;
 }

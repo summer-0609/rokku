@@ -66,6 +66,7 @@ import { Tag } from '@rokku/design';
 通过 `size` 属性调整标签大小。
 
 ```html
+<Tag type="primary" size="mini">标签</Tag>
 <Tag type="primary">标签</Tag>
 <Tag type="primary" size="medium">标签</Tag>
 <Tag type="primary" size="large">标签</Tag>
@@ -117,6 +118,7 @@ import { Tag } from '@rokku/design';
 | @tag-border-radius          | `2px`                       | -    |
 | @tag-line-height            | `16px`                      | -    |
 | @tag-medium-padding         | `2px 6px`                   | -    |
+| @tag-mini-font-size         | `@font-size-xs`             | -    |
 | @tag-large-padding          | `@padding-base @padding-xs` | -    |
 | @tag-large-border-radius    | `@border-radius-md`         | -    |
 | @tag-large-font-size        | `@font-size-md`             | -    |

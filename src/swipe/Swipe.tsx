@@ -16,6 +16,7 @@ import useRect from '../hooks/use-rect';
 import useTouch from '../hooks/use-touch';
 import useWindowSize from '../hooks/use-window-size';
 import usePageVisibility from '../hooks/use-page-visibility';
+import useEventListener from '../hooks/use-event-listener';
 
 import SwipeContext from './SwipeContext';
 import { SwipeProps, SwipeStatic } from './PropsType';
@@ -37,8 +38,8 @@ const Swipe: React.FC<SwipeProps> & SwipeStatic = (props) => {
   } = props;
 
   const [refs, setRefs] = useRefs();
-
-  const [autoplayTimer, setAutoplayTimer] = useState<NodeJS.Timeout>(null);
+  const autoplayTimer = useRef<NodeJS.Timeout>(null);
+  // const [autoplayTimer, setAutoplayTimer] = useState<NodeJS.Timeout>(null);
   const [swiping, setSwiping] = useState<boolean>(false);
   const [state, setState] = useState({
     rect: { width: 0, height: 0 },
@@ -53,8 +54,9 @@ const Swipe: React.FC<SwipeProps> & SwipeStatic = (props) => {
   const windowSize = useWindowSize();
 
   const root = useRef<HTMLDivElement>(null);
-  const count = useMemo(() => React.Children.count(children), [children]);
+  const trackRef = useRef<HTMLDivElement>(null);
 
+  const count = useMemo(() => React.Children.count(children), [children]);
   const size = useMemo(() => state[vertical ? 'height' : 'width'], [state]);
   const trackSize = useMemo(() => count * size, [count, size]);
   const delta = useMemo(() => (props.vertical ? touch.deltaY : touch.deltaX), [
@@ -161,18 +163,17 @@ const Swipe: React.FC<SwipeProps> & SwipeStatic = (props) => {
   };
 
   const stopAutoplay = () => {
-    clearTimeout(autoplayTimer);
+    clearTimeout(autoplayTimer.current);
+    autoplayTimer.current = null;
   };
 
   const autoplay = () => {
     if (props.autoplay > 0 && count > 1) {
       stopAutoplay();
-      setAutoplayTimer(
-        setTimeout(() => {
-          next();
-          autoplay();
-        }, +props.autoplay),
-      );
+      autoplayTimer.current = setTimeout(() => {
+        next();
+        autoplay();
+      }, +props.autoplay);
     }
   };
 
@@ -221,6 +222,10 @@ const Swipe: React.FC<SwipeProps> & SwipeStatic = (props) => {
     }
   }, [visibility]);
 
+  useEffect(() => {
+    return stopAutoplay;
+  }, []);
+
   let touchStartTime: number;
 
   const onTouchStart = (event: TouchEvent | React.TouchEvent) => {
@@ -235,6 +240,10 @@ const Swipe: React.FC<SwipeProps> & SwipeStatic = (props) => {
   const onTouchMove = (event: TouchEvent | React.TouchEvent) => {
     if (props.touchable && swiping) {
       touch.move(event as TouchEvent);
+
+      if (props.vertical) {
+        preventDefault(event, props.stopPropagation);
+      }
 
       if (isCorrectDirection) {
         preventDefault(event, props.stopPropagation);
@@ -274,6 +283,12 @@ const Swipe: React.FC<SwipeProps> & SwipeStatic = (props) => {
     setSwiping(false);
     autoplay();
   };
+
+  useEventListener('touchmove', onTouchMove as EventListener, {
+    target: trackRef.current,
+    depends: [trackRef.current, touch.deltaX, touch.deltaY],
+    passive: false,
+  });
 
   const resize = () => {
     initialize(activeIndicator);
@@ -315,10 +330,10 @@ const Swipe: React.FC<SwipeProps> & SwipeStatic = (props) => {
     <SwipeContext.Provider value={{ size, vertical, loop, lazyRender, activeIndicator, count }}>
       <div ref={root} className={classnames(bem(), props.className)} style={props.style}>
         <div
+          ref={trackRef}
           style={trackStyle}
           className={classnames(bem('track', { vertical: props.vertical }))}
           onTouchStart={onTouchStart}
-          onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
           onTouchCancel={onTouchEnd}
         >

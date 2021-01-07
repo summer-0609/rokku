@@ -17,6 +17,7 @@ const TEXT_STATUS = ['pulling', 'loosing', 'success'];
 
 const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   const { disabled, refreshing, animationDuration, successDuration } = props;
+
   // 操作状态
   const [status, setStatus] = useState<PullRefreshStatus>('normal');
   const [distance, setDistance] = useState<number>(0);
@@ -116,6 +117,7 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
       if (!reachTop.current) {
         checkPosition(event as TouchEvent);
       }
+
       const { deltaY } = touch;
       touch.move(event as TouchEvent);
 
@@ -139,23 +141,10 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
     }
   };
 
-  useEventListener(
-    'touchmove',
-    (event) => {
-      if (getScrollTop(scrollParent) === 0 && touch.deltaY >= 0) {
-        preventDefault(event);
-      }
-    },
-    {
-      target: document.body,
-      depends: [touch.deltaY, scrollParent],
-    },
-  );
-
   useEventListener('touchmove', onTouchMove as EventListener, {
     target: track.current,
-    depends: [touch.deltaY],
-    passive: !(reachTop.current && touch.deltaY >= 0 && touch.isVertical()),
+    depends: [track.current, reachTop.current, touch.deltaY],
+    passive: false,
   });
 
   const showSuccessTip = () => {

@@ -45,9 +45,18 @@ const Tag: React.FC<TagProps> = (props) => {
     <CSSTransition classNames="rk-fade" in={show} timeout={50} unmountOnExit>
       <span
         style={{ ...getStyle, ...props.style }}
-        className={classnames(props.className, bem([classes, type]), {
-          [BORDER_SURROUND]: hairline,
-        })}
+        className={classnames(
+          bem([classes, type]),
+          {
+            [BORDER_SURROUND]: hairline,
+          },
+          props.className,
+        )}
+        onClick={() => {
+          if (props.onClick) {
+            props.onClick();
+          }
+        }}
       >
         {props.children}
         {CloseIcon}

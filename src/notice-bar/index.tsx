@@ -177,8 +177,8 @@ const NoticeBar: React.FC<NoticeBarProps> = (props) => {
     show && (
       <div
         role="alert"
-        className={classnames(bem({ wrapable }))}
-        style={{ color, background }}
+        className={classnames(bem({ wrapable }), props.className)}
+        style={{ color, background, ...props.style }}
         onClick={() => props.onClick && props.onClick()}
       >
         {renderLeftIcon()}

@@ -61,6 +61,11 @@ export default (): React.ReactNode => {
         </Cell>
       </DemoBlock>
       <DemoBlock card title="标签大小">
+        <Cell title="超小号标签">
+          <Tag size="mini" type="primary">
+            标签
+          </Tag>
+        </Cell>
         <Cell title="小号标签">
           <Tag type="primary">标签</Tag>
         </Cell>

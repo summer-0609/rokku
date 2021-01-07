@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useRef } from 'react';
 
 const MIN_DISTANCE = 10;
 
@@ -16,16 +18,24 @@ function getDirection(x: number, y: number) {
 }
 
 const useTouch = () => {
-  const [startX, setStartX] = useState(0);
-  const [startY, setStartY] = useState(0);
-  const [deltaX, setDeltaX] = useState(0);
-  const [deltaY, setDeltaY] = useState(0);
-  const [offsetX, setOffsetX] = useState(0);
-  const [offsetY, setOffsetY] = useState(0);
+  const [startX, setStartX] = useState<number>(0);
+  const [startY, setStartY] = useState<number>(0);
+  const [deltaX, setDeltaX] = useState<number>(0);
+  const [deltaY, setDeltaY] = useState<number>(0);
+  const [offsetX, setOffsetX] = useState<number>(0);
+  const [offsetY, setOffsetY] = useState<number>(0);
   const [direction, setDirection] = useState<Direction>('');
 
-  const isVertical = useCallback(() => direction === 'vertical', [direction]);
-  const isHorizontal = useCallback(() => direction === 'horizontal', [direction]);
+  const directionRef = useRef<Direction>('');
+
+  const isVertical = useCallback(
+    () => direction === 'vertical' || directionRef.current === 'vertical',
+    [direction],
+  );
+  const isHorizontal = useCallback(
+    () => direction === 'horizontal' || directionRef.current === 'horizontal',
+    [direction],
+  );
 
   const reset = () => {
     setDeltaX(0);
@@ -33,6 +43,8 @@ const useTouch = () => {
     setOffsetX(0);
     setOffsetY(0);
     setDirection('');
+
+    directionRef.current = '';
   };
 
   const start = ((event: TouchEvent) => {
@@ -43,13 +55,18 @@ const useTouch = () => {
 
   const move = ((event: TouchEvent) => {
     const touch = event.touches[0];
-    setDeltaX(touch.clientX - startX);
-    setDeltaY(touch.clientY - startY);
-    setOffsetX(Math.abs(deltaX));
-    setOffsetY(Math.abs(deltaY));
 
-    if (!direction) {
-      setDirection(getDirection(offsetX, offsetY));
+    const _deltaX = touch.clientX - startX;
+    const _deltaY = touch.clientY - startY;
+
+    setDeltaX(_deltaX);
+    setDeltaY(_deltaY);
+    setOffsetX(Math.abs(_deltaX));
+    setOffsetY(Math.abs(_deltaY));
+
+    if (!direction || !directionRef.current) {
+      directionRef.current = getDirection(Math.abs(_deltaX), Math.abs(_deltaY));
+      setDirection(getDirection(Math.abs(_deltaX), Math.abs(_deltaY)));
     }
   }) as EventListener;
 
