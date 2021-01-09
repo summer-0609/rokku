@@ -287,7 +287,6 @@ const Swipe: React.FC<SwipeProps> & SwipeStatic = (props) => {
   useEventListener('touchmove', onTouchMove as EventListener, {
     target: trackRef.current,
     depends: [trackRef.current, touch.deltaX, touch.deltaY],
-    passive: false,
   });
 
   const resize = () => {

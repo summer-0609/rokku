@@ -149,7 +149,6 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
   useEventListener('touchmove', onTouchMove as EventListener, {
     target: track.current,
     depends: [track.current, reachTop.current, isTouchable, touch.deltaY],
-    passive: false,
   });
 
   const showSuccessTip = () => {
