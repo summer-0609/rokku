@@ -82,6 +82,24 @@ import { Tag } from '@rokku/design';
 <Tag color="#7232dd" plain>标签</Tag>
 ```
 
+### 可选中标签
+
+通过 `selected` 属性设置标签的选中状态。
+
+```html
+<Tag
+  size="medium"
+  color="#f5f5f9"
+  textColor="#888"
+  selected
+  onChange={(selected) => {
+    console.log(`tag selected: ${selected}`);
+  }}
+>
+  标签
+</Tag>
+```
+
 ## API
 
 ### Props
@@ -96,6 +114,7 @@ import { Tag } from '@rokku/design';
 | round     | 是否为圆角样式                                        | _boolean_ | `false`   |
 | mark      | 是否为标记样式                                        | _boolean_ | `false`   |
 | hairline  | 是否为细边框                                          | _boolean_ | `false`   |
+| selected  | 是否为可选中模式                                      | _boolean_ | `false`   |
 | textColor | 文本颜色，优先级高于 `color` 属性                     | _string_  | `white`   |
 | closeable | 是否为可关闭标签                                      | _boolean_ | `false`   |
 
@@ -105,7 +124,7 @@ import { Tag } from '@rokku/design';
 | ------ | -------------- | -------------- |
 | click  | 点击时触发     | _event: Event_ |
 | close  | 关闭标签时触发 | -              |
-
+| change | 选中模式下出发 | _selected: boolean_  |
 ### 样式变量
 
 组件提供了下列 Less 变量，可用于自定义样式，使用方法请参考[主题定制](#/zh-CN/theme)。

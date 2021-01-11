@@ -19,3 +19,4 @@ export { default as Sticky } from './sticky';
 export { default as NavBar } from './nav-bar';
 export { default as Tag } from './tag';
 export { default as Complain } from './complain';
+export { default as IndexBar } from './index-bar';

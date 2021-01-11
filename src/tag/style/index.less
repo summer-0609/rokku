@@ -66,6 +66,14 @@
     }
   }
 
+  &--selected {
+    color: @tag-primary-color !important;
+
+    &.rk-tag--plain::before {
+      border: 1px solid @tag-primary-color;
+    }
+  }
+
   &--mini {
     font-size: @tag-mini-font-size;
   }

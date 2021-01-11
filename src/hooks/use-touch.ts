@@ -26,16 +26,10 @@ const useTouch = () => {
   const [offsetY, setOffsetY] = useState<number>(0);
   const [direction, setDirection] = useState<Direction>('');
 
-  const directionRef = useRef<Direction>('');
+  const deltaYRef = useRef<number>(0);
 
-  const isVertical = useCallback(
-    () => direction === 'vertical' || directionRef.current === 'vertical',
-    [direction],
-  );
-  const isHorizontal = useCallback(
-    () => direction === 'horizontal' || directionRef.current === 'horizontal',
-    [direction],
-  );
+  const isVertical = useCallback(() => direction === 'vertical', [direction]);
+  const isHorizontal = useCallback(() => direction === 'horizontal', [direction]);
 
   const reset = () => {
     setDeltaX(0);
@@ -44,7 +38,7 @@ const useTouch = () => {
     setOffsetY(0);
     setDirection('');
 
-    directionRef.current = '';
+    deltaYRef.current = 0;
   };
 
   const start = ((event: TouchEvent) => {
@@ -64,8 +58,9 @@ const useTouch = () => {
     setOffsetX(Math.abs(_deltaX));
     setOffsetY(Math.abs(_deltaY));
 
-    if (!direction || !directionRef.current) {
-      directionRef.current = getDirection(Math.abs(_deltaX), Math.abs(_deltaY));
+    deltaYRef.current = _deltaY;
+
+    if (!direction) {
       setDirection(getDirection(Math.abs(_deltaX), Math.abs(_deltaY)));
     }
   }) as EventListener;
@@ -81,6 +76,7 @@ const useTouch = () => {
     offsetX,
     offsetY,
     direction,
+    deltaYRef,
     isVertical,
     isHorizontal,
   };

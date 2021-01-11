@@ -18,6 +18,11 @@ export function getRootScrollTop(): number {
   return window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 }
 
+export function setRootScrollTop(value: number): void {
+  setScrollTop(window, value);
+  setScrollTop(document.body, value);
+}
+
 // get distance from element top to page top or scroller top
 export function getElementTop(el: ScrollElement, scroller?: HTMLElement): number {
   if (isWindow(el)) {

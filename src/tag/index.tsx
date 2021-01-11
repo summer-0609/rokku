@@ -1,4 +1,4 @@
-import React, { useMemo, MouseEvent } from 'react';
+import React, { useMemo, MouseEvent, useState } from 'react';
 import classnames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 
@@ -11,6 +11,7 @@ const [bem] = createNamespace('tag');
 
 const Tag: React.FC<TagProps> = (props) => {
   const { show, type, mark, plain, round, size, closeable, hairline } = props;
+  const [selected, setSelected] = useState<boolean>(props.selected);
 
   const onClose = (event: MouseEvent) => {
     event.stopPropagation();
@@ -31,7 +32,7 @@ const Tag: React.FC<TagProps> = (props) => {
     };
   }, [props.textColor, props.color]);
 
-  const classes = { mark, plain, round, hairline };
+  const classes = { mark, plain: plain || selected, selected, round, hairline };
 
   if (size) {
     classes[size] = size;
@@ -53,8 +54,11 @@ const Tag: React.FC<TagProps> = (props) => {
           props.className,
         )}
         onClick={() => {
-          if (props.onClick) {
-            props.onClick();
+          if (selected !== undefined) {
+            setSelected(!selected);
+            if (props.onChange) {
+              props.onChange(!selected);
+            }
           }
         }}
       >

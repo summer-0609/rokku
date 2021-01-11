@@ -164,6 +164,10 @@ module.exports = {
             title: '导航组件',
             items: [
               {
+                path: 'index-bar',
+                title: 'IndexBar 索引栏',
+              },
+              {
                 path: 'nav-bar',
                 title: 'NavBar 导航栏',
               },
