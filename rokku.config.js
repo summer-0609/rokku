@@ -173,6 +173,15 @@ module.exports = {
               },
             ],
           },
+          {
+            title:'业务组件',
+            items:[
+              {
+                path:'complain',
+                title:'PopUp 问题申诉'
+              }
+            ]
+          }
         ],
       },
       'en-US': {
