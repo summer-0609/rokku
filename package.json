@@ -34,6 +34,17 @@
     "component",
     "components"
   ],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "rokku-cli commit-lint"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,less}": "prettier --write",
+    "*.{ts,tsx,js}": "eslint --fix",
+    "*.{css,less}": "stylelint --fix"
+  },
   "devDependencies": {
     "@rokku/cli": "^1.1.1",
     "@rokku/fabric": "^1.0.5",
