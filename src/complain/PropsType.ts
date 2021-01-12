@@ -2,7 +2,9 @@ import { BaseTypeProps } from '../utils';
 
 export interface ComplainProps extends BaseTypeProps {
   closeIcon:string;
-  resourceList: Array;
+  resourceList: string[];
+  title: string,
+  description: string,
   show:boolean;
   className?: string;
   noChooseIcon:string;
