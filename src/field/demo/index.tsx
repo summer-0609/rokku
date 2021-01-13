@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Field, Cell, Button } from 'rokku';
 import { components } from 'site-mobile-demo';
 import './style.less';
@@ -22,21 +22,28 @@ export default (): React.ReactNode => {
   const [message, setMessage] = useState('');
   const [message2, setMessage2] = useState('');
   const [value7, setValue7] = useState('');
+  const [value8, setValue8] = useState('');
 
   const formatter = (val) => val.replace(/\d/g, '');
+
+  const fieldRef = useRef(null);
+  useEffect(() => {
+    console.log(fieldRef);
+  }, [fieldRef]);
 
   return (
     <DemoSection>
       <DemoBlock title="基础用法">
         <Cell.Group>
+          <Field value={value} onChange={setValue} placeholder="请输入文本" maxlength="11" />
           <Field
-            value={value}
-            onChange={setValue}
-            placeholder="请输入文本"
-            maxlength="11"
             className="field"
+            labelClass="field_label"
+            value={value1}
+            label="文本"
+            onChange={setValue1}
+            placeholder="请输入文本"
           />
-          <Field value={value1} label="文本" onChange={setValue1} placeholder="请输入文本" />
         </Cell.Group>
       </DemoBlock>
 
@@ -89,8 +96,12 @@ export default (): React.ReactNode => {
             label="文本"
             leftIcon="shop-o"
             placeholder="显示清除图标"
-            onBlur={() => {console.log('onBlur')}}
-            onClear={() => {console.log('onClear')}}
+            onBlur={() => {
+              console.log('onBlur');
+            }}
+            onClear={() => {
+              console.log('onClear');
+            }}
             onChange={setValue4}
           />
         </Cell.Group>
@@ -185,6 +196,30 @@ export default (): React.ReactNode => {
           inputAlign="right"
           onChange={setValue7}
         />
+      </DemoBlock>
+
+      <DemoBlock title="调用方法">
+        <Cell.Group>
+          <Field
+            ref={fieldRef}
+            className="field"
+            labelClass="field_label"
+            value={value8}
+            label="文本"
+            onChange={setValue8}
+            button={
+              <Button
+                size="small"
+                onClick={() => {
+                  fieldRef?.current?.focus();
+                }}
+              >
+                聚焦
+              </Button>
+            }
+            placeholder="请输入文本"
+          />
+        </Cell.Group>
       </DemoBlock>
     </DemoSection>
   );

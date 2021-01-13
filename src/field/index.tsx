@@ -1,6 +1,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, { useRef, useState, useEffect, CSSProperties } from 'react';
+import React, {
+  useRef,
+  useState,
+  useEffect,
+  CSSProperties,
+  forwardRef,
+  useImperativeHandle,
+} from 'react';
 import classnames from 'classnames';
 import Icon from '../icon';
 import Cell from '../cell';
@@ -10,7 +17,7 @@ import { createNamespace, isDef, addUnit, formatNumber, preventDefault, isObject
 const [bem] = createNamespace('field');
 const ICON_SIZE = '16px';
 
-const Field: React.FC<FieldProps> = (props) => {
+const Field = (props: FieldProps, ref) => {
   const [inputFocus, setInputFocus] = useState(false);
   const fieldRef = useRef(null);
   const inputRef = useRef(null);
@@ -19,6 +26,23 @@ const Field: React.FC<FieldProps> = (props) => {
     if (props.getFieldRef) props.getFieldRef(fieldRef);
     if (props.getInputRef) props.getInputRef(inputRef);
   }, [props.getFieldRef, props.getInputRef]);
+
+  const focus = () => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  };
+
+  const blur = () => {
+    if (inputRef.current) {
+      inputRef.current.blur();
+    }
+  };
+
+  useImperativeHandle(ref, () => ({
+    focus,
+    blur,
+  }));
 
   const getProp = (key) => {
     if (isDef(props[key])) {
@@ -76,18 +100,6 @@ const Field: React.FC<FieldProps> = (props) => {
     }
 
     return inputValue;
-  };
-
-  const focus = () => {
-    if (inputRef.current) {
-      inputRef.current.focus();
-    }
-  };
-
-  const blur = () => {
-    if (inputRef.current) {
-      inputRef.current.blur();
-    }
   };
 
   const renderInput = () => {
@@ -253,7 +265,7 @@ const Field: React.FC<FieldProps> = (props) => {
   };
 
   const handleClear = (e) => {
-    console.log('handleClear')
+    console.log('handleClear');
     const { onClear, onChange } = props;
     preventDefault(e);
     inputRef.current.value = '';
@@ -311,7 +323,9 @@ const Field: React.FC<FieldProps> = (props) => {
     >
       <div className={classnames(bem('body'))}>
         {renderInput()}
-        {clearable && value && inputFocus && <Icon onTouchStart={handleClear} name="clear" size={ICON_SIZE} />}
+        {clearable && value && inputFocus && (
+          <Icon onTouchStart={handleClear} name="clear" size={ICON_SIZE} />
+        )}
         {renderRightIcon()}
         {button && button}
       </div>
@@ -321,9 +335,9 @@ const Field: React.FC<FieldProps> = (props) => {
   );
 };
 
-Field.defaultProps = {
-  type: 'text',
-  formatTrigger: 'onChange',
-};
+// Field.defaultProps = {
+//   type: 'text',
+//   formatTrigger: 'onChange',
+// };
 
-export default Field;
+export default forwardRef(Field);

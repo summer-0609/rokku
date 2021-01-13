@@ -278,10 +278,24 @@ const formatter = (value) => value.replace(/\d/g, '');
 
 ### 方法
 
-通过 ref 可以获取到 Field 实例并调用实例方法，详见[组件实例方法](#/zh-CN/advanced-usage#zu-jian-shi-li-fang-fa)。
+通过 ref 可以获取到 Field 实例并调用实例方法
 
-#### TODO
+```js
+const fieldRef = useRef(null);
+```
+```html
+<Field
+  ref={fieldRef}
+  value={value}
+  onChange={setValue}
+  placeholder="请输入文本"
+  maxlength="11"
+/>
 
+<input type="button" value="click" onClick={() => {
+  fieldRef && fieldRef?.current?.focus()
+}}/>
+```
 | 方法名 | 说明           | 参数 | 返回值 |
 | ------ | -------------- | ---- | ------ |
 | focus  | 获取输入框焦点 | -    | -      |
