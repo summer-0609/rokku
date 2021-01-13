@@ -10,7 +10,6 @@
     max-height: 100%;
     overflow-y: auto;
     background-color: @popup-background-color;
-    transition: @popup-transition;
     -webkit-overflow-scrolling: touch;
 
     &--center {
@@ -91,6 +90,7 @@
     &-slide-right-enter-active,
     &-slide-bottom-enter-active {
       transform: translate3d(0, 0, 0);
+      transition: @popup-transition;
     }
 
     &-slide-top-exit-active,

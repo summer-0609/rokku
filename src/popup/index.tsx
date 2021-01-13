@@ -7,7 +7,7 @@ import Overlay from '../overlay';
 import useLockScroll from '../hooks/use-lock-scroll';
 import useEventListener from '../hooks/use-event-listener';
 
-import { createNamespace, isDef } from '../utils';
+import { createNamespace } from '../utils';
 import { PopupProps } from './PropsType';
 
 const [bem] = createNamespace('popup');
@@ -73,11 +73,6 @@ const Popup: React.FC<PopupProps> = (props) => {
       zIndex,
       ...props.style,
     };
-
-    if (isDef(duration)) {
-      const key = props.position === 'center' ? 'animationDuration' : 'transitionDuration';
-      initStyle[key] = `${duration}ms`;
-    }
     return initStyle;
   }, [zIndex]);
 
