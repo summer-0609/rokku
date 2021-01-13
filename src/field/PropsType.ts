@@ -20,7 +20,6 @@ export interface FieldProps extends BaseTypeProps, Partial<CellProps> {
   labelAlign?: TAlignment;
   inputAlign?: TAlignment;
   errorMessageAlign?: TAlignment; //
-  maxLength?: number;
   showWordLimit?: boolean;
   disabled?: boolean;
   readonly?: boolean;

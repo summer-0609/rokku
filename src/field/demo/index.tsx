@@ -24,9 +24,7 @@ export default (): React.ReactNode => {
   const [value7, setValue7] = useState('');
 
   const formatter = (val) => val.replace(/\d/g, '');
-  const onKeypress = () => {
-    console.log('onKeypress');
-  };
+
   return (
     <DemoSection>
       <DemoBlock title="基础用法">
@@ -35,7 +33,7 @@ export default (): React.ReactNode => {
             value={value}
             onChange={setValue}
             placeholder="请输入文本"
-            onKeypress={onKeypress}
+            maxlength="11"
             className="field"
           />
           <Field value={value1} label="文本" onChange={setValue1} placeholder="请输入文本" />
@@ -91,6 +89,8 @@ export default (): React.ReactNode => {
             label="文本"
             leftIcon="shop-o"
             placeholder="显示清除图标"
+            onBlur={() => {console.log('onBlur')}}
+            onClear={() => {console.log('onClear')}}
             onChange={setValue4}
           />
         </Cell.Group>

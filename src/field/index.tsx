@@ -143,9 +143,12 @@ const Field: React.FC<FieldProps> = (props) => {
     const handleKeypress = (e) => {
       const { onKeypress } = props;
       const inputValue = e?.currentTarget?.value;
-      // trigger blur after click keyboard search button
-      if (props.type === 'search') {
-        blur();
+
+      if (e.key === 'Enter' || +e.charCode === 13) {
+        // trigger blur after click keyboard search button
+        if (props.type === 'search') {
+          blur();
+        }
       }
 
       if (onKeypress && typeof onKeypress === 'function') {
@@ -250,6 +253,7 @@ const Field: React.FC<FieldProps> = (props) => {
   };
 
   const handleClear = (e) => {
+    console.log('handleClear')
     const { onClear, onChange } = props;
     preventDefault(e);
     inputRef.current.value = '';
@@ -307,7 +311,7 @@ const Field: React.FC<FieldProps> = (props) => {
     >
       <div className={classnames(bem('body'))}>
         {renderInput()}
-        {clearable && value && <Icon onClick={handleClear} name="clear" size={ICON_SIZE} />}
+        {clearable && value && inputFocus && <Icon onTouchStart={handleClear} name="clear" size={ICON_SIZE} />}
         {renderRightIcon()}
         {button && button}
       </div>

@@ -7,6 +7,7 @@ import { IconPropsType } from './PropsType';
 export interface IconProps extends IconPropsType {
   className?: string;
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
+  onTouchStart?: (e: React.MouseEvent<HTMLDivElement>) => void;
   classPrefix?: string;
   style?: React.CSSProperties;
 }
@@ -18,7 +19,7 @@ function isImage(name?: string): boolean {
 const [bem] = createNamespace('icon');
 
 const Icon: React.FC<IconProps> = (props) => {
-  const { tag = 'i', name, className, onClick } = props;
+  const { tag = 'i', name, className, onClick, onTouchStart } = props;
   const imageIcon = isImage(name);
 
   return React.createElement(
@@ -34,6 +35,7 @@ const Icon: React.FC<IconProps> = (props) => {
         fontSize: addUnit(props.size),
       },
       onClick,
+      onTouchStart
     },
     props.children,
     imageIcon && <img className={classnames(bem('image'))} src={name} alt={name} />,
