@@ -16,6 +16,20 @@ const CircularIcon = (
   </svg>
 );
 
+const BallIcon = (
+  <div className={classnames(bem('ball'))}>
+    <div />
+    <div />
+    <div />
+  </div>
+);
+
+const Icon = {
+  spinner: SpinIcon,
+  circular: CircularIcon,
+  ball: BallIcon,
+};
+
 const Loading: React.FC<LoadingProps> = (props) => {
   const { className, type = 'circular', vertical, color, size, children, textSize } = props;
 
@@ -46,7 +60,7 @@ const Loading: React.FC<LoadingProps> = (props) => {
   return (
     <div className={classnames(className, bem([type, { vertical }]))}>
       <span className={classnames(bem('spinner', type))} style={spinnerStyle}>
-        {type === 'spinner' ? SpinIcon : CircularIcon}
+        {Icon[type]}
       </span>
       {renderText()}
     </div>
