@@ -103,7 +103,7 @@ yarn release
 - [ ] DatetimePicker 时间选择
 
 ### Display Components
-
+- [x] Collapse 折叠面板
 - [x] NoticeBar 通知栏
 - [x] Sticky 粘性布局
 - [x] Swipe 轮播
