@@ -105,6 +105,10 @@ module.exports = {
                 title: 'Field 输入框',
               },
               {
+                path: 'radio',
+                title: 'Radio 单选框',
+              },
+              {
                 path: 'search',
                 title: 'Search 搜索',
               },
@@ -134,6 +138,10 @@ module.exports = {
           {
             title: '展示组件',
             items: [
+              {
+                path: 'collapse',
+                title: 'Collapse 折叠面板',
+              },
               {
                 path: 'empty',
                 title: 'Empty 空状态',
@@ -178,14 +186,14 @@ module.exports = {
             ],
           },
           {
-            title:'业务组件',
-            items:[
+            title: '业务组件',
+            items: [
               {
-                path:'complain',
-                title:'Complain 问题申诉'
-              }
-            ]
-          }
+                path: 'complain',
+                title: 'Complain 问题申诉',
+              },
+            ],
+          },
         ],
       },
       'en-US': {

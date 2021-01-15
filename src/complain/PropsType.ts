@@ -9,6 +9,7 @@ export interface ComplainProps extends BaseTypeProps {
   className?: string;
   noChooseIcon:string;
   chooseIcon:string;
+  buttonName:string;
   onClick?: (e:string) => void;
   onClose?: () => void;
 }
