@@ -96,8 +96,8 @@ yarn release
 ### Form Components
 
 - [x] Field 输入框
-- [ ] CheckBox 复选框
-- [ ] Radio 单选框
+- [x] CheckBox 复选框
+- [x] Radio 单选框
 - [ ] Picker 选择器
 - [x] Search 搜索
 - [ ] DatetimePicker 时间选择
@@ -121,7 +121,7 @@ yarn release
 
 ### Navigation Components
 
-- [ ] IndexBar 索引栏
+- [x] IndexBar 索引栏
 - [x] NavBar 导航栏
 - [x] Tabs 标签页
 

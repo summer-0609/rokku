@@ -6,6 +6,7 @@ import { createNamespace } from '../utils';
 
 import Popup from '../popup';
 import Button from '../button';
+import Radio from '../radio';
 
 const [bem] = createNamespace('complain');
 
@@ -18,10 +19,8 @@ const Complain: React.FC<ComplainProps> = (props) => {
     title,
     description,
     closeIcon,
-    noChooseIcon = 'https://image.chebada.com/image/touch/regularexpressbus/icon_danxuan_nor@2x.png',
-    chooseIcon = 'https://image.chebada.com/image/touch/regularexpressbus/icon_danxuan_pre@2x.png',
     className,
-    buttonName
+    buttonName,
   } = props;
 
   const [state, setState] = useState({
@@ -37,6 +36,7 @@ const Complain: React.FC<ComplainProps> = (props) => {
       </div>
     );
   };
+
   const renderResourceList = () => {
     return (
       <div className={classnames(bem('resource'))}>
@@ -55,17 +55,14 @@ const Complain: React.FC<ComplainProps> = (props) => {
                 }}
               >
                 <div className={classnames(bem('line'))}>{item}</div>
-                <img
-                  className={classnames(bem('icon'))}
-                  alt=""
-                  src={state.chooseIndex === index ? chooseIcon : noChooseIcon}
-                />
+                <Radio className={classnames(bem('icon'))} checked={state.chooseIndex === index} />
               </div>
             );
           })}
       </div>
     );
   };
+
   const renderButtons = () => {
     return (
       <div className={classnames(bem('button'))}>
@@ -111,13 +108,13 @@ const Complain: React.FC<ComplainProps> = (props) => {
 Complain.defaultProps = {
   title: '问题申诉',
   description: '给您带来不便，我们深感抱歉，请选择问题原因',
-  buttonName:'提交申诉',
+  buttonName: '提交申诉',
   resourceList: [
     '座位被占，沟通无结果',
     '车辆临时换车，座位被占',
     '车辆车型与下单不一致',
     '其他问题',
-  ]
-}
+  ],
+};
 
 export default Complain;

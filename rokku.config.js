@@ -105,6 +105,10 @@ module.exports = {
                 title: 'Field 输入框',
               },
               {
+                path: 'checkbox',
+                title: 'Checkbox 单选框',
+              },
+              {
                 path: 'radio',
                 title: 'Radio 单选框',
               },

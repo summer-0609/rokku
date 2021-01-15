@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import classnames from 'classnames';
 
 import RadioContext from './RadioContext';
@@ -15,6 +15,12 @@ const RadioGroup: React.FC<RadioGroupProps> = (props) => {
   const toggle = (name: string) => {
     setChecked(name);
   };
+
+  useEffect(() => {
+    if (props.onChange) {
+      props.onChange(checked);
+    }
+  }, [checked]);
 
   return (
     <RadioContext.Provider value={{ parent: { props }, toggle, checked }}>

@@ -79,23 +79,13 @@ export default (): React.ReactNode => {
           </Radio.Group>
         </div>
       </DemoBlock>
-      <DemoBlock title="禁止文本点击">
+      <DemoBlock title="搭配单元格组件使用">
         <Radio.Group initChecked="1">
           <Cell.Group>
             <Cell title="单选框1" icon="shop-o" rightIconSlot={() => <Radio name="1" />} />
             <Cell title="单选框2" icon="shop-o" rightIconSlot={() => <Radio name="2" />} />
           </Cell.Group>
         </Radio.Group>
-      </DemoBlock>
-      <DemoBlock title="单独使用">
-        <div className="demo-radio-group">
-          <Radio name="1" checked>
-            单选框1
-          </Radio>
-          <Radio name="2" checked>
-            单选框2
-          </Radio>
-        </div>
       </DemoBlock>
     </DemoSection>
   );

@@ -15,14 +15,14 @@ import { IndexBar } from '@rokku/design';
 ```html
 <IndexBar>
   <IndexBar.Anchor index="A" />
-  <van-cell title="文本" />
-  <van-cell title="文本" />
-  <van-cell title="文本" />
+  <Cell title="文本" />
+  <Cell title="文本" />
+  <Cell title="文本" />
 
   <IndexBar.Anchor index="B" />
-  <van-cell title="文本" />
-  <van-cell title="文本" />
-  <van-cell title="文本" />
+  <Cell title="文本" />
+  <Cell title="文本" />
+  <Cell title="文本" />
 
   ...
 </IndexBar>
@@ -35,14 +35,14 @@ import { IndexBar } from '@rokku/design';
 ```html
 <IndexBar indexList={indexList}>
   <IndexBar.Anchor index="1">标题1</IndexBar.Anchor>
-  <van-cell title="文本" />
-  <van-cell title="文本" />
-  <van-cell title="文本" />
+  <Cell title="文本" />
+  <Cell title="文本" />
+  <Cell title="文本" />
 
   <IndexBar.Anchor index="2">标题2</IndexBar.Anchor>
-  <van-cell title="文本" />
-  <van-cell title="文本" />
-  <van-cell title="文本" />
+  <Cell title="文本" />
+  <Cell title="文本" />
+  <Cell title="文本" />
 
   ...
 </IndexBar>

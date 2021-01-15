@@ -94,31 +94,13 @@ import { Radio } from '@rokku/design';
 此时你需要再引入 `Cell` 和 `CellGroup` 组件。
 
 ```html
-<Radio.Group initChecked="1">
-  <van-cell-group>
-    <van-cell title="单选框 1" clickable @click="checked = '1'">
-      <template #right-icon>
-        <Radio name="1" />
-      </template>
-    </van-cell>
-    <van-cell title="单选框 2" clickable @click="checked = '2'">
-      <template #right-icon>
-        <Radio name="2" />
-      </template>
-    </van-cell>
-  </van-cell-group>
+<Radio.Group initChecked="1"> 
+  <Cell.Group>
+    <Cell title="单选框1" icon="shop-o" rightIconSlot={() => <Radio name="1" />} />
+    <Cell title="单选框2" icon="shop-o" rightIconSlot={() => <Radio name="2" />} />
+  </Cell.Group>
 </Radio.Group>
 ```
-
-### 单独使用 Radio
-
-此处不使用 `Radio.Group`, 每个 `Radio` 为单独个体，使用 `checked` 属性来表示选中状态
-
-```html
-<Radio name="1" checked>单选框1</Radio>
-<Radio name="2" checked>单选框2</Radio>
-```
-
 ## API
 
 ### Radio Props
@@ -131,7 +113,6 @@ import { Radio } from '@rokku/design';
 | labelDisabled | 是否禁用文本内容点击      | _boolean_          | `false`   |
 | labelPosition | 文本位置，可选值为 `left` | _string_           | `right`   |
 | iconSize      | 图标大小，默认单位为`px`  | _number \| string_ | `21px`    |
-| checked      | 单独使用时是否为选中状态  | _boolean_ | `false`    |
 | checkedColor  | 选中状态颜色              | _string_           | `#1989fa` |
 
 ### RadioGroup Props
