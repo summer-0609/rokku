@@ -6,7 +6,6 @@ import { createNamespace } from '../utils';
 
 import Popup from '../popup';
 import Button from '../button';
-import Toast from '../toast';
 
 const [bem] = createNamespace('complain');
 
@@ -22,10 +21,11 @@ const Complain: React.FC<ComplainProps> = (props) => {
     noChooseIcon = 'https://image.chebada.com/image/touch/regularexpressbus/icon_danxuan_nor@2x.png',
     chooseIcon = 'https://image.chebada.com/image/touch/regularexpressbus/icon_danxuan_pre@2x.png',
     className,
+    buttonName
   } = props;
 
   const [state, setState] = useState({
-    chooseIndex: 0,
+    chooseIndex: -1,
     chooseResource: '',
   });
 
@@ -73,14 +73,10 @@ const Complain: React.FC<ComplainProps> = (props) => {
           type="primary"
           block
           onClick={() => {
-            if (!state.chooseResource) {
-              Toast('请选择申诉原因');
-              return;
-            }
             onClick(state.chooseResource);
           }}
         >
-          提交申诉
+          {buttonName}
         </Button>
       </div>
     );
@@ -115,6 +111,7 @@ const Complain: React.FC<ComplainProps> = (props) => {
 Complain.defaultProps = {
   title: '问题申诉',
   description: '给您带来不便，我们深感抱歉，请选择问题原因',
+  buttonName:'提交申诉',
   resourceList: [
     '座位被占，沟通无结果',
     '车辆临时换车，座位被占',
