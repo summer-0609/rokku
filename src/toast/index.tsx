@@ -20,7 +20,7 @@ const Component = forwardRef((_, ref) => {
     },
   }));
 
-  return <RokkuToast {...state} onClose={close} />;
+  return <RokkuToast {...state} close={close} />;
 });
 
 function parseOptions(message) {
