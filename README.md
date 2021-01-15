@@ -8,7 +8,7 @@
 
 <p align="center">
     <img src="https://img.shields.io/npm/v/@rokku/design.svg?style=flat-square" alt="npm version" />
-    <img src="https://img.shields.io/bundlephobia/minzip/@rokku/design" >
+    <img src="https://img.shields.io/bundlephobia/minzip/@rokku/design?style=flat-square" >
     <img src="https://img.shields.io/github/languages/top/Hyattria/rokku?style=flat-square">
     <img src="https://img.shields.io/librariesio/release/npm/@rokku/design?style=flat-square">
     <img src="https://img.shields.io/npm/dt/@rokku/design.svg?style=flat-square&color=#4fc08d" alt="downloads" />
