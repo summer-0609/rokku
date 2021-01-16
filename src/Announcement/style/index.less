@@ -1,0 +1,41 @@
+@import '../../styles/themes/default.less';
+
+.@{rk-prefix}-announcement {
+  border-radius: 8px;
+
+  &__dialog {
+    position: absolute;
+    top: calc(50% - 40px);
+    left: 50%;
+    width: 80%;
+    max-height: 70%;
+    padding: 0 15px 50px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background: #fff;
+    border-radius: 6px;
+    transform: translate(-50%, -50%);
+  }
+
+  &__title {
+    padding: 18px 0;
+    color: #2879ff;
+    font-weight: 600;
+    font-size: 20px;
+    text-align: center;
+    border-bottom: 1px solid #dee4e7;
+  }
+
+  .linkUrl {
+    height: calc(70vh - 55px);
+  }
+
+  &__iframe {
+    height: 100%;
+    border: none;
+  }
+
+  &__text {
+    padding-top: 15px;
+  }
+}

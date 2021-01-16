@@ -196,6 +196,10 @@ module.exports = {
                 path: 'complain',
                 title: 'Complain 问题申诉',
               },
+              {
+                path: 'Announcement',
+                title: 'Announcement 公告',
+              },
             ],
           },
         ],
