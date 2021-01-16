@@ -265,7 +265,6 @@ const Field = (props: FieldProps, ref) => {
   };
 
   const handleClear = (e) => {
-    console.log('handleClear');
     const { onClear, onChange } = props;
     preventDefault(e);
     inputRef.current.value = '';
@@ -324,7 +323,12 @@ const Field = (props: FieldProps, ref) => {
       <div className={classnames(bem('body'))}>
         {renderInput()}
         {clearable && value && inputFocus && (
-          <Icon onTouchStart={handleClear} name="clear" size={ICON_SIZE} />
+          <Icon
+            className={classnames(bem('clear'))}
+            onTouchStart={handleClear}
+            name="clear"
+            size={ICON_SIZE}
+          />
         )}
         {renderRightIcon()}
         {button && button}
