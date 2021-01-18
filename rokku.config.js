@@ -105,6 +105,14 @@ module.exports = {
                 title: 'Field 输入框',
               },
               {
+                path: 'checkbox',
+                title: 'Checkbox 单选框',
+              },
+              {
+                path: 'radio',
+                title: 'Radio 单选框',
+              },
+              {
                 path: 'search',
                 title: 'Search 搜索',
               },
@@ -187,6 +195,10 @@ module.exports = {
               {
                 path: 'complain',
                 title: 'Complain 问题申诉',
+              },
+              {
+                path: 'Announcement',
+                title: 'Announcement 公告',
               },
             ],
           },

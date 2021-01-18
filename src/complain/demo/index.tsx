@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { Cell,Complain,Toast} from 'rokku';
+import { Cell, Complain, Toast } from 'rokku';
 import { components } from 'site-mobile-demo';
 import './style.less';
 
@@ -34,23 +34,28 @@ export default (): React.ReactNode => {
       </DemoBlock>
       <Complain
         title="问题申诉"
-        description='给您带来不便，我们深感抱歉，请选择问题原因'
+        description="给您带来不便，我们深感抱歉，请选择问题原因"
         resourceList={[
           '座位被占，沟通无结果',
           '车辆临时换车，座位被占',
           '车辆车型与下单不一致',
           '其他问题',
         ]}
-        buttonName='提交申诉'
+        buttonName="提交申诉"
         show={state.showComplain}
+<<<<<<< HEAD
         onClick={(item)=>{
           if (!item) {
+=======
+        onClick={(chooseResource: string) => {
+          if (!chooseResource) {
+>>>>>>> e2dbca0c6e6d2aaeab93a4e8852140f40d4508e8
             Toast('请选择申诉原因');
             return;
           }
           dispatch({
             type: 'showBasic',
-          })
+          });
         }}
         onClose={() =>
           dispatch({

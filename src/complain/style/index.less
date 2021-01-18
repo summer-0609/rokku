@@ -3,64 +3,64 @@
 .@{rk-prefix} {
   &-complain {
     box-sizing: border-box;
-    &__content{
-      padding:24px 20px 0 20px;
+    &__content {
+      padding: 24px 20px 0 20px;
     }
-    &__title{
-      color:@text-color;
-      font-size:@font-size-xl;
+    &__title {
+      color: @text-color;
       font-weight: @font-weight-bold;
+      font-size: @font-size-xl;
     }
-    &__tip{
-      color:@gray-dark;
-      font-size:@font-size-md;
-      padding:12px 0;
+    &__tip {
+      padding: 12px 0;
+      color: @gray-dark;
+      font-size: @font-size-md;
     }
-    &__resource{
-      color:@text-color;
-      font-size:@font-size-lg;
+    &__resource {
+      color: @text-color;
+      font-size: @font-size-lg;
     }
-    &__list{
-      padding:17px 0;
+    &__list {
       position: relative;
+      padding: 17px 0;
     }
-    &__list::after{
-      content: " ";
+    &__list::after {
       position: absolute;
-      left: 0;
       bottom: 0;
+      left: 0;
       width: 100%;
       height: 1px;
       background: @gray-dark-1;
       transform: scaleY(0.3);
+      content: ' ';
     }
-    &__list:last-child::after{
-      content: "";
+    &__list:last-child::after {
       display: none;
+      content: '';
     }
-    &__icon{
-      width: 21px;
-      height:21px;
-      display: inline-block;
+    &__icon {
       position: absolute;
-      right:0;
-      top:50%;
+      top: 50%;
+      right: 0;
+      display: inline-block;
+      width: 21px;
+      height: 21px;
       transform: translateY(-50%);
     }
-    &__button{
-      margin-top:32px;
-      padding:10px 15px;
+    &__button {
       position: relative;
+      margin-top: 32px;
+      padding: 10px 15px;
     }
-    &__button::before{
-      content: " ";
+    &__button::before {
       position: absolute;
-      left: 0;
       top: 0;
+      left: 0;
       width: 100%;
       height: 1px;
       background: @gray-dark-1;
       transform: scaleY(0.3);
+      content: ' ';
     }
   }
 }

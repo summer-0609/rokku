@@ -11,6 +11,7 @@ export default (): React.ReactNode => {
       <DemoBlock title="加载类型">
         <Loading />
         <Loading type="spinner" />
+        <Loading type="ball" />
       </DemoBlock>
       <DemoBlock title="自定义颜色">
         <Loading color="#1989fa" />

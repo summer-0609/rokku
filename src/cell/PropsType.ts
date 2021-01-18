@@ -21,6 +21,10 @@ export interface CellProps extends BaseTypeProps {
   labelClass?: string;
   arrowDirection?: CellArrowDirection;
   border?: boolean;
+  rightIconSlot?: () => React.ReactElement;
+  iconSlot?: () => React.ReactElement;
+  labelSlot?: () => React.ReactElement;
+  titleSlot?: () => React.ReactElement;
 }
 
 export interface CellGroupProps extends BaseTypeProps {

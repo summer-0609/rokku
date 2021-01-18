@@ -8,7 +8,7 @@
 
 <p align="center">
     <img src="https://img.shields.io/npm/v/@rokku/design.svg?style=flat-square" alt="npm version" />
-    <img src="https://img.shields.io/bundlephobia/minzip/@rokku/design" >
+    <img src="https://img.shields.io/bundlephobia/minzip/@rokku/design?style=flat-square" >
     <img src="https://img.shields.io/github/languages/top/Hyattria/rokku?style=flat-square">
     <img src="https://img.shields.io/librariesio/release/npm/@rokku/design?style=flat-square">
     <img src="https://img.shields.io/npm/dt/@rokku/design.svg?style=flat-square&color=#4fc08d" alt="downloads" />
@@ -96,13 +96,14 @@ yarn release
 ### Form Components
 
 - [x] Field 输入框
-- [ ] CheckBox 复选框
-- [ ] Radio 单选框
+- [x] CheckBox 复选框
+- [x] Radio 单选框
 - [ ] Picker 选择器
 - [x] Search 搜索
 - [ ] DatetimePicker 时间选择
 
 ### Display Components
+
 - [x] Collapse 折叠面板
 - [x] NoticeBar 通知栏
 - [x] Sticky 粘性布局
@@ -120,7 +121,7 @@ yarn release
 
 ### Navigation Components
 
-- [ ] IndexBar 索引栏
+- [x] IndexBar 索引栏
 - [x] NavBar 导航栏
 - [x] Tabs 标签页
 
