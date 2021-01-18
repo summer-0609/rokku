@@ -25,7 +25,6 @@ const Complain: React.FC<ComplainProps> = (props) => {
   } = props;
 
   const [state, setState] = useState({
-    chooseIndex: -1,
     chooseResource: '',
   });
 
@@ -49,8 +48,7 @@ const Complain: React.FC<ComplainProps> = (props) => {
                 key={index as number}
                 onClick={() => {
                   setState({
-                    chooseIndex: index,
-                    chooseResource: item,
+                    chooseResource: item
                   });
                 }}
               >
@@ -58,7 +56,7 @@ const Complain: React.FC<ComplainProps> = (props) => {
                 <img
                   className={classnames(bem('icon'))}
                   alt=""
-                  src={state.chooseIndex === index ? chooseIcon : noChooseIcon}
+                  src={state.chooseResource === item ? chooseIcon : noChooseIcon}
                 />
               </div>
             );
@@ -72,8 +70,11 @@ const Complain: React.FC<ComplainProps> = (props) => {
         <Button
           type="primary"
           block
-          onClick={() => {
-            onClick(state.chooseResource);
+          onClick={async () => {
+            await onClick(state.chooseResource);
+            setState({
+              chooseResource: '',
+            });
           }}
         >
           {buttonName}
@@ -91,7 +92,6 @@ const Complain: React.FC<ComplainProps> = (props) => {
       closeIcon={closeIcon}
       onClose={() => {
         setState({
-          chooseIndex: 0,
           chooseResource: '',
         });
         onClose();
