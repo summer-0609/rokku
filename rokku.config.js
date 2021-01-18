@@ -106,7 +106,11 @@ module.exports = {
               },
               {
                 path: 'checkbox',
-                title: 'Checkbox 单选框',
+                title: 'Checkbox 复选框',
+              },
+              {
+                path: 'picker',
+                title: 'Picker 选择器',
               },
               {
                 path: 'radio',

@@ -43,13 +43,8 @@ export default (): React.ReactNode => {
         ]}
         buttonName="提交申诉"
         show={state.showComplain}
-<<<<<<< HEAD
-        onClick={(item)=>{
-          if (!item) {
-=======
         onClick={(chooseResource: string) => {
           if (!chooseResource) {
->>>>>>> e2dbca0c6e6d2aaeab93a4e8852140f40d4508e8
             Toast('请选择申诉原因');
             return;
           }

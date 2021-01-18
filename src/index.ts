@@ -23,4 +23,5 @@ export { default as IndexBar } from './index-bar';
 export { default as Collapse } from './collapse';
 export { default as Radio } from './radio';
 export { default as Checkbox } from './checkbox';
-export { default as Announcement } from './Announcement';
+export { default as Announcement } from './announcement';
+export { default as Picker } from './picker';

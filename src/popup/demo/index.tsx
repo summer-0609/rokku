@@ -11,6 +11,7 @@ const initialState = {
   showRight: false,
   showCloseIcon: false,
   showCustomCloseIcon: false,
+  showTitle: false,
 };
 
 function reducer(state, action) {
@@ -33,6 +34,8 @@ function reducer(state, action) {
       return { ...state, showCustomIconPosition: !state.showCustomIconPosition };
     case 'showRoundCorner':
       return { ...state, showRoundCorner: !state.showRoundCorner };
+    case 'showTitle':
+      return { ...state, showTitle: !state.showTitle };
     default:
       throw new Error();
   }
@@ -133,6 +136,17 @@ export default (): React.ReactNode => {
           }
         />
       </DemoBlock>
+      <DemoBlock card title="标题弹框">
+        <Cell
+          title="标题弹框"
+          isLink
+          onClick={() =>
+            dispatch({
+              type: 'showTitle',
+            })
+          }
+        />
+      </DemoBlock>
       <Popup
         visible={state.showBasic}
         onClose={() =>
@@ -229,6 +243,20 @@ export default (): React.ReactNode => {
         onClose={() =>
           dispatch({
             type: 'showRoundCorner',
+          })
+        }
+      />
+      <Popup
+        visible={state.showTitle}
+        closeable
+        title="标题"
+        descrition="这是一段很长很长的描述这是一段很长很长的描述这是一段很长很长的描述这是一段很长很长的描述"
+        style={{ height: '30%' }}
+        position="bottom"
+        round
+        onClose={() =>
+          dispatch({
+            type: 'showTitle',
           })
         }
       />
