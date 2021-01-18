@@ -53,7 +53,7 @@ import { NoticeBar } from '@rokku/design';
 通过 `color` 属性设置文本颜色，通过 `background` 属性设置背景色。
 
 ```html
-<NoticeBar color="#1989fa" background="#ecf9ff" left-icon="info-o">
+<NoticeBar color="#1989fa" background="#ecf9ff" leftIcon="info-o">
   技术是开发它的人的共同灵魂。
 </NoticeBar>
 ```

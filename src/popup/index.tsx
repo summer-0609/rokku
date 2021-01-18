@@ -18,6 +18,7 @@ const Popup: React.FC<PopupProps> = (props) => {
     visible,
     closeable,
     title,
+    descrition,
     children,
     duration = 300,
     closeIcon = 'cross',
@@ -104,6 +105,13 @@ const Popup: React.FC<PopupProps> = (props) => {
     return null;
   };
 
+  const renderDescrition = () => {
+    if (descrition) {
+      return <div className={classnames(bem('descrition'))}>{descrition}</div>;
+    }
+    return null;
+  };
+
   const renderTransition = () => {
     const { transition, destroyOnClose = false, forceRender = false, safeAreaInsetBottom } = props;
     const name = position === 'center' ? 'rk-fade' : `rk-popup-slide-${position}`;
@@ -135,6 +143,7 @@ const Popup: React.FC<PopupProps> = (props) => {
         >
           {renderCloseIcon()}
           {renderTitle()}
+          {renderDescrition()}
           {children}
         </div>
       </CSSTransition>

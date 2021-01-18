@@ -24,7 +24,6 @@ const Complain: React.FC<ComplainProps> = (props) => {
   } = props;
 
   const [state, setState] = useState({
-    chooseIndex: -1,
     chooseResource: '',
   });
 
@@ -49,13 +48,15 @@ const Complain: React.FC<ComplainProps> = (props) => {
                 key={index as number}
                 onClick={() => {
                   setState({
-                    chooseIndex: index,
                     chooseResource: item,
                   });
                 }}
               >
                 <div className={classnames(bem('line'))}>{item}</div>
-                <Radio className={classnames(bem('icon'))} checked={state.chooseIndex === index} />
+                <Radio
+                  className={classnames(bem('icon'))}
+                  checked={state.chooseResource === item}
+                />
               </div>
             );
           })}
@@ -69,8 +70,11 @@ const Complain: React.FC<ComplainProps> = (props) => {
         <Button
           type="primary"
           block
-          onClick={() => {
-            onClick(state.chooseResource);
+          onClick={async () => {
+            await onClick(state.chooseResource);
+            setState({
+              chooseResource: '',
+            });
           }}
         >
           {buttonName}
@@ -88,7 +92,6 @@ const Complain: React.FC<ComplainProps> = (props) => {
       closeIcon={closeIcon}
       onClose={() => {
         setState({
-          chooseIndex: 0,
           chooseResource: '',
         });
         onClose();
@@ -103,18 +106,6 @@ const Complain: React.FC<ComplainProps> = (props) => {
       </div>
     </Popup>
   );
-};
-
-Complain.defaultProps = {
-  title: '问题申诉',
-  description: '给您带来不便，我们深感抱歉，请选择问题原因',
-  buttonName: '提交申诉',
-  resourceList: [
-    '座位被占，沟通无结果',
-    '车辆临时换车，座位被占',
-    '车辆车型与下单不一致',
-    '其他问题',
-  ],
 };
 
 export default Complain;
