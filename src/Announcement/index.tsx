@@ -25,7 +25,7 @@ import {
 
 const [bem] = createNamespace('announcement');
 const Announcement: React.FC<AnnouncementProps> = (props) => {
-  const { adList = [], className, color, background, leftIcon, onClick } = props;
+  const { adList = [], mode = '', className, color, background, leftIcon, onClick } = props;
   const [noticeDialogShow, setNoticeDialogShow] = useState(false);
   const handleNoticeClick = () => {
     setNoticeDialogShow(true);
@@ -40,7 +40,7 @@ const Announcement: React.FC<AnnouncementProps> = (props) => {
     <>
       <NoticeBar
         className={classnames(bem(), className)}
-        mode=""
+        mode={mode}
         text={adList?.[0].mainTitle}
         color={color || '#cb9139'}
         background={background || '#fff6d0'}
@@ -51,7 +51,7 @@ const Announcement: React.FC<AnnouncementProps> = (props) => {
       <Overlay show={noticeDialogShow} onClick={() => setNoticeDialogShow(false)}>
         <div className={classnames(bem('dialog'))}>
           <div className={classnames(bem('title'))}>{adList?.[0]?.mainTitle}</div>
-          <div className={classnames(bem('content'), adList?.[0]?.linkUrl ? 'linkUrl' : '')}>
+          <div className={classnames(bem('content'), adList?.[0]?.linkUrl ? bem('linkUrl') : '')}>
             {adList?.[0]?.linkUrl ? (
               <iframe className={classnames(bem('iframe'))} title=" " src={adList?.[0]?.linkUrl} />
             ) : (

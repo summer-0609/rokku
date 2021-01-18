@@ -41,13 +41,12 @@ const adList = [{
 
 | 参数                    | 说明                                                                                                        | 类型                | 默认值     |
 | ----------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------- | ---------- |
-| adList                  | 公告数组                                                                                                    | array  | -          | []
-| mode                    | 类型                                                                                                        | _string_            | -          |
-| color                   | 字体颜色                                                                                                    | _string_            | '#cb9139'          |
-| background              | 背景颜色                                                                                                    | _string_            | '#fff6d0'    |
-| leftIcon                | 大小，可选值为 `large`                                                                                      | _string_             | -          |
-| onClick                 | 点击事件                                                                                                    | () => void          |
-
+| adList                  | 公告数组                                                                                                    | array  | -           | []          |
+| mode                    | 类型                                                                                                        | _string_             | -           |
+| color                   | 字体颜色                                                                                                    | _string_            | #cb9139     |
+| background              | 背景颜色                                                                                                    | _string_            | #fff6d0     |
+| leftIcon                | 左侧图标                                                                                                    | _string_            | -           |
+| onClick                 | 点击事件                                                                                                    | () => void          | -           |
 
 ### Events
 

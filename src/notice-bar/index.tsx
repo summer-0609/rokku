@@ -86,7 +86,10 @@ const NoticeBar: React.FC<NoticeBarProps> = (props) => {
       return props.leftIconSlot();
     }
     if (props.leftIcon) {
-      return <Icon className={classnames(bem('left-icon'))} name={leftIcon} />;
+      if (typeof props.leftIcon === 'string') {
+        return <Icon className={classnames(bem('left-icon'))} name={leftIcon} />;
+      }
+      return props.leftIcon;
     }
     return null;
   };
