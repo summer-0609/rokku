@@ -98,7 +98,7 @@ yarn release
 - [x] Field 输入框
 - [x] CheckBox 复选框
 - [x] Radio 单选框
-- [ ] Picker 选择器
+- [x] Picker 选择器
 - [x] Search 搜索
 - [ ] DatetimePicker 时间选择
 
