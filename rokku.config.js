@@ -105,6 +105,18 @@ module.exports = {
                 title: 'Field 输入框',
               },
               {
+                path: 'checkbox',
+                title: 'Checkbox 复选框',
+              },
+              {
+                path: 'picker',
+                title: 'Picker 选择器',
+              },
+              {
+                path: 'radio',
+                title: 'Radio 单选框',
+              },
+              {
                 path: 'search',
                 title: 'Search 搜索',
               },

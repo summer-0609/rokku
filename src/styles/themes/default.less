@@ -19,7 +19,7 @@
 @gray-light: #e5e5e5;
 @gray-darker: #7d7e80;
 @gray-dark: #999999;
-@gray-dark-1: #DEE4E7;
+@gray-dark-1: #dee4e7;
 @gray-1: #f7f8fa;
 @gray-2: #f2f3f5;
 @gray-3: #ebedf0;
@@ -31,6 +31,7 @@
 
 // Component Colors
 @text-color: #333333;
+@text-link-color: #576b95;
 @value-color: #666666;
 @active-color: #f2f3f5;
 @active-opacity: 0.7;
@@ -51,7 +52,8 @@
 @font-size-sm: 12px;
 @font-size-md: 14px;
 @font-size-lg: 16px;
-@font-size-xl: 20px;
+@font-size-xl: 18px;
+@font-size-xxl: 20px;
 @font-weight-bold: 500;
 @line-height-xs: 14px;
 @line-height-sm: 18px;
@@ -73,7 +75,6 @@
 @border-radius-md: 4px;
 @border-radius-lg: 8px;
 @border-radius-max: 999px;
-
 
 // ActionSheet
 @action-sheet-max-height: 90%;
@@ -191,7 +192,7 @@
 @cell-group-title-line-height: 16px;
 
 // Checkbox
-@checkbox-size: 20px;
+@checkbox-size: 21px;
 @checkbox-border-color: @gray-light;
 @checkbox-transition-duration: @animation-duration-fast;
 @checkbox-label-margin: @padding-xs;
@@ -499,23 +500,27 @@
 // Picker
 @picker-background-color: @white;
 @picker-toolbar-height: 44px;
-@picker-title-font-size: @font-size-lg;
+@picker-title-line-height: @line-height-md;
 @picker-action-padding: 0 @padding-md;
 @picker-action-font-size: @font-size-md;
-@picker-action-text-color: @blue;
-@picker-action-active-color: @active-color;
+@picker-confirm-action-color: @text-link-color;
+@picker-cancel-action-color: @gray-6;
 @picker-option-font-size: @font-size-lg;
-@picker-option-text-color: @black;
+@picker-option-text-color: @gray-8;
 @picker-option-disabled-opacity: 0.3;
+@picker-loading-icon-color: @blue;
+@picker-loading-mask-color: rgba(255, 255, 255, 0.9);
 
 // Popup
+@popup-title-font-size: 20px;
+@popup-descrition-font-size: 14px;
 @popup-background-color: @white;
 @popup-transition: transform @animation-duration-base;
 @popup-round-border-radius: 16px;
 @popup-close-icon-size: 22px;
 @popup-close-icon-color: @gray-5;
 @popup-close-icon-active-color: @gray-6;
-@popup-close-icon-margin: 16px;
+@popup-close-icon-margin: 20px;
 @popup-close-icon-z-index: 1;
 
 // Progress
@@ -532,7 +537,7 @@
 @pull-refresh-head-text-color: @gray-dark;
 
 // Radio
-@radio-size: 20px;
+@radio-size: 21px;
 @radio-border-color: @gray-light;
 @radio-transition-duration: @animation-duration-fast;
 @radio-label-margin: @padding-xs;

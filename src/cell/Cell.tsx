@@ -6,21 +6,25 @@ import { CellProps } from './PropsType';
 
 const [bem] = createNamespace('cell');
 
-const Cell: React.FC<CellProps & { onClick?: () => void }> & { Group?: React.FC } = (props) => {
+const Cell: React.FC<CellProps> & { Group?: React.FC } = (props) => {
   const renderLabel = () => {
-    const showLabel = isDef(props.label);
+    const showLabel = props.labelSlot || isDef(props.label);
 
     if (showLabel) {
-      return <div className={classnames(bem('label'), props.labelClass)}>{props.label}</div>;
+      return (
+        <div className={classnames(bem('label'), props.labelClass)}>
+          {props.labelSlot ? props.labelSlot() : props.label}
+        </div>
+      );
     }
     return null;
   };
 
   const renderTitle = () => {
-    if (isDef(props.title)) {
+    if (props.titleSlot || isDef(props.title)) {
       return (
         <div className={classnames(bem('title'), props.titleClass)} style={props.titleStyle}>
-          <span>{props.title}</span>
+          {props.titleSlot ? props.titleSlot() : <span>{props.title}</span>}
           {renderLabel()}
         </div>
       );
@@ -43,6 +47,10 @@ const Cell: React.FC<CellProps & { onClick?: () => void }> & { Group?: React.FC 
   };
 
   const renderLeftIcon = () => {
+    if (props.iconSlot) {
+      return props.iconSlot();
+    }
+
     if (props.icon) {
       return (
         <Icon
@@ -56,6 +64,10 @@ const Cell: React.FC<CellProps & { onClick?: () => void }> & { Group?: React.FC 
   };
 
   const renderRightIcon = () => {
+    if (props.rightIconSlot) {
+      return props.rightIconSlot();
+    }
+
     if (props.isLink) {
       const name = props.arrowDirection ? `arrow-${props.arrowDirection}` : 'arrow';
       return <Icon name={name} className={classnames(bem('right-icon'))} />;

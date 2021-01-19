@@ -15,5 +15,6 @@ export interface ToastProps extends BaseTypeProps {
   closeOnClick?: boolean;
   type?: string;
   position?: Position;
+  close?: () => void;
   onClose?: () => void;
 }

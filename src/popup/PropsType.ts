@@ -4,6 +4,7 @@ import { BaseTypeProps } from '../utils';
 export type Position = 'center' | 'top' | 'bottom' | 'right' | 'left';
 export interface PopupProps extends BaseTypeProps {
   title?: string;
+  descrition?: string;
   round?: boolean;
   visible?: boolean;
   overlay?: boolean;

@@ -63,6 +63,22 @@ const [showPopup, setShowPopup] = useState(false);
 <Popup visible={show} round position="bottom" style={{ height: "30%" }} />
 ```
 
+### 标题弹窗
+
+设置 `title` 和 `description` 属性后，弹窗会显示标题和描述文字，建议在 `bottom` 弹框下使用。
+
+```html
+<Popup
+  visible={show}
+  closeable
+  title="标题"
+  descrition="这是一段很长很长的描述"
+  style={{ height: '30%' }}
+  position="bottom"
+  round
+/>
+```
+
 ## API
 
 ### Props
@@ -76,6 +92,8 @@ const [showPopup, setShowPopup] = useState(false);
 | overlayStyle | 自定义遮罩层样式 | _object_ | - |
 | duration | 动画时长，单位秒 | _number \| string_ | `0.3` |
 | round | 是否显示圆角 | _boolean_ | `false` |
+| title | 弹出层标题 | _string_ | - |
+| descrition | 弹出层描述 | _string_ | - |
 | lockScroll | 是否锁定背景滚动 | _boolean_ | `true` |
 | lazy-render | 是否在显示弹层时才渲染节点 | _boolean_ | `true` |
 | close-on-popstate | 是否在页面回退时自动关闭 | _boolean_ | `false` |
