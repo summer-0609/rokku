@@ -1,20 +1,29 @@
-import React, { useEffect, useMemo, useState, useRef } from 'react';
+/* eslint-disable react/no-array-index-key */
+import React, {
+  useEffect,
+  useMemo,
+  useState,
+  useRef,
+  useImperativeHandle,
+  forwardRef,
+} from 'react';
 import classnames from 'classnames';
 
+import Button from '../button';
 import Loading from '../loading';
 import PickerColumn from './PickerColumn';
 
-// import useRefs from '../hooks/use-refs'
+import useRefs from '../hooks/use-refs';
 import useEventListener from '../hooks/use-event-listener';
 
-import { PickerProps } from './PropsType';
+import { PickerProps, Column, PickerRef } from './PropsType';
 import { createNamespace, unitToPx, preventDefault } from '../utils';
 import { BORDER_UNSET_TOP_BOTTOM } from '../utils/constant';
 
 const [bem] = createNamespace('picker');
 
-const Picker: React.FC<PickerProps> = (props) => {
-  // const [refs, setRefs] = useRefs();
+const Picker = forwardRef<PickerRef, PickerProps>((props, ref) => {
+  const [refs, setRefs] = useRefs();
   const [formattedColumns, setFormattedColumns] = useState([]);
 
   const wrapper = useRef(null);
@@ -34,17 +43,34 @@ const Picker: React.FC<PickerProps> = (props) => {
     return 'text';
   }, [props.columns]);
 
-  // const onChange = (columnIndex) => {
-  //   if (dataType.value === 'cascade') {
-  //     onCascadeChange(columnIndex);
-  //   }
+  const formatCascade = () => {
+    const formatted = [];
+    let cursor: Column = { children: props.columns };
 
-  //   if (dataType.value === 'text') {
-  //     emit('change', getColumnValue(0), getColumnIndex(0));
-  //   } else {
-  //     emit('change', getValues(), columnIndex);
-  //   }
-  // };
+    while (cursor && cursor.children) {
+      const { children } = cursor;
+      let defaultIndex = cursor.defaultIndex ?? +props.defaultIndex;
+
+      while (children[defaultIndex] && children[defaultIndex].disabled) {
+        if (defaultIndex < children.length - 1) {
+          defaultIndex += 1;
+        } else {
+          defaultIndex = 0;
+          break;
+        }
+      }
+
+      formatted.push({
+        values: cursor.children,
+        className: cursor.className,
+        defaultIndex,
+      });
+
+      cursor = children[defaultIndex];
+    }
+    setFormattedColumns(formatted);
+  };
+
   const format = () => {
     const { columns } = props;
 
@@ -55,7 +81,7 @@ const Picker: React.FC<PickerProps> = (props) => {
         },
       ]);
     } else if (dataType === 'cascade') {
-      // formatCascade();
+      formatCascade();
     } else {
       setFormattedColumns(columns);
     }
@@ -71,33 +97,118 @@ const Picker: React.FC<PickerProps> = (props) => {
   });
 
   // get column instance by index
-  const getColumn = (index: number) => props.children[index];
+  const getColumn = (index: number) => refs[index];
 
-  // get column value by index
-  // const getColumnValue = (index) => {
-  //   const column = getColumn(index);
-  //   return column && column.getValue();
-  // };
+  // get indexes of all columns
+  const getIndexes = () => refs.map((_ref) => _ref.index.current);
 
-  const onChange = (columnIndex) => {
-    if (dataType === 'cascade') {
-      // onCascadeChange(columnIndex);
+  // get options of column by index
+  const getColumnValues = (index: number) => (getColumn(index) || {}).state.options;
+
+  // set options of column by index
+  const setColumnValues = (index: number, options) => {
+    const column = refs[index];
+    if (column) {
+      column.setOptions(options);
+    }
+  };
+
+  const onCascadeChange = (columnIndex: number) => {
+    let cursor: Column = { children: props.columns };
+    const indexes = getIndexes();
+
+    for (let i = 0; i <= columnIndex; i += 1) {
+      cursor = cursor.children[indexes[i]];
     }
 
-    if (dataType === 'text') {
-      // emit('change', getColumnValue(0), getColumnIndex(0));
-    } else {
-      // emit('change', getValues(), columnIndex);
+    while (cursor && cursor.children) {
+      columnIndex += 1;
+      setColumnValues(columnIndex, cursor.children);
+      cursor = cursor.children[cursor.defaultIndex || 0];
+    }
+  };
+
+  // get column value by index
+  const getColumnValue = (index: number) => {
+    const column = getColumn(index);
+    return column && column.getValue();
+  };
+
+  // set column value by index
+  const setColumnValue = (index: number, value: string) => {
+    const column = getColumn(index);
+
+    if (column) {
+      column.setValue(value);
+
+      if (dataType === 'cascade') {
+        onCascadeChange(index);
+      }
+    }
+  };
+
+  // get column option index by column index
+  const getColumnIndex = (index: number) => (getColumn(index) || {}).index.current;
+
+  // set column option index by column index
+  const setColumnIndex = (columnIndex: number, optionIndex: number) => {
+    const column = getColumn(columnIndex);
+
+    if (column) {
+      column.setIndex(optionIndex);
+      if (dataType === 'cascade') {
+        onCascadeChange(columnIndex);
+      }
+    }
+  };
+
+  // get values of all columns
+  const getValues = () => refs.map((_ref) => _ref.getValue());
+
+  // set values of all columns
+  const setValues = (values: string[]) => {
+    values.forEach((value, index) => {
+      setColumnValue(index, value);
+    });
+  };
+
+  // set indexes of all columns
+  const setIndexes = (indexes: []) => {
+    indexes.forEach((optionIndex, columnIndex) => {
+      setColumnIndex(columnIndex, optionIndex);
+    });
+  };
+
+  const onChange = (columnIndex: number) => {
+    if (dataType === 'cascade') {
+      onCascadeChange(columnIndex);
+    }
+    if (props.onChange) {
+      if (dataType === 'text') {
+        props.onChange(getColumnValue(0), getColumnIndex(0));
+      } else {
+        props.onChange(getValues(), columnIndex);
+      }
+    }
+  };
+
+  const confirm = () => {
+    refs.forEach((_ref) => _ref.stopMomentum());
+    if (props.onConfirm) {
+      if (dataType === 'text') {
+        props.onConfirm(getColumnValue(0), getColumnIndex(0));
+      } else {
+        props.onConfirm(getValues(), getIndexes());
+      }
     }
   };
 
   const renderColumnItems = () =>
     formattedColumns.map((item, columnIndex) => (
       <PickerColumn
-        key={item}
-        // ref={setRefs(columnIndex)}
-        // v-slots={{ option: slots.option }}
-        textKey={props.valueKey}
+        key={columnIndex}
+        ref={setRefs(columnIndex)}
+        textKey="text"
         readonly={props.readonly}
         className={item.className}
         itemHeight={itemHeight}
@@ -128,17 +239,47 @@ const Picker: React.FC<PickerProps> = (props) => {
     );
   };
 
+  const renderConfirmBtn = () => {
+    if (props.showSubmitBtn) {
+      return (
+        <div className={classnames(bem('confirm'))}>
+          {props.children || (
+            <Button block type="primary" onClick={confirm}>
+              确认
+            </Button>
+          )}
+        </div>
+      );
+    }
+    return null;
+  };
+
+  useImperativeHandle(ref, () => ({
+    confirm,
+    getValues,
+    setValues,
+    getIndexes,
+    setIndexes,
+    getColumnIndex,
+    setColumnIndex,
+    getColumnValue,
+    setColumnValue,
+    getColumnValues,
+    setColumnValues,
+  }));
+
   return (
     <div className={classnames(bem())}>
       {props.loading ? <Loading className={classnames(bem('loading'))} /> : null}
       {renderColumns()}
+      {renderConfirmBtn()}
     </div>
   );
-};
+});
 
 Picker.defaultProps = {
   itemHeight: 44,
-  visibleItemCount: 6,
+  visibleItemCount: 5,
   swipeDuration: 1000,
   defaultIndex: 0,
 };

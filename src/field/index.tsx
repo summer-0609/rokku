@@ -310,6 +310,7 @@ const Field = (props: FieldProps, ref) => {
       valueClass={classnames(bem('value'))}
       titleClass={classnames(bem('label', labelAlign), labelClass)}
       arrowDirection={arrowDirection}
+      onClick={props?.onClick}
       className={classnames(
         bem({
           error,

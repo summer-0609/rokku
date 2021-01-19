@@ -39,7 +39,6 @@ const Toast: React.FC<ToastProps> = (props) => {
     if (props.show && props.duration > 0) {
       timer = setTimeout(() => {
         props.close();
-        props.onClose();
       }, props.duration);
     }
   }, [props.show, props.duration]);
