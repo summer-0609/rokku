@@ -6,8 +6,8 @@ import React, {
   useRef,
   useState,
   useImperativeHandle,
-  forwardRef,
   useCallback,
+  forwardRef,
 } from 'react';
 import classnames from 'classnames';
 
@@ -170,12 +170,12 @@ const PickerColumn = forwardRef<{}, PickerColumnProps>((props, ref) => {
     transitionEndTrigger.current = null;
   };
 
-  const onTouchMove = (event) => {
+  const onTouchMove = (event: TouchEvent | React.TouchEvent) => {
     if (props.readonly) {
       return;
     }
 
-    touch.move(event);
+    touch.move(event as TouchEvent);
 
     if (touch.isVertical()) {
       moving.current = true;
@@ -256,7 +256,7 @@ const PickerColumn = forwardRef<{}, PickerColumnProps>((props, ref) => {
     });
   };
 
-  const setValue = (value) => {
+  const setValue = (value: string) => {
     for (let i = 0; i < options.length; i += 1) {
       if (getOptionText(options[i]) === value) {
         return setIndex(i);

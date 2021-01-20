@@ -101,12 +101,16 @@ module.exports = {
             title: '表单组件',
             items: [
               {
+                path: 'checkbox',
+                title: 'Checkbox 复选框',
+              },
+              {
                 path: 'field',
                 title: 'Field 输入框',
               },
               {
-                path: 'checkbox',
-                title: 'Checkbox 复选框',
+                path: 'datetime-picker',
+                title: 'DatetimePicker 时间选择',
               },
               {
                 path: 'picker',
