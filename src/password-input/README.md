@@ -26,18 +26,47 @@ const onSubmit = (val: string) => {
 ### 限制长度
 
 ```jsx
+const onSubmit = (val: string) => {
+  Dialog.alert({
+    message: val
+  })
+};
 <PasswordInput type="text" length={6} onSubmit={onSubmit} />
 ```
 
 ### 只允许数字
 
 ```jsx
+const onSubmit = (val: string) => {
+  Dialog.alert({
+    message: val
+  })
+};
 <PasswordInput
-  value="123"
+  type="number"
+  value=""
+  mask={false}
+  length={4}
+  onSubmit={onSubmit}
+/>
+```
+
+### 自定义规则
+
+> 如果设置的初始值不符合规则, 将不会展示
+
+```jsx
+const onSubmit = (val: string) => {
+  Dialog.alert({
+    message: val
+  })
+};
+<PasswordInput
+  value="124"
   mask={false}
   length={4}
   validator={(val: string) => {
-    return /^\d{0,4}$/.test(val);
+    return /^[0-3]{0,4}$/.test(val);
   }}
   onSubmit={onSubmit}
 />
@@ -46,12 +75,14 @@ const onSubmit = (val: string) => {
 ### 自动聚焦
 
 ```jsx
+const onSubmit = (val: string) => {
+  Dialog.alert({
+    message: val
+  })
+};
 <PasswordInput
   length={4}
   autoFocus
-  validator={(val: string) => {
-    return /^\d{0,4}$/.test(val);
-  }}
   onSubmit={onSubmit}
 />
 ```
@@ -67,7 +98,7 @@ const onSubmit = (val: string) => {
 | length | 长度 | _number_ | 6 |
 | autoFocus | 自动聚焦 | _boolean_ | false |
 | mask | 是否隐藏密码 | _boolean_ | true |
-| validator | 校验器 | _function_ | - |
+| validator | 自定义规则, 这个规则并非单个输入框的 | _function_ | - |
 | highlightClass | 高亮样式(mask=true时不生效) | _string_ | - |
 
 ### Events

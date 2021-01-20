@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable react/sort-comp */
 /* eslint-disable react/no-access-state-in-setstate */
 import React, { useState, useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
@@ -12,7 +13,7 @@ type InputMode = 'text' | 'none' | 'tel' | 'url' | 'email' | 'numeric' | 'decima
 const PasswordInput = (props: PasswordInputProps, ref: any) => {
   const {
     value = '',
-    type = 'tel',
+    type = 'text',
     length = 6,
     onChange,
     onSubmit,
@@ -48,36 +49,38 @@ const PasswordInput = (props: PasswordInputProps, ref: any) => {
 
   const clear = () => {
     setCode('');
-    setCodeArr([]);
     setCursorIndex(0);
+  };
+
+  const formatValue = (val: string, callback?: (v: string) => void) => {
+    if (isDef(length) && val.length > +length) {
+      val = val.slice(0, length);
+    }
+
+    if (type === 'number') {
+      val = formatNumber(val, false, false);
+    }
+
+    if (isFunction(validator)) {
+      if (validator(val)) {
+        setCode(val);
+        isFunction(callback) && callback(val);
+      }
+    } else {
+      setCode(val);
+      isFunction(callback) && callback(val);
+    }
   };
 
   const handleChange = (e) => {
     const val = e.target.value;
-    let finalValue = val;
-
-    if (isDef(length) && finalValue.length > +length) {
-      finalValue = finalValue.slice(0, length);
-    }
-
-    if (isFunction(validator)) {
-      if (validator(finalValue)) {
-        setCode(finalValue);
-        onChange?.(finalValue);
-      }
-    } else {
-      if (type === 'number') {
-        finalValue = formatNumber(val, false, false);
-      }
-      setCode(finalValue);
-      onChange?.(finalValue);
-    }
+    formatValue(val, (v: string) => {
+      isFunction(onChange) && onChange(v);
+    });
   };
 
   useEffect(() => {
-    setCode(value || '');
-    setCodeArr(value?.split(''));
-
+    formatValue(value);
     if (autoFocus) {
       // 聚焦
       setCursorIndex(0);

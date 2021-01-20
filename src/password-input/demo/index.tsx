@@ -10,6 +10,9 @@ const Component = () => {
       message: val,
     });
   };
+  const onChange = (val: string) => {
+    console.log('onchange');
+  };
   return (
     <DemoSection>
       <DemoBlock title="基础用法">
@@ -23,25 +26,28 @@ const Component = () => {
       <DemoBlock title="只允许数字">
         <PasswordInput
           type="number"
-          value=""
+          value="12"
           mask={false}
           length={4}
-          // validator={(val: string) => {
-          //   return /^\d{0,4}$/.test(val);
-          // }}
+          onChange={onChange}
+          onSubmit={onSubmit}
+        />
+      </DemoBlock>
+
+      <DemoBlock title="自定义规则 只允许输入0-3">
+        <PasswordInput
+          value="123"
+          mask={false}
+          length={4}
+          validator={(val: string) => {
+            return /^[0-3]{0,4}$/.test(val);
+          }}
           onSubmit={onSubmit}
         />
       </DemoBlock>
 
       <DemoBlock title="自动聚焦">
-        <PasswordInput
-          length={4}
-          autoFocus
-          validator={(val: string) => {
-            return /^\d{0,4}$/.test(val);
-          }}
-          onSubmit={onSubmit}
-        />
+        <PasswordInput length={4} autoFocus onSubmit={onSubmit} />
       </DemoBlock>
     </DemoSection>
   );
