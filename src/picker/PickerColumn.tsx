@@ -1,11 +1,19 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable @typescript-eslint/naming-convention */
-import React, { useEffect, useMemo, useRef, useState, forwardRef } from 'react';
+import React, {
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+  useImperativeHandle,
+  forwardRef,
+  useCallback,
+} from 'react';
 import classnames from 'classnames';
 
 import useTouch from '../hooks/use-touch';
 
-import { PickerColumnProps } from './PropsType';
+import { PickerColumnProps, Column } from './PropsType';
 import { createNamespace, isObject, range } from '../utils';
 import { deepClone } from '../utils/deep-clone';
 
@@ -43,7 +51,8 @@ const PickerColumn = forwardRef<{}, PickerColumnProps>((props, ref) => {
   const touchStartTime = useRef(0);
   const momentumOffset = useRef(0);
 
-  const [index, _setIndex] = useState<number>(defaultIndex);
+  const index = useRef(defaultIndex);
+
   const [offset, setOffset] = useState<number>(0);
   const [duration, setDuration] = useState<number>(0);
   const [options, _setOptions] = useState(deepClone(initialOptions));
@@ -75,11 +84,11 @@ const PickerColumn = forwardRef<{}, PickerColumnProps>((props, ref) => {
 
     const _offset = -_index * props.itemHeight;
     const trigger = () => {
-      if (_index !== index) {
-        _setIndex(_index);
+      if (_index !== index.current) {
+        index.current = _index;
 
         if (emitChange && props.onChange) {
-          props.onChange(index);
+          props.onChange(index.current);
         }
       }
     };
@@ -93,9 +102,9 @@ const PickerColumn = forwardRef<{}, PickerColumnProps>((props, ref) => {
     setOffset(_offset);
   };
 
-  const setOptions = (_options) => {
+  const setOptions = (_options: Column) => {
     if (JSON.stringify(_options) !== JSON.stringify(options)) {
-      _setOptions(deepClone(options));
+      _setOptions(deepClone(_options));
       setIndex(props.defaultIndex);
     }
   };
@@ -220,17 +229,17 @@ const PickerColumn = forwardRef<{}, PickerColumnProps>((props, ref) => {
 
       const data = {
         role: 'button',
-        key: option,
+        key: _index,
         style: optionStyle,
         tabIndex: disabled ? -1 : 0,
         className: classnames(
           bem('item', {
             disabled,
-            selected: _index === index,
+            selected: _index === index.current,
           }),
         ),
         onClick: () => {
-          onClickItem(index);
+          onClickItem(index.current);
         },
       };
 
@@ -256,7 +265,7 @@ const PickerColumn = forwardRef<{}, PickerColumnProps>((props, ref) => {
     return null;
   };
 
-  const getValue = () => options[index];
+  const getValue = useCallback(() => options[index.current], [index.current]);
 
   useEffect(() => {
     setIndex(defaultIndex);
@@ -265,6 +274,15 @@ const PickerColumn = forwardRef<{}, PickerColumnProps>((props, ref) => {
   useEffect(() => {
     setOptions(deepClone(initialOptions));
   }, [initialOptions]);
+
+  useImperativeHandle(ref, () => ({
+    index,
+    setIndex,
+    getValue,
+    setValue,
+    setOptions,
+    stopMomentum,
+  }));
 
   const wrapperStyle = {
     transform: `translate3d(0, ${offset + baseOffset}px, 0)`,
