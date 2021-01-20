@@ -204,6 +204,10 @@ module.exports = {
                 path: 'announcement',
                 title: 'Announcement 公告',
               },
+              {
+                path: 'password-input',
+                title: 'PasswordInput 密码输入框',
+              },
             ],
           },
         ],

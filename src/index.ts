@@ -25,3 +25,4 @@ export { default as Radio } from './radio';
 export { default as Checkbox } from './checkbox';
 export { default as Announcement } from './announcement';
 export { default as Picker } from './picker';
+export { default as PasswordInput } from './password-input';
