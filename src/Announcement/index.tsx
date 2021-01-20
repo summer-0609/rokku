@@ -28,7 +28,7 @@ const Announcement: React.FC<AnnouncementProps> = (props) => {
         mode={mode}
         text={adList?.[0].mainTitle}
         color={color || '#cb9139'}
-        background={background || '#fff6d0'}
+        background={background || 'rgba(255, 246, 208, 0.5)'}
         leftIcon={leftIcon || ''}
         onClick={handleNoticeClick}
       />
