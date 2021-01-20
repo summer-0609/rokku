@@ -20,33 +20,38 @@ const onSubmit = (val: string) => {
     message: val
   })
 };
-<PasswordInput
-  onSubmit={onSubmit}
-/>
+<PasswordInput value="12a" length={4} type="text" onSubmit={onSubmit} />
 ```
 
 ### 限制长度
 
 ```jsx
-const onSubmit = (val: string) => {
-  Dialog.alert({
-    message: val
-  })
-};
-<PasswordInput
-  onSubmit={onSubmit}
-/>
+<PasswordInput type="text" length={6} onSubmit={onSubmit} />
 ```
 
 ### 只允许数字
 
 ```jsx
-const onSubmit = (val: string) => {
-  Dialog.alert({
-    message: val
-  })
-};
 <PasswordInput
+  value="123"
+  mask={false}
+  length={4}
+  validator={(val: string) => {
+    return /^\d{0,4}$/.test(val);
+  }}
+  onSubmit={onSubmit}
+/>
+```
+
+### 自动聚焦
+
+```jsx
+<PasswordInput
+  length={4}
+  autoFocus
+  validator={(val: string) => {
+    return /^\d{0,4}$/.test(val);
+  }}
   onSubmit={onSubmit}
 />
 ```
@@ -57,10 +62,13 @@ const onSubmit = (val: string) => {
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| type | 类型 | _string_ | `tel` |
+| value | 值  | _string_ | - |
+| type  | 类型 默认为text | _string_ | `number` `text` |
 | length | 长度 | _number_ | 6 |
+| autoFocus | 自动聚焦 | _boolean_ | false |
+| mask | 是否隐藏密码 | _boolean_ | true |
 | validator | 校验器 | _function_ | - |
-| onChange |  | _string_ | - |
+| highlightClass | 高亮样式(mask=true时不生效) | _string_ | - |
 
 ### Events
 
@@ -76,5 +84,5 @@ const onSubmit = (val: string) => {
 
 | 名称                      | 默认值               | 描述 |
 | ------------------------- | -------------------- | ---- |
-| @overlay-z-index          | `1`                  | -    |
-| @overlay-background-color | `rgba(0, 0, 0, 0.7)` | -    |
+| @password-input-color     | `#2879ff`            | -    |
+| @password-border-color    | `#dee4e7`            | -    |

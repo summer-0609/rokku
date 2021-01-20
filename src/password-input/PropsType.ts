@@ -3,7 +3,7 @@ import { BaseTypeProps } from '../utils';
 export interface PasswordInputProps extends BaseTypeProps {
   // 默认值
   value?: string;
-  // 输入框类型, 默认 tel
+  // 输入框类型, ['number', 'text]
   type?: string;
   // 密码长度
   length?: number;

@@ -22,12 +22,13 @@ const Component = () => {
 
       <DemoBlock title="只允许数字">
         <PasswordInput
-          value="123"
+          type="number"
+          value=""
           mask={false}
           length={4}
-          validator={(val: string) => {
-            return /^\d{0,4}$/.test(val);
-          }}
+          // validator={(val: string) => {
+          //   return /^\d{0,4}$/.test(val);
+          // }}
           onSubmit={onSubmit}
         />
       </DemoBlock>
