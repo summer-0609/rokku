@@ -40,7 +40,10 @@ const Announcement: React.FC<AnnouncementProps> = (props) => {
             {adList?.[0]?.linkUrl ? (
               <iframe className={classnames(bem('iframe'))} title=" " src={adList?.[0]?.linkUrl} />
             ) : (
-              <div className={classnames(bem('text'))}>{adList?.[0]?.adDescription}</div>
+              <div
+                className={classnames(bem('text'))}
+                dangerouslySetInnerHTML={{ __html: adList?.[0]?.adDescription }}
+              />
             )}
           </div>
         </div>

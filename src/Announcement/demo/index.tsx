@@ -9,7 +9,7 @@ export default (): React.ReactNode => {
     {
       mainTitle: '公告测试',
       iphoneUrl: '',
-      adDescription: '公告内容',
+      adDescription: '<div>公告内容</div><div>1.描述</div><div>2.描述</div>',
       subTitle: '',
       linkUrl: '',
       imgUrl: '',
