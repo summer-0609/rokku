@@ -113,6 +113,10 @@ module.exports = {
                 title: 'DatetimePicker 时间选择',
               },
               {
+                path: 'password-input',
+                title: 'PasswordInput 密码输入框',
+              },
+              {
                 path: 'picker',
                 title: 'Picker 选择器',
               },
@@ -207,6 +211,10 @@ module.exports = {
               {
                 path: 'announcement',
                 title: 'Announcement 公告',
+              },
+              {
+                path: 'password-input',
+                title: 'PasswordInput 密码输入框',
               },
             ],
           },

@@ -42,6 +42,7 @@ const NavBar: React.FC<NavBarProps> = (props) => {
 
     const style: CSSProperties = {
       zIndex: zIndex !== undefined ? +zIndex : undefined,
+      ...props.style,
     };
 
     const hasLeft = props.leftArrow || props.leftText || props.leftSlot;
@@ -51,9 +52,13 @@ const NavBar: React.FC<NavBarProps> = (props) => {
       <div
         ref={navBarRef}
         style={style}
-        className={classnames(bem({ fixed, 'safe-area-inset-top': props.safeAreaInsetTop }), {
-          [BORDER_BOTTOM]: border,
-        })}
+        className={classnames(
+          bem({ fixed, 'safe-area-inset-top': props.safeAreaInsetTop }),
+          {
+            [BORDER_BOTTOM]: border,
+          },
+          props.className,
+        )}
       >
         <div className={classnames(bem('content'))}>
           {hasLeft && (

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
 import { Announcement } from 'rokku';
 import { components } from 'site-mobile-demo';
 import './style.less';
@@ -9,7 +9,7 @@ export default (): React.ReactNode => {
     {
       mainTitle: '公告测试',
       iphoneUrl: '',
-      adDescription: '公告内容',
+      adDescription: '<div>公告内容</div><div>1.描述</div><div>2.描述</div>',
       subTitle: '',
       linkUrl: '',
       imgUrl: '',

@@ -44,7 +44,7 @@ const adList = [{
 | adList                  | 公告数组                                                                                                    | array  | -           | []          |
 | mode                    | 类型                                                                                                        | _string_             | -           |
 | color                   | 字体颜色                                                                                                    | _string_            | #cb9139     |
-| background              | 背景颜色                                                                                                    | _string_            | #fff6d0     |
+| background              | 背景颜色                                                                                                    | _string_            | rgba(255, 246, 208, 0.5)     |
 | leftIcon                | 左侧图标                                                                                                    | _string_            | -           |
 | onClick                 | 点击事件                                                                                                    | () => void          | -           |
 

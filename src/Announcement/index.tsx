@@ -1,27 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-autofocus */
-import React, {
-  useRef,
-  useState,
-  useEffect,
-  CSSProperties,
-  forwardRef,
-  useImperativeHandle,
-} from 'react';
+import React, { useState } from 'react';
 import classnames from 'classnames';
 import NoticeBar from '../notice-bar';
 import Overlay from '../overlay';
 import { AnnouncementProps } from './PropsType';
-import {
-  createNamespace,
-  isDef,
-  addUnit,
-  isFunction,
-  formatNumber,
-  preventDefault,
-  isObject,
-} from '../utils';
+import { createNamespace, isFunction } from '../utils';
 
 const [bem] = createNamespace('announcement');
 const Announcement: React.FC<AnnouncementProps> = (props) => {
@@ -43,7 +28,7 @@ const Announcement: React.FC<AnnouncementProps> = (props) => {
         mode={mode}
         text={adList?.[0].mainTitle}
         color={color || '#cb9139'}
-        background={background || '#fff6d0'}
+        background={background || 'rgba(255, 246, 208, 0.5)'}
         leftIcon={leftIcon || ''}
         onClick={handleNoticeClick}
       />
@@ -55,7 +40,10 @@ const Announcement: React.FC<AnnouncementProps> = (props) => {
             {adList?.[0]?.linkUrl ? (
               <iframe className={classnames(bem('iframe'))} title=" " src={adList?.[0]?.linkUrl} />
             ) : (
-              <div className={classnames(bem('text'))}>{adList?.[0]?.adDescription}</div>
+              <div
+                className={classnames(bem('text'))}
+                dangerouslySetInnerHTML={{ __html: adList?.[0]?.adDescription }}
+              />
             )}
           </div>
         </div>
