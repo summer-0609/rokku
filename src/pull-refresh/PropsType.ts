@@ -18,4 +18,6 @@ export interface PullRefreshProps extends BaseTypeProps {
   successDuration?: number | string;
   animationDuration?: number | string;
   headHeight?: number | string;
+  onScrollStart?: () => void;
+  onScrollEnd?: () => void;
 }

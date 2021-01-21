@@ -17,7 +17,7 @@ import { DatetimePicker } from '@rokku/design';
 DatetimePicker 通过 mode 属性来定义需要选择的时间类型，mode 为 `date` 表示选择年月日。通过 minDate 和 maxDate 属性可以确定可选的时间范围。
 
 ```html
-<DateTimePicker
+<DatetimePicker
   mode="date"
   minDate={new Date(2020, 0, 1)}
   maxDate={new Date(2025, 10, 1)}
@@ -30,7 +30,7 @@ DatetimePicker 通过 mode 属性来定义需要选择的时间类型，mode 为
 将 mode 设置为 `year-month` 即可选择年份和月份。通过传入 `formatter` 函数，可以对选项文字进行格式化处理。
 
 ```html
-<DateTimePicker
+<DatetimePicker
   mode="year-month"
   minDate={new Date(2020, 0, 1)}
   maxDate={new Date(2025, 10, 1)}
@@ -52,7 +52,7 @@ DatetimePicker 通过 mode 属性来定义需要选择的时间类型，mode 为
 将 mode 设置为 `month-day` 即可选择月份和日期。
 
 ```html
-<DateTimePicker
+<DatetimePicker
   mode="month-day"
   minDate={new Date(2020, 0, 1)}
   maxDate={new Date(2025, 10, 1)}
@@ -74,7 +74,7 @@ DatetimePicker 通过 mode 属性来定义需要选择的时间类型，mode 为
 将 mode 设置为 `time` 即可选择时间（小时和分钟）。
 
 ```html
-<DateTimePicker mode="time" minHour="10" maxHour="20" value="12:00" />
+<DatetimePicker mode="time" minHour="10" maxHour="20" value="12:00" />
 ```
 
 ### 选择日期时间（包含星期）
@@ -82,7 +82,7 @@ DatetimePicker 通过 mode 属性来定义需要选择的时间类型，mode 为
 将 mode 设置为 `weektime` 即可选择时间日期和时间（包含日期）
 
 ```html
-<DateTimePicker
+<DatetimePicker
   mode="weektime"
   minDate={new Date(2021, 0, 1)}
   maxDate={new Date(2021, 2, 1)}
@@ -95,7 +95,7 @@ DatetimePicker 通过 mode 属性来定义需要选择的时间类型，mode 为
 将 mode 设置为 `datetime` 即可选择完整时间，包括年月日和小时、分钟。
 
 ```html
-<DateTimePicker
+<DatetimePicker
   mode="datetime"
   minDate={new Date(2020, 0, 1)}
   maxDate={new Date(2025, 10, 1)}
@@ -108,7 +108,7 @@ DatetimePicker 通过 mode 属性来定义需要选择的时间类型，mode 为
 将 mode 设置为 `datehour` 即可选择日期和小时，包括年月日和小时。
 
 ```html
-<DateTimePicker
+<DatetimePicker
   mode="datehour"
   minDate={new Date(2020, 0, 1)}
   maxDate={new Date(2025, 10, 1)}
@@ -121,7 +121,7 @@ DatetimePicker 通过 mode 属性来定义需要选择的时间类型，mode 为
 通过传入 `filter` 函数，可以对选项数组进行过滤，实现自定义时间间隔。
 
 ```html
-<DateTimePicker
+<DatetimePicker
   mode="time"
   minHour="10"
   maxHour="20"
@@ -138,7 +138,7 @@ DatetimePicker 通过 mode 属性来定义需要选择的时间类型，mode 为
 ### 自定义列排序
 
 ```html
-<DateTimePicker
+<DatetimePicker
   mode="date"
   columnsOrder={['month', 'day', 'year']}
   minDate={new Date(2020, 0, 1)}
@@ -151,7 +151,7 @@ DatetimePicker 通过 mode 属性来定义需要选择的时间类型，mode 为
 ### 确认按钮
 
 ```html
-<DateTimePicker
+<DatetimePicker
   showSubmitBtn
   onConfirm={(value: Date) => Toast(`确认的日期：${value}`)}
   mode="weektime"
@@ -180,7 +180,7 @@ DatetimePicker 通过 mode 属性来定义需要选择的时间类型，mode 为
   position="bottom"
   onClose={() => setShowPicker(false)}
 >
-  <DateTimePicker
+  <DatetimePicker
     showSubmitBtn
     onConfirm={(value: string) => {
       setFieldValue(value);
