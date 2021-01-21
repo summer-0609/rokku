@@ -19,3 +19,14 @@ export function isPromise<T = any>(val: unknown): val is Promise<T> {
 export function isObject(val: unknown): val is Record<any, any> {
   return val !== null && typeof val === 'object';
 }
+
+export function get(object: any, path: string): any {
+  const keys = path.split('.');
+  let result = object;
+
+  keys.forEach((key) => {
+    result = result[key] ?? '';
+  });
+
+  return result;
+}

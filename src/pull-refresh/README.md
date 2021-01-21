@@ -98,6 +98,8 @@ const onRefresh = () => {
 | 事件名  | 说明           | 回调参数 |
 | ------- | -------------- | -------- |
 | refresh | 下拉刷新时触发 | -        |
+| scrollstart | 滚动开始，组件内容过多需要滚动时触发（需设置 overflow: 'auto'） | -        |
+| scrollend | 滚动结束（需设置 overflow: 'auto'） | -        |
 
 <!-- ### Slots
 

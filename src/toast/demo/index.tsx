@@ -16,6 +16,9 @@ export default (): React.ReactNode => {
             Toast.loading({
               message: '加载中...',
               forbidClick: true,
+              onClose: () => {
+                console.log('close');
+              },
             })
           }
         />

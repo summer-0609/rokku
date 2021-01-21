@@ -106,7 +106,7 @@ export default (): React.ReactNode => {
           ]}
         />
       </DemoBlock>
-      <DemoBlock card title="提交模式">
+      <DemoBlock card title="确认按钮">
         <Picker
           showSubmitBtn
           onConfirm={(value: string, index: number) =>

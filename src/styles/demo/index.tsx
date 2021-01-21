@@ -21,7 +21,7 @@ export default (): React.ReactNode => {
 
   return (
     <DemoSection>
-      <DemoBlock title="显示遮罩层">
+      <DemoBlock title="文字省略">
         <div className="rk-ellipsis">这是一段最多显示一行的文字，后面的内容会省略</div>
         <div className="rk-multi-ellipsis--l2">
           这是一段最多显示两行的文字，后面的内容会省略。这是一段最多显示两行的文字，后面的内容会省略
