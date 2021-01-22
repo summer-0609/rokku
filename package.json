@@ -1,8 +1,9 @@
 {
   "name": "@rokku/design",
-  "version": "0.0.14",
+  "version": "0.0.16",
   "description": "Mobile UI Components built on React",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "style": "lib/index.css",
   "files": [
     "lib",
