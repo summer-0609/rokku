@@ -17,18 +17,7 @@ import { Checkbox } from '@rokku/design';
 通过 `checked` 绑定复选框的勾选状态。
 
 ```html
-<Checkbox checked="checked">复选框</Checkbox>
-```
-
-```js
-import { ref } from 'vue';
-
-export default {
-  setup() {
-    const checked = ref(true);
-    return { checked };
-  },
-};
+<Checkbox checked onChange={(val) => console.log(val)}>复选框</Checkbox>
 ```
 
 ### 禁用状态
@@ -69,6 +58,17 @@ export default {
 
 ```html
 <Checkbox checked="checked" labelDisabled>复选框</Checkbox>
+```
+
+### 异步更新
+
+设置 `asyncChange` 属性后，点击图标状态不会改变，而是直接执行 `onChange` 方法，在此方法中更换状态
+
+```html
+<Checkbox checked={checked} onChange={val => {
+  
+  
+  }}>复选框</Checkbox>
 ```
 
 ### 复选框组
@@ -146,7 +146,7 @@ const checked = ['a', 'b'];
 | checked | 所有选中项的标识符 | _any[]_ | - |
 | disabled | 是否禁用所有复选框 | _boolean_ | `false` |
 | max | 最大可选数，`0`为无限制 | _number \| string_ | `0` |
-| direction `v2.5.0` | 排列方向，可选值为 `horizontal` | _string_ | `vertical` |
+| direction | 排列方向，可选值为 `horizontal` | _string_ | `vertical` |
 | iconSize | 所有复选框的图标大小，默认单位为 `px` | _number \| string_ | `20px` |
 | checkedColor | 所有复选框的选中状态颜色 | _string_ | `#1989fa` |
 

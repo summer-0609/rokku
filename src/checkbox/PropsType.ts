@@ -9,6 +9,7 @@ export interface CheckBoxGroupProps extends BaseTypeProps {
   iconSize?: number | string;
   direction?: string;
   checkedColor?: string;
+  asyncChange?: string;
   initChecked?: (string | number)[];
   onChange?: (name: (string | number)[]) => void;
 }
@@ -26,6 +27,7 @@ export interface CheckerProps<T> extends BaseTypeProps {
   parent?: { props: T };
   bindGroup?: boolean;
   checked?: boolean;
+  asyncChange?: boolean;
   onToggle?: () => void;
   onClick?: (event: MouseEvent) => void;
 }

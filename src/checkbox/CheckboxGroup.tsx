@@ -11,13 +11,24 @@ const [bem] = createNamespace('checkbox-group');
 const CheckBoxGroup: React.FC<CheckBoxGroupProps> = (props) => {
   const [checked, setChecked] = useState(props.initChecked);
 
+  const emit = (type?: string, args?: unknown) => {
+    const name = `on${type.replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`;
+    if (props[name] && typeof props[name] === 'function') {
+      props[name](args);
+    }
+  };
+
   const toggle = (name: Array<string | number>) => {
-    setChecked(name);
+    if (props.asyncChange) {
+      emit('change', name);
+    } else {
+      setChecked(name);
+    }
   };
 
   useEffect(() => {
-    if (props.onChange) {
-      props.onChange(checked);
+    if (!props.asyncChange) {
+      emit('change', checked);
     }
   }, [checked]);
 

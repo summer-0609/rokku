@@ -17,7 +17,7 @@ import { Radio } from '@rokku/design';
 通过 `v-model` 绑定值当前选中项的 name。
 
 ```html
-<Radio.Group initChecked="1">
+<Radio.Group value="1">
   <Radio name="1">单选框 1</Radio>
   <Radio name="2">单选框 2</Radio>
 </Radio.Group>
@@ -28,7 +28,7 @@ import { Radio } from '@rokku/design';
 将 `direction` 属性设置为 `horizontal` 后，单选框组会变成水平排列。
 
 ```html
-<Radio.Group initChecked="1" direction="horizontal">
+<Radio.Group value="1" direction="horizontal">
   <Radio name="1">单选框 1</Radio>
   <Radio name="2">单选框 2</Radio>
 </Radio.Group>
@@ -39,7 +39,7 @@ import { Radio } from '@rokku/design';
 通过 `disabled` 属性禁止选项切换，在 `Radio` 上设置 `disabled` 可以禁用单个选项。
 
 ```html
-<Radio.Group initChecked="1" disabled>
+<Radio.Group value="1" disabled>
   <Radio name="1">单选框 1</Radio>
   <Radio name="2">单选框 2</Radio>
 </Radio.Group>
@@ -50,7 +50,7 @@ import { Radio } from '@rokku/design';
 将 `shape` 属性设置为 `square`，单选框的形状会变成方形。
 
 ```html
-<Radio.Group initChecked="1">
+<Radio.Group value="1">
   <Radio name="1" shape="square">单选框 1</Radio>
   <Radio name="2" shape="square">单选框 2</Radio>
 </Radio.Group>
@@ -61,7 +61,7 @@ import { Radio } from '@rokku/design';
 通过 `checkedColor` 属性设置选中状态的图标颜色。
 
 ```html
-<Radio.Group initChecked="1">
+<Radio.Group value="1">
   <Radio name="1" checkedColor="#ee0a24">单选框 1</Radio>
   <Radio name="2" checkedColor="#ee0a24">单选框 2</Radio>
 </Radio.Group>
@@ -72,7 +72,7 @@ import { Radio } from '@rokku/design';
 通过 `iconSize` 属性可以自定义图标的大小。
 
 ```html
-<Radio.Group initChecked="1">
+<Radio.Group value="1">
   <Radio name="1" iconSize="24px">单选框 1</Radio>
   <Radio name="2" iconSize="24px">单选框 2</Radio>
 </Radio.Group>
@@ -83,7 +83,30 @@ import { Radio } from '@rokku/design';
 设置 `labelDisabled` 属性后，点击图标以外的内容不会触发单选框切换。
 
 ```html
-<Radio.Group initChecked="1">
+<Radio.Group value="1">
+  <Radio name="1" labelDisabled>单选框 1</Radio>
+  <Radio name="2" labelDisabled>单选框 2</Radio>
+</Radio.Group>
+```
+
+### 异步更新
+
+设置 `asyncChange` 属性后，点击图标状态不会改变，而是直接执行 `onChange` 方法，在此方法中更换状态
+
+```html
+<Radio.Group
+  asyncChange
+  value={value}
+  onChange={(val) => {
+    Toast.loading({ forbidClick: true });
+
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      Toast.clear();
+      // 注意此时修改 value 后会再次触发 change 事件
+      setValue(val);
+    }, 500);
+  }}>
   <Radio name="1" labelDisabled>单选框 1</Radio>
   <Radio name="2" labelDisabled>单选框 2</Radio>
 </Radio.Group>
@@ -94,7 +117,7 @@ import { Radio } from '@rokku/design';
 此时你需要再引入 `Cell` 和 `CellGroup` 组件。
 
 ```html
-<Radio.Group initChecked="1"> 
+<Radio.Group value="1"> 
   <Cell.Group>
     <Cell title="单选框1" icon="shop-o" rightIconSlot={() => <Radio name="1" />} />
     <Cell title="单选框2" icon="shop-o" rightIconSlot={() => <Radio name="2" />} />
@@ -119,11 +142,12 @@ import { Radio } from '@rokku/design';
 
 | 参数 | 说明 | 类型 | 默认值 |
 | --- | --- | --- | --- |
-| v-model | 当前选中项的标识符 | _any_ | - |
+| value | 当前选中项的标识符 | _any_ | - |
 | disabled | 是否禁用所有单选框 | _boolean_ | `false` |
 | direction | 排列方向，可选值为`horizontal` | _string_ | `vertical` |
 | iconSize | 所有单选框的图标大小，默认单位为`px` | _number \| string_ | `21px` |
 | checkedColor | 所有单选框的选中状态颜色 | _string_ | `#1989fa` |
+| asyncChange | 是否开启异步更新 | _boolean_ | `false` |
 
 ### Radio Events
 

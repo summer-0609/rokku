@@ -1,4 +1,4 @@
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 
 import Checker from './Checker';
 import CheckBoxContext from './CheckboxContext';
@@ -11,6 +11,13 @@ const [bem] = createNamespace('checkbox');
 const CheckBox: React.FC<CheckboxProps> & { Group?: React.FC } = (props) => {
   const { parent, ...context } = useContext(CheckBoxContext);
   const [checked, setChecked] = useState<boolean>(props.checked);
+
+  const emit = (type?: string, args?: unknown) => {
+    const name = `on${type.replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`;
+    if (props[name] && typeof props[name] === 'function') {
+      props[name](args);
+    }
+  };
 
   const setParentValue = (isChecked: boolean) => {
     const { name } = props;
@@ -50,10 +57,23 @@ const CheckBox: React.FC<CheckboxProps> & { Group?: React.FC } = (props) => {
   const toggle = (newValue = !isChecked) => {
     if (parent && props.bindGroup) {
       setParentValue(newValue);
+    } else if (props.asyncChange) {
+      emit('change', newValue);
     } else {
       setChecked(newValue);
     }
   };
+
+  useEffect(() => {
+    setChecked(props.checked);
+  }, [props.checked]);
+
+  useEffect(() => {
+    if (!props.asyncChange) {
+      emit('change', checked);
+    }
+  }, [checked]);
+
   return (
     <Checker
       {...props}

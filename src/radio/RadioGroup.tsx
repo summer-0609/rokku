@@ -10,17 +10,32 @@ import { RadioGroupProps } from './PropsType';
 const [bem] = createNamespace('radio-group');
 
 const RadioGroup: React.FC<RadioGroupProps> = (props) => {
-  const [checked, setChecked] = useState(props.initChecked);
+  const [checked, setChecked] = useState(props.value ?? props.defaultValue);
+
+  const emit = (type?: string, args?: unknown) => {
+    const name = `on${type.replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`;
+    if (props[name] && typeof props[name] === 'function') {
+      props[name](args);
+    }
+  };
 
   const toggle = (name: string) => {
-    setChecked(name);
+    if (props.asyncChange) {
+      emit('change', name);
+    } else {
+      setChecked(name);
+    }
   };
 
   useEffect(() => {
-    if (props.onChange) {
-      props.onChange(checked);
+    if (!props.asyncChange) {
+      emit('change', checked);
     }
   }, [checked]);
+
+  useEffect(() => {
+    setChecked(props.value);
+  }, [props.value]);
 
   return (
     <RadioContext.Provider value={{ parent: { props }, toggle, checked }}>

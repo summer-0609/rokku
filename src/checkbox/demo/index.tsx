@@ -1,14 +1,21 @@
-import React from 'react';
-import { Cell, Checkbox } from 'rokku';
+import React, { useState } from 'react';
+import { Cell, Checkbox, Toast } from 'rokku';
 import { components } from 'site-mobile-demo';
 import './style.less';
 
+let timer;
+
 export default (): React.ReactNode => {
   const { DemoBlock, DemoSection } = components;
+
+  const [value, setValue] = useState(false);
+
   return (
     <DemoSection>
       <DemoBlock title="基础用法">
-        <Checkbox checked>复选框</Checkbox>
+        <Checkbox checked onChange={(val) => console.log(val)}>
+          复选框
+        </Checkbox>
       </DemoBlock>
       <DemoBlock title="禁用状态">
         <Checkbox checked disabled>
@@ -38,6 +45,23 @@ export default (): React.ReactNode => {
           复选框
         </Checkbox>
       </DemoBlock>
+      <DemoBlock title="动态更新">
+        <Checkbox
+          checked={value}
+          asyncChange
+          onChange={(val) => {
+            Toast.loading({ forbidClick: true, duration: 0 });
+
+            setTimeout(() => {
+              // Toast.clear();
+              setValue(val);
+            }, 500);
+          }}
+        >
+          复选框
+        </Checkbox>
+      </DemoBlock>
+
       <DemoBlock title="复选框组">
         <Checkbox.Group initChecked={['a', 'b']}>
           <Checkbox name="a">复选框a</Checkbox>
