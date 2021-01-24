@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "bootstrap": "yarn || npm i",
-    "start": "node packages/rokku-cli/lib/index.js dev",
+    "start": "rokku-cli dev",
     "build": "rokku-cli build",
     "release": "rokku-cli release --tag dev",
     "docs:build": "rokku-cli build-site",
