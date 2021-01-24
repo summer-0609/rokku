@@ -11,7 +11,7 @@
   ],
   "scripts": {
     "bootstrap": "yarn || npm i",
-    "start": "rokku-cli dev",
+    "start": "node packages/rokku-cli/lib/index.js dev",
     "build": "rokku-cli build",
     "release": "rokku-cli release --tag dev",
     "docs:build": "rokku-cli build-site",
@@ -70,7 +70,7 @@
     "iOS >= 8"
   ],
   "dependencies": {
-    "@rokku/icons": "^1.0.0",
+    "@rokku/icons": "^1.0.4",
     "classnames": "^2.2.6",
     "react-transition-group": "^4.4.1"
   }

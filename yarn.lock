@@ -1443,10 +1443,10 @@
     stylelint-declaration-block-no-ignored-properties "^2.1.0"
     stylelint-order "^4.0.0"
 
-"@rokku/icons@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@rokku/icons/-/icons-1.0.0.tgz#041a52bf3b50cc880bac5178c77168932db7946b"
-  integrity sha512-hRrJ1Gwg5ojU/6MZagE4Bf+V0BLPnQTxKlIOl+0sBilc9Q20P3aERVvwXuz4lcOdx+6ieNZMb2AI6mmgEkPpyA==
+"@rokku/icons@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.npm.taobao.org/@rokku/icons/download/@rokku/icons-1.0.4.tgz#dcf78b8bf501002336c5c2f1956e01d57d7c20a3"
+  integrity sha1-3PeLi/UBACM2xcLxlW4B1X18IKM=
 
 "@rokku/markdown-loader@^1.0.1":
   version "1.0.1"
