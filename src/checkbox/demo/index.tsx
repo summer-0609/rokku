@@ -3,8 +3,6 @@ import { Cell, Checkbox, Toast } from 'rokku';
 import { components } from 'site-mobile-demo';
 import './style.less';
 
-let timer;
-
 export default (): React.ReactNode => {
   const { DemoBlock, DemoSection } = components;
 
@@ -53,7 +51,7 @@ export default (): React.ReactNode => {
             Toast.loading({ forbidClick: true, duration: 0 });
 
             setTimeout(() => {
-              // Toast.clear();
+              Toast.clear();
               setValue(val);
             }, 500);
           }}
@@ -81,7 +79,7 @@ export default (): React.ReactNode => {
           <Checkbox name="c">复选框c</Checkbox>
         </Checkbox.Group>
       </DemoBlock>
-      <DemoBlock title="限制最大可选数">
+      <DemoBlock title="搭配单元格组件使用">
         <Checkbox.Group initChecked={[]} max={2}>
           <Cell.Group>
             <Cell title="单选框1" icon="shop-o" rightIconSlot={() => <Checkbox name="a" />} />
