@@ -70,7 +70,7 @@
     "iOS >= 8"
   ],
   "dependencies": {
-    "@rokku/icons": "^1.0.0",
+    "@rokku/icons": "^1.0.4",
     "classnames": "^2.2.6",
     "react-transition-group": "^4.4.1"
   }

@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="logo" src="http://www.rokku.icu/image/logo.png" width="120" style="margin-bottom: 10px;">
+    <img alt="logo" src="http://cdn.rokku.icu/logo.png" width="120" style="margin-bottom: 10px;">
 </p>
 
 <h1 align="center">Rokku</h1>
@@ -103,6 +103,7 @@ yarn release
 - [x] Search 搜索
 - [x] DatetimePicker 时间选择
 - [x] PasswordInput 密码输入框
+
 ### Display Components
 
 - [x] Collapse 折叠面板
@@ -125,4 +126,3 @@ yarn release
 - [x] IndexBar 索引栏
 - [x] NavBar 导航栏
 - [x] Tabs 标签页
-

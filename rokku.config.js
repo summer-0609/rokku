@@ -15,11 +15,11 @@ module.exports = {
       'zh-CN': {
         title: 'Rokku',
         description: '轻量、可靠的移动端 React 组件库',
-        logo: 'http://www.rokku.icu/image/logo.png',
+        logo: 'http://cdn.rokku.icu/logo.png',
         langLabel: '中文',
         links: [
           {
-            logo: 'http://www.rokku.icu/image/github.png',
+            logo: 'http://cdn.rokku.icu/github.png',
             url: 'https://github.com/Hyattria/rokku',
           },
         ],
@@ -219,11 +219,11 @@ module.exports = {
       'en-US': {
         title: 'Rokku',
         description: 'Mobile UI Components built on React',
-        logo: 'http://www.rokku.icu/logo.png',
+        logo: 'http://cdn.rokku.icu/logo.png',
         langLabel: 'En',
         links: [
           {
-            logo: 'http://www.rokku.icu/github.png',
+            logo: 'http://cdn.rokku.icu/github.png',
             url: 'https://github.com/Hyattria/rokku',
           },
         ],

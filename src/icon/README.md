@@ -29,6 +29,15 @@ import { Icon } from '@rokku/design';
 <Icon name="fire-o" color="#ee0a24" />
 ```
 
+### 多色图标
+
+`Icon` 的 `theme` 属性用来设置图标的主题。目前只是特指地图相关的图标
+
+```html
+<Icon theme="multi" name="map-user" />
+```
+
+
 ### 图标大小
 
 `Icon` 的 `size` 属性用来设置图标的尺寸大小，默认单位为 `px`。

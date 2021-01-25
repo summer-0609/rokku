@@ -50,7 +50,7 @@ Toast({
 
 Toast({
   message: '自定义图片',
-  icon: 'http://www.rokku.icu/image/logo.png',
+  icon: 'http://cdn.rokku.icu/logo.png',
 });
 
 Toast.loading({
@@ -104,13 +104,13 @@ const timer = setInterval(() => {
 
 ### 方法
 
-| 方法名 | 说明 | 参数 | 返回值 |
-| --- | --- | --- | --- |
-| Toast | 展示提示 | `options \| message` | toast 实例 |
+| 方法名        | 说明         | 参数                 | 返回值     |
+| ------------- | ------------ | -------------------- | ---------- |
+| Toast         | 展示提示     | `options \| message` | toast 实例 |
 | Toast.loading | 展示加载提示 | `options \| message` | toast 实例 |
 | Toast.success | 展示成功提示 | `options \| message` | toast 实例 |
-| Toast.fail | 展示失败提示 | `options \| message` | toast 实例 |
-| Toast.clear | 关闭提示 | `clearAll: boolean` | `void` |
+| Toast.fail    | 展示失败提示 | `options \| message` | toast 实例 |
+| Toast.clear   | 关闭提示     | `clearAll: boolean`  | `void`     |
 
 ### Options
 
