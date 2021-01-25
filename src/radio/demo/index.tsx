@@ -14,7 +14,7 @@ export default (): React.ReactNode => {
     <DemoSection>
       <DemoBlock title="基础用法">
         <div className="demo-radio-group">
-          <Radio.Group value="1">
+          <Radio.Group defaultValue="1">
             <Radio name="1">单选框1</Radio>
             <Radio name="2">单选框2</Radio>
           </Radio.Group>
@@ -22,7 +22,7 @@ export default (): React.ReactNode => {
       </DemoBlock>
       <DemoBlock title="水平排列">
         <div className="demo-radio-group">
-          <Radio.Group value="1" direction="horizontal">
+          <Radio.Group defaultValue="1" direction="horizontal">
             <Radio name="1">单选框1</Radio>
             <Radio name="2">单选框2</Radio>
           </Radio.Group>
@@ -30,7 +30,7 @@ export default (): React.ReactNode => {
       </DemoBlock>
       <DemoBlock title="禁用状态">
         <div className="demo-radio-group">
-          <Radio.Group value="1" disabled>
+          <Radio.Group defaultValue="1" disabled>
             <Radio name="1">单选框1</Radio>
             <Radio name="2">单选框2</Radio>
           </Radio.Group>
@@ -38,7 +38,7 @@ export default (): React.ReactNode => {
       </DemoBlock>
       <DemoBlock title="自定义形状">
         <div className="demo-radio-group">
-          <Radio.Group value="1">
+          <Radio.Group defaultValue="1">
             <Radio name="1" shape="square">
               单选框1
             </Radio>
@@ -50,7 +50,7 @@ export default (): React.ReactNode => {
       </DemoBlock>
       <DemoBlock title="自定义颜色">
         <div className="demo-radio-group">
-          <Radio.Group value="1">
+          <Radio.Group defaultValue="1">
             <Radio name="1" checkedColor="#ee0a24">
               单选框1
             </Radio>
@@ -62,7 +62,7 @@ export default (): React.ReactNode => {
       </DemoBlock>
       <DemoBlock title="自定义大小">
         <div className="demo-radio-group">
-          <Radio.Group value="1">
+          <Radio.Group defaultValue="1">
             <Radio name="1" iconSize="24px">
               单选框1
             </Radio>
@@ -74,7 +74,7 @@ export default (): React.ReactNode => {
       </DemoBlock>
       <DemoBlock title="禁止文本点击">
         <div className="demo-radio-group">
-          <Radio.Group value="1">
+          <Radio.Group defaultValue="1">
             <Radio name="1" labelDisabled>
               单选框1
             </Radio>
@@ -87,11 +87,9 @@ export default (): React.ReactNode => {
       <DemoBlock title="异步更新">
         <div className="demo-radio-group">
           <Radio.Group
-            asyncChange
             value={value}
             onChange={(val) => {
               Toast.loading({ forbidClick: true });
-
               clearTimeout(timer);
               timer = setTimeout(() => {
                 Toast.clear();

@@ -26,3 +26,4 @@ export { default as Picker } from './picker';
 export { default as DatetimePicker } from './datetime-picker';
 export { default as PasswordInput } from './password-input';
 export { default as Stepper } from './stepper';
+export { default as Switch } from './switch';

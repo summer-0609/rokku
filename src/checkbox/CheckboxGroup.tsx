@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 
+import useMergedState from '../hooks/use-merged-state';
 import CheckBoxContext from './CheckboxContext';
 
 import { CheckBoxGroupProps } from './PropsType';
@@ -9,28 +10,15 @@ import { createNamespace } from '../utils';
 const [bem] = createNamespace('checkbox-group');
 
 const CheckBoxGroup: React.FC<CheckBoxGroupProps> = (props) => {
-  const [checked, setChecked] = useState(props.initChecked);
-
-  const emit = (type?: string, args?: unknown) => {
-    const name = `on${type.replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`;
-    if (props[name] && typeof props[name] === 'function') {
-      props[name](args);
-    }
-  };
+  const [checked, setChecked] = useMergedState({
+    value: props.value,
+    defaultValue: props.defaultValue,
+  });
 
   const toggle = (name: Array<string | number>) => {
-    if (props.asyncChange) {
-      emit('change', name);
-    } else {
-      setChecked(name);
-    }
+    setChecked(name);
+    props.onChange?.(name);
   };
-
-  useEffect(() => {
-    if (!props.asyncChange) {
-      emit('change', checked);
-    }
-  }, [checked]);
 
   return (
     <CheckBoxContext.Provider value={{ parent: { props }, toggle, checked }}>

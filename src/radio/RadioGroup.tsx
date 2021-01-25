@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import classnames from 'classnames';
 
+import useMergedState from '../hooks/use-merged-state';
 import RadioContext from './RadioContext';
 
 import { createNamespace } from '../utils';
@@ -10,32 +11,15 @@ import { RadioGroupProps } from './PropsType';
 const [bem] = createNamespace('radio-group');
 
 const RadioGroup: React.FC<RadioGroupProps> = (props) => {
-  const [checked, setChecked] = useState(props.value ?? props.defaultValue);
-
-  const emit = (type?: string, args?: unknown) => {
-    const name = `on${type.replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`;
-    if (props[name] && typeof props[name] === 'function') {
-      props[name](args);
-    }
-  };
+  const [checked, setChecked] = useMergedState({
+    value: props.value,
+    defaultValue: props.defaultValue,
+  });
 
   const toggle = (name: string) => {
-    if (props.asyncChange) {
-      emit('change', name);
-    } else {
-      setChecked(name);
-    }
+    setChecked(name);
+    props.onChange?.(name);
   };
-
-  useEffect(() => {
-    if (!props.asyncChange) {
-      emit('change', checked);
-    }
-  }, [checked]);
-
-  useEffect(() => {
-    setChecked(props.value);
-  }, [props.value]);
 
   return (
     <RadioContext.Provider value={{ parent: { props }, toggle, checked }}>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useMemo, useState } from 'react';
 
 import Checker from './Checker';
 import CheckBoxContext from './CheckboxContext';
+import useMergedState from '../hooks/use-merged-state';
 
 import { CheckboxProps } from './PropsType';
 import { createNamespace } from '../utils';
@@ -10,7 +11,10 @@ const [bem] = createNamespace('checkbox');
 
 const CheckBox: React.FC<CheckboxProps> & { Group?: React.FC } = (props) => {
   const { parent, ...context } = useContext(CheckBoxContext);
-  const [checked, setChecked] = useState<boolean>(props.checked);
+  const [checked, setChecked] = useMergedState<boolean>({
+    value: props.checked,
+    defaultValue: props.defaultChecked,
+  });
 
   const emit = (type?: string, args?: unknown) => {
     const name = `on${type.replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`;
@@ -57,22 +61,11 @@ const CheckBox: React.FC<CheckboxProps> & { Group?: React.FC } = (props) => {
   const toggle = (newValue = !isChecked) => {
     if (parent && props.bindGroup) {
       setParentValue(newValue);
-    } else if (props.asyncChange) {
-      emit('change', newValue);
     } else {
       setChecked(newValue);
+      emit('change', newValue);
     }
   };
-
-  useEffect(() => {
-    setChecked(props.checked);
-  }, [props.checked]);
-
-  useEffect(() => {
-    if (!props.asyncChange) {
-      emit('change', checked);
-    }
-  }, [checked]);
 
   return (
     <Checker
