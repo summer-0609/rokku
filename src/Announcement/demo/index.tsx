@@ -39,7 +39,7 @@ export default (): React.ReactNode => {
         <Announcement leftIcon="volume-o" adList={adList} />
       </DemoBlock>
 
-      <DemoBlock title="弹框链接">
+      <DemoBlock title="自定义icon">
         <Announcement
           leftIcon={
             <div style={{ width: '24px', height: '16px' }}>

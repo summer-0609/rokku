@@ -15,13 +15,7 @@ import { Announcement } from '@rokku/design';
 ### 基础用法
 
 
-```html
-<Announcement
-  adList={adList}
-/>
-```
-
-```js
+```jsx
 const adList = [{
   mainTitle: '公告测试',
   iphoneUrl: '',
@@ -33,6 +27,58 @@ const adList = [{
   beginDate: '',
   endDate: ''
 }]
+<Announcement
+  adList={adList}
+/>
+```
+
+### 自定义icon
+
+```jsx
+const adList2 = [
+  {
+    mainTitle: '弹框链接',
+    iphoneUrl: '',
+    adDescription: '公告内容',
+    subTitle: '',
+    linkUrl: 'https://baidu.com',
+    imgUrl: '',
+    adId: '',
+    beginDate: '',
+    endDate: '',
+  },
+];
+<Announcement
+  leftIcon={
+    <div style={{ width: '24px', height: '16px' }}>
+      <img
+        alt=""
+        style={{ width: '16px' }}
+        src="https://image.chebada.com/image/comman/upload/merchantAdPic/2020/07/07/0c884c7f02c0757e69143ccab1aeec9c.png"
+      />
+    </div>
+  }
+  adList={adList2}
+/>
+```
+
+### mode
+
+```jsx
+const adList2 = [
+  {
+    mainTitle: '弹框链接',
+    iphoneUrl: '',
+    adDescription: '公告内容',
+    subTitle: '',
+    linkUrl: 'https://baidu.com',
+    imgUrl: '',
+    adId: '',
+    beginDate: '',
+    endDate: '',
+  },
+];
+<Announcement mode="link" adList={adList2} />
 ```
 
 ## API
@@ -54,6 +100,4 @@ const adList = [{
 | -------------------- | -------------------- | ------------------------------ |
 | onClick                | 点击公告触发        |          |
 
-
-### 方法
 
