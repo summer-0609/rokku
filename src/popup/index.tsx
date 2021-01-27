@@ -52,7 +52,7 @@ const Popup: React.FC<PopupProps> = (props) => {
         <Overlay
           show={visible}
           className={props.overlayClass}
-          style={props.overlayStyle}
+          customStyle={props.overlayStyle}
           zIndex={zIndex}
           duration={props.duration}
           onClick={() => {

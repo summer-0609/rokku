@@ -44,6 +44,7 @@ const Icon: React.FC<IconProps> = (props) => {
       { passive: false },
     );
   }, []);
+
   const rectStyle = props.theme === 'multi' && {
     width: addUnit(props.size) || 40,
     height: addUnit(props.size) || 40,

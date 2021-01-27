@@ -229,7 +229,7 @@ const [show, setShow] = useState(false);
 | @dialog-background-color              | `@white`                   | -    |
 | @dialog-header-font-weight            | `@font-weight-bold`        | -    |
 | @dialog-header-line-height            | `20px`                     | -    |
-| @dialog-header-padding-top            | `20px`                     | -    |
+| @dialog-header-padding-top            | `24px`                     | -    |
 | @dialog-header-isolated-padding       | `@padding-lg 0`            | -    |
 | @dialog-message-padding               | `@padding-lg`              | -    |
 | @dialog-message-font-size             | `@font-size-md`            | -    |

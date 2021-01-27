@@ -180,6 +180,6 @@ import { Radio } from '@rokku/design';
 | @radio-label-margin              | `@padding-xs`              | -    |
 | @radio-label-color               | `@text-color`              | -    |
 | @radio-checked-icon-color        | `@blue`                    | -    |
-| @radio-disabled-icon-color       | `@gray-5`                  | -    |
+| @radio-disabled-icon-color       | `@white`                   | -    |
 | @radio-disabled-label-color      | `@gray-5`                  | -    |
-| @radio-disabled-background-color | `@border-color`            | -    |
+| @radio-disabled-background-color | `#CCCCCC`                  | -    |
