@@ -37,6 +37,7 @@ const Icon: React.FC<IconProps> = (props) => {
     // touchstart事件passive默认开启
     ref.current?.addEventListener('touchstart', onTouchStart, { passive: false });
   }, []);
+
   const rectStyle = props.theme === 'multi' && {
     width: addUnit(props.size) || 40,
     height: addUnit(props.size) || 40,
