@@ -1,6 +1,6 @@
 <div class="card">
   <div class="rokku-doc-intro">
-    <img class="rokku-doc-intro__logo" style="width: 120px; height: 120px;" src="http://www.rokku.icu/image/logo.png">
+    <img class="rokku-doc-intro__logo" style="width: 120px; height: 120px;" src="http://cdn.rokku.icu/logo.png">
     <h2 style="margin: 0; font-size: 36px; line-height: 60px;">Rokku</h2>
     <p>轻量、可靠的移动端 React 组件库</p>
   </div>
@@ -12,7 +12,7 @@
 
 ### 特性
 
-- 20+ 高质量组件，覆盖移动端基本场景
+- 30+ 高质量组件，覆盖移动端基本场景
 - 支持按需引入
 - 支持主题定制
 - 支持 TypeScript
@@ -39,8 +39,7 @@
 | [rokku-icons](https://github.com/Hyattria/rokku/tree/main/packages/rokku-icons) | Rokku 图标库 |
 | [rokku-fabric](https://github.com/Hyattria/rokku/tree/main/packages/rokku-fabric) | Rokku 代码规范工具包 |
 | [rokku-markdown-loader](https://github.com/Hyattria/rokku/tree/main/packages/rokku-markdown-loader) | Rokku 解析 markdown loader |
-| [rokku-touch-emulator](https://github.com/Hyattria/rokku/tree/main/packages/rokku-touch-emulator) | 在PC端模拟触摸事件的辅助库 |
-
+| [rokku-touch-emulator](https://github.com/Hyattria/rokku/tree/main/packages/rokku-touch-emulator) | 在 PC 端模拟触摸事件的辅助库 |
 
 ### 开源协议
 

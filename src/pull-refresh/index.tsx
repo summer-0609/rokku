@@ -146,9 +146,35 @@ const PullRefresh: React.FC<PullRefreshProps> = (props) => {
     }
   };
 
+  const debounce = (start: Function, end: Function, ms = 0) => {
+    let timeoutId = null;
+    return (...args) => {
+      start.apply(this, args);
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => end.apply(this, args), ms);
+    };
+  };
+
+  const onScrollStart = () => {
+    if (props.onScrollStart) {
+      props.onScrollStart();
+    }
+  };
+
+  const onScrollEnd = () => {
+    if (props.onScrollEnd) {
+      props.onScrollEnd();
+    }
+  };
+
   useEventListener('touchmove', onTouchMove as EventListener, {
     target: track.current,
     depends: [track.current, reachTop.current, isTouchable, touch.deltaY],
+  });
+
+  useEventListener('scroll', debounce(onScrollStart, onScrollEnd, 300), {
+    target: scrollParent,
+    depends: [scrollParent],
   });
 
   const showSuccessTip = () => {

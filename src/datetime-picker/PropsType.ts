@@ -4,11 +4,11 @@ type Mode = 'date' | 'year-month' | 'month-day' | 'datehour' | 'datetime' | 'tim
 
 export interface SharedProps extends Omit<PickerProps, 'onConfirm' | 'onChange'> {
   filter?: Function;
-  value?: null;
+  value?: Date;
   columnsOrder?: string[];
   formatter?: Function;
-  onConfirm: (value: Date) => void;
-  onChange: (value: Date) => void;
+  onConfirm?: (value: Date) => void;
+  onChange?: (value: Date) => void;
 }
 
 export interface DatePickerProps extends SharedProps {

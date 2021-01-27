@@ -15,7 +15,7 @@ export default (): React.ReactNode => {
           <DemoBlock title="基础用法">
             <Flex>
               <Flex.Item span={6}>
-                <Icon name="chat-o" />
+                <Icon name="close" />
               </Flex.Item>
               <Flex.Item span={6}>
                 <Icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" />
@@ -25,7 +25,7 @@ export default (): React.ReactNode => {
           <DemoBlock title="图标颜色">
             <Flex>
               <Flex.Item span={6}>
-                <Icon name="chat-o" color="#1989fa" />
+                <Icon name="close" color="#1989fa" />
               </Flex.Item>
               <Flex.Item span={6}>
                 <Icon name="fire-o" color="red" />
@@ -35,10 +35,10 @@ export default (): React.ReactNode => {
           <DemoBlock title="图标大小">
             <Flex>
               <Flex.Item span={6}>
-                <Icon name="chat-o" size="40" />
+                <Icon name="close" size="40" />
               </Flex.Item>
               <Flex.Item span={6}>
-                <Icon name="chat-o" size="3rem" />
+                <Icon name="close" size="3rem" />
               </Flex.Item>
             </Flex>
           </DemoBlock>
@@ -53,9 +53,9 @@ export default (): React.ReactNode => {
             ))}
           </Flex>
         </Tabs.TabPane>
-        <Tabs.TabPane title="线框图标">
+        <Tabs.TabPane title="单色图标">
           <Flex wrap="wrap">
-            {icons.outline.map((icon) => (
+            {icons.single.map((icon) => (
               <Flex.Item key={icon} span={6}>
                 <Icon name={icon} />
                 <span>{icon}</span>
@@ -63,11 +63,11 @@ export default (): React.ReactNode => {
             ))}
           </Flex>
         </Tabs.TabPane>
-        <Tabs.TabPane title="实底图标">
+        <Tabs.TabPane title="地图图标">
           <Flex wrap="wrap">
-            {icons.filled.map((icon) => (
+            {icons.multi.map((icon) => (
               <Flex.Item key={icon} span={6}>
-                <Icon name={icon} />
+                <Icon name={icon} theme="multi" />
                 <span>{icon}</span>
               </Flex.Item>
             ))}

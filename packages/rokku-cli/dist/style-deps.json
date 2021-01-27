@@ -7,6 +7,17 @@
     "cell": [
       "icon"
     ],
+    "checkbox": [],
+    "collapse": [
+      "icon",
+      "cell"
+    ],
+    "datetime-picker": [
+      "icon",
+      "loading",
+      "button",
+      "picker"
+    ],
     "dialog": [
       "icon",
       "loading",
@@ -21,11 +32,24 @@
     ],
     "flex": [],
     "icon": [],
+    "index-bar": [],
     "list": [
       "loading"
     ],
     "loading": [],
+    "nav-bar": [
+      "icon"
+    ],
+    "notice-bar": [
+      "icon"
+    ],
     "overlay": [],
+    "password-input": [],
+    "picker": [
+      "icon",
+      "loading",
+      "button"
+    ],
     "popup": [
       "icon",
       "overlay"
@@ -33,16 +57,23 @@
     "pull-refresh": [
       "loading"
     ],
+    "radio": [
+      "checkbox"
+    ],
     "search": [
       "icon",
       "cell",
       "field"
     ],
+    "stepper": [],
     "sticky": [],
     "swipe": [],
     "tabs": [
       "sticky",
       "swipe"
+    ],
+    "tag": [
+      "icon"
     ],
     "toast": [
       "icon",
@@ -53,19 +84,30 @@
   },
   "sequence": [
     "icon",
+    "tag",
+    "notice-bar",
+    "nav-bar",
     "cell",
     "field",
     "search",
+    "collapse",
     "loading",
     "pull-refresh",
     "list",
     "button",
+    "picker",
+    "datetime-picker",
+    "checkbox",
+    "radio",
     "overlay",
     "popup",
     "toast",
     "dialog",
     "empty",
     "flex",
+    "index-bar",
+    "password-input",
+    "stepper",
     "sticky",
     "swipe",
     "tabs"

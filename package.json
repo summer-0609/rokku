@@ -1,8 +1,9 @@
 {
   "name": "@rokku/design",
-  "version": "0.0.11",
+  "version": "0.0.16",
   "description": "Mobile UI Components built on React",
   "main": "lib/index.js",
+  "module": "es/index.js",
   "style": "lib/index.css",
   "files": [
     "lib",
@@ -69,7 +70,7 @@
     "iOS >= 8"
   ],
   "dependencies": {
-    "@rokku/icons": "^1.0.0",
+    "@rokku/icons": "^1.0.4",
     "classnames": "^2.2.6",
     "react-transition-group": "^4.4.1"
   }

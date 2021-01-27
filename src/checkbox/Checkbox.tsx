@@ -1,7 +1,8 @@
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useEffect, useMemo, useState } from 'react';
 
 import Checker from './Checker';
 import CheckBoxContext from './CheckboxContext';
+import useMergedState from '../hooks/use-merged-state';
 
 import { CheckboxProps } from './PropsType';
 import { createNamespace } from '../utils';
@@ -10,7 +11,17 @@ const [bem] = createNamespace('checkbox');
 
 const CheckBox: React.FC<CheckboxProps> & { Group?: React.FC } = (props) => {
   const { parent, ...context } = useContext(CheckBoxContext);
-  const [checked, setChecked] = useState<boolean>(props.checked);
+  const [checked, setChecked] = useMergedState<boolean>({
+    value: props.checked,
+    defaultValue: props.defaultChecked,
+  });
+
+  const emit = (type?: string, args?: unknown) => {
+    const name = `on${type.replace(/( |^)[a-z]/g, (L) => L.toUpperCase())}`;
+    if (props[name] && typeof props[name] === 'function') {
+      props[name](args);
+    }
+  };
 
   const setParentValue = (isChecked: boolean) => {
     const { name } = props;
@@ -52,8 +63,10 @@ const CheckBox: React.FC<CheckboxProps> & { Group?: React.FC } = (props) => {
       setParentValue(newValue);
     } else {
       setChecked(newValue);
+      emit('change', newValue);
     }
   };
+
   return (
     <Checker
       {...props}

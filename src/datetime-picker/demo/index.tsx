@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { DateTimePicker, Toast, Field, Popup } from 'rokku';
+import { DatetimePicker, Toast, Field, Popup } from 'rokku';
 import { components } from 'site-mobile-demo';
 
 export default (): React.ReactNode => {
@@ -11,7 +11,7 @@ export default (): React.ReactNode => {
   return (
     <DemoSection>
       <DemoBlock card title="选择年月日">
-        <DateTimePicker
+        <DatetimePicker
           mode="date"
           minDate={new Date(2020, 0, 1)}
           maxDate={new Date(2025, 10, 1)}
@@ -19,7 +19,7 @@ export default (): React.ReactNode => {
         />
       </DemoBlock>
       <DemoBlock card title="选择年月">
-        <DateTimePicker
+        <DatetimePicker
           mode="year-month"
           minDate={new Date(2020, 0, 1)}
           maxDate={new Date(2025, 10, 1)}
@@ -36,7 +36,7 @@ export default (): React.ReactNode => {
         />
       </DemoBlock>
       <DemoBlock card title="选择月日">
-        <DateTimePicker
+        <DatetimePicker
           mode="month-day"
           minDate={new Date(2020, 0, 1)}
           maxDate={new Date(2025, 10, 1)}
@@ -53,10 +53,10 @@ export default (): React.ReactNode => {
         />
       </DemoBlock>
       <DemoBlock card title="选择时间">
-        <DateTimePicker mode="time" minHour="10" maxHour="20" value="12:00" />
+        <DatetimePicker mode="time" minHour="10" maxHour="20" value="12:00" />
       </DemoBlock>
       <DemoBlock card title="选择日期时间（包含星期）">
-        <DateTimePicker
+        <DatetimePicker
           mode="weektime"
           minDate={new Date(2021, 0, 1)}
           maxDate={new Date(2021, 2, 1)}
@@ -64,7 +64,7 @@ export default (): React.ReactNode => {
         />
       </DemoBlock>
       <DemoBlock card title="选择完整时间">
-        <DateTimePicker
+        <DatetimePicker
           mode="datetime"
           minDate={new Date(2020, 0, 1)}
           maxDate={new Date(2025, 10, 1)}
@@ -72,7 +72,7 @@ export default (): React.ReactNode => {
         />
       </DemoBlock>
       <DemoBlock card title="选择年月日小时">
-        <DateTimePicker
+        <DatetimePicker
           mode="datehour"
           minDate={new Date(2020, 0, 1)}
           maxDate={new Date(2025, 10, 1)}
@@ -80,7 +80,7 @@ export default (): React.ReactNode => {
         />
       </DemoBlock>
       <DemoBlock card title="选择过滤器">
-        <DateTimePicker
+        <DatetimePicker
           mode="time"
           minHour="10"
           maxHour="20"
@@ -94,7 +94,7 @@ export default (): React.ReactNode => {
         />
       </DemoBlock>
       <DemoBlock card title="自定义列排序">
-        <DateTimePicker
+        <DatetimePicker
           mode="date"
           columnsOrder={['month', 'day', 'year']}
           minDate={new Date(2020, 0, 1)}
@@ -103,7 +103,7 @@ export default (): React.ReactNode => {
         />
       </DemoBlock>
       <DemoBlock card title="确认按钮">
-        <DateTimePicker
+        <DatetimePicker
           showSubmitBtn
           onConfirm={(value: Date) => Toast(`确认的日期：${value}`)}
           mode="weektime"
@@ -131,7 +131,7 @@ export default (): React.ReactNode => {
         onClose={() => setShowPicker(false)}
       >
         <div style={{ padding: '0 8px' }}>
-          <DateTimePicker
+          <DatetimePicker
             showSubmitBtn
             onConfirm={(value: string) => {
               setFieldValue(value);

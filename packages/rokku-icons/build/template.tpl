@@ -1,13 +1,11 @@
-/* stylelint-disable selector-pseudo-element-colon-notation */
-/* stylelint-disable font-family-no-missing-generic-family-keyword */
 @font-face {
   font-weight: normal;
   font-family: '<%= fontName %>';
   font-style: normal;
   font-display: auto;
-  src: url('http://qjkmoyomo.hd-bkt.clouddn.com/<%= cssClass %>.woff2') format('woff2'),
-    url('http://qjkmoyomo.hd-bkt.clouddn.com/<%= cssClass %>.woff') format('woff'),
-    url('http://qjkmoyomo.hd-bkt.clouddn.com/<%= cssClass %>.ttf') format('truetype');
+  src: url('http://cdn.rokku.icu/<%= cssClass %>.woff2') format('woff2'),
+    url('http://cdn.rokku.icu/<%= cssClass %>.woff') format('woff'),
+    url('http://cdn.rokku.icu/<%= cssClass %>.ttf') format('truetype');
 }
 
 .rk-icon {

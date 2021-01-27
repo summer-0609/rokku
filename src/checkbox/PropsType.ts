@@ -5,10 +5,13 @@ type Shape = 'round' | 'square';
 
 export interface CheckBoxGroupProps extends BaseTypeProps {
   max?: number | string;
+  value?: any[];
+  defaultValue?: any[];
   disabledv?: boolean;
   iconSize?: number | string;
   direction?: string;
   checkedColor?: string;
+  asyncChange?: string;
   initChecked?: (string | number)[];
   onChange?: (name: (string | number)[]) => void;
 }
@@ -26,6 +29,8 @@ export interface CheckerProps<T> extends BaseTypeProps {
   parent?: { props: T };
   bindGroup?: boolean;
   checked?: boolean;
+  defaultChecked?: boolean;
+  asyncChange?: boolean;
   onToggle?: () => void;
   onClick?: (event: MouseEvent) => void;
 }

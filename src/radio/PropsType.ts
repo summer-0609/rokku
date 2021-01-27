@@ -6,10 +6,12 @@ export interface RadioGroupProps extends BaseTypeProps {
   iconSize?: number | string;
   direction?: string;
   checkedColor?: string;
-  initChecked?: string | number;
+  value?: string | number;
+  defaultValue?: string | number;
+  asyncChange?: boolean;
   onChange?: (name: string | number) => void;
 }
 
 export interface RadioProps extends CheckerProps<RadioGroupProps> {
-  initChecked?: string | number;
+  value?: string | number;
 }

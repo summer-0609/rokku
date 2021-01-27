@@ -4,6 +4,8 @@ import classnames from 'classnames';
 import { addUnit, createNamespace } from '../utils';
 import { IconPropsType } from './PropsType';
 
+import '@rokku/icons/src/svg-symbols.js';
+
 export interface IconProps extends IconPropsType {
   className?: string;
   onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
@@ -19,7 +21,14 @@ function isImage(name?: string): boolean {
 const [bem] = createNamespace('icon');
 
 const Icon: React.FC<IconProps> = (props) => {
-  const { tag = 'i', name, className, onClick, onTouchStart } = props;
+  const {
+    tag = props.theme === 'multi' ? 'svg' : 'i',
+    name,
+    className,
+    onClick,
+    onTouchStart,
+  } = props;
+
   const imageIcon = isImage(name);
   const ref = useRef(null);
 
@@ -28,6 +37,10 @@ const Icon: React.FC<IconProps> = (props) => {
     // touchstart事件passive默认开启
     ref.current?.addEventListener('touchstart', onTouchStart, { passive: false });
   }, []);
+  const rectStyle = props.theme === 'multi' && {
+    width: addUnit(props.size) || 40,
+    height: addUnit(props.size) || 40,
+  };
 
   return React.createElement(
     tag,
@@ -36,14 +49,17 @@ const Icon: React.FC<IconProps> = (props) => {
       className: classnames(
         className,
         props.classPrefix,
+        props.theme === 'multi' && name,
         imageIcon ? '' : `${props.classPrefix}-${name}`,
       ),
       style: {
+        ...rectStyle,
         color: props.color,
         fontSize: addUnit(props.size),
       },
       onClick,
     },
+    props.theme === 'multi' && <use xlinkHref={`#${name}`} />,
     props.children,
     imageIcon && <img className={classnames(bem('image'))} src={name} alt={name} />,
   );
@@ -52,6 +68,7 @@ const Icon: React.FC<IconProps> = (props) => {
 Icon.defaultProps = {
   // @ts-ignore
   classPrefix: bem(),
+  theme: 'single',
 };
 
 export default Icon;
