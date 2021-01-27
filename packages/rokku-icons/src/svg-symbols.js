@@ -1,4 +1,3 @@
-/* eslint-disable */
 'undefined' != typeof document &&
   (function (r, i) {
     var l;
