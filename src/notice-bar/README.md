@@ -17,7 +17,7 @@ import { NoticeBar } from '@rokku/design';
 通过 `text` 属性设置通知栏的内容，通过 `left-icon` 属性设置通知栏左侧的图标。
 
 ```html
-<NoticeBar leftIcon="volume-o" text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。" />
+<NoticeBar leftIcon="speaker-s" text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。" />
 ```
 
 ### 滚动播放
@@ -53,7 +53,7 @@ import { NoticeBar } from '@rokku/design';
 通过 `color` 属性设置文本颜色，通过 `background` 属性设置背景色。
 
 ```html
-<NoticeBar color="#1989fa" background="#ecf9ff" leftIcon="info-o">
+<NoticeBar color="#1989fa" background="#ecf9ff" leftIcon="info">
   技术是开发它的人的共同灵魂。
 </NoticeBar>
 ```
@@ -63,7 +63,7 @@ import { NoticeBar } from '@rokku/design';
 搭配 NoticeBar 和 Swipe 组件可以实现垂直滚动的效果。
 
 ```html
-<NoticeBar leftIcon="info-o">
+<NoticeBar leftIcon="info">
   <Swipe autoplay="3000" showIndicators="{false}" vertical className="notice-swipe">
     <Swipe.Item>内容 1</Swipe.Item>
     <Swipe.Item>内容 2</Swipe.Item>
@@ -120,9 +120,9 @@ import { NoticeBar } from '@rokku/design';
 | @notice-bar-height           | `40px`                    | -    |
 | @notice-bar-padding          | `0 @padding-md`           | -    |
 | @notice-bar-wrapable-padding | `@padding-xs @padding-md` | -    |
-| @notice-bar-text-color       | `@orange-dark`            | -    |
+| @notice-bar-text-color       | `@brown`            | -    |
 | @notice-bar-font-size        | `@font-size-md`           | -    |
 | @notice-bar-line-height      | `24px`                    | -    |
-| @notice-bar-background-color | `@orange-light`           | -    |
+| @notice-bar-background-color | `@yellow`           | -    |
 | @notice-bar-icon-size        | `16px`                    | -    |
 | @notice-bar-icon-min-width   | `24px`                    | -    |
