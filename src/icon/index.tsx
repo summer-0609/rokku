@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import classnames from 'classnames';
 import { addUnit, createNamespace } from '../utils';
 import { IconPropsType } from './PropsType';
@@ -30,6 +30,13 @@ const Icon: React.FC<IconProps> = (props) => {
   } = props;
 
   const imageIcon = isImage(name);
+  const ref = useRef(null);
+
+  useEffect(() => {
+    // 解决touchstart无法preventDefault的问题
+    // touchstart事件passive默认开启
+    ref.current?.addEventListener('touchstart', onTouchStart, { passive: false });
+  }, []);
   const rectStyle = props.theme === 'multi' && {
     width: addUnit(props.size) || 40,
     height: addUnit(props.size) || 40,
@@ -38,6 +45,7 @@ const Icon: React.FC<IconProps> = (props) => {
   return React.createElement(
     tag,
     {
+      ref,
       className: classnames(
         className,
         props.classPrefix,
@@ -50,7 +58,6 @@ const Icon: React.FC<IconProps> = (props) => {
         fontSize: addUnit(props.size),
       },
       onClick,
-      onTouchStart,
     },
     props.theme === 'multi' && <use xlinkHref={`#${name}`} />,
     props.children,
