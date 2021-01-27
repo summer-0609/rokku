@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React, { useEffect, useRef } from 'react';
 import classnames from 'classnames';
-import { addUnit, createNamespace } from '../utils';
+import { addUnit, createNamespace, preventDefault } from '../utils';
 import { IconPropsType } from './PropsType';
 
 import '@rokku/icons/src/svg-symbols.js';
@@ -35,7 +35,14 @@ const Icon: React.FC<IconProps> = (props) => {
   useEffect(() => {
     // 解决touchstart无法preventDefault的问题
     // touchstart事件passive默认开启
-    ref.current?.addEventListener('touchstart', onTouchStart, { passive: false });
+    ref.current?.addEventListener(
+      'touchstart',
+      (e) => {
+        preventDefault(e, true);
+        onTouchStart(e);
+      },
+      { passive: false },
+    );
   }, []);
   const rectStyle = props.theme === 'multi' && {
     width: addUnit(props.size) || 40,
