@@ -211,16 +211,7 @@ module.exports = {
           },
           {
             title: '业务组件',
-            items: [
-              {
-                path: 'complain',
-                title: 'Complain 问题申诉',
-              },
-              {
-                path: 'announcement',
-                title: 'Announcement 公告',
-              },
-            ],
+            items: [],
           },
         ],
       },
