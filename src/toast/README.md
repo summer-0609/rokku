@@ -147,7 +147,7 @@ const timer = setInterval(() => {
 | @toast-icon-size                | `36px`                    | -    |
 | @toast-text-min-width           | `96px`                    | -    |
 | @toast-text-padding             | `@padding-xs @padding-sm` | -    |
-| @toast-default-padding          | `@padding-md`             | -    |
+| @toast-default-padding          | `@padding-sm 10px`             | -    |
 | @toast-default-width            | `88px`                    | -    |
 | @toast-default-min-height       | `88px`                    | -    |
 | @toast-position-top-distance    | `20%`                     | -    |

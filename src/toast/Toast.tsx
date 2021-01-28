@@ -50,7 +50,11 @@ const Toast: React.FC<ToastProps> = (props) => {
 
     if (hasIcon) {
       return (
-        <Icon name={icon || type} className={classnames(bem('icon'))} classPrefix={iconPrefix} />
+        <Icon
+          name={icon || type === 'fail' ? 'cross' : type}
+          className={classnames(bem('icon'))}
+          classPrefix={iconPrefix}
+        />
       );
     }
 
@@ -85,6 +89,10 @@ const Toast: React.FC<ToastProps> = (props) => {
       {renderMessage()}
     </Popup>
   );
+};
+
+Toast.defaultProps = {
+  loadingType: 'spinner',
 };
 
 export default Toast;

@@ -265,7 +265,7 @@ const PickerColumn = forwardRef<{}, PickerColumnProps>((props, ref) => {
     return null;
   };
 
-  const getValue = useCallback(() => options[index.current], [index.current]);
+  const getValue = useCallback(() => options[index.current], [index.current, options]);
 
   useEffect(() => {
     setIndex(defaultIndex);

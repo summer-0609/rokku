@@ -12,7 +12,7 @@ import classnames from 'classnames';
 import Icon from '../icon';
 import Cell from '../cell';
 import { FieldProps } from './PropsType';
-import { createNamespace, isDef, addUnit, formatNumber, preventDefault, isObject } from '../utils';
+import { createNamespace, isDef, addUnit, formatNumber, isObject } from '../utils';
 
 const [bem] = createNamespace('field');
 const ICON_SIZE = '16px';
@@ -266,7 +266,6 @@ const Field = (props: FieldProps, ref) => {
 
   const handleClear = (e) => {
     const { onClear, onChange } = props;
-    preventDefault(e);
     inputRef.current.value = '';
     onChange('');
     if (onClear && typeof onClear === 'function') {

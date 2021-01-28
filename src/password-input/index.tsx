@@ -5,7 +5,6 @@ import React, { useState, useEffect, useRef, forwardRef, useImperativeHandle } f
 import classnames from 'classnames';
 import { isFunction, createNamespace, formatNumber, isDef } from '../utils';
 import { PasswordInputProps } from './PropsType';
-import './style';
 
 const [bem] = createNamespace('password-input');
 type InputMode = 'text' | 'none' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
