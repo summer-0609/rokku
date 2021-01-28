@@ -14,7 +14,7 @@ import { Search } from 'rokku';
 
 ### 基础用法
 
-```html
+```jsx
 <Search placeholder="请输入搜索关键词" />
 ```
 

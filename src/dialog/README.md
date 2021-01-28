@@ -128,7 +128,7 @@ Dialog.confirm({
 const [show, setShow] = useState(false);
 ```
 
-```html
+```jsx
 <Dialog
     show={show}
     title="标题"

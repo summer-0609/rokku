@@ -10,7 +10,7 @@ import { Button } from 'rokku';
 
 ### Type
 
-```html
+```jsx
 <Button type="primary">Primary</Button>
 <Button type="success">Success</Button>
 <Button type="default">Default</Button>
@@ -20,28 +20,28 @@ import { Button } from 'rokku';
 
 ### Plain
 
-```html
+```jsx
 <Button plain type="primary">Primary</Button>
 <Button plain type="primary">Danger</Button>
 ```
 
 ### Hairline
 
-```html
+```jsx
 <Button plain hairline type="primary">Hairline</Button>
 <Button plain hairline type="primary">Hairline</Button>
 ```
 
 ### Disabled
 
-```html
+```jsx
 <Button disabled type="primary">Diabled</Button>
 <Button disabled type="primary">Diabled</Button>
 ```
 
 ### Loading
 
-```html
+```jsx
 <Button loading type="primary" />
 <Button loading type="primary" loading-type="spinner" />
 <Button loading type="primary" loading-text="Loading..." />
@@ -49,14 +49,14 @@ import { Button } from 'rokku';
 
 ### Shape
 
-```html
+```jsx
 <Button square type="primary">Square</Button>
 <Button round type="primary">Round</Button>
 ```
 
 ### Icon
 
-```html
+```jsx
 <Button icon="plus" type="primary" />
 <Button icon="plus" type="primary">Button</Button>
 <Button icon="https://img.yzcdn.cn/vant/user-active.png" type="primary">
@@ -66,7 +66,7 @@ import { Button } from 'rokku';
 
 ### Size
 
-```html
+```jsx
 <Button type="primary" size="large">Large</Button>
 <Button type="primary" size="normal">Normal</Button>
 <Button type="primary" size="small">Small</Button>
@@ -75,20 +75,20 @@ import { Button } from 'rokku';
 
 ### Block Element
 
-```html
+```jsx
 <Button type="primary" block>Block Element</Button>
 ```
 
 ### Route
 
-```html
+```jsx
 <Button type="primary" url="/vant/mobile.html">URL</Button>
 <Button type="primary" to="index">Vue Router</Button>
 ```
 
 ### Custom Color
 
-```html
+```jsx
 <Button color="#7232dd">Pure</Button>
 <Button color="#7232dd" plain>Pure</Button>
 <Button color="linear-gradient(to right, #ff6034, #ee0a24)">

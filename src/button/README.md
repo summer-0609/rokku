@@ -16,7 +16,7 @@ import { Button } from '@rokku/design';
 
 按钮支持 `default`、`primary`、`info`、`warning`、`danger` 五种类型，默认为 `default`。
 
-```html
+```jsx
 <Button type="primary">主要按钮</Button>
 <Button type="info">信息按钮</Button>
 <Button type="default">默认按钮</Button>
@@ -28,7 +28,7 @@ import { Button } from '@rokku/design';
 
 通过 `plain` 属性将按钮设置为朴素按钮，朴素按钮的文字为按钮颜色，背景为白色。
 
-```html
+```jsx
 <Button plain type="primary">朴素按钮</Button>
 <Button plain type="primary">朴素按钮</Button>
 ```
@@ -37,7 +37,7 @@ import { Button } from '@rokku/design';
 
 设置 `hairline` 属性可以展示 0.5px 的细边框。
 
-```html
+```jsx
 <Button plain hairline type="primary">细边框按钮</Button>
 <Button plain hairline type="primary">细边框按钮</Button>
 ```
@@ -46,7 +46,7 @@ import { Button } from '@rokku/design';
 
 通过 `disabled` 属性来禁用按钮，禁用状态下按钮不可点击。
 
-```html
+```jsx
 <Button disabled type="primary">禁用状态</Button>
 <Button disabled type="primary">禁用状态</Button>
 ```
@@ -55,7 +55,7 @@ import { Button } from '@rokku/design';
 
 通过 `loading` 属性设置按钮为加载状态，加载状态下默认会隐藏按钮文字，可以通过 `loading-text` 设置加载状态下的文字。
 
-```html
+```jsx
 <Button loading type="primary" />
 <Button loading type="primary" loading-type="spinner" />
 <Button loading type="primary" loading-text="加载中..." />
@@ -65,7 +65,7 @@ import { Button } from '@rokku/design';
 
 通过 `square` 设置方形按钮，通过 `round` 设置圆形按钮。
 
-```html
+```jsx
 <Button type="primary" square>方形按钮</Button>
 <Button type="primary" round>圆形按钮</Button>
 ```
@@ -74,7 +74,7 @@ import { Button } from '@rokku/design';
 
 通过 `icon` 属性设置按钮图标，支持 Icon 组件里的所有图标，也可以传入图标 URL。
 
-```html
+```jsx
 <Button icon="plus" type="primary" />
 <Button icon="plus" type="primary">按钮</Button>
 <Button icon="https://img.yzcdn.cn/vant/user-active.png" plain type="primary">按钮</Button>
@@ -84,7 +84,7 @@ import { Button } from '@rokku/design';
 
 支持 `large`、`normal`、`small`、`mini` 四种尺寸，默认为 `normal`。
 
-```html
+```jsx
 <Button type="primary" size="large">大号按钮</Button>
 <Button type="primary" size="normal">普通按钮</Button>
 <Button type="primary" size="small">小型按钮</Button>
@@ -95,7 +95,7 @@ import { Button } from '@rokku/design';
 
 按钮在默认情况下为行内块级元素，通过 `block` 属性可以将按钮的元素类型设置为块级元素。
 
-```html
+```jsx
 <Button type="primary" block>块级元素</Button>
 ```
 
@@ -103,7 +103,7 @@ import { Button } from '@rokku/design';
 
 可以通过 `url` 属性进行 URL 跳转，或通过 `to` 属性进行路由跳转。
 
-```html
+```jsx
 <Button type="primary" url="/vant/mobile.html">URL 跳转</Button>
 <Button type="primary" to="index">路由跳转</Button>
 ```
@@ -112,7 +112,7 @@ import { Button } from '@rokku/design';
 
 通过 `color` 属性可以自定义按钮的颜色。
 
-```html
+```jsx
 <Button color="#7232dd">单色按钮</Button>
 <Button color="#7232dd" plain>单色按钮</Button>
 <Button color="linear-gradient(to right, #ff6034, #ee0a24)">渐变色按钮</Button>

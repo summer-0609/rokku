@@ -10,7 +10,7 @@ import { NavBar } from '@rokku/design';
 
 ### 基础用法
 
-```html
+```jsx
 <NavBar
   title="标题"
   leftArrow
@@ -24,7 +24,7 @@ import { NavBar } from '@rokku/design';
 
 自定义导航栏两侧的内容。
 
-```html
+```jsx
 <NavBar
   title="标题"
   leftArrow

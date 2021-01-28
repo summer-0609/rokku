@@ -20,7 +20,7 @@ import { Collapse } from '@rokku/design';
 const activeNames = ["1"]
 ```
 
-```html
+```jsx
 <Collapse.Group initExpanded={activeNames}>
   <Collapse title="标题1" name="1">内容</Collapse>
   <Collapse title="标题2" name="2">内容</Collapse>
@@ -31,7 +31,7 @@ const activeNames = ["1"]
 
 通过 `accordion` 可以设置为手风琴模式，最多展开一个面板，此时 `activeName` 为字符串格式。
 
-```html
+```jsx
 <Collapse.Group initExpanded="1" accordion>
   <Collapse title="标题1" name="1">内容</Collapse>
   <Collapse title="标题2" name="2">内容</Collapse>
@@ -43,7 +43,7 @@ const activeNames = ["1"]
 
 通过 `disabled` 属性来禁用单个面板。
 
-```html
+```jsx
 <Collapse.Group initExpanded="activeNames">
   <Collapse title="标题1" name="1">内容</Collapse>
   <Collapse title="标题2" name="2" disabled>内容</Collapse>
@@ -55,7 +55,7 @@ const activeNames = ["1"]
 
 通过 `title` 插槽可以自定义标题栏的内容。
 
-```html
+```jsx
 <Collapse.Group initExpanded="activeNames">
   <Collapse name="1">
     <template #title>

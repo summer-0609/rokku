@@ -16,7 +16,7 @@ import { Swipe } from '@rokku/design';
 
 每个 SwipeItem 代表一张轮播卡片，可以通过 `autoplay` 属性设置自动轮播的间隔。
 
-```html
+```jsx
 <Swipe className="my-swipe" autoplay="3000">
   <Swipe.Item>1</Swipe.Item>
   <Swipe.Item>2</Swipe.Item>
@@ -39,7 +39,7 @@ import { Swipe } from '@rokku/design';
 
 当 Swipe 中含有图片时，可以通过 `lazyRender` 属性来开启懒加载模式。在懒加载模式下，只会渲染当前页和下一页。
 
-```html
+```jsx
 <Swipe autoplay="3000" lazyRender>
   {images.map((item) => (
   <Swipe.Item key="{item}">
@@ -60,7 +60,7 @@ const images = [
 
 ### 监听 change 事件
 
-```html
+```jsx
 <Swipe onChange="{onChange}">
   <Swipe.Item>1</Swipe.Item>
   <Swipe.Item>2</Swipe.Item>
@@ -79,7 +79,7 @@ const onChange = (index: number) => Toast(`当前 Swipe 索引：${index}`);
 
 设置 `vertical` 属性后滑块会纵向排列，此时需要指定滑块容器的高度。
 
-```html
+```jsx
  <Swipe
   autoplay="3000"
   vertical
@@ -172,7 +172,7 @@ Swipe 组件在挂载时，会获取自身的宽度，并计算出轮播图的�
 
 方法一，如果是使用 `v-show` 来控制组件展示的，则替换为 `v-if` 即可解决此问题：
 
-```html
+```jsx
 <!-- Before -->
 <Swipe v-show="show" />
 <!-- After -->
@@ -181,7 +181,7 @@ Swipe 组件在挂载时，会获取自身的宽度，并计算出轮播图的�
 
 方法二，调用组件的 resize 方法来主动触发重绘：
 
-```html
+```jsx
 <Swipe v-show="show" ref="swipe" />
 ```
 

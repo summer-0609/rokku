@@ -16,8 +16,8 @@ import { PullRefresh } from '@rokku/design';
 
 下拉刷新时会触发 `refresh` 事件，在事件的回调函数中可以进行同步或异步操作，操作完成后将 `v-model` 设置为 `false`，表示加载完成。
 
-```html
-<PullRefresh refreshing="{isRefreshing}" onRefresh="{onRefresh}">
+```jsx
+<PullRefresh refreshing={isRefreshing} onRefresh={onRefresh}>
   <p>下拉刷新</p>
 </PullRefresh>
 ```
@@ -39,8 +39,8 @@ const onRefresh = () => {
 
 通过 `successText` 可以设置刷新成功后的顶部提示文案。
 
-```html
-<PullRefresh refreshing="{isLoading}" successText="刷新成功" onRefresh="{onRefresh}">
+```jsx
+<PullRefresh refreshing={isLoading} successText="刷新成功" onRefresh={onRefresh}>
   <p>下拉刷新</p>
 </PullRefresh>
 ```
@@ -49,7 +49,7 @@ const onRefresh = () => {
 
 通过插槽可以自定义下拉刷新过程中的提示内容。
 
-```html
+```jsx
 <PullRefresh
   headHeight="80"
   refreshing={refreshing}
@@ -128,6 +128,6 @@ const onRefresh = () => {
 
 默认情况下，下拉区域的高度是和内容高度保持一致的，如果需要让下拉区域始终为全屏，可以给 PullRefresh 设置一个与屏幕大小相等的最小高度：
 
-```html
+```jsx
 <PullRefresh style="min-height: 100vh;" />
 ```

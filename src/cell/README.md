@@ -16,7 +16,7 @@ import { Cell } from '@rokku/design';
 
 `Cell` 可以单独使用，也可以与 `Cell.Group` 搭配使用，`Cell.Group` 可以为 `Cell` 提供上下外边框。
 
-```html
+```jsx
 <Cell.Group>
   <Cell title="单元格" value="内容" />
   <Cell title="单元格" value="内容" label="描述信息" />
@@ -27,7 +27,7 @@ import { Cell } from '@rokku/design';
 
 通过 `size` 属性可以控制单元格的大小。
 
-```html
+```jsx
 <Cell title="单元格" value="内容" size="large" />
 <Cell title="单元格" value="内容" label="描述信息" size="large" />
 ```
@@ -36,7 +36,7 @@ import { Cell } from '@rokku/design';
 
 通过 `icon` 属性在标题左侧展示图标。
 
-```html
+```jsx
 <Cell title="单元格" icon="location-o" />
 ```
 
@@ -44,7 +44,7 @@ import { Cell } from '@rokku/design';
 
 只设置 `value` 时，内容会靠左对齐。
 
-```html
+```jsx
 <Cell value="内容" />
 ```
 
@@ -52,7 +52,7 @@ import { Cell } from '@rokku/design';
 
 设置 `isLink` 属性后会在单元格右侧显示箭头，并且可以通过 `arrowDirection` 属性控制箭头方向。
 
-```html
+```jsx
 <Cell title="单元格" isLink />
 <Cell title="单元格" isLink value="内容" />
 <Cell title="单元格" isLink arrowDirection="down" value="内容" />
@@ -62,7 +62,7 @@ import { Cell } from '@rokku/design';
 
 通过 `Cell.Group` 的 `title` 属性可以指定分组标题。
 
-```html
+```jsx
 <Cell.Group title="分组1">
   <Cell title="单元格" value="内容" />
 </Cell.Group>
@@ -75,7 +75,7 @@ import { Cell } from '@rokku/design';
 
 通过 `Cell.Group` 的 `card` 属性可以可以展示卡片类型。
 
-```html
+```jsx
 <Cell.Group card>
   <Cell title="单元格" value="内容" />
   <Cell title="单元格" value="内容" />
@@ -86,7 +86,7 @@ import { Cell } from '@rokku/design';
 
 如以上用法不能满足你的需求，可以来自定义内容。
 
-```html
+```jsx
 <Cell title="单元格" icon="shop-o">
   <div>自定义内容</div>
 </Cell>
@@ -96,7 +96,7 @@ import { Cell } from '@rokku/design';
 
 通过 `center` 属性可以让 `Cell` 的左右内容都垂直居中。
 
-```html
+```jsx
 <Cell center title="单元格" value="内容" label="描述信息" />
 ```
 

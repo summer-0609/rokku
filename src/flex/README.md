@@ -14,7 +14,7 @@ import { Flex } from '@rokku/design';
 
 `Flex` 组件提供了`24列栅格`。使用单一的一组 `Flex` 和 `Flex.Item` 栅格组件，就可以创建一个基本的栅格系统，所有列（`Flex.Item`）必须放在 `Flex` 内。
 
-```html
+```jsx
 <Flex>
   <Flex.Item span={12}>span: 12</Flex.Item>
   <Flex.Item span={12}>span: 12</Flex.Item>
@@ -29,7 +29,7 @@ import { Flex } from '@rokku/design';
 ### 区域间隔
 通过```gutter```属性可以设置列元素之间的间距，默认间距为 `0`; 如果需要垂直间距，可以写成数组形式 `[水平间距, 垂直间距]`
 
-```html
+```jsx
 <Flex gutter={16}>
   <Flex.Item span={8}>span: 8</Flex.Item>
   <Flex.Item span={8}>span: 8</Flex.Item>
@@ -39,7 +39,7 @@ import { Flex } from '@rokku/design';
 ### 方向
 通过```direction```属性设置弹性布局方向。默认是 `row`
 
-```html
+```jsx
 <Flex direction="row">
   <Flex.Item span={8}>span: 8-1</Flex.Item>
   <Flex.Item span={8}>span: 8-2</Flex.Item>
