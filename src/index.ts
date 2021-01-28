@@ -29,3 +29,4 @@ export { default as Stepper } from './stepper';
 export { default as Switch } from './switch';
 export { default as Announcement } from './Announcement';
 export { default as Complain } from './complain';
+export { default as PriceDetail } from './priceDetail';
