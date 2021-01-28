@@ -14,7 +14,7 @@ import { Empty } from 'rokku';
 
 ### 基础用法
 
-```html
+```jsx
 <Empty description="描述文字" />
 ```
 
@@ -22,7 +22,7 @@ import { Empty } from 'rokku';
 
 需要自定义图片时，可以在 image 属性中传入任意图片 URL。
 
-```html
+```jsx
 <Empty
   className="custom-empty"
   image="https://img.yzcdn.cn/vant/custom-Empty-image.png"

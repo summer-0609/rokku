@@ -1353,10 +1353,10 @@
     "@octokit/openapi-types" "^2.0.1"
     "@types/node" ">= 8"
 
-"@rokku/cli@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/@rokku/cli/-/cli-1.1.1.tgz#402fead1ae1e3ef65e49eead1779be1d9fffda41"
-  integrity sha512-R0aWI6W2hWdf+6t21LKbsPQfi0wEUt5JB4WsjnXKvUz2QYNfhjpEunW6BO3Aej/hzQTjRDCAhGLDl6hhUPwbeA==
+"@rokku/cli@^1.1.2":
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/@rokku/cli/-/cli-1.1.2.tgz#784523a13c6ce2ee5af32df9fded46869e645aa1"
+  integrity sha512-Dn7B5jxjkgNXMKy0GbTuqPVlvPvHYyTxcvZUKPrXxjRNcxkU+i1VjOBX1vSpARDMihm/BTLFqMBhmEjBtsduLQ==
   dependencies:
     "@babel/core" "^7.12.3"
     "@babel/plugin-proposal-decorators" "^7.12.1"
@@ -1366,7 +1366,7 @@
     "@babel/preset-env" "^7.11.5"
     "@babel/preset-react" "^7.12.5"
     "@babel/preset-typescript" "^7.12.1"
-    "@rokku/markdown-loader" "^1.0.1"
+    "@rokku/markdown-loader" "^1.0.2"
     "@rokku/touch-emulator" "^1.0.0"
     address "^1.1.2"
     autoprefixer "9.7.5"
@@ -1448,16 +1448,16 @@
   resolved "https://registry.npm.taobao.org/@rokku/icons/download/@rokku/icons-1.0.5.tgz#04f45d90bfab26448deae847f04a4bef8c332ba2"
   integrity sha1-BPRdkL+rJkSN6uhH8EpL74wzK6I=
 
-"@rokku/markdown-loader@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/@rokku/markdown-loader/-/markdown-loader-1.0.1.tgz#1e3c5b35a6bb50a093e27fdbf34eadebf0d58ca9"
-  integrity sha512-27LyJogouJJXE/3uN5C4KG32hP0Js3bVDq+xP3Gwtp0jyp+dLf0CKslHUmG46r1/vUnzSPr7frKHKYclZuKSCA==
+"@rokku/markdown-loader@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/@rokku/markdown-loader/-/markdown-loader-1.0.2.tgz#cd7ba53796fe616dbb96176e20c597a91d56a834"
+  integrity sha512-PIlH+SWWpyBZO+eyI0hiusm9uBNx2cY9wmw6dhf70bG0/jJaHd4Ap96EBV/m1YtGvKZ0D6xwt24rxB76cQrBUw==
   dependencies:
     front-matter "^4.0.2"
-    highlight.js "^10.2.1"
     loader-utils "^2.0.0"
     markdown-it "^12.0.0"
     markdown-it-anchor "^6.0.0"
+    prismjs "^1.23.0"
     transliteration "^2.1.11"
 
 "@rokku/touch-emulator@^1.0.0":
@@ -3285,6 +3285,15 @@ cli-width@^3.0.0:
   resolved "https://registry.npmjs.org/cli-width/-/cli-width-3.0.0.tgz#a2f48437a2caa9a22436e794bf071ec9e61cedf6"
   integrity sha512-FxqpkPPwu1HjuN93Omfm4h8uIanXofW0RxVEW3k5RKx+mJJYSthzNhp32Kzxxy3YAEZ/Dc/EWN1vZRY0+kOhbw==
 
+clipboard@^2.0.0:
+  version "2.0.6"
+  resolved "https://registry.npmjs.org/clipboard/-/clipboard-2.0.6.tgz#52921296eec0fdf77ead1749421b21c968647376"
+  integrity sha512-g5zbiixBRk/wyKakSwCKd7vQXDjFnAMGHoEyBogG/bw9kTD9GvdAvaoRR1ALcEzt3pVKxZR0pViekPMIS0QyGg==
+  dependencies:
+    good-listener "^1.2.2"
+    select "^1.1.2"
+    tiny-emitter "^2.0.0"
+
 cliui@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/cliui/-/cliui-5.0.0.tgz#deefcfdb2e800784aa34f46fa08e06851c7bbbc5"
@@ -3973,6 +3982,11 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
+
+delegate@^3.1.2:
+  version "3.2.0"
+  resolved "https://registry.npmjs.org/delegate/-/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
+  integrity sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw==
 
 depd@~1.1.2:
   version "1.1.2"
@@ -5651,6 +5665,13 @@ gonzales-pe@^4.2.3, gonzales-pe@^4.3.0:
   dependencies:
     minimist "^1.2.5"
 
+good-listener@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.npmjs.org/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
+  integrity sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
+  dependencies:
+    delegate "^3.1.2"
+
 got@11.8.0:
   version "11.8.0"
   resolved "https://registry.npmjs.org/got/-/got-11.8.0.tgz#be0920c3586b07fd94add3b5b27cb28f49e6545f"
@@ -5842,11 +5863,6 @@ he@^1.2.0:
   version "1.2.0"
   resolved "https://registry.npmjs.org/he/-/he-1.2.0.tgz#84ae65fa7eafb165fddb61566ae14baf05664f0f"
   integrity sha512-F/1DnUGPopORZi0ni+CvrCgHQ5FyEAHRLSApuYWMmrbSwoN2Mn/7k+Gl38gJnR7yyDZk6WLXwiGod1JOWNDKGw==
-
-highlight.js@^10.2.1:
-  version "10.3.2"
-  resolved "https://registry.npmjs.org/highlight.js/-/highlight.js-10.3.2.tgz#135fd3619a00c3cbb8b4cd6dbc78d56bfcbc46f1"
-  integrity sha512-3jRT7OUYsVsKvukNKZCtnvRcFyCJqSEIuIMsEybAXRiFSwpt65qjPd/Pr+UOdYt7WJlt+lj3+ypUsHiySBp/Jw==
 
 history@^4.9.0:
   version "4.10.1"
@@ -9271,6 +9287,13 @@ pretty-time@^1.1.0:
   resolved "https://registry.npmjs.org/pretty-time/-/pretty-time-1.1.0.tgz#ffb7429afabb8535c346a34e41873adf3d74dd0e"
   integrity sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==
 
+prismjs@^1.23.0:
+  version "1.23.0"
+  resolved "https://registry.npmjs.org/prismjs/-/prismjs-1.23.0.tgz#d3b3967f7d72440690497652a9d40ff046067f33"
+  integrity sha512-c29LVsqOaLbBHuIbsTxaKENh1N2EQBOHaWv7gkHN4dgRbxSREqDnDbtFJYdpPauS4YCplMSNCABQ6Eeor69bAA==
+  optionalDependencies:
+    clipboard "^2.0.0"
+
 process-nextick-args@^2.0.0, process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.npmjs.org/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
@@ -10317,6 +10340,11 @@ select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
   integrity sha1-Yl2GWPhlr0Psliv8N2o3NZpJlMo=
+
+select@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
+  integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
 
 selfsigned@^1.10.7:
   version "1.10.8"
@@ -11400,6 +11428,11 @@ timers-browserify@^2.0.4:
   integrity sha512-9phl76Cqm6FhSX9Xe1ZUAMLtm1BLkKj2Qd5ApyWkXzsMRaA7dgr81kf4wJmQf/hAvg8EEyJxDo3du/0KlhPiKQ==
   dependencies:
     setimmediate "^1.0.4"
+
+tiny-emitter@^2.0.0:
+  version "2.1.0"
+  resolved "https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
+  integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
 
 tiny-invariant@^1.0.2:
   version "1.1.0"

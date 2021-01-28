@@ -269,7 +269,7 @@ const Picker = forwardRef<PickerRef, PickerProps>((props, ref) => {
   }));
 
   return (
-    <div className={classnames(bem())}>
+    <div className={classnames(bem(), props.className)}>
       {props.loading ? <Loading className={classnames(bem('loading'))} /> : null}
       {renderColumns()}
       {renderConfirmBtn()}

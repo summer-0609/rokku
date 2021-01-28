@@ -16,7 +16,7 @@ import { Sticky } from '@rokku/design';
 
 将内容包裹在 `Sticky` 组件内即可。
 
-```html
+```jsx
 <Sticky>
   <button type="primary">基础用法</button>
 </Sticky>
@@ -26,7 +26,7 @@ import { Sticky } from '@rokku/design';
 
 通过 `offsetTop` 属性可以设置组件在吸顶时与顶部的距离。
 
-```html
+```jsx
 <Sticky offsetTop={50}>
   <button type="info">吸顶距离</button>
 </Sticky>
@@ -40,7 +40,7 @@ import { Sticky } from '@rokku/design';
 const container = useRef(null);
 ```
 
-```html
+```jsx
 <div ref={container} style={{ height: '150px', backgroundColor: '#fff' }}>
   <Sticky container={container}>
     <Button type="warning" style={{ marginLeft: '215px' }}>

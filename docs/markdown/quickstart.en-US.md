@@ -97,7 +97,7 @@ Vue.use(Vant);
 
 The easiest way to use Vant is to include a CDN link in the html file, after which you can access all components via the global variable `vant`.
 
-```html
+```jsx
 <!-- import style -->
 <link
   rel="stylesheet"

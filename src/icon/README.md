@@ -15,7 +15,7 @@ import { Icon } from '@rokku/design';
 
 `Icon` 的 `name` 属性支持传入图标名称或图片链接，所有可用的图标名称见右侧示例。
 
-```html
+```jsx
 <Icon name="chat-o" />
 <Icon name="https://b.yzcdn.cn/vant/icon-demo-1126.png" />
 ```
@@ -24,7 +24,7 @@ import { Icon } from '@rokku/design';
 
 `Icon` 的 `color` 属性用来设置图标的颜色。
 
-```html
+```jsx
 <Icon name="cart-o" color="#1989fa" />
 <Icon name="fire-o" color="#ee0a24" />
 ```
@@ -33,7 +33,7 @@ import { Icon } from '@rokku/design';
 
 `Icon` 的 `theme` 属性用来设置图标的主题。目前只是特指地图相关的图标
 
-```html
+```jsx
 <Icon theme="multi" name="map-user" />
 ```
 
@@ -42,7 +42,7 @@ import { Icon } from '@rokku/design';
 
 `Icon` 的 `size` 属性用来设置图标的尺寸大小，默认单位为 `px`。
 
-```html
+```jsx
 <Icon name="chat-o" size="40" />
 <Icon name="chat-o" size="3rem" />
 ```
@@ -67,7 +67,7 @@ import { Icon } from '@rokku/design';
 }
 ```
 
-```html
+```jsx
 <!-- 通过 classPrefix 指定类名为 my-icon -->
 <Icon classPrefix="my-icon" name="extra" />
 ```

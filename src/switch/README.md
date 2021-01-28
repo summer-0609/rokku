@@ -16,7 +16,7 @@ import { Switch } from '@rokku/design';
 
 通过 `defaultChecked` 默认开关的选中状态，`true` 表示开，`false` 表示关。
 
-```html
+```jsx
 <Switch defaultChecked />
 ```
 
@@ -24,7 +24,7 @@ import { Switch } from '@rokku/design';
 
 通过 `disabled` 属性来禁用开关，禁用状态下开关不可点击。
 
-```html
+```jsx
 <Switch defaultChecked disabled />
 ```
 
@@ -32,7 +32,7 @@ import { Switch } from '@rokku/design';
 
 通过 `loading` 属性设置开关为加载状态，加载状态下开关不可点击。
 
-```html
+```jsx
 <Switch defaultChecked loading />
 ```
 
@@ -40,7 +40,7 @@ import { Switch } from '@rokku/design';
 
 通过 `size` 属性自定义开关的大小。
 
-```html
+```jsx
 <Switch defaultChecked size="24px" />
 ```
 
@@ -48,7 +48,7 @@ import { Switch } from '@rokku/design';
 
 `activeColor` 属性表示打开时的背景色，`inactiveColor` 表示关闭时的背景色。
 
-```html
+```jsx
 <Switch defaultChecked activeColor="#ee0a24" inactiveColor="#dcdee0" />
 ```
 
@@ -56,7 +56,7 @@ import { Switch } from '@rokku/design';
 
 需要异步控制开关时，可以使用 `checked` 属性和 `onChange` 事件代替 `defaultChecked`，并在事件回调函数中手动处理开关状态。
 
-```html
+```jsx
 <Switch
   checked={value}
   onChange={(checked) => {
@@ -72,7 +72,7 @@ import { Switch } from '@rokku/design';
 
 ### 搭配单元格使用
 
-```html
+```jsx
 <Cell
   center
   title="标题"

@@ -9,7 +9,7 @@ export default (): React.ReactNode => {
     <DemoSection>
       <DemoBlock title="基础用法">
         <NoticeBar
-          leftIcon="volume-o"
+          leftIcon="speaker-s"
           text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"
         />
       </DemoBlock>
@@ -25,14 +25,14 @@ export default (): React.ReactNode => {
       </DemoBlock>
       <DemoBlock title="自定义样式">
         <NoticeBar
-          leftIcon="info-o"
+          leftIcon="info"
           background="rgb(236, 249, 255)"
           color="rgb(25, 137, 250)"
           text="技术是开发它的人的共同灵魂。"
         />
       </DemoBlock>
       <DemoBlock title="垂直滚动">
-        <NoticeBar leftIcon="info-o">
+        <NoticeBar leftIcon="info">
           <Swipe autoplay="3000" showIndicators={false} vertical className="notice-swipe">
             <Swipe.Item>内容 1</Swipe.Item>
             <Swipe.Item>内容 2</Swipe.Item>

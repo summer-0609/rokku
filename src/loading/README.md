@@ -16,7 +16,7 @@ import { Loading } from '@rokku/design';
 
 通过 `type` 属性可以设置加载图标的类型，默认为 `circular`，可选值为 `spinner` 和 `ball`。
 
-```html
+```jsx
 <Loading />
 
 <Loading type="spinner" />
@@ -28,7 +28,7 @@ import { Loading } from '@rokku/design';
 
 通过 `color` 属性设置加载图标的颜色。
 
-```html
+```jsx
 <Loading color="#1989fa" />
 
 <Loading type="spinner" color="#1989fa" />
@@ -38,7 +38,7 @@ import { Loading } from '@rokku/design';
 
 通过 `size` 属性设置加载图标的大小，默认单位为 `px`。
 
-```html
+```jsx
 <Loading size="24" />
 
 <Loading type="spinner" size="24px" />
@@ -48,7 +48,7 @@ import { Loading } from '@rokku/design';
 
 可以使用默认插槽在图标的右侧插入加载文案。
 
-```html
+```jsx
 <Loading size="24px">加载中...</Loading>
 ```
 
@@ -56,7 +56,7 @@ import { Loading } from '@rokku/design';
 
 设置 `vertical` 属性后，图标和文案会垂直排列。
 
-```html
+```jsx
 <Loading size="24px" vertical>加载中...</Loading>
 ```
 

@@ -16,7 +16,7 @@ import { Stepper } from '@rokku/design';
 
 通过 `value` 绑定输入值，可以通过 `change` 事件监听到输入值的变化。
 
-```html
+```jsx
 <Stepper value={value} onChange={val = setValue(val)}/>
 ```
 
@@ -24,7 +24,7 @@ import { Stepper } from '@rokku/design';
 
 通过 `step` 属性设置每次点击增加或减少按钮时变化的值，默认为 `1`。
 
-```html
+```jsx
 <Stepper value={value} step="2" onChange={val = setValue(val)}/>
 ```
 
@@ -32,7 +32,7 @@ import { Stepper } from '@rokku/design';
 
 通过 `min` 和 `max` 属性限制输入值的范围。
 
-```html
+```jsx
 <Stepper value={value} min="5" max="8" onChange={val = setValue(val)}/>
 ```
 
@@ -40,7 +40,7 @@ import { Stepper } from '@rokku/design';
 
 设置 `integer` 属性后，输入框将限制只能输入整数。
 
-```html
+```jsx
 <Stepper value={value} integer onChange={val = setValue(val)}/>
 ```
 
@@ -48,7 +48,7 @@ import { Stepper } from '@rokku/design';
 
 通过设置 `disabled` 属性来禁用步进器，禁用状态下无法点击按钮或修改输入框。
 
-```html
+```jsx
 <Stepper value={value} disabled onChange={val = setValue(val)}/>
 ```
 
@@ -56,7 +56,7 @@ import { Stepper } from '@rokku/design';
 
 通过设置 `disableInput` 属性来禁用输入框，此时按钮仍然可以点击。
 
-```html
+```jsx
 <Stepper value={value} disableInput onChange={val = setValue(val)}/>
 ```
 
@@ -64,7 +64,7 @@ import { Stepper } from '@rokku/design';
 
 通过设置 `decimalLength` 属性可以保留固定的小数位数。
 
-```html
+```jsx
 <Stepper value={value} step="0.2" decimalLength="1" onChange={val = setValue(val)}/>
 ```
 
@@ -72,13 +72,13 @@ import { Stepper } from '@rokku/design';
 
 通过 `inputWidth` 属性设置输入框宽度，通过 `buttonSize` 属性设置按钮大小和输入框高度。
 
-```html
+```jsx
 <Stepper value={value} inputWidth="40px" buttonSize="32px" onChange={val = setValue(val)} />
 ```
 
 ### 异步变更
 
-```html
+```jsx
 <Stepper
   value={value}
   onChange={(val) => {
@@ -98,7 +98,7 @@ import { Stepper } from '@rokku/design';
 
 将 `theme` 设置为 `round` 来展示圆角风格的步进器。
 
-```html
+```jsx
 <Stepper value={value} theme="round" buttonSize="22" disableInput />
 ```
 

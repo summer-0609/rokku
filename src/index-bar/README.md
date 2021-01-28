@@ -12,7 +12,7 @@ import { IndexBar } from '@rokku/design';
 
 点击索引栏时，会自动跳转到对应的 `IndexAnchor` 锚点位置。
 
-```html
+```jsx
 <IndexBar>
   <IndexBar.Anchor index="A" />
   <Cell title="文本" />
@@ -32,7 +32,7 @@ import { IndexBar } from '@rokku/design';
 
 可以通过 `indexList` 属性自定义展示的索引字符列表。
 
-```html
+```jsx
 <IndexBar indexList={indexList}>
   <IndexBar.Anchor index="1">标题1</IndexBar.Anchor>
   <Cell title="文本" />

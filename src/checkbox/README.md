@@ -16,7 +16,7 @@ import { Checkbox } from '@rokku/design';
 
 通过 `defaultChecked` 值默认复选框的勾选状态。
 
-```html
+```jsx
 <Checkbox defaultChecked onChange={(val) => console.log(val)}>复选框</Checkbox>
 ```
 
@@ -24,7 +24,7 @@ import { Checkbox } from '@rokku/design';
 
 通过设置 `disabled` 属性可以禁用复选框。
 
-```html
+```jsx
 <Checkbox defaultChecked disabled>复选框</Checkbox>
 ```
 
@@ -32,7 +32,7 @@ import { Checkbox } from '@rokku/design';
 
 将 `shape` 属性设置为 `square`，复选框的形状会变成方形。
 
-```html
+```jsx
 <Checkbox defaultChecked shape="square">复选框</Checkbox>
 ```
 
@@ -40,7 +40,7 @@ import { Checkbox } from '@rokku/design';
 
 通过 `checked-color` 属性设置选中状态的图标颜色。
 
-```html
+```jsx
 <Checkbox defaultChecked checkedColor="#ee0a24">复选框</Checkbox>
 ```
 
@@ -48,7 +48,7 @@ import { Checkbox } from '@rokku/design';
 
 通过 `icon-size` 属性可以自定义图标的大小。
 
-```html
+```jsx
 <Checkbox defaultChecked iconSize="24px">复选框</Checkbox>
 ```
 
@@ -56,7 +56,7 @@ import { Checkbox } from '@rokku/design';
 
 设置 `labelDisabled` 属性后，点击图标以外的内容不会触发复选框切换。
 
-```html
+```jsx
 <Checkbox defaultChecked labelDisabled>复选框</Checkbox>
 ```
 
@@ -64,7 +64,7 @@ import { Checkbox } from '@rokku/design';
 
 设置 `checked` 属性后，点击图标状态不会改变，而是直接执行 `onChange` 方法，在此方法中更换状态
 
-```html
+```jsx
  <Checkbox
   checked={value}
   onChange={(val) => {
@@ -88,7 +88,7 @@ import { Checkbox } from '@rokku/design';
 const checked = ['a', 'b'];
 ```
 
-```html
+```jsx
 <Checkbox.Group defaultChecked="checked">
   <Checkbox name="a">复选框 a</Checkbox>
   <Checkbox name="b">复选框 b</Checkbox>
@@ -99,7 +99,7 @@ const checked = ['a', 'b'];
 
 将 `direction` 属性设置为 `horizontal` 后，复选框组会变成水平排列。
 
-```html
+```jsx
 <Checkbox.Group defaultChecked="checked" direction="horizontal">
   <Checkbox name="a">复选框 a</Checkbox>
   <Checkbox name="b">复选框 b</Checkbox>
@@ -110,7 +110,7 @@ const checked = ['a', 'b'];
 
 通过 `max` 属性可以限制复选框组的最大可选数。
 
-```html
+```jsx
 <Checkbox.Group defaultChecked="result" :max="2">
   <Checkbox name="a">复选框 a</Checkbox>
   <Checkbox name="b">复选框 b</Checkbox>
@@ -120,13 +120,13 @@ const checked = ['a', 'b'];
 
 ### 搭配单元格组件使用
 
-此时你需要再引入 `Cell` 和 `CellGroup` 组件，并通过 `Checkbox` 实例上的 toggle 方法触发切换。
+此时你需要再引入 `Cell` 和 `Cell.Group` 组件，并通过 `Checkbox` 实例上的 toggle 方法触发切换。
 
-```html
+```jsx
 <Checkbox.Group defaultChecked="checked">
   <Cell.Group>
-    <Cell title="单选框1" icon="shop-o" rightIconSlot={() => <Checkbox name="a" />} /> <Cell
-    title="单选框2" icon="shop-o" rightIconSlot={() => <Checkbox name="b" />} />
+    <Cell title="单选框1" icon="shop-o" rightIconSlot={() => <Checkbox name="a" />} />
+    <Cell title="单选框2" icon="shop-o" rightIconSlot={() => <Checkbox name="b" />} />
   </Cell.Group>
 </Checkbox.Group>
 ```

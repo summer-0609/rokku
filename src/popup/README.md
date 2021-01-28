@@ -20,7 +20,7 @@ import { Popup } from '@rokku/design';
 const [showPopup, setShowPopup] = useState(false);
 ```
 
-```html
+```jsx
 <Cell title="展示弹出层" isLink onClick={() => setShowPopup(true)} />
 <Popup
   visible={showPopup}
@@ -33,7 +33,7 @@ const [showPopup, setShowPopup] = useState(false);
 
 通过 `position` 属性设置弹出位置，默认居中弹出，可以设置为 `top`、`bottom`、`left`、`right`。
 
-```html
+```jsx
 <Popup visible={show} position="top" style={{ height: "30%" }} />
 ```
 
@@ -41,7 +41,7 @@ const [showPopup, setShowPopup] = useState(false);
 
 设置 `closeable` 属性后，会在弹出层的右上角显示关闭图标，并且可以通过 `closeIcon` 属性自定义图标，使用 `closeIconPosition` 属性可以自定义图标位置。
 
-```html
+```jsx
 <Popup visible={show} closeable position="bottom" style={{ height: "30%" }} />
 <!-- 自定义图标 -->
 <Popup visible={show} closeable closeIcon="close" position="bottom" style={{ height: "30%" }} />
@@ -59,7 +59,7 @@ const [showPopup, setShowPopup] = useState(false);
 
 设置 `round` 属性后，弹窗会根据弹出位置添加不同的圆角样式。
 
-```html
+```jsx
 <Popup visible={show} round position="bottom" style={{ height: "30%" }} />
 ```
 
@@ -67,7 +67,7 @@ const [showPopup, setShowPopup] = useState(false);
 
 设置 `title` 和 `description` 属性后，弹窗会显示标题和描述文字，建议在 `bottom` 弹框下使用。
 
-```html
+```jsx
 <Popup
   visible={show}
   closeable
@@ -102,7 +102,7 @@ const [showPopup, setShowPopup] = useState(false);
 | closeIcon | 关闭图标名称或图片链接 | _string_ | `cross` |
 | closeIconPosition | 关闭图标位置，可选值为`top-left`<br>`bottom-left` `bottom-right` | _string_ | `top-right` |
 | transition | 动画类名，等价于 [transtion](https://v3.cn.vuejs.org/api/built-in-components.html#transition) 的`name`属性 | _string_ | - |
-| transitionAppear `v2.10.14` | 是否在初始渲染时启用过渡动画 | _boolean_ | `false` |
+| transitionAppear | 是否在初始渲染时启用过渡动画 | _boolean_ | `false` |
 | teleport | 指定挂载的节点 | _string \| Element_ | - |
 | safe-area-inset-bottom | 是否开启[底部安全区适配](#/zh-CN/advanced-usage#di-bu-an-quan-qu-gua-pei) | _boolean_ | `false` |
 

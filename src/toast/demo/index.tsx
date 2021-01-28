@@ -32,7 +32,7 @@ export default (): React.ReactNode => {
           onClick={() =>
             Toast({
               message: '自定义图标',
-              icon: 'like-o',
+              icon: 'time',
             })
           }
         />

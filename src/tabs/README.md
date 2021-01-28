@@ -12,7 +12,7 @@ import { Tabs } from '@rokku/design';
 
 通过 `active` 绑定当前激活标签对应的索引值，默认情况下启用第一个标签。
 
-```html
+```jsx
 <Tabs active="active">
   <Tabs.Pane title="标签 1">内容 1</Tabs.Pane>
   <Tabs.Pane title="标签 2">内容 2</Tabs.Pane>
@@ -36,7 +36,7 @@ export default {
 
 在标签指定 `name` 属性的情况下，`v-model:active` 的值为当前标签的 `name`（此时无法通过索引值来匹配标签）。
 
-```html
+```jsx
 <Tabs v-model:active="activeName">
   <Tabs.Pane title="标签 1" name="a">内容 1</Tabs.Pane>
   <Tabs.Pane title="标签 2" name="b">内容 2</Tabs.Pane>
@@ -59,7 +59,7 @@ export default {
 
 标签数量超过 5 个时，标签栏可以在水平方向上滚动，切换时会自动将当前标签居中。
 
-```html
+```jsx
 <Tabs>
   <Tabs.Pane v-for="index in 8" :title="'标签 ' + index">
     内容 {{ index }}
@@ -71,7 +71,7 @@ export default {
 
 设置 `disabled` 属性即可禁用标签，如果需要监听禁用标签的点击事件，可以在 `Tabs` 上监听`disabled` 事件。
 
-```html
+```jsx
 <Tabs @disabled="onClickDisabled">
   <Tabs.Pane title="标签 1">内容 1</Tabs.Pane>
   <Tabs.Pane title="标签 2" disabled>内容 2</Tabs.Pane>
@@ -99,7 +99,7 @@ export default {
 
 `Tab` 支持两种样式风格：`line` 和`card`，默认为 `line` 样式，可以通过 `type` 属性切换样式风格。
 
-```html
+```jsx
 <Tabs type="card">
   <Tabs.Pane title="标签 1">内容 1</Tabs.Pane>
   <Tabs.Pane title="标签 2">内容 2</Tabs.Pane>
@@ -111,7 +111,7 @@ export default {
 
 可以在 `Tabs` 上绑定 `click` 事件，事件传参为标签对应的标识符和标题。
 
-```html
+```jsx
 <Tabs @click="onClick">
   <Tabs.Pane title="标签 1">内容 1</Tabs.Pane>
   <Tabs.Pane title="标签 2">内容 2</Tabs.Pane>
@@ -138,7 +138,7 @@ export default {
 
 通过 `sticky` 属性可以开启粘性布局，粘性布局下，标签页滚动到顶部时会自动吸顶。
 
-```html
+```jsx
 <Tabs v-model:active="active" sticky>
   <Tabs.Pane v-for="index in 4" :title="'选项 ' + index">
     内容 {{ index }}
@@ -150,7 +150,7 @@ export default {
 
 通过 `title` 插槽可以自定义标签内容。
 
-```html
+```jsx
 <Tabs v-model:active="active">
   <Tabs.Pane v-for="index in 2" :key="index">
     <template #title> <van-icon name="more-o" />选项 </template>
@@ -163,7 +163,7 @@ export default {
 
 通过 `animated` 属性可以开启切换标签内容时的转场动画。
 
-```html
+```jsx
 <Tabs v-model:active="active" animated>
   <Tabs.Pane v-for="index in 4" :title="'选项 ' + index">
     内容 {{ index }}
@@ -175,7 +175,7 @@ export default {
 
 通过 `swipeable` 属性可以开启滑动切换标签页。
 
-```html
+```jsx
 <Tabs v-model:active="active" swipeable>
   <Tabs.Pane v-for="index in 4" :title="'选项 ' + index">
     内容 {{ index }}
@@ -187,7 +187,7 @@ export default {
 
 通过 `scrollspy` 属性可以开启滚动导航模式，该模式下，内容将会平铺展示。
 
-```html
+```jsx
 <Tabs v-model:active="active" scrollspy sticky>
   <Tabs.Pane v-for="index in 8" :title="'选项 ' + index">
     内容 {{ index }}
@@ -199,7 +199,7 @@ export default {
 
 通过 `before-change` 属性可以在切换标签前执行特定的逻辑。
 
-```html
+```jsx
 <Tabs :before-change="beforeChange">
   <Tabs.Pane v-for="index in 4" :title="'选项 ' + index">
     内容 {{ index }}

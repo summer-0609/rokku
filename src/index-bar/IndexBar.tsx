@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react-hooks/rules-of-hooks */
 import React, { ReactElement, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import type { MouseEvent } from 'react';
@@ -11,7 +12,7 @@ import useEventListener from '../hooks/use-event-listener';
 
 import IndexBarContext from './IndexBarContext';
 
-import { IndexBarProps } from './PropsType';
+import { IndexBarProps, IndexAnchorProps } from './PropsType';
 import {
   isDef,
   isHidden,
@@ -24,7 +25,7 @@ import {
 
 const [bem] = createNamespace('index-bar');
 
-const IndexBar: React.FC<IndexBarProps> & { Anchor?: React.FC } = (props) => {
+const IndexBar: React.FC<IndexBarProps> & { Anchor?: React.FC<IndexAnchorProps> } = (props) => {
   const { children, sticky, zIndex, highlightColor } = props;
 
   const [activeAnchor, setActiveAnchor] = useState<string | number>(null);

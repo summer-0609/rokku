@@ -1,5 +1,10 @@
 {
   "map": {
+    "Announcement": [
+      "icon",
+      "notice-bar",
+      "overlay"
+    ],
     "button": [
       "icon",
       "loading"
@@ -12,6 +17,15 @@
       "icon",
       "cell"
     ],
+    "complain": [
+      "icon",
+      "overlay",
+      "popup",
+      "loading",
+      "button",
+      "checkbox",
+      "radio"
+    ],
     "datetime-picker": [
       "icon",
       "loading",
@@ -20,10 +34,10 @@
     ],
     "dialog": [
       "icon",
-      "loading",
-      "button",
       "overlay",
-      "popup"
+      "popup",
+      "loading",
+      "button"
     ],
     "empty": [],
     "field": [
@@ -68,6 +82,9 @@
     "stepper": [],
     "sticky": [],
     "swipe": [],
+    "switch": [
+      "loading"
+    ],
     "tabs": [
       "sticky",
       "swipe"
@@ -77,32 +94,35 @@
     ],
     "toast": [
       "icon",
-      "loading",
       "overlay",
-      "popup"
+      "popup",
+      "loading"
     ]
   },
   "sequence": [
     "icon",
     "tag",
-    "notice-bar",
     "nav-bar",
     "cell",
     "field",
     "search",
     "collapse",
+    "notice-bar",
+    "overlay",
+    "popup",
+    "Announcement",
     "loading",
+    "toast",
+    "switch",
     "pull-refresh",
     "list",
     "button",
+    "dialog",
     "picker",
     "datetime-picker",
     "checkbox",
     "radio",
-    "overlay",
-    "popup",
-    "toast",
-    "dialog",
+    "complain",
     "empty",
     "flex",
     "index-bar",

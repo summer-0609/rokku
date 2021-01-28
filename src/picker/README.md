@@ -28,7 +28,7 @@ import { Toast } from '@rokku/design';
 const columns = ['南京', '苏州', '常州', '淮安', '扬州', '南通', '宿迁', '泰州', '无锡'];
 ```
 
-```html
+```jsx
 <Picker
   columns={columns}
   onChange={(value: string, index: number) => Toast(`当前值：${value}, 当前索引：${index}`)}
@@ -39,7 +39,7 @@ const columns = ['南京', '苏州', '常州', '淮安', '扬州', '南通', '�
 
 单列选择时，可以通过 `default-index` 属性设置初始选中项的索引。
 
-```html
+```jsx
 <Picker
   columns={columns}
   defaultIndex="2"
@@ -51,7 +51,7 @@ const columns = ['南京', '苏州', '常州', '淮安', '扬州', '南通', '�
 
 `columns` 属性可以通过对象数组的形式配置多列选择，对象中可以配置选项数据、初始选中项等，详细格式见[下方表格](#/zh-CN/picker#column-shu-ju-jie-gou)。
 
-```html
+```jsx
 <Picker
   columns={[
     {
@@ -70,7 +70,7 @@ const columns = ['南京', '苏州', '常州', '淮安', '扬州', '南通', '�
 
 使用 `columns` 的 `children` 字段可以实现选项级联的效果。
 
-```html
+```jsx
 <Picker
   columns={[
     {
@@ -109,7 +109,7 @@ const columns = ['南京', '苏州', '常州', '淮安', '扬州', '南通', '�
 
 选项可以为对象结构，通过设置 `disabled` 来禁用该选项。
 
-```html
+```jsx
 <Picker columns={[{ text: '南京', disabled: true }, { text: '苏州' }, { text: '扬州' }]} />
 ```
 
@@ -127,7 +127,7 @@ const cities = {
 ```
 
 
-```html
+```jsx
 <Picker
   ref={picker}
   columns={[{ values: Object.keys(cities) }, { values: cities['浙江'], defaultIndex: 2 }]}
@@ -140,7 +140,7 @@ const cities = {
 
 若选择器数据是异步获取的，可以通过 `loading` 属性显示加载提示。
 
-```html
+```jsx
 <Picker
   loading
   columns={[
@@ -166,7 +166,7 @@ const [fieldValue, setFieldValue] = useState('');
 const [showPicker, setShowPicker] = useState(false);
 ```
 
-```html
+```jsx
 <Field
   readonly
   clickable

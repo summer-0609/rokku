@@ -12,7 +12,7 @@ import { Tag } from '@rokku/design';
 
 通过 `type` 属性控制标签颜色。
 
-```html
+```jsx
 <Tag type="primary">标签</Tag>
 <Tag type="success">标签</Tag>
 <Tag type="danger">标签</Tag>
@@ -23,7 +23,7 @@ import { Tag } from '@rokku/design';
 
 设置 `plain` 属性设置为空心样式。
 
-```html
+```jsx
 <Tag plain type="primary">标签</Tag>
 ```
 
@@ -31,7 +31,7 @@ import { Tag } from '@rokku/design';
 
 通过 `round` 设置为圆角样式。
 
-```html
+```jsx
 <Tag round type="primary">标签</Tag>
 ```
 
@@ -39,7 +39,7 @@ import { Tag } from '@rokku/design';
 
 通过 `mark` 设置为标记样式(半圆角)。
 
-```html
+```jsx
 <Tag mark type="primary">标签</Tag>
 ```
 
@@ -47,7 +47,7 @@ import { Tag } from '@rokku/design';
 
 添加 `closeable` 属性表示标签是可关闭的，关闭标签时会触发 `close` 事件，在 `close` 事件中可以执行隐藏标签的逻辑。
 
-```html
+```jsx
 <Tag show={show} closeable size="medium" type="primary" onClose={() => setShow(false)}>
   标签
 </Tag>
@@ -57,7 +57,7 @@ import { Tag } from '@rokku/design';
 
 添加 `hairline` 属性设置 `plain` 状态下的边框为细边框
 
-```html
+```jsx
 <Tag hairline plain type="primary">标签</Tag>
 ```
 
@@ -65,7 +65,7 @@ import { Tag } from '@rokku/design';
 
 通过 `size` 属性调整标签大小。
 
-```html
+```jsx
 <Tag type="primary" size="mini">标签</Tag>
 <Tag type="primary">标签</Tag>
 <Tag type="primary" size="medium">标签</Tag>
@@ -76,7 +76,7 @@ import { Tag } from '@rokku/design';
 
 通过 `color` 和 `text-color` 属性设置标签颜色。
 
-```html
+```jsx
 <Tag color="#7232dd">标签</Tag>
 <Tag color="#ffe1e1" text-color="#ad0000">标签</Tag>
 <Tag color="#7232dd" plain>标签</Tag>
@@ -86,7 +86,7 @@ import { Tag } from '@rokku/design';
 
 通过 `selected` 属性设置标签的选中状态。
 
-```html
+```jsx
 <Tag
   size="medium"
   color="#f5f5f9"

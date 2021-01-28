@@ -1,6 +1,6 @@
 {
   "name": "@rokku/design",
-  "version": "0.0.16",
+  "version": "0.0.21",
   "description": "Mobile UI Components built on React",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -47,7 +47,7 @@
     "*.{css,less}": "stylelint --fix"
   },
   "devDependencies": {
-    "@rokku/cli": "^1.1.1",
+    "@rokku/cli": "^1.1.2",
     "@rokku/fabric": "^1.0.5",
     "@types/classnames": "^2.2.11",
     "@types/enzyme": "^3.10.8",
