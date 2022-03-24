@@ -1,5 +1,5 @@
 <p align="center">
-    <img alt="logo" src="http://cdn.rokku.icu/logo.png" width="120" style="margin-bottom: 10px;">
+    <img alt="logo" src="./public/logo.png" width="120" style="margin-bottom: 10px;">
 </p>
 
 <h1 align="center">Rokku</h1>
