@@ -15,4 +15,4 @@ shell.exec(
   `${SKETCH_TOOL_DIR} export slices --formats=svg --overwriting=YES --save-for-web=YES --output=${svgDir} ${sketch}`,
 );
 
-shell.exec('svgo ./assets/svg/*.svg');
+// shell.exec('svgo ./assets/svg/*.svg');

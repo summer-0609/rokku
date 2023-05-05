@@ -72,10 +72,10 @@ function genCode(components: string[]) {
     .filter((item) => existsSync(item.path));
 
   return `${genInstall()}
- ${genImports(demos)}
- ${genExports(demos)}
- ${genConfig(demos)}
-`;
+    ${genImports(demos)}
+    ${genExports(demos)}
+    ${genConfig(demos)}
+    `;
 }
 
 export function genSiteMobileShared() {

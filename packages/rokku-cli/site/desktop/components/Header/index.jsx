@@ -34,7 +34,7 @@ const Header = (props) => {
   }, [pathname]);
 
   const toggleVersionPop = () => {
-    //@ts-ignore
+    // @ts-ignore
     const val = !this.showVersionPop;
     const action = val ? 'add' : 'remove';
     document.body[`${action}EventListener`]('click', checkHideVersionPop);
@@ -43,7 +43,7 @@ const Header = (props) => {
 
   const onSwitchVersion = (version) => {
     if (version.link) {
-      location.href = version.link;
+      window.location.href = version.link;
     }
   };
 
@@ -52,7 +52,7 @@ const Header = (props) => {
       <div className="rokku-doc-row">
         <div className="rokku-doc-header__top">
           <a className="rokku-doc-header__logo">
-            <img src={config.logo} />
+            <img src={config.logo} alt="" />
             <span>{config.title}</span>
           </a>
           {config.searchConfig && (

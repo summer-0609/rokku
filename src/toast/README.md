@@ -50,7 +50,7 @@ Toast({
 
 Toast({
   message: '自定义图片',
-  icon: 'http://cdn.rokku.icu/logo.png',
+  icon: './public/logo.png',
 });
 
 Toast.loading({

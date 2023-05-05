@@ -1,6 +1,6 @@
 <div class="card">
   <div class="rokku-doc-intro">
-    <img class="rokku-doc-intro__logo" style="width: 120px; height: 120px;" src="http://cdn.rokku.icu/logo.png">
+    <img class="rokku-doc-intro__logo" style="width: 120px; height: 120px;" src="./public/logo.png">
     <h2 style="margin: 0; font-size: 36px; line-height: 60px;">Rokku</h2>
     <p>轻量、可靠的移动端 React 组件库</p>
   </div>
@@ -8,7 +8,7 @@
 
 ### 介绍
 
-**Rokku** 是 **巴士管家前端团队** 共同参与研发的 **React** 移动端组件库。[Rokku]() 将承载移动端工作的核心业务。旨于参照 [Vant](https://vant-contrib.gitee.io/vant) 打造 React 框架下移动端的优秀组件库。
+**Rokku** 是 **XiaTian(xtmike008@gmail.com)** 独自研发的 **React** 移动端组件库。[Rokku]() 将承载移动端工作的核心业务。旨于打造 React 框架下移动端的优秀组件库。
 
 ### 特性
 
